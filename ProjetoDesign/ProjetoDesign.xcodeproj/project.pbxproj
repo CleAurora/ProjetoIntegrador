@@ -33,6 +33,13 @@
 		4C0D1A4C252A920500462862 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D1A4B252A920500462862 /* Profile.swift */; };
 		4C0D1A51252A971B00462862 /* upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D1A50252A971B00462862 /* upload.swift */; };
 		4C0D1A56252A98FF00462862 /* imagensProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D1A55252A98FF00462862 /* imagensProfile.swift */; };
+		4C393216252DEE9000844D64 /* ResizeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C393215252DEE9000844D64 /* ResizeImage.swift */; };
+		4C6DF0AC252B5B2D0099D857 /* mel1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4C6DF0A9252B5B2C0099D857 /* mel1.jpeg */; };
+		4C6DF0AD252B5B2D0099D857 /* mel0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4C6DF0AA252B5B2C0099D857 /* mel0.jpg */; };
+		4C6DF0AE252B5B2D0099D857 /* mel2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4C6DF0AB252B5B2C0099D857 /* mel2.jpg */; };
+		4C6DF0B5252B5D510099D857 /* miles0.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4C6DF0B3252B5D510099D857 /* miles0.jpeg */; };
+		4C6DF0B6252B5D510099D857 /* miles1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4C6DF0B4252B5D510099D857 /* miles1.jpeg */; };
+		4C6DF0BB252B602B0099D857 /* Stories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6DF0BA252B602B0099D857 /* Stories.swift */; };
 		4CCB5237252A45E700F9AB19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB5236252A45E700F9AB19 /* AppDelegate.swift */; };
 		4CCB5239252A45E700F9AB19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB5238252A45E700F9AB19 /* SceneDelegate.swift */; };
 		4CCB523B252A45E700F9AB19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB523A252A45E700F9AB19 /* ViewController.swift */; };
@@ -94,6 +101,13 @@
 		4C0D1A4B252A920500462862 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		4C0D1A50252A971B00462862 /* upload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = upload.swift; sourceTree = "<group>"; };
 		4C0D1A55252A98FF00462862 /* imagensProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imagensProfile.swift; sourceTree = "<group>"; };
+		4C393215252DEE9000844D64 /* ResizeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeImage.swift; sourceTree = "<group>"; };
+		4C6DF0A9252B5B2C0099D857 /* mel1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel1.jpeg; sourceTree = "<group>"; };
+		4C6DF0AA252B5B2C0099D857 /* mel0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel0.jpg; sourceTree = "<group>"; };
+		4C6DF0AB252B5B2C0099D857 /* mel2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel2.jpg; sourceTree = "<group>"; };
+		4C6DF0B3252B5D510099D857 /* miles0.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = miles0.jpeg; sourceTree = "<group>"; };
+		4C6DF0B4252B5D510099D857 /* miles1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = miles1.jpeg; sourceTree = "<group>"; };
+		4C6DF0BA252B602B0099D857 /* Stories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stories.swift; sourceTree = "<group>"; };
 		4CCB5233252A45E700F9AB19 /* ProjetoDesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetoDesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CCB5236252A45E700F9AB19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CCB5238252A45E700F9AB19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -233,6 +247,8 @@
 		4C0D1A44252A8D5B00462862 /* imagens */ = {
 			isa = PBXGroup;
 			children = (
+				4C6DF0B2252B5D450099D857 /* miles */,
+				4C6DF0A8252B5B030099D857 /* melissa */,
 				4CCB5269252A474700F9AB19 /* 1.jpg */,
 				4C0D1A17252A7BCC00462862 /* brendon.jpg */,
 				4C0D19F3252A6D7E00462862 /* trash.png */,
@@ -258,8 +274,38 @@
 				4C0D1A4B252A920500462862 /* Profile.swift */,
 				4C0D1A50252A971B00462862 /* upload.swift */,
 				4C0D1A55252A98FF00462862 /* imagensProfile.swift */,
+				4C6DF0BA252B602B0099D857 /* Stories.swift */,
 			);
 			path = Class;
+			sourceTree = "<group>";
+		};
+		4C6DF0A8252B5B030099D857 /* melissa */ = {
+			isa = PBXGroup;
+			children = (
+				4C6DF0AA252B5B2C0099D857 /* mel0.jpg */,
+				4C6DF0A9252B5B2C0099D857 /* mel1.jpeg */,
+				4C6DF0AB252B5B2C0099D857 /* mel2.jpg */,
+			);
+			path = melissa;
+			sourceTree = "<group>";
+		};
+		4C6DF0B2252B5D450099D857 /* miles */ = {
+			isa = PBXGroup;
+			children = (
+				4C6DF0B3252B5D510099D857 /* miles0.jpeg */,
+				4C6DF0B4252B5D510099D857 /* miles1.jpeg */,
+			);
+			path = miles;
+			sourceTree = "<group>";
+		};
+		4C6E473E252E8640001F74A9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4CCB5283252A4D9200F9AB19 /* Registrar */,
+				4C0D19BA252A5C6300462862 /* TabBar */,
+				4C0D1A43252A8D4D00462862 /* Login */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		4CCB522A252A45E700F9AB19 = {
@@ -285,12 +331,10 @@
 		4CCB5235252A45E700F9AB19 /* ProjetoDesign */ = {
 			isa = PBXGroup;
 			children = (
+				4C6E473E252E8640001F74A9 /* ViewControllers */,
 				4C0D1A45252A8D8F00462862 /* Class */,
 				4C0D1A44252A8D5B00462862 /* imagens */,
-				4C0D1A43252A8D4D00462862 /* Login */,
 				4C0D19DE252A627F00462862 /* Cells */,
-				4C0D19BA252A5C6300462862 /* TabBar */,
-				4CCB5283252A4D9200F9AB19 /* Registrar */,
 				4CCB5273252A4B0F00F9AB19 /* Extensions */,
 				4CCB5236252A45E700F9AB19 /* AppDelegate.swift */,
 				4CCB5238252A45E700F9AB19 /* SceneDelegate.swift */,
@@ -326,6 +370,7 @@
 				4CCB5279252A4B3F00F9AB19 /* RoundedButton.swift */,
 				4CCB527E252A4B5100F9AB19 /* editTextField.swift */,
 				4C0D19E5252A659B00462862 /* RoundedImage.swift */,
+				4C393215252DEE9000844D64 /* ResizeImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -447,15 +492,20 @@
 				4C0D1A18252A7BCC00462862 /* brendon.jpg in Resources */,
 				4CCB5243252A45E800F9AB19 /* LaunchScreen.storyboard in Resources */,
 				4C0D1A13252A786100462862 /* heart0.png in Resources */,
+				4C6DF0B5252B5D510099D857 /* miles0.jpeg in Resources */,
 				4C0D1A29252A801E00462862 /* post3.jpg in Resources */,
 				4C0D1A0C252A768300462862 /* heart1.png in Resources */,
 				4C0D19F9252A6D8200462862 /* tag.png in Resources */,
+				4C6DF0AC252B5B2D0099D857 /* mel1.jpeg in Resources */,
 				4C0D19AB252A585600462862 /* facebook.png in Resources */,
+				4C6DF0AD252B5B2D0099D857 /* mel0.jpg in Resources */,
+				4C6DF0AE252B5B2D0099D857 /* mel2.jpg in Resources */,
 				4C0D1A0D252A768300462862 /* heart2.png in Resources */,
 				4CCB526A252A474700F9AB19 /* 1.jpg in Resources */,
 				4CCB526F252A4A9A00F9AB19 /* 2.jpg in Resources */,
 				4CCB5240252A45E800F9AB19 /* Assets.xcassets in Resources */,
 				4C0D1A2A252A801E00462862 /* post1.jpg in Resources */,
+				4C6DF0B6252B5D510099D857 /* miles1.jpeg in Resources */,
 				4CCB5285252A4DB000F9AB19 /* Registrar.storyboard in Resources */,
 				4CCB523E252A45E700F9AB19 /* Main.storyboard in Resources */,
 				4C0D19F4252A6D7E00462862 /* trash.png in Resources */,
@@ -488,9 +538,11 @@
 				4CCB5275252A4B2100F9AB19 /* RoundedView.swift in Sources */,
 				4C0D19E1252A629E00462862 /* FeedTableViewCell.swift in Sources */,
 				4C0D19CE252A5D5900462862 /* UploadViewController.swift in Sources */,
+				4C393216252DEE9000844D64 /* ResizeImage.swift in Sources */,
 				4C0D1A51252A971B00462862 /* upload.swift in Sources */,
 				4CCB527A252A4B3F00F9AB19 /* RoundedButton.swift in Sources */,
 				4C0D1A47252A8D9F00462862 /* Post.swift in Sources */,
+				4C6DF0BB252B602B0099D857 /* Stories.swift in Sources */,
 				4CCB528A252A4DC000F9AB19 /* RegistrarViewController.swift in Sources */,
 				4CCB523B252A45E700F9AB19 /* ViewController.swift in Sources */,
 				4C0D1A56252A98FF00462862 /* imagensProfile.swift in Sources */,

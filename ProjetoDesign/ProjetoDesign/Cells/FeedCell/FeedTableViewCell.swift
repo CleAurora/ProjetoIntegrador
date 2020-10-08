@@ -22,8 +22,7 @@ class FeedTableViewCell: UITableViewCell {
         super.awakeFromNib()
         likeImageView.isHidden = true
         addSingleAndDoubleTapGesture()
-        
-        // Initialization code
+                // Initialization code
     }
    
     func setup(post: Post){

@@ -32,7 +32,8 @@ class ProfileViewController: UIViewController {
         profileCollectionView.reloadData()
     }
     func setup(){
-        let profileUser = Profile(name: "Brendon", profileImage: "brendon.jpg")
+//        let profileUser = Profile(name: "Brendon", profileImage: "brendon.jpg")
+        let profileUser = Profile(name: "Melissa", profileImage: "mel0.jpg")
         nameLabel.text = profileUser.name
         profileImageView.image = UIImage(named: profileUser.profileImage)
     }

@@ -12,6 +12,8 @@ class UploadViewController: UIViewController {
 
     @IBOutlet weak var resizeImageView: UIImageView!
     @IBOutlet weak var uploadCollectionView: UICollectionView!
+    @IBOutlet weak var nextButton: UIButton!
+    
     var uploadArray = [Upload]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,8 @@ class UploadViewController: UIViewController {
         uploadArray.append(Upload(image: "post3.jpg"))
         uploadArray.append(Upload(image: "instagram.png"))
         uploadArray.append(Upload(image: "facebook.png"))
+        uploadArray.append(Upload(image: "mel1.jpeg"))
+        nextButton.isHidden = true
         uploadCollectionView.reloadData()
         // Do any additional setup after loading the view.
     }
@@ -36,6 +40,7 @@ extension UploadViewController: UICollectionViewDelegate{
         let image = uploadArray[indexPath.row].image
         
         resizeImageView.image = UIImage(named: image)
+        nextButton.isHidden = false
     }
 }
 extension UploadViewController: UICollectionViewDataSource{
