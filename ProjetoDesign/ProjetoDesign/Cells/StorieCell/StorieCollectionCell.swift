@@ -13,4 +13,7 @@ class StorieCollectionCell: UICollectionViewCell {
     func setup(storie: stories){
         myImageView.image = UIImage(named: storie.storieImageView)
     }
+    func user(storie: Profile){
+        myImageView.image = UIImage(named: storie.profileImage)
+    }
 }

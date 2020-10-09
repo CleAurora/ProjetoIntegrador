@@ -34,6 +34,9 @@ class FeedViewController: UIViewController {
         arrayCollection.append(stories(storieImageView: "mel0.jpg"))
         arrayCollection.append(stories(storieImageView: "miles1.jpeg"))
         arrayCollection.append(stories(storieImageView: "brendon.jpg"))
+        arrayCollection.append(stories(storieImageView: "mel0.jpg"))
+        arrayCollection.append(stories(storieImageView: "miles1.jpeg"))
+        arrayCollection.append(stories(storieImageView: "brendon.jpg"))
         
         feedTableView.reloadData()
         storieCollectionView.reloadData()
@@ -53,19 +56,6 @@ class FeedViewController: UIViewController {
         storieCollectionView.dataSource = self
         storieCollectionView.reloadData()
     }
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let arquive = arquiveAction(at: indexPath)
-        
-        return UISwipeActionsConfiguration(actions: [arquive])
-    }
-    func arquiveAction(at indexPath: IndexPath) -> UIContextualAction{
-        let action = UIContextualAction(style: .destructive, title: "Arquive") {(action, view, completion) in
-            
-        }
-        action.image = #imageLiteral(resourceName: "tag.png")
-        action.backgroundColor = UIColor(patternImage: UIImage(named: "2.jpg")!)
-        return action
-    }
     
 }
 
@@ -77,57 +67,6 @@ extension FeedViewController: UITableViewDelegate{
 }
 
 extension FeedViewController: UITableViewDataSource{
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        //        //   get number of section
-        var pathToLastRow: IndexPath
-        var firstRow: IndexPath
-        var secondRow: IndexPath
-        
-        let indexOfLastSection = self.feedTableView.numberOfSections - 1
-        // Then get the number of rows in the last section
-        if indexOfLastSection >= 0{
-            let indexOfLastRow = self.feedTableView.numberOfRows(inSection: indexOfLastSection) - 1
-            let indexOfSecondLastRow = self.feedTableView.numberOfRows(inSection: indexOfLastSection) - 2
-            if indexOfLastRow >= 0{
-                pathToLastRow = IndexPath.init(row: indexOfLastRow, section: indexOfLastSection)
-                secondRow = IndexPath.init(row: indexOfSecondLastRow, section: indexOfLastSection)
-                for cell in feedTableView.visibleCells {
-                    let indexPath = feedTableView.indexPath(for: cell)
-                    firstRow = IndexPath.init(row: 0, section: 0)
-                    
-                    
-                    
-                    if indexPath == firstRow{
-                        
-                        feedTableView.setContentOffset(.zero, animated: true)
-                        break
-                    }
-                    if indexPath == secondRow {
-                        feedTableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
-                        print("second last")
-                        break
-                    }
-                    if indexPath != pathToLastRow || indexPath != firstRow{
-                        feedTableView.selectRow(at: indexPath, animated: true, scrollPosition: .middle)
-                        print("here")
-                        break
-                        
-                    }
-                    
-                    
-                    if indexPath == pathToLastRow{
-                        break
-                    }
-                    
-                    
-                    
-                    
-                    
-                }
-            }
-        }
-    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
