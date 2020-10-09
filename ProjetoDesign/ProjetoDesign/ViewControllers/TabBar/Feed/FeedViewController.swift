@@ -28,6 +28,12 @@ class FeedViewController: UIViewController {
         arrayCollection.append(stories(storieImageView: "mel0.jpg"))
         arrayCollection.append(stories(storieImageView: "miles1.jpeg"))
         arrayCollection.append(stories(storieImageView: "brendon.jpg"))
+        arrayCollection.append(stories(storieImageView: "mel0.jpg"))
+        arrayCollection.append(stories(storieImageView: "miles1.jpeg"))
+        arrayCollection.append(stories(storieImageView: "brendon.jpg"))
+        arrayCollection.append(stories(storieImageView: "mel0.jpg"))
+        arrayCollection.append(stories(storieImageView: "miles1.jpeg"))
+        arrayCollection.append(stories(storieImageView: "brendon.jpg"))
         
         feedTableView.reloadData()
         storieCollectionView.reloadData()
