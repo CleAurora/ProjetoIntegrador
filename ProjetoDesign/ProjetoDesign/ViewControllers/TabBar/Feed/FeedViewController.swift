@@ -56,6 +56,13 @@ class FeedViewController: UIViewController {
         storieCollectionView.dataSource = self
         storieCollectionView.reloadData()
     }
+    @IBAction func infoButton(_ sender: Any) {
+        if let vc = UIStoryboard(name: "InfoPost", bundle: nil).instantiateInitialViewController() as? infoPostViewController {
+            vc.modalPresentationStyle = . overCurrentContext
+            present(vc, animated: true, completion: nil)
+        }
+    }
+    
     
 }
 

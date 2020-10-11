@@ -453,6 +453,9 @@
                                                                                         <constraint firstAttribute="height" constant="33" id="pdV-xP-Dd7"/>
                                                                                     </constraints>
                                                                                     <state key="normal" title="Button"/>
+                                                                                    <connections>
+                                                                                        <action selector="infoButton:" destination="jU6-AB-jVr" eventType="touchUpInside" id="zfd-fo-CHJ"/>
+                                                                                    </connections>
                                                                                 </button>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Kd-qx-Spx">
                                                                                     <rect key="frame" x="75" y="25" width="259" height="20"/>
