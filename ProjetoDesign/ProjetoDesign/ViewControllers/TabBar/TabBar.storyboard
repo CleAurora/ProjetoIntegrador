@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -339,6 +340,31 @@
                                             <constraint firstItem="ef9-RR-fDG" firstAttribute="top" secondItem="BIC-3S-nfh" secondAttribute="bottom" constant="8" symbolic="YES" id="Bul-co-8wO"/>
                                             <constraint firstItem="beQ-VV-SkV" firstAttribute="top" secondItem="BIC-3S-nfh" secondAttribute="bottom" constant="8" symbolic="YES" id="DDu-oY-agl"/>
                                             <constraint firstAttribute="bottom" secondItem="csg-6z-C5z" secondAttribute="bottom" constant="27" id="DRW-Fp-p7J"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ea-VI-Wee" userLabel="EditProfileButton">
+                                                <rect key="frame" x="353" y="315.5" width="40" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="U8C-oE-EKt"/>
+                                                    <constraint firstAttribute="width" constant="40" id="cXZ-8h-YKE"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="pencil.circle" catalog="system" symbolScale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="5W4-27-4cO" kind="show" id="DMJ-Uq-6cq"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="csg-6z-C5z" secondAttribute="trailing" constant="8" id="4uS-sJ-Lqy"/>
+                                            <constraint firstItem="csg-6z-C5z" firstAttribute="top" secondItem="m0O-ZR-ln7" secondAttribute="bottom" constant="59" id="5Fn-YT-a7b"/>
+                                            <constraint firstItem="csg-6z-C5z" firstAttribute="top" secondItem="O8C-2z-Owf" secondAttribute="bottom" constant="58" id="5e3-AU-2u8"/>
+                                            <constraint firstAttribute="bottom" secondItem="csg-6z-C5z" secondAttribute="bottom" id="89x-Pi-Ewc"/>
+                                            <constraint firstItem="csg-6z-C5z" firstAttribute="leading" secondItem="9gq-Od-FCO" secondAttribute="leading" constant="8" id="ETJ-EX-OA4"/>
+                                            <constraint firstItem="f0C-zZ-ayD" firstAttribute="leading" secondItem="9gq-Od-FCO" secondAttribute="leading" constant="111" id="HET-eD-Cyo"/>
+                                            <constraint firstItem="3Ea-VI-Wee" firstAttribute="centerY" secondItem="BIC-3S-nfh" secondAttribute="centerY" id="JAU-lt-oi4"/>
+                                            <constraint firstItem="O8C-2z-Owf" firstAttribute="top" secondItem="BIC-3S-nfh" secondAttribute="bottom" constant="8" symbolic="YES" id="KLD-ea-36c"/>
                                             <constraint firstItem="GbT-h2-POp" firstAttribute="leading" secondItem="9gq-Od-FCO" secondAttribute="leading" constant="102" id="KnA-xx-qgS"/>
                                             <constraint firstAttribute="trailing" secondItem="GbT-h2-POp" secondAttribute="trailing" constant="101" id="M3Q-Ej-j5T"/>
                                             <constraint firstItem="qRT-PB-LKm" firstAttribute="leading" secondItem="d7y-bc-2eN" secondAttribute="trailing" constant="15" id="MkW-gc-TQD"/>
@@ -361,6 +387,8 @@
                                             <constraint firstItem="uwZ-Hc-YmG" firstAttribute="leading" secondItem="9gq-Od-FCO" secondAttribute="leading" constant="90" id="j9g-2n-4Nq"/>
                                             <constraint firstItem="csg-6z-C5z" firstAttribute="leading" secondItem="9gq-Od-FCO" secondAttribute="leading" constant="8" id="jaM-Zi-p6h"/>
                                             <constraint firstItem="beQ-VV-SkV" firstAttribute="leading" secondItem="ef9-RR-fDG" secondAttribute="trailing" constant="15" id="oJd-Fc-aaQ"/>
+                                            <constraint firstItem="3Ea-VI-Wee" firstAttribute="leading" secondItem="BIC-3S-nfh" secondAttribute="trailing" constant="5" id="j1T-pY-JEA"/>
+                                            <constraint firstItem="O8C-2z-Owf" firstAttribute="leading" secondItem="f0C-zZ-ayD" secondAttribute="trailing" constant="63" id="jnh-vy-Xxr"/>
                                             <constraint firstItem="BIC-3S-nfh" firstAttribute="top" secondItem="GbT-h2-POp" secondAttribute="bottom" constant="20" id="pA8-7q-Nk5"/>
                                             <constraint firstAttribute="trailing" secondItem="qRT-PB-LKm" secondAttribute="trailing" constant="105" id="qHW-hl-M9a"/>
                                             <constraint firstItem="beQ-VV-SkV" firstAttribute="leading" secondItem="ef9-RR-fDG" secondAttribute="trailing" constant="15" id="s9y-WV-7cX"/>
@@ -740,6 +768,16 @@
             </objects>
             <point key="canvasLocation" x="-1091" y="274"/>
         </scene>
+        <!--Setting-->
+        <scene sceneID="RLn-0R-aIH">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Setting" id="5W4-27-4cO" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="hlw-DO-UQ0"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ebJ-hI-Djl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="254" y="1235"/>
+        </scene>
     </scenes>
     <resources>
         <image name="1.jpg" width="1200" height="1920"/>
@@ -748,6 +786,8 @@
         <image name="follower" width="30" height="30"/>
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <image name="plus" width="40" height="40"/>
+        <image name="pencil.circle" catalog="system" width="128" height="121"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="post1.jpg" width="384" height="256.07998657226562"/>
         <image name="post2.jpg" width="1920" height="1279"/>
         <image name="snow" catalog="system" width="121" height="128"/>

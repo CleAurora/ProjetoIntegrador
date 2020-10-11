@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dPJ-1v-DSf">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="K5N-HZ-Xli">
+            <objects>
+                <viewController id="dPJ-1v-DSf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DBn-m6-kHU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ib-Ao-8CD" customClass="extensions" customModule="ProjetoDesign" customModuleProvider="target">
+                                <rect key="frame" x="101.5" y="-85" width="211" height="385"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mel0.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="f0J-Ml-o3Q">
+                                        <rect key="frame" x="0.0" y="85" width="211" height="300"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="211" id="3yR-B1-jLW"/>
+                                    <constraint firstItem="f0J-Ml-o3Q" firstAttribute="leading" secondItem="5Ib-Ao-8CD" secondAttribute="leading" id="HYF-t4-Ywd"/>
+                                    <constraint firstAttribute="trailing" secondItem="f0J-Ml-o3Q" secondAttribute="trailing" id="KyA-0n-xby"/>
+                                    <constraint firstAttribute="bottom" secondItem="f0J-Ml-o3Q" secondAttribute="bottom" id="cUa-wf-Dhd"/>
+                                    <constraint firstItem="f0J-Ml-o3Q" firstAttribute="top" secondItem="5Ib-Ao-8CD" secondAttribute="top" constant="85" id="gjR-Kd-wAF"/>
+                                    <constraint firstAttribute="height" constant="385" id="txc-bn-slL"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="100"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAT-pc-kau">
+                                <rect key="frame" x="136" y="320" width="142" height="30"/>
+                                <state key="normal" title="Alterar Foto do Perfil"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1u-WH-Oxo">
+                                <rect key="frame" x="40" y="400" width="90" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="YyO-c1-o8a"/>
+                                    <constraint firstAttribute="height" constant="42" id="xey-zV-w9C"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melissa McCarthy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n4K-7o-T3k">
+                                <rect key="frame" x="140" y="409.5" width="234" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome de Usuário" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QyO-e7-pnG">
+                                <rect key="frame" x="40" y="452" width="90" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="VPT-Lu-55N"/>
+                                    <constraint firstAttribute="height" constant="42" id="tO7-x8-Jtz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melissa" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8e-4O-8GP">
+                                <rect key="frame" x="140" y="461" width="234" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Site" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7P7-en-Zj7">
+                                <rect key="frame" x="40" y="504" width="90" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="cOj-RW-5vt"/>
+                                    <constraint firstAttribute="width" constant="90" id="oQt-Oe-F3Z"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://Melissa_McCarthy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIg-bY-o55">
+                                <rect key="frame" x="140" y="513" width="234" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bio" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQb-Y7-GUS">
+                                <rect key="frame" x="40" y="556" width="90" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="90" id="Kel-vZ-8V4"/>
+                                    <constraint firstAttribute="height" constant="42" id="QeF-9H-IQK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ir0-tg-lvX">
+                                <rect key="frame" x="192" y="753" width="30" height="30"/>
+                                <state key="normal" title="Sair"/>
+                                <connections>
+                                    <segue destination="dPJ-1v-DSf" kind="custom" customClass="LogoutSegue" customModule="ProjetoDesign" customModuleProvider="target" id="1Sx-Zo-V7v"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SE4-zD-gYr">
+                                <rect key="frame" x="364" y="52" width="30" height="30"/>
+                                <connections>
+                                    <segue destination="dPJ-1v-DSf" kind="custom" identifier="DismissEditProfile" customClass="DismissSegue" customModule="ProjetoDesign" customModuleProvider="target" id="c6p-Kr-RHc"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACn-yF-dAo">
+                                <rect key="frame" x="140" y="547" width="234" height="186"/>
+                                <string key="text">Melissa Ann McCarthy (Plainfield, 26 de agosto de 1970) é uma atriz, comediante, escritora, produtora e empresária americana. É conhecida pela sua atuação como Sookie St. James na aclamada série Gilmore Girls, que estrelou de 2000 a 2007. Atua no seriado Mike &amp; Molly, pelo qual ganhou o Emmy do Primetime de melhor atriz numa série de comédia em 2011. Em 2012 foi indicada ao Oscar de melhor atriz coadjuvante, por sua atuação no filme Bridesmaids.[1]</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UUG-qq-fGy"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5Ib-Ao-8CD" firstAttribute="centerX" secondItem="UUG-qq-fGy" secondAttribute="centerX" id="0IV-XU-a7T"/>
+                            <constraint firstItem="UUG-qq-fGy" firstAttribute="trailing" secondItem="ACn-yF-dAo" secondAttribute="trailing" constant="40" id="1uy-kh-sGg"/>
+                            <constraint firstItem="n4K-7o-T3k" firstAttribute="leading" secondItem="s1u-WH-Oxo" secondAttribute="trailing" constant="10" id="5TG-Mw-m8b"/>
+                            <constraint firstItem="7P7-en-Zj7" firstAttribute="top" secondItem="QyO-e7-pnG" secondAttribute="bottom" constant="10" id="6Nr-X6-hZV"/>
+                            <constraint firstItem="UUG-qq-fGy" firstAttribute="bottom" secondItem="ir0-tg-lvX" secondAttribute="bottom" constant="30" id="8fk-LV-miw"/>
+                            <constraint firstItem="ir0-tg-lvX" firstAttribute="centerX" secondItem="DBn-m6-kHU" secondAttribute="centerX" id="D4s-QQ-5ON"/>
+                            <constraint firstItem="dAT-pc-kau" firstAttribute="top" secondItem="5Ib-Ao-8CD" secondAttribute="bottom" constant="20" id="DRH-NP-ESd"/>
+                            <constraint firstItem="7P7-en-Zj7" firstAttribute="leading" secondItem="UUG-qq-fGy" secondAttribute="leading" constant="40" id="E5T-h9-W63"/>
+                            <constraint firstItem="yQb-Y7-GUS" firstAttribute="leading" secondItem="UUG-qq-fGy" secondAttribute="leading" constant="40" id="Kv7-t4-O7e"/>
+                            <constraint firstItem="n4K-7o-T3k" firstAttribute="centerY" secondItem="s1u-WH-Oxo" secondAttribute="centerY" id="Nsy-sc-aVa"/>
+                            <constraint firstItem="dAT-pc-kau" firstAttribute="centerX" secondItem="DBn-m6-kHU" secondAttribute="centerX" id="OGB-sC-VuF"/>
+                            <constraint firstItem="SE4-zD-gYr" firstAttribute="top" secondItem="UUG-qq-fGy" secondAttribute="top" constant="8" id="PTv-Uv-lMQ"/>
+                            <constraint firstItem="s1u-WH-Oxo" firstAttribute="top" secondItem="5Ib-Ao-8CD" secondAttribute="bottom" constant="100" id="QKc-gT-VQd"/>
+                            <constraint firstItem="LIg-bY-o55" firstAttribute="centerY" secondItem="7P7-en-Zj7" secondAttribute="centerY" id="QyW-wb-uzh"/>
+                            <constraint firstItem="UUG-qq-fGy" firstAttribute="trailing" secondItem="L8e-4O-8GP" secondAttribute="trailing" constant="40" id="TDY-i4-Y1F"/>
+                            <constraint firstItem="s1u-WH-Oxo" firstAttribute="leading" secondItem="UUG-qq-fGy" secondAttribute="leading" constant="40" id="U9M-zq-b7Z"/>
+                            <constraint firstItem="QyO-e7-pnG" firstAttribute="leading" secondItem="UUG-qq-fGy" secondAttribute="leading" constant="40" id="WjC-qw-BpI"/>
+                            <constraint firstItem="L8e-4O-8GP" firstAttribute="leading" secondItem="QyO-e7-pnG" secondAttribute="trailing" constant="10" id="Yyi-8b-oJZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SE4-zD-gYr" secondAttribute="trailing" id="ftN-Se-iXb"/>
+                            <constraint firstItem="UUG-qq-fGy" firstAttribute="trailing" secondItem="LIg-bY-o55" secondAttribute="trailing" constant="40" id="g68-gI-HzJ"/>
+                            <constraint firstItem="5Ib-Ao-8CD" firstAttribute="top" secondItem="DBn-m6-kHU" secondAttribute="top" constant="-85" id="ggA-Or-zaz"/>
+                            <constraint firstItem="L8e-4O-8GP" firstAttribute="centerY" secondItem="QyO-e7-pnG" secondAttribute="centerY" id="pkb-i0-Gqd"/>
+                            <constraint firstItem="QyO-e7-pnG" firstAttribute="top" secondItem="s1u-WH-Oxo" secondAttribute="bottom" constant="10" id="ppI-Cs-x7M"/>
+                            <constraint firstItem="yQb-Y7-GUS" firstAttribute="top" secondItem="7P7-en-Zj7" secondAttribute="bottom" constant="10" id="q3y-cN-mQh"/>
+                            <constraint firstItem="ACn-yF-dAo" firstAttribute="top" secondItem="LIg-bY-o55" secondAttribute="bottom" constant="10" id="rBK-zv-dnq"/>
+                            <constraint firstItem="ir0-tg-lvX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ACn-yF-dAo" secondAttribute="bottom" constant="20" id="s06-0a-GH0"/>
+                            <constraint firstItem="UUG-qq-fGy" firstAttribute="trailing" secondItem="n4K-7o-T3k" secondAttribute="trailing" constant="40" id="s3i-5V-wnx"/>
+                            <constraint firstItem="LIg-bY-o55" firstAttribute="leading" secondItem="7P7-en-Zj7" secondAttribute="trailing" constant="10" id="sc2-iS-Ueg"/>
+                            <constraint firstItem="ACn-yF-dAo" firstAttribute="leading" secondItem="yQb-Y7-GUS" secondAttribute="trailing" constant="10" id="vSB-YM-Ob6"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4mo-L1-Nki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="111.59420289855073" y="-11.383928571428571"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="mel0.jpg" width="1300" height="729"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

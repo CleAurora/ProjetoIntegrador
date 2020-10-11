@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42997A1B2533A24D008C9CEF /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42997A1A2533A24D008C9CEF /* Setting.storyboard */; };
+		42997A262533CA29008C9CEF /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42997A252533CA29008C9CEF /* DismissSegue.swift */; };
+		42997A2B2533CB59008C9CEF /* LogoutSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42997A2A2533CB59008C9CEF /* LogoutSegue.swift */; };
 		4C0D19A6252A584C00462862 /* instagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0D19A5252A584B00462862 /* instagram.png */; };
 		4C0D19AB252A585600462862 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0D19AA252A585500462862 /* facebook.png */; };
 		4C0D19B6252A5C3F00462862 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D19B5252A5C3F00462862 /* FeedViewController.swift */; };
@@ -78,6 +81,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		42997A1A2533A24D008C9CEF /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		42997A252533CA29008C9CEF /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
+		42997A2A2533CB59008C9CEF /* LogoutSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutSegue.swift; sourceTree = "<group>"; };
 		4C0D19A5252A584B00462862 /* instagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instagram.png; sourceTree = "<group>"; };
 		4C0D19AA252A585500462862 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		4C0D19B5252A5C3F00462862 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +168,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42997A192533A236008C9CEF /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				42997A1A2533A24D008C9CEF /* Setting.storyboard */,
+				42997A252533CA29008C9CEF /* DismissSegue.swift */,
+				42997A2A2533CB59008C9CEF /* LogoutSegue.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		4C0D19AF252A5C0F00462862 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
@@ -325,6 +341,7 @@
 		4C6E473E252E8640001F74A9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				42997A192533A236008C9CEF /* Setting */,
 				4C2CD8492533914500CC0BF1 /* infoPost */,
 				4CCB5283252A4D9200F9AB19 /* Registrar */,
 				4C0D19BA252A5C6300462862 /* TabBar */,
@@ -537,6 +554,7 @@
 				4C0D19F4252A6D7E00462862 /* trash.png in Resources */,
 				4C0D1A28252A801E00462862 /* post2.jpg in Resources */,
 				4C0D19A6252A584C00462862 /* instagram.png in Resources */,
+				42997A1B2533A24D008C9CEF /* Setting.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +588,7 @@
 				4C0D1A51252A971B00462862 /* upload.swift in Sources */,
 				4CCB527A252A4B3F00F9AB19 /* RoundedButton.swift in Sources */,
 				4C0D1A47252A8D9F00462862 /* Post.swift in Sources */,
+				42997A2B2533CB59008C9CEF /* LogoutSegue.swift in Sources */,
 				4C6DF0BB252B602B0099D857 /* Stories.swift in Sources */,
 				4CCB528A252A4DC000F9AB19 /* RegistrarViewController.swift in Sources */,
 				4CCB523B252A45E700F9AB19 /* ViewController.swift in Sources */,
@@ -582,6 +601,7 @@
 				4CCB5237252A45E700F9AB19 /* AppDelegate.swift in Sources */,
 				4C0D19B6252A5C3F00462862 /* FeedViewController.swift in Sources */,
 				4C0D1A1E252A7F0D00462862 /* ProfileCollectionCell.swift in Sources */,
+				42997A262533CA29008C9CEF /* DismissSegue.swift in Sources */,
 				4C0D19EC252A673A00462862 /* StorieCollectionCell.swift in Sources */,
 				4C0D19C2252A5CA000462862 /* TabbarController.swift in Sources */,
 				4CCB5239252A45E700F9AB19 /* SceneDelegate.swift in Sources */,
