@@ -47,6 +47,7 @@ class infoPostViewController: UIViewController {
 extension infoPostViewController: UITableViewDelegate{
     
 }
+
 extension infoPostViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settingsArray.count
