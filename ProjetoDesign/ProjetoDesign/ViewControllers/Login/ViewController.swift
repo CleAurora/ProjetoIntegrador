@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundImageView.image = UIImage(named: "2.jpg")
+        backgroundImageView.layer.maskedCorners = CACornerMask(rawValue: UIRectCorner([.bottomLeft, .bottomRight]).rawValue)
         loginButton.backgroundColor = UIColor(patternImage: UIImage(named: "2.jpg")!)
         setupView()
     }
