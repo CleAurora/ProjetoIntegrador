@@ -11,16 +11,16 @@
         <!--Registrar-->
         <scene sceneID="aUg-tz-RVY">
             <objects>
-                <viewController storyboardIdentifier="Registrar" title="Registrar" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NJq-OM-TuN" customClass="RegistrarViewController" customModule="ProjetoDesign" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Registrar" title="Registrar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NJq-OM-TuN" customClass="RegistrarViewController" customModule="ProjetoDesign" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6pe-r7-qkS" customClass="Registrar">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XPc-h5-p5O">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="XPc-h5-p5O">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ta-DZ-evN" userLabel="ContainerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="301.5" height="640.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="301.5" height="880.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tck-3n-m2Z">
                                                 <rect key="frame" x="77" y="20" width="147.5" height="70"/>
@@ -216,7 +216,7 @@
                                             <constraint firstAttribute="trailing" secondItem="fE0-hj-Wnm" secondAttribute="trailing" constant="40" id="dS8-VN-2yP"/>
                                             <constraint firstItem="YRv-Nf-lJQ" firstAttribute="top" secondItem="fE0-hj-Wnm" secondAttribute="bottom" constant="5" id="f3L-Qd-nLb"/>
                                             <constraint firstItem="c0x-qy-GtI" firstAttribute="top" secondItem="YRv-Nf-lJQ" secondAttribute="bottom" constant="5" id="hJ1-Qt-fG1"/>
-                                            <constraint firstAttribute="bottom" secondItem="bsC-z7-M8o" secondAttribute="bottom" constant="20" id="hxL-m0-KhQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="bsC-z7-M8o" secondAttribute="bottom" constant="260" id="hxL-m0-KhQ"/>
                                             <constraint firstItem="YRv-Nf-lJQ" firstAttribute="leading" secondItem="x87-Gm-1OK" secondAttribute="trailing" constant="20" id="ilg-D8-zAZ"/>
                                             <constraint firstItem="Tck-3n-m2Z" firstAttribute="centerX" secondItem="9Ta-DZ-evN" secondAttribute="centerX" id="tK6-8E-Xu5"/>
                                             <constraint firstItem="4Bt-SQ-9sc" firstAttribute="top" secondItem="oKZ-GB-qo0" secondAttribute="bottom" constant="5" id="vE9-e7-9gL"/>
