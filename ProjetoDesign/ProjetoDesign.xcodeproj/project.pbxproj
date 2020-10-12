@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		424E9DC425351D2700C5AE62 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424E9DC325351D2700C5AE62 /* SettingViewController.swift */; };
 		42997A1B2533A24D008C9CEF /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42997A1A2533A24D008C9CEF /* Setting.storyboard */; };
 		42997A262533CA29008C9CEF /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42997A252533CA29008C9CEF /* DismissSegue.swift */; };
 		42997A2B2533CB59008C9CEF /* LogoutSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42997A2A2533CB59008C9CEF /* LogoutSegue.swift */; };
@@ -81,6 +82,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		424E9DC325351D2700C5AE62 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		42997A1A2533A24D008C9CEF /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		42997A252533CA29008C9CEF /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		42997A2A2533CB59008C9CEF /* LogoutSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutSegue.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				42997A1A2533A24D008C9CEF /* Setting.storyboard */,
 				42997A252533CA29008C9CEF /* DismissSegue.swift */,
 				42997A2A2533CB59008C9CEF /* LogoutSegue.swift */,
+				424E9DC325351D2700C5AE62 /* SettingViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				4C0D19B6252A5C3F00462862 /* FeedViewController.swift in Sources */,
 				4C0D1A1E252A7F0D00462862 /* ProfileCollectionCell.swift in Sources */,
 				42997A262533CA29008C9CEF /* DismissSegue.swift in Sources */,
+				424E9DC425351D2700C5AE62 /* SettingViewController.swift in Sources */,
 				4C0D19EC252A673A00462862 /* StorieCollectionCell.swift in Sources */,
 				4C0D19C2252A5CA000462862 /* TabbarController.swift in Sources */,
 				4CCB5239252A45E700F9AB19 /* SceneDelegate.swift in Sources */,
