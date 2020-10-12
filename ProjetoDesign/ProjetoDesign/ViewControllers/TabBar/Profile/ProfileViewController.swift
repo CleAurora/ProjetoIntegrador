@@ -14,8 +14,10 @@ class ProfileViewController: UIViewController {
     
     var profileArray = [Profile]()
     var imagensArray = [imagensProfile]()
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidLoad()
+        
+        super.viewDidAppear(true)
         setupCollection()
         setup()
         imagensArray.append(imagensProfile(imagens: "mel0.jpg"))

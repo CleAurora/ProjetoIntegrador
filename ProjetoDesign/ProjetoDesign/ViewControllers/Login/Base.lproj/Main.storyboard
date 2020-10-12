@@ -142,12 +142,14 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="0h9-4l-K6V"/>
                                         </constraints>
-                                        <state key="normal" title="Registrar"/>
+                                        <state key="normal" title="Registrar">
+                                            <color key="titleColor" red="0.1060770014" green="0.24054854319999999" blue="0.38894511009999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="registerButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jxJ-xw-sko"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kMF-mj-qrR">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kMF-mj-qrR" customClass="RoundedButton" customModule="ProjetoDesign" customModuleProvider="target">
                                         <rect key="frame" x="324" y="236" width="60" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="9ua-Ng-gaj"/>
@@ -159,6 +161,15 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
@@ -207,6 +218,9 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="kMF-mj-qrR">
+            <size key="intrinsicContentSize" width="38" height="30"/>
+        </designable>
         <designable name="sIA-PZ-hJa">
             <size key="intrinsicContentSize" width="34.5" height="18.5"/>
         </designable>
