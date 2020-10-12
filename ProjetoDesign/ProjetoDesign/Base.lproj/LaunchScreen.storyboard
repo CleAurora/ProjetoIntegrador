@@ -16,12 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor Aguarde." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="md1-M2-OYu">
-                                <rect key="frame" x="126" y="321" width="163" height="51"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="4Ln-w6-KeZ"/>
-                                    <constraint firstAttribute="width" constant="163" id="fy1-Oc-56t"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor Aguarde..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="md1-M2-OYu">
+                                <rect key="frame" x="131.5" y="437.5" width="151" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -30,10 +26,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="md1-M2-OYu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="277" id="T0r-xE-zYJ"/>
-                            <constraint firstItem="md1-M2-OYu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="126" id="fN2-lt-hQd"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="md1-M2-OYu" secondAttribute="trailing" constant="125" id="gey-l6-b7D"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="md1-M2-OYu" secondAttribute="bottom" constant="490" id="sZ7-93-zeH"/>
+                            <constraint firstItem="md1-M2-OYu" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="DfB-RO-ofO"/>
+                            <constraint firstItem="md1-M2-OYu" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="IN3-q5-cuc"/>
                         </constraints>
                     </view>
                 </viewController>
