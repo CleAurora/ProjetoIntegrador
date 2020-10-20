@@ -10,25 +10,34 @@ import UIKit
 class searchViewController: UIViewController {
     @IBOutlet weak var searchTableView: UITableView!
     @IBOutlet weak var userSearchView: UISearchBar!
+    @IBOutlet weak var dataCollectionView: UICollectionView!
     var searchIn = ""
     var userArray = [Post]()
     var filteredArray = [Post]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         userArray.append(Post(name: "Melissa", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "mel2.jpg"))
         userArray.append(Post(name: "Brendon", city: "Los Angeles", imageProfile: "brendon.jpg", imagePost: "post1.jpg"))
-        userArray.append(Post(name: "Melissa", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "mel1.jpeg"))
         userArray.append(Post(name: "Miles", city: "Vancouver, BC", imageProfile: "miles1.jpeg", imagePost: "miles0.jpeg"))
+        
+
+        
         filteredArray = userArray
         searchTableView.delegate = self
         searchTableView.dataSource = self
-        
+        searchTableView.isHidden = true
         userSearchView.delegate = self
+        dataCollectionView.dataSource = self
+        dataCollectionView.delegate = self
+        dataCollectionView.reloadData()
         // Do any additional setup after loading the view.
     }
+    
     func filter() {
         if searchIn.isEmpty {
-            searchIn = ""
+//            filteredArray = userArray
+            dataCollectionView.isHidden = false
         }else{
             
             let searchText = searchIn.folding(options: [.caseInsensitive, .diacriticInsensitive], locale: nil)
@@ -63,9 +72,27 @@ extension searchViewController: UITableViewDataSource{
 }
 extension searchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
         searchIn = searchText
-        print(searchIn)
+        dataCollectionView.isHidden = true
+        searchTableView.isHidden = false
         filter()
     }
+    
+}
+extension searchViewController: UICollectionViewDelegate{
+    
+}
+extension searchViewController: UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return userArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchCCell", for: indexPath) as! searchCollectionCell
+        cell.setup(user: userArray[indexPath.row])
+        return cell
+    }
+    
     
 }

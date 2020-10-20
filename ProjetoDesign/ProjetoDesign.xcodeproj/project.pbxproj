@@ -47,6 +47,7 @@
 		4C57A13E253F89310018C522 /* search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C57A13D253F89310018C522 /* search.storyboard */; };
 		4C57A143253F89550018C522 /* searchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57A142253F89550018C522 /* searchViewController.swift */; };
 		4C57A149253F8CC40018C522 /* SearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57A148253F8CC40018C522 /* SearchTableCell.swift */; };
+		4C57A157253F99480018C522 /* searchCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57A156253F99480018C522 /* searchCollectionCell.swift */; };
 		4C6DF0AC252B5B2D0099D857 /* mel1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4C6DF0A9252B5B2C0099D857 /* mel1.jpeg */; };
 		4C6DF0AD252B5B2D0099D857 /* mel0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4C6DF0AA252B5B2C0099D857 /* mel0.jpg */; };
 		4C6DF0AE252B5B2D0099D857 /* mel2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4C6DF0AB252B5B2C0099D857 /* mel2.jpg */; };
@@ -128,6 +129,7 @@
 		4C57A13D253F89310018C522 /* search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = search.storyboard; sourceTree = "<group>"; };
 		4C57A142253F89550018C522 /* searchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchViewController.swift; sourceTree = "<group>"; };
 		4C57A148253F8CC40018C522 /* SearchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableCell.swift; sourceTree = "<group>"; };
+		4C57A156253F99480018C522 /* searchCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchCollectionCell.swift; sourceTree = "<group>"; };
 		4C6DF0A9252B5B2C0099D857 /* mel1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel1.jpeg; sourceTree = "<group>"; };
 		4C6DF0AA252B5B2C0099D857 /* mel0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel0.jpg; sourceTree = "<group>"; };
 		4C6DF0AB252B5B2C0099D857 /* mel2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel2.jpg; sourceTree = "<group>"; };
@@ -366,6 +368,7 @@
 			isa = PBXGroup;
 			children = (
 				4C57A148253F8CC40018C522 /* SearchTableCell.swift */,
+				4C57A156253F99480018C522 /* searchCollectionCell.swift */,
 			);
 			path = searchCell;
 			sourceTree = "<group>";
@@ -657,6 +660,7 @@
 				4C57A12F253F839A0018C522 /* notificationsViewController.swift in Sources */,
 				4CCB5237252A45E700F9AB19 /* AppDelegate.swift in Sources */,
 				4C0D19B6252A5C3F00462862 /* FeedViewController.swift in Sources */,
+				4C57A157253F99480018C522 /* searchCollectionCell.swift in Sources */,
 				4C0D1A1E252A7F0D00462862 /* ProfileCollectionCell.swift in Sources */,
 				4C57A135253F87000018C522 /* NotificationsTableCell.swift in Sources */,
 				42997A262533CA29008C9CEF /* DismissSegue.swift in Sources */,

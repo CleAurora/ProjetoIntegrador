@@ -9,11 +9,12 @@ import UIKit
 
 class NotificationsTableCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var userImage: roundImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        let text = "melissamccarthy: started following you".withBoldText(text: "melissamccarthy")
-        nameLabel.attributedText = text
+//        let text = "melissamccarthy: started following you".withBoldText(text: "melissamccarthy")
+//        nameLabel.attributedText = text
         // Initialization code
     }
 
@@ -22,7 +23,11 @@ class NotificationsTableCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    func setup(users: Post){
+        let text = "\(users.name): started following you".withBoldText(text: "\(users.name)")
+        nameLabel.attributedText = text
+        userImage.image = UIImage(named: users.imageProfile)
+    }
 }
 extension String {
     func withBoldText(text: String, font: UIFont? = nil) -> NSAttributedString {

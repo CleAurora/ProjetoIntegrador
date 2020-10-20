@@ -79,6 +79,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="lEY-V3-ySj" id="EYE-mA-baq"/>
+                                            <outlet property="userImage" destination="DHk-2q-aoc" id="2bl-g8-NQK"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

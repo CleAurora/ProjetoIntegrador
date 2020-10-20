@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -73,6 +74,54 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xxj-qY-2jb">
+                                <rect key="frame" x="0.0" y="100" width="414" height="796"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="796" id="ot7-qF-FYd"/>
+                                    <constraint firstAttribute="width" constant="414" id="rST-CB-jpF"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="d8N-GX-IMk">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="searchCCell" id="fqy-Vt-46B" customClass="searchCollectionCell" customModule="ProjetoDesign" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wTn-vI-zwh">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xrv-8R-I3v" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="128" id="WcW-u8-LOf"/>
+                                                        <constraint firstAttribute="height" constant="128" id="Z0E-hM-HtC"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="20"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xrv-8R-I3v" firstAttribute="leading" secondItem="wTn-vI-zwh" secondAttribute="leading" id="0AM-lG-0LY"/>
+                                                <constraint firstAttribute="trailing" secondItem="xrv-8R-I3v" secondAttribute="trailing" id="N2k-MU-HES"/>
+                                                <constraint firstAttribute="bottom" secondItem="xrv-8R-I3v" secondAttribute="bottom" id="UYS-06-Fmw"/>
+                                                <constraint firstItem="xrv-8R-I3v" firstAttribute="top" secondItem="wTn-vI-zwh" secondAttribute="top" id="h4b-5E-F29"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="usersImageview" destination="xrv-8R-I3v" id="L8B-Hr-AgE"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1o8-rW-cFg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -80,13 +129,18 @@
                             <constraint firstItem="boJ-pQ-M2u" firstAttribute="trailing" secondItem="1o8-rW-cFg" secondAttribute="trailing" id="8rF-Kd-XZV"/>
                             <constraint firstItem="V0X-n2-Awq" firstAttribute="leading" secondItem="1o8-rW-cFg" secondAttribute="leading" id="CH6-bx-svJ"/>
                             <constraint firstAttribute="bottom" secondItem="V0X-n2-Awq" secondAttribute="bottom" id="CSy-PF-aps"/>
+                            <constraint firstItem="xxj-qY-2jb" firstAttribute="top" secondItem="boJ-pQ-M2u" secondAttribute="bottom" id="Pd1-yh-gGT"/>
                             <constraint firstItem="V0X-n2-Awq" firstAttribute="top" secondItem="boJ-pQ-M2u" secondAttribute="bottom" id="WR3-nz-NTQ"/>
+                            <constraint firstItem="xxj-qY-2jb" firstAttribute="leading" secondItem="1o8-rW-cFg" secondAttribute="leading" id="WpT-8Q-Qw9"/>
                             <constraint firstItem="boJ-pQ-M2u" firstAttribute="leading" secondItem="1o8-rW-cFg" secondAttribute="leading" id="dGO-pK-r3d"/>
+                            <constraint firstItem="xxj-qY-2jb" firstAttribute="trailing" secondItem="1o8-rW-cFg" secondAttribute="trailing" id="kc6-MF-Oaa"/>
                             <constraint firstItem="boJ-pQ-M2u" firstAttribute="top" secondItem="1o8-rW-cFg" secondAttribute="top" id="mkt-tb-FjN"/>
                             <constraint firstItem="V0X-n2-Awq" firstAttribute="trailing" secondItem="1o8-rW-cFg" secondAttribute="trailing" id="xD2-cN-tI5"/>
+                            <constraint firstAttribute="bottom" secondItem="xxj-qY-2jb" secondAttribute="bottom" id="yfo-wD-Uxv"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dataCollectionView" destination="xxj-qY-2jb" id="FZO-D3-5ZP"/>
                         <outlet property="searchTableView" destination="V0X-n2-Awq" id="w5O-y1-HoM"/>
                         <outlet property="userSearchView" destination="boJ-pQ-M2u" id="bLf-It-ME6"/>
                     </connections>
