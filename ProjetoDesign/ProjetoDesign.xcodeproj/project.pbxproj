@@ -41,6 +41,12 @@
 		4C2CD8502533920400CC0BF1 /* infoPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2CD84F2533920400CC0BF1 /* infoPostViewController.swift */; };
 		4C2CD8562533950D00CC0BF1 /* InfoPostTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2CD8552533950D00CC0BF1 /* InfoPostTableCell.swift */; };
 		4C393216252DEE9000844D64 /* ResizeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C393215252DEE9000844D64 /* ResizeImage.swift */; };
+		4C57A12A253F83870018C522 /* notifications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C57A129253F83870018C522 /* notifications.storyboard */; };
+		4C57A12F253F839A0018C522 /* notificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57A12E253F839A0018C522 /* notificationsViewController.swift */; };
+		4C57A135253F87000018C522 /* NotificationsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57A134253F87000018C522 /* NotificationsTableCell.swift */; };
+		4C57A13E253F89310018C522 /* search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C57A13D253F89310018C522 /* search.storyboard */; };
+		4C57A143253F89550018C522 /* searchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57A142253F89550018C522 /* searchViewController.swift */; };
+		4C57A149253F8CC40018C522 /* SearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57A148253F8CC40018C522 /* SearchTableCell.swift */; };
 		4C6DF0AC252B5B2D0099D857 /* mel1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4C6DF0A9252B5B2C0099D857 /* mel1.jpeg */; };
 		4C6DF0AD252B5B2D0099D857 /* mel0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4C6DF0AA252B5B2C0099D857 /* mel0.jpg */; };
 		4C6DF0AE252B5B2D0099D857 /* mel2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4C6DF0AB252B5B2C0099D857 /* mel2.jpg */; };
@@ -116,6 +122,12 @@
 		4C2CD84F2533920400CC0BF1 /* infoPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoPostViewController.swift; sourceTree = "<group>"; };
 		4C2CD8552533950D00CC0BF1 /* InfoPostTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPostTableCell.swift; sourceTree = "<group>"; };
 		4C393215252DEE9000844D64 /* ResizeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeImage.swift; sourceTree = "<group>"; };
+		4C57A129253F83870018C522 /* notifications.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = notifications.storyboard; sourceTree = "<group>"; };
+		4C57A12E253F839A0018C522 /* notificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notificationsViewController.swift; sourceTree = "<group>"; };
+		4C57A134253F87000018C522 /* NotificationsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsTableCell.swift; sourceTree = "<group>"; };
+		4C57A13D253F89310018C522 /* search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = search.storyboard; sourceTree = "<group>"; };
+		4C57A142253F89550018C522 /* searchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchViewController.swift; sourceTree = "<group>"; };
+		4C57A148253F8CC40018C522 /* SearchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableCell.swift; sourceTree = "<group>"; };
 		4C6DF0A9252B5B2C0099D857 /* mel1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel1.jpeg; sourceTree = "<group>"; };
 		4C6DF0AA252B5B2C0099D857 /* mel0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel0.jpg; sourceTree = "<group>"; };
 		4C6DF0AB252B5B2C0099D857 /* mel2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel2.jpg; sourceTree = "<group>"; };
@@ -220,6 +232,8 @@
 		4C0D19DE252A627F00462862 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				4C57A147253F8CA50018C522 /* searchCell */,
+				4C57A133253F86D20018C522 /* NotificationsCell */,
 				4C2CD854253394E800CC0BF1 /* infoPost */,
 				4C0D1A2E252A855B00462862 /* UploadCell */,
 				4C0D1A1C252A7EF900462862 /* ProfileCell */,
@@ -322,6 +336,40 @@
 			path = infoPost;
 			sourceTree = "<group>";
 		};
+		4C57A128253F83700018C522 /* notifications */ = {
+			isa = PBXGroup;
+			children = (
+				4C57A129253F83870018C522 /* notifications.storyboard */,
+				4C57A12E253F839A0018C522 /* notificationsViewController.swift */,
+			);
+			path = notifications;
+			sourceTree = "<group>";
+		};
+		4C57A133253F86D20018C522 /* NotificationsCell */ = {
+			isa = PBXGroup;
+			children = (
+				4C57A134253F87000018C522 /* NotificationsTableCell.swift */,
+			);
+			path = NotificationsCell;
+			sourceTree = "<group>";
+		};
+		4C57A13C253F891F0018C522 /* search */ = {
+			isa = PBXGroup;
+			children = (
+				4C57A13D253F89310018C522 /* search.storyboard */,
+				4C57A142253F89550018C522 /* searchViewController.swift */,
+			);
+			path = search;
+			sourceTree = "<group>";
+		};
+		4C57A147253F8CA50018C522 /* searchCell */ = {
+			isa = PBXGroup;
+			children = (
+				4C57A148253F8CC40018C522 /* SearchTableCell.swift */,
+			);
+			path = searchCell;
+			sourceTree = "<group>";
+		};
 		4C6DF0A8252B5B030099D857 /* melissa */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +392,8 @@
 		4C6E473E252E8640001F74A9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4C57A13C253F891F0018C522 /* search */,
+				4C57A128253F83700018C522 /* notifications */,
 				42997A192533A236008C9CEF /* Setting */,
 				4C2CD8492533914500CC0BF1 /* infoPost */,
 				4CCB5283252A4D9200F9AB19 /* Registrar */,
@@ -534,9 +584,11 @@
 			files = (
 				4C0D1A0E252A768300462862 /* emptyHeart.png in Resources */,
 				4C0D19BD252A5C7900462862 /* TabBar.storyboard in Resources */,
+				4C57A12A253F83870018C522 /* notifications.storyboard in Resources */,
 				4C0D1A18252A7BCC00462862 /* brendon.jpg in Resources */,
 				4CCB5243252A45E800F9AB19 /* LaunchScreen.storyboard in Resources */,
 				4C0D1A13252A786100462862 /* heart0.png in Resources */,
+				4C57A13E253F89310018C522 /* search.storyboard in Resources */,
 				4C6DF0B5252B5D510099D857 /* miles0.jpeg in Resources */,
 				4C0D1A29252A801E00462862 /* post3.jpg in Resources */,
 				4C0D1A0C252A768300462862 /* heart1.png in Resources */,
@@ -601,11 +653,15 @@
 				4CCB527F252A4B5100F9AB19 /* editTextField.swift in Sources */,
 				4C0D19E6252A659B00462862 /* RoundedImage.swift in Sources */,
 				4C0D19D7252A5DBE00462862 /* ProfileViewController.swift in Sources */,
+				4C57A149253F8CC40018C522 /* SearchTableCell.swift in Sources */,
+				4C57A12F253F839A0018C522 /* notificationsViewController.swift in Sources */,
 				4CCB5237252A45E700F9AB19 /* AppDelegate.swift in Sources */,
 				4C0D19B6252A5C3F00462862 /* FeedViewController.swift in Sources */,
 				4C0D1A1E252A7F0D00462862 /* ProfileCollectionCell.swift in Sources */,
+				4C57A135253F87000018C522 /* NotificationsTableCell.swift in Sources */,
 				42997A262533CA29008C9CEF /* DismissSegue.swift in Sources */,
 				424E9DC425351D2700C5AE62 /* SettingViewController.swift in Sources */,
+				4C57A143253F89550018C522 /* searchViewController.swift in Sources */,
 				4C0D19EC252A673A00462862 /* StorieCollectionCell.swift in Sources */,
 				4C0D19C2252A5CA000462862 /* TabbarController.swift in Sources */,
 				4CCB5239252A45E700F9AB19 /* SceneDelegate.swift in Sources */,

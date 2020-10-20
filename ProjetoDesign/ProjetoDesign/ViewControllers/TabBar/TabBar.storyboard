@@ -141,7 +141,7 @@
                             <constraint firstItem="3qF-eb-ufD" firstAttribute="top" secondItem="AFT-Tp-Yr4" secondAttribute="top" constant="-41" id="xu2-hH-zXe"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Upload" landscapeImage="follower" selectedImage="plus" id="ukd-sa-j6J">
+                    <tabBarItem key="tabBarItem" title="" landscapeImage="follower" selectedImage="plus" catalog="system" id="ukd-sa-j6J">
                         <color key="badgeColor" red="0.76702153500000003" green="0.76702153500000003" blue="0.76702153500000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <connections>
@@ -733,7 +733,7 @@
                             <constraint firstItem="gaV-6B-QhB" firstAttribute="leading" secondItem="agF-3c-jiu" secondAttribute="leading" id="ykX-Sl-WnQ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Feed" selectedImage="list.bullet.rectangle" catalog="system" id="bpf-mg-WW4"/>
+                    <tabBarItem key="tabBarItem" title="" selectedImage="list.bullet.rectangle" catalog="system" id="bpf-mg-WW4"/>
                     <connections>
                         <outlet property="feedTableView" destination="ROO-Nc-tLX" id="ChC-H1-f8a"/>
                         <outlet property="storieCollectionView" destination="3ha-7o-sSC" id="HSV-oO-8SK"/>
@@ -754,13 +754,35 @@
                     </tabBar>
                     <connections>
                         <segue destination="jU6-AB-jVr" kind="relationship" relationship="viewControllers" id="5eM-Rn-YiS"/>
+                        <segue destination="nyu-cr-27T" kind="relationship" relationship="viewControllers" id="jpt-Qi-vuO"/>
                         <segue destination="Fi1-xd-CJu" kind="relationship" relationship="viewControllers" id="5Jx-zE-UuD"/>
+                        <segue destination="YWl-No-7Xt" kind="relationship" relationship="viewControllers" id="m5f-Zy-NLy"/>
                         <segue destination="sDR-Ie-YAf" kind="relationship" relationship="viewControllers" id="jwp-eQ-qqF"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z8j-qO-5I8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1091" y="274"/>
+        </scene>
+        <!--notifications-->
+        <scene sceneID="drm-Ck-dzQ">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="notifications" storyboardName="notifications" referencedIdentifier="notifications" id="YWl-No-7Xt" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="a5h-uY-Zeg"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zex-OE-1lX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1271" y="692"/>
+        </scene>
+        <!--search-->
+        <scene sceneID="zF2-U5-10G">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="search" storyboardName="search" referencedIdentifier="search" id="nyu-cr-27T" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="yFZ-cv-fJ5"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iJU-YR-s5c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-972" y="696"/>
         </scene>
         <!--Setting-->
         <scene sceneID="RLn-0R-aIH">
@@ -780,7 +802,7 @@
         <image name="follower" width="30" height="30"/>
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <image name="pencil.circle" catalog="system" width="128" height="121"/>
-        <image name="plus" width="40" height="40"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="post1.jpg" width="384" height="256.07998657226562"/>
         <image name="post2.jpg" width="1920" height="1279"/>
         <image name="snow" catalog="system" width="121" height="128"/>
