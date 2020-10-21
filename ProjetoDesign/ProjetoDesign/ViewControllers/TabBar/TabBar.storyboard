@@ -90,6 +90,9 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="titleShadowColor" red="0.85486156089999998" green="0.85486156089999998" blue="0.85486156089999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="nextAction:" destination="Fi1-xd-CJu" eventType="touchUpInside" id="EZi-iQ-yMd"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -141,9 +144,7 @@
                             <constraint firstItem="3qF-eb-ufD" firstAttribute="top" secondItem="AFT-Tp-Yr4" secondAttribute="top" constant="-41" id="xu2-hH-zXe"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" landscapeImage="follower" selectedImage="plus" catalog="system" id="ukd-sa-j6J">
-                        <color key="badgeColor" red="0.76702153500000003" green="0.76702153500000003" blue="0.76702153500000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="f4n-QH-dJA"/>
                     <connections>
                         <outlet property="nextButton" destination="WuB-WQ-IfE" id="Wlb-kE-GKe"/>
                         <outlet property="resizeImageView" destination="QaN-Wt-2Ua" id="XMb-ct-7Hk"/>
@@ -153,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7aQ-Uj-QPQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-200.00000000000003" y="628.125"/>
+            <point key="canvasLocation" x="710.14492753623199" y="628.125"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Ssq-qQ-8Dd">
@@ -755,7 +756,7 @@
                     <connections>
                         <segue destination="jU6-AB-jVr" kind="relationship" relationship="viewControllers" id="5eM-Rn-YiS"/>
                         <segue destination="nyu-cr-27T" kind="relationship" relationship="viewControllers" id="jpt-Qi-vuO"/>
-                        <segue destination="Fi1-xd-CJu" kind="relationship" relationship="viewControllers" id="5Jx-zE-UuD"/>
+                        <segue destination="arZ-xg-a4O" kind="relationship" relationship="viewControllers" id="5Jx-zE-UuD"/>
                         <segue destination="YWl-No-7Xt" kind="relationship" relationship="viewControllers" id="m5f-Zy-NLy"/>
                         <segue destination="sDR-Ie-YAf" kind="relationship" relationship="viewControllers" id="jwp-eQ-qqF"/>
                     </connections>
@@ -794,11 +795,32 @@
             </objects>
             <point key="canvasLocation" x="254" y="1235"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4fx-VV-Oj3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="arZ-xg-a4O" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" landscapeImage="follower" selectedImage="plus" catalog="system" id="ukd-sa-j6J">
+                        <color key="badgeColor" red="0.76702153500000003" green="0.76702153500000003" blue="0.76702153500000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fVV-I9-Ggu">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Fi1-xd-CJu" kind="relationship" relationship="rootViewController" id="KQJ-rB-ty4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sYA-5v-7Ud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-200.00000000000003" y="628.125"/>
+        </scene>
     </scenes>
     <resources>
         <image name="1.jpg" width="1200" height="1920"/>
         <image name="2.jpg" width="1080" height="1920"/>
         <image name="facebook.png" width="250" height="250"/>
+        <image name="follower" width="128" height="128"/>
         <image name="follower" width="30" height="30"/>
         <image name="list.bullet.rectangle" catalog="system" width="128" height="93"/>
         <image name="pencil.circle" catalog="system" width="128" height="121"/>

@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RP8-Qb-57w" userLabel="ContainerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1023"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2913"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAT-pc-kau">
                                                 <rect key="frame" x="126" y="320" width="142" height="30"/>
@@ -84,9 +84,9 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ir0-tg-lvX">
-                                                <rect key="frame" x="182" y="973" width="30" height="30"/>
-                                                <state key="normal" title="Sair"/>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ir0-tg-lvX">
+                                                <rect key="frame" x="-418.5" y="973" width="1231" height="1920"/>
+                                                <state key="normal" title="Sair" image="1.jpg"/>
                                                 <connections>
                                                     <segue destination="dPJ-1v-DSf" kind="custom" customClass="LogoutSegue" customModule="ProjetoDesign" customModuleProvider="target" id="1Sx-Zo-V7v"/>
                                                 </connections>
@@ -182,6 +182,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="1.jpg" width="1200" height="1920"/>
         <image name="mel0.jpg" width="1300" height="729"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

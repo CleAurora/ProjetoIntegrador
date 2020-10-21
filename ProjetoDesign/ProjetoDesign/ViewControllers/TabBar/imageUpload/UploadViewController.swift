@@ -30,6 +30,12 @@ class UploadViewController: UIViewController {
         uploadCollectionView.reloadData()
         // Do any additional setup after loading the view.
     }
+
+    @IBAction func nextAction(_ sender: Any) {
+        let legendViewController = UIStoryboard(name: "Legend", bundle: nil).instantiateInitialViewController()
+
+        navigationController?.pushViewController(legendViewController!, animated: true)
+    }
     func setupCollection(){
         uploadCollectionView.delegate = self
         uploadCollectionView.dataSource = self
