@@ -16,6 +16,8 @@ class UploadViewController: UIViewController {
     @IBOutlet weak var viewButton: UIView!
     
     var uploadArray = [Upload]()
+    var uploadSelected: Upload?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollection()
@@ -32,9 +34,10 @@ class UploadViewController: UIViewController {
     }
 
     @IBAction func nextAction(_ sender: Any) {
-        let legendViewController = UIStoryboard(name: "Legend", bundle: nil).instantiateInitialViewController()
+        let legendViewController = UIStoryboard(name: "Legend", bundle: nil).instantiateInitialViewController() as! LegendViewController
+        legendViewController.upload = uploadSelected
 
-        navigationController?.pushViewController(legendViewController!, animated: true)
+        navigationController?.pushViewController(legendViewController, animated: true)
     }
     func setupCollection(){
         uploadCollectionView.delegate = self
@@ -49,6 +52,7 @@ extension UploadViewController: UICollectionViewDelegate{
         viewButton.backgroundColor = UIColor(patternImage: UIImage(named: "2.jpg")!)
         resizeImageView.image = UIImage(named: image)
         viewButton.isHidden = false
+        uploadSelected = uploadArray[indexPath.row]
 //        nextButton.isHidden = false
     }
 }

@@ -5,13 +5,10 @@
 //  Created by Lestad on 2020-10-04.
 //
 
-import Foundation
-class Upload{
-    
-var image: String
-    
-init(image: String){
-    self.image = image
+class Upload {
+    var image: String
+
+    init(image: String){
+        self.image = image
     }
-    
 }

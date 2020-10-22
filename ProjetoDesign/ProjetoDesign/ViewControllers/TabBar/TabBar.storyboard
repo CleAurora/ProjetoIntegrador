@@ -121,7 +121,6 @@
                                     <constraint firstAttribute="trailing" secondItem="QaN-Wt-2Ua" secondAttribute="trailing" id="VlP-4v-js9"/>
                                     <constraint firstItem="QaN-Wt-2Ua" firstAttribute="top" secondItem="3qF-eb-ufD" secondAttribute="top" constant="76" id="W6c-fb-beS"/>
                                     <constraint firstAttribute="bottom" secondItem="JXR-1q-4gP" secondAttribute="bottom" constant="438" id="mUW-eL-LYl"/>
-                                    <constraint firstItem="JXR-1q-4gP" firstAttribute="leading" secondItem="3qF-eb-ufD" secondAttribute="leading" constant="294" id="nNb-F5-LLZ"/>
                                     <constraint firstItem="QaN-Wt-2Ua" firstAttribute="leading" secondItem="3qF-eb-ufD" secondAttribute="leading" id="wUS-AN-Bd4"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -168,7 +167,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9gq-Od-FCO" customClass="extensions" customModule="ProjetoDesign" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="979"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GbT-h2-POp" customClass="extensions" customModule="ProjetoDesign" customModuleProvider="target">
                                                 <rect key="frame" x="102" y="-74" width="211" height="343"/>
