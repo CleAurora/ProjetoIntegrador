@@ -20,7 +20,14 @@ class notificationsViewController: UIViewController {
         notificationsTableView.delegate = self
         notificationsTableView.dataSource = self
         notificationsTableView.reloadData()
-        // Do any additional setup after loading the view.
+        setupTab()
+
+    }
+    func setupTab(){
+        let notifications = self.tabBarItem!
+        UITabBar.appearance().tintColor = .black
+        notifications.selectedImage = UIImage(named: "heart-fill")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        notifications.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: 0, right: 0)
     }
 
 

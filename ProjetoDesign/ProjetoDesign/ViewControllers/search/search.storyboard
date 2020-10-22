@@ -139,6 +139,19 @@
                             <constraint firstAttribute="bottom" secondItem="xxj-qY-2jb" secondAttribute="bottom" id="yfo-wD-Uxv"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="lupa" selectedImage="lupa-fill" id="BOr-Nk-9jE">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="0.0"/>
+                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="dataCollectionView" destination="xxj-qY-2jb" id="FZO-D3-5ZP"/>
                         <outlet property="searchTableView" destination="V0X-n2-Awq" id="w5O-y1-HoM"/>
@@ -151,6 +164,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="lupa" width="50" height="50"/>
+        <image name="lupa-fill" width="50" height="50"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

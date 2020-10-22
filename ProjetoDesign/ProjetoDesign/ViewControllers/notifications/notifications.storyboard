@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--notifications-->
+        <!--Notifications View Controller-->
         <scene sceneID="CE6-Tw-5hc">
             <objects>
-                <viewController storyboardIdentifier="notifications" title="notifications" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CES-rB-c2r" customClass="notificationsViewController" customModule="ProjetoDesign" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="notifications" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CES-rB-c2r" customClass="notificationsViewController" customModule="ProjetoDesign" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nov-b7-w1d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,6 +94,11 @@
                             <constraint firstItem="zyL-sa-2BJ" firstAttribute="leading" secondItem="z7R-3E-GQS" secondAttribute="leading" id="zGt-vZ-Gq0"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="heart-2" id="J3R-uQ-zwr">
+                        <inset key="imageInsets" minX="0.0" minY="30" maxX="0.0" maxY="25"/>
+                        <color key="badgeColor" red="0.1060770014" green="0.24054854319999999" blue="0.38894511009999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="notificationsTableView" destination="zyL-sa-2BJ" id="QYf-QL-3AX"/>
                     </connections>
@@ -104,6 +109,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="heart-2" width="100" height="100"/>
         <image name="mel0.jpg" width="1300" height="729"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
