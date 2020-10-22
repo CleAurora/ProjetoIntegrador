@@ -14,6 +14,7 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var subtitlesLabel: UILabel!
     
     var heart: String? = nil
    
@@ -30,6 +31,8 @@ class FeedTableViewCell: UITableViewCell {
         postImageView.image = UIImage(named: post.imagePost)
         nameLabel.text = post.name
         cityLabel.text = post.city
+        let text = "\(post.name): Eu sou simplesmente apaixonada em misturar peças mais femininas com outras mais pesadas ou retas!".withBoldText(text: "\(post.name)")
+        subtitlesLabel.attributedText = text
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -39,11 +42,11 @@ class FeedTableViewCell: UITableViewCell {
     private func addSingleAndDoubleTapGesture() {
         let singleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
         singleTapGesture.numberOfTapsRequired = 1
-        self.addGestureRecognizer(singleTapGesture)
+        likeImageView.addGestureRecognizer(singleTapGesture)
 
         let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap))
         doubleTapGesture.numberOfTapsRequired = 2
-        self.addGestureRecognizer(doubleTapGesture)
+        likeImageView.addGestureRecognizer(doubleTapGesture)
 
         singleTapGesture.require(toFail: doubleTapGesture)
     }
@@ -53,7 +56,7 @@ class FeedTableViewCell: UITableViewCell {
     }
 
     @objc private func handleDoubleTap(_ tapGesture: UITapGestureRecognizer) {
-        
+        print("clicked")
         if heart != nil {
             likeImageView.image = UIImage(named: "heart0.png")
             
@@ -69,3 +72,5 @@ class FeedTableViewCell: UITableViewCell {
     }
    
 }
+
+
