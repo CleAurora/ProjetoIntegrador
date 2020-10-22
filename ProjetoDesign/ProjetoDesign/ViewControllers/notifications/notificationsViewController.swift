@@ -14,8 +14,8 @@ class notificationsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        userArray.append(Post(name: "Brendon", city: "Los Angeles", imageProfile: "brendon.jpg", imagePost: "post1.jpg"))
-        userArray.append(Post(name: "Miles", city: "Vancouver, BC", imageProfile: "miles1.jpeg", imagePost: "miles0.jpeg"))
+        userArray.append(Post(name: "Brendon", city: "Los Angeles", imageProfile: "brendon.jpg", imagePost: "post1.jpg", comments: ""))
+        userArray.append(Post(name: "Miles", city: "Vancouver, BC", imageProfile: "miles1.jpeg", imagePost: "miles0.jpeg", comments: ""))
         
         notificationsTableView.delegate = self
         notificationsTableView.dataSource = self

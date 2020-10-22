@@ -206,6 +206,7 @@
                             <constraint firstItem="wzd-zj-TZR" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="dbB-DV-MAS"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="f2f-4g-4LE"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="Y5z-yZ-uQQ" id="qxv-gw-0o7"/>
                         <outlet property="loginButton" destination="kMF-mj-qrR" id="9bb-fY-gqR"/>
@@ -214,7 +215,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140.57971014492756" y="93.75"/>
+            <point key="canvasLocation" x="2871.0144927536235" y="93.75"/>
         </scene>
     </scenes>
     <designables>

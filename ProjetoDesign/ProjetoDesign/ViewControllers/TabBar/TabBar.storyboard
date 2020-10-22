@@ -620,6 +620,9 @@
                                                                             <state key="normal" title="View All 1.000 comments">
                                                                                 <color key="titleColor" red="0.60168393779999996" green="0.60168393779999996" blue="0.60168393779999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             </state>
+                                                                            <connections>
+                                                                                <action selector="commentsButton:" destination="9Gy-jy-QHO" eventType="touchUpInside" id="8i9-nv-Eum"/>
+                                                                            </connections>
                                                                         </button>
                                                                     </subviews>
                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>

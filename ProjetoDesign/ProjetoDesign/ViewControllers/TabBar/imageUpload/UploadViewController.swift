@@ -34,10 +34,11 @@ class UploadViewController: UIViewController {
     }
 
     @IBAction func nextAction(_ sender: Any) {
-        let legendViewController = UIStoryboard(name: "Legend", bundle: nil).instantiateInitialViewController() as! LegendViewController
+        if let legendViewController = UIStoryboard(name: "Legend", bundle: nil).instantiateInitialViewController() as? LegendViewController {
         legendViewController.upload = uploadSelected
 
         navigationController?.pushViewController(legendViewController, animated: true)
+    }
     }
     func setupCollection(){
         uploadCollectionView.delegate = self

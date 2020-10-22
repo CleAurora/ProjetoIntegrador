@@ -6,7 +6,10 @@
 //
 
 import UIKit
-
+import Foundation
+protocol ButtonsTableView{
+    func didButtonPressed()
+}
 class FeedTableViewCell: UITableViewCell {
     
     @IBOutlet weak var likeImageView: UIImageView!
@@ -15,7 +18,7 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var subtitlesLabel: UILabel!
-    
+    var delegate: ButtonsTableView?
     var heart: String? = nil
    
     
@@ -25,13 +28,16 @@ class FeedTableViewCell: UITableViewCell {
         addSingleAndDoubleTapGesture()
                 // Initialization code
     }
-   
+    
+    @IBAction func commentsButton(_ sender: Any) {
+        delegate?.didButtonPressed()
+    }
     func setup(post: Post){
         uploadImageView.image = UIImage(named: post.imageProfile)
         postImageView.image = UIImage(named: post.imagePost)
         nameLabel.text = post.name
         cityLabel.text = post.city
-        let text = "\(post.name): Eu sou simplesmente apaixonada em misturar peças mais femininas com outras mais pesadas ou retas!".withBoldText(text: "\(post.name)")
+        let text = "\(post.name): \(post.comments)".withBoldText(text: "\(post.name)")
         subtitlesLabel.attributedText = text
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -72,5 +78,6 @@ class FeedTableViewCell: UITableViewCell {
     }
    
 }
+
 
 

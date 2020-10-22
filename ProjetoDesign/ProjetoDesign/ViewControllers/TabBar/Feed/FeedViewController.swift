@@ -19,11 +19,10 @@ class FeedViewController: UIViewController {
         setupTableView()
         setupCollection()
         
-        
-        arrayTable.append(Post(name: "Melissa", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "mel2.jpg"))
-        arrayTable.append(Post(name: "Brendon", city: "Los Angeles", imageProfile: "brendon.jpg", imagePost: "post1.jpg"))
-        arrayTable.append(Post(name: "Melissa", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "mel1.jpeg"))
-        arrayTable.append(Post(name: "Miles", city: "Vancouver, BC", imageProfile: "miles1.jpeg", imagePost: "miles0.jpeg"))
+        arrayTable.append(Post(name: "Melissa", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "mel2.jpg",comments: " Eu sou simplesmente apaixonada em misturar peças mais femininas com outras mais pesadas ou retas!"))
+        arrayTable.append(Post(name: "Brendon", city: "Los Angeles", imageProfile: "brendon.jpg", imagePost: "post1.jpg", comments: "I like it in the city when the air is so thick and opaque"))
+        arrayTable.append(Post(name: "Melissa", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "mel1.jpeg",comments: "I just took a DNA test, turns out I'm 100% that bitch"))
+        arrayTable.append(Post(name: "Miles", city: "Vancouver, BC", imageProfile: "miles1.jpeg", imagePost: "miles0.jpeg",comments: "Needless to say, I keep her in check"))
         
         arrayCollection.append(stories(storieImageView: "mel0.jpg"))
         arrayCollection.append(stories(storieImageView: "miles1.jpeg"))
@@ -70,6 +69,7 @@ extension FeedViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(arrayTable[indexPath.row].imagePost)
         tableView.deselectRow(at: indexPath, animated: true)
+      
     }
 }
 
@@ -83,8 +83,19 @@ extension FeedViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as! FeedTableViewCell
         cell.setup(post: arrayTable[indexPath.row])
+        cell.delegate = self
         return cell
     }
+}
+extension FeedViewController: ButtonsTableView{
+    func didButtonPressed() {
+        
+        if let viewcontroller = UIStoryboard(name: "Comments", bundle: nil).instantiateInitialViewController() as? CommentsViewController{
+        
+            present(viewcontroller, animated: true, completion: nil)
+    }
+    }
+    
 }
 extension FeedViewController: UICollectionViewDelegate{
     
@@ -100,3 +111,4 @@ extension FeedViewController: UICollectionViewDataSource{
         return cell
     }
 }
+
