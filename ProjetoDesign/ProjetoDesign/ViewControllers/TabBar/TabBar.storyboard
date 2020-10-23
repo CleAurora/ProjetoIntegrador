@@ -739,13 +739,37 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qTl-VM-xUI" customClass="BorderView" customModule="ProjetoDesign" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="-60" width="89" height="160"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="23e013350c4ee8d4b1a36fe02b7b169c" translatesAutoresizingMaskIntoConstraints="NO" id="7zc-6G-WM9">
-                                                                    <rect key="frame" x="0.0" y="59" width="89" height="100"/>
+                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L0l-zc-n2L" customClass="extensions" customModule="ProjetoDesign" customModuleProvider="target">
+                                                                    <rect key="frame" x="2" y="28" width="84" height="128"/>
+                                                                    <subviews>
+                                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7zc-6G-WM9" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="32" width="84" height="96"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="96" id="HqM-nq-B7O"/>
+                                                                                <constraint firstAttribute="width" constant="84" id="nv4-Il-aFa"/>
+                                                                            </constraints>
+                                                                            <userDefinedRuntimeAttributes>
+                                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                    <real key="value" value="0.0"/>
+                                                                                </userDefinedRuntimeAttribute>
+                                                                            </userDefinedRuntimeAttributes>
+                                                                        </imageView>
+                                                                    </subviews>
+                                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="height" constant="100" id="cNo-se-J9U"/>
-                                                                        <constraint firstAttribute="width" constant="89" id="edH-gB-sHt"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="7zc-6G-WM9" secondAttribute="bottom" id="6Pc-nf-S7z"/>
+                                                                        <constraint firstItem="7zc-6G-WM9" firstAttribute="leading" secondItem="L0l-zc-n2L" secondAttribute="leading" id="GLd-9Z-koA"/>
+                                                                        <constraint firstItem="7zc-6G-WM9" firstAttribute="top" secondItem="L0l-zc-n2L" secondAttribute="top" constant="32" id="NVa-Td-1AN"/>
+                                                                        <constraint firstAttribute="height" constant="128" id="Q6s-ia-c6g"/>
+                                                                        <constraint firstAttribute="width" constant="84" id="Xub-Bi-ZLS"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="7zc-6G-WM9" secondAttribute="trailing" id="fhk-n2-FNp"/>
                                                                     </constraints>
-                                                                </imageView>
+                                                                    <userDefinedRuntimeAttributes>
+                                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                            <real key="value" value="30"/>
+                                                                        </userDefinedRuntimeAttribute>
+                                                                    </userDefinedRuntimeAttributes>
+                                                                </view>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYr-Ao-VWI">
                                                                     <rect key="frame" x="64" y="130" width="25" height="22"/>
                                                                     <constraints>
@@ -755,25 +779,23 @@
                                                                     <state key="normal" image="plus-1"/>
                                                                 </button>
                                                             </subviews>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <color key="backgroundColor" red="1" green="0.18645104370000001" blue="0.172004881" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
-                                                                <constraint firstItem="7zc-6G-WM9" firstAttribute="leading" secondItem="qTl-VM-xUI" secondAttribute="leading" id="6lo-TK-1W5"/>
-                                                                <constraint firstItem="7zc-6G-WM9" firstAttribute="top" secondItem="qTl-VM-xUI" secondAttribute="top" constant="59" id="8xC-2W-zdv"/>
-                                                                <constraint firstAttribute="bottom" secondItem="7zc-6G-WM9" secondAttribute="bottom" constant="1" id="fcg-wR-eDi"/>
+                                                                <constraint firstAttribute="bottom" secondItem="L0l-zc-n2L" secondAttribute="bottom" constant="4" id="3sR-gg-Ju0"/>
+                                                                <constraint firstItem="L0l-zc-n2L" firstAttribute="top" secondItem="qTl-VM-xUI" secondAttribute="top" constant="28" id="aOL-en-Npc"/>
+                                                                <constraint firstItem="L0l-zc-n2L" firstAttribute="leading" secondItem="qTl-VM-xUI" secondAttribute="leading" constant="2" id="huy-G9-iGf"/>
                                                                 <constraint firstItem="VYr-Ao-VWI" firstAttribute="leading" secondItem="qTl-VM-xUI" secondAttribute="leading" constant="64" id="iIR-yx-wKr"/>
                                                                 <constraint firstAttribute="bottom" secondItem="VYr-Ao-VWI" secondAttribute="bottom" constant="8" id="iYO-Ed-5uC"/>
                                                                 <constraint firstAttribute="trailing" secondItem="VYr-Ao-VWI" secondAttribute="trailing" id="vgH-4D-qa8"/>
                                                                 <constraint firstItem="VYr-Ao-VWI" firstAttribute="top" secondItem="qTl-VM-xUI" secondAttribute="top" constant="130" id="wxl-2u-6L7"/>
+                                                                <constraint firstAttribute="trailing" secondItem="L0l-zc-n2L" secondAttribute="trailing" constant="3" id="yd6-go-lDK"/>
                                                             </constraints>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                     <real key="value" value="30"/>
                                                                 </userDefinedRuntimeAttribute>
-                                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                                    <color key="value" red="0.34923480309999999" green="0.99997437" blue="0.99999129769999995" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
-                                                                </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                                    <real key="value" value="4"/>
+                                                                    <real key="value" value="0.0"/>
                                                                 </userDefinedRuntimeAttribute>
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
                                                             </userDefinedRuntimeAttributes>
@@ -786,6 +808,7 @@
                                                         <constraint firstItem="qTl-VM-xUI" firstAttribute="top" secondItem="Kgm-vq-Yty" secondAttribute="top" constant="-60" id="do4-AN-eg3"/>
                                                     </constraints>
                                                     <connections>
+                                                        <outlet property="borderView" destination="qTl-VM-xUI" id="SiA-Y9-lp8"/>
                                                         <outlet property="currentUserImageView" destination="7zc-6G-WM9" id="r6b-B1-tdh"/>
                                                     </connections>
                                                 </collectionReusableView>
@@ -933,7 +956,6 @@
     <resources>
         <image name="1.jpg" width="1200" height="1920"/>
         <image name="2.jpg" width="1080" height="1920"/>
-        <image name="23e013350c4ee8d4b1a36fe02b7b169c" width="945" height="945"/>
         <image name="bookmark" width="48" height="48"/>
         <image name="chat" width="48" height="48"/>
         <image name="facebook.png" width="250" height="250"/>

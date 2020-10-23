@@ -9,9 +9,13 @@ import UIKit
 
 class StoriesReusableView: UICollectionReusableView {
     @IBOutlet weak var currentUserImageView: UIImageView!
+    @IBOutlet weak var borderView: BorderView!
     
     func setup(user: Profile){
         currentUserImageView.image = UIImage(named: user.profileImage)
+        borderView.backgroundColor = UIColor(patternImage: UIImage(named: "storiesImage.jpg")!)
+        
+        
     }
 }
 
