@@ -17,7 +17,7 @@ class infoPostViewController: UIViewController {
         setupView()
         settingsTableView.delegate = self
         settingsTableView.dataSource = self
-        
+       
         dismissButton.backgroundColor = UIColor(patternImage: UIImage(named: "2.jpg")!)
         settingsTableView.reloadData()
         setupTable()

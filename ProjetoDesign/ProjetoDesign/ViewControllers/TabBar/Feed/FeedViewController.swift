@@ -110,5 +110,11 @@ extension FeedViewController: UICollectionViewDataSource{
         cell.setup(storie: arrayCollection[indexPath.row])
         return cell
     }
+
+    func collectionView(_ collectionView: UICollectionView,viewForSupplementaryElementOfKind kind: String,at indexPath: IndexPath) -> UICollectionReusableView {
+        let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "currentCell", for: indexPath) as! StoriesReusableView
+//        cell.setup(user: )
+        return cell
+    }
 }
 
