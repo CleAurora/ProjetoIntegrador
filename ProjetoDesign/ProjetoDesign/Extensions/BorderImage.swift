@@ -18,8 +18,9 @@ class BorderView: UIView{
     @IBInspectable var borderColor: UIColor = UIColor.clear {
 
         didSet {
-
+            
             self.layer.borderColor = borderColor.cgColor
+            
         }
     }
 
@@ -64,3 +65,4 @@ class BorderView: UIView{
            layer.shadowRadius = shadowRadius
        }
 }
+
