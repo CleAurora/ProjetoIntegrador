@@ -63,7 +63,6 @@
 		4CADCC992542267A005676F7 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CADCC982542267A005676F7 /* CommentsViewController.swift */; };
 		4CADCC9E25422810005676F7 /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CADCC9D25422810005676F7 /* Comments.swift */; };
 		4CADCCA425422926005676F7 /* CommentsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CADCCA325422926005676F7 /* CommentsTableCell.swift */; };
-		4CADCCA9254232D7005676F7 /* ButtonsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CADCCA8254232D7005676F7 /* ButtonsTableView.swift */; };
 		4CCB5237252A45E700F9AB19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB5236252A45E700F9AB19 /* AppDelegate.swift */; };
 		4CCB5239252A45E700F9AB19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB5238252A45E700F9AB19 /* SceneDelegate.swift */; };
 		4CCB523B252A45E700F9AB19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB523A252A45E700F9AB19 /* ViewController.swift */; };
@@ -155,7 +154,6 @@
 		4CADCC982542267A005676F7 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		4CADCC9D25422810005676F7 /* Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
 		4CADCCA325422926005676F7 /* CommentsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableCell.swift; sourceTree = "<group>"; };
-		4CADCCA8254232D7005676F7 /* ButtonsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsTableView.swift; sourceTree = "<group>"; };
 		4CCB5233252A45E700F9AB19 /* ProjetoDesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetoDesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CCB5236252A45E700F9AB19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CCB5238252A45E700F9AB19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -521,7 +519,6 @@
 				4C0D19E5252A659B00462862 /* RoundedImage.swift */,
 				4C393215252DEE9000844D64 /* ResizeImage.swift */,
 				4CADCC8D2542208B005676F7 /* BoldLabel.swift */,
-				4CADCCA8254232D7005676F7 /* ButtonsTableView.swift */,
 				4C502F99254267240001FAB2 /* BorderImage.swift */,
 			);
 			path = Extensions;
@@ -701,7 +698,6 @@
 				4CADCC8E2542208B005676F7 /* BoldLabel.swift in Sources */,
 				4C502F95254260540001FAB2 /* StoriesReusableView.swift in Sources */,
 				4C393216252DEE9000844D64 /* ResizeImage.swift in Sources */,
-				4CADCCA9254232D7005676F7 /* ButtonsTableView.swift in Sources */,
 				4C0D1A51252A971B00462862 /* upload.swift in Sources */,
 				4CCB527A252A4B3F00F9AB19 /* RoundedButton.swift in Sources */,
 				4C0D1A47252A8D9F00462862 /* Post.swift in Sources */,
