@@ -9,18 +9,19 @@ import UIKit
 import Foundation
 protocol ButtonsTableView{
     func didButtonPressed()
+    //func nameTapped()
 }
 class FeedTableViewCell: UITableViewCell {
     
     @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var uploadImageView: UIImageView!
     @IBOutlet weak var postImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var subtitlesLabel: UILabel!
+    @IBOutlet weak var nameButton: UIButton!
     var delegate: ButtonsTableView?
     var heart: String? = nil
-   
+    var nameTap : (() -> ()) = {}
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,22 +30,26 @@ class FeedTableViewCell: UITableViewCell {
                 // Initialization code
     }
     
+    @IBAction func nameButton(_ sender: Any) {
+        nameTap()
+//        delegate?.nameTapped()
+    }
     @IBAction func commentsButton(_ sender: Any) {
         delegate?.didButtonPressed()
     }
+    
     func setup(post: Post){
         uploadImageView.image = UIImage(named: post.imageProfile)
         postImageView.image = UIImage(named: post.imagePost)
-        nameLabel.text = post.name
+        nameButton.setTitle("\(post.name)", for: .normal)
         cityLabel.text = post.city
         let text = "\(post.name): \(post.comments)".withBoldText(text: "\(post.name)")
         subtitlesLabel.attributedText = text
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
+  
     private func addSingleAndDoubleTapGesture() {
         let singleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
         singleTapGesture.numberOfTapsRequired = 1
@@ -76,7 +81,6 @@ class FeedTableViewCell: UITableViewCell {
             
         }
     }
-   
 }
 
 

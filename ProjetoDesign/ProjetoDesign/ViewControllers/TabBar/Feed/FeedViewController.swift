@@ -18,7 +18,7 @@ class FeedViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         setupCollection()
-        
+        self.navigationController?.navigationBar.isHidden = true
         arrayTable.append(Post(name: "Melissa", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "mel2.jpg",comments: " Eu sou simplesmente apaixonada em misturar peças mais femininas com outras mais pesadas ou retas!"))
         arrayTable.append(Post(name: "Brendon", city: "Los Angeles", imageProfile: "brendon.jpg", imagePost: "post1.jpg", comments: "I like it in the city when the air is so thick and opaque"))
         arrayTable.append(Post(name: "Melissa", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "mel1.jpeg",comments: "I just took a DNA test, turns out I'm 100% that bitch"))
@@ -33,14 +33,10 @@ class FeedViewController: UIViewController {
         storieCollectionView.reloadData()
         // Do any additional setup after loading the view.
     }
-    
     func setupTableView(){
         feedTableView.delegate = self
         feedTableView.dataSource = self
-        
-        
         feedTableView.reloadData()
-        
     }
     func setupCollection(){
         storieCollectionView.delegate = self
@@ -49,19 +45,17 @@ class FeedViewController: UIViewController {
     }
     @IBAction func infoButton(_ sender: Any) {
         if let vc = UIStoryboard(name: "InfoPost", bundle: nil).instantiateInitialViewController() as? infoPostViewController {
-            vc.modalPresentationStyle = . overCurrentContext
+        vc.modalPresentationStyle = . overCurrentContext
             present(vc, animated: true, completion: nil)
+            
         }
     }
-    
-    
 }
 
 extension FeedViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(arrayTable[indexPath.row].imagePost)
         tableView.deselectRow(at: indexPath, animated: true)
-      
     }
 }
 
@@ -76,10 +70,18 @@ extension FeedViewController: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as! FeedTableViewCell
         cell.setup(post: arrayTable[indexPath.row])
         cell.delegate = self
+        
+        cell.nameTap = {
+        if let viewcontroller = UIStoryboard(name: "User", bundle: nil).instantiateInitialViewController() as? UserViewController{
+            viewcontroller.post = self.arrayTable[indexPath.row]
+        self.navigationController?.pushViewController(viewcontroller, animated: true)
+        }
+    }
         return cell
     }
 }
 extension FeedViewController: ButtonsTableView{
+
     func didButtonPressed() {
         
         if let viewcontroller = UIStoryboard(name: "Comments", bundle: nil).instantiateInitialViewController() as? CommentsViewController{
