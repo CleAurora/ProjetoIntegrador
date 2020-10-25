@@ -20,8 +20,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RP8-Qb-57w" userLabel="ContainerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="2913"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1033"/>
                                         <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SE4-zD-gYr" userLabel="CloseButton">
+                                                <rect key="frame" x="371" y="16" width="30" height="30"/>
+                                                <connections>
+                                                    <segue destination="dPJ-1v-DSf" kind="custom" identifier="DismissEditProfile" customClass="DismissSegue" customModule="ProjetoDesign" customModuleProvider="target" id="c6p-Kr-RHc"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAT-pc-kau">
                                                 <rect key="frame" x="126" y="320" width="142" height="30"/>
                                                 <state key="normal" title="Alterar Foto do Perfil"/>
@@ -85,16 +91,15 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ir0-tg-lvX">
-                                                <rect key="frame" x="-418.5" y="973" width="1231" height="1920"/>
-                                                <state key="normal" title="Sair" image="1.jpg"/>
+                                                <rect key="frame" x="20" y="973" width="374" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="fPi-lm-O4Q"/>
+                                                </constraints>
+                                                <state key="normal" title="Sair">
+                                                    <color key="titleColor" red="1" green="0.0020680644083768129" blue="0.051592729985713959" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <segue destination="dPJ-1v-DSf" kind="custom" customClass="LogoutSegue" customModule="ProjetoDesign" customModuleProvider="target" id="1Sx-Zo-V7v"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SE4-zD-gYr">
-                                                <rect key="frame" x="371" y="16" width="30" height="30"/>
-                                                <connections>
-                                                    <segue destination="dPJ-1v-DSf" kind="custom" identifier="DismissEditProfile" customClass="DismissSegue" customModule="ProjetoDesign" customModuleProvider="target" id="c6p-Kr-RHc"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACn-yF-dAo">
@@ -124,7 +129,6 @@
                                             <constraint firstAttribute="trailing" secondItem="L8e-4O-8GP" secondAttribute="trailing" constant="20" id="6Tb-Ev-I2g"/>
                                             <constraint firstItem="QyO-e7-pnG" firstAttribute="leading" secondItem="RP8-Qb-57w" secondAttribute="leading" constant="20" id="7BY-yY-aJr"/>
                                             <constraint firstItem="7P7-en-Zj7" firstAttribute="top" secondItem="QyO-e7-pnG" secondAttribute="bottom" constant="10" id="DhT-9S-Jg5"/>
-                                            <constraint firstItem="ir0-tg-lvX" firstAttribute="centerX" secondItem="RP8-Qb-57w" secondAttribute="centerX" constant="-10" id="GxD-DT-fSR"/>
                                             <constraint firstItem="ir0-tg-lvX" firstAttribute="top" secondItem="ACn-yF-dAo" secondAttribute="bottom" constant="20" id="IhA-Up-1KN"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="SE4-zD-gYr" secondAttribute="trailing" constant="5" id="MkO-VJ-OFs"/>
                                             <constraint firstItem="s1u-WH-Oxo" firstAttribute="leading" secondItem="RP8-Qb-57w" secondAttribute="leading" constant="20" id="N1i-8L-mb3"/>
@@ -141,8 +145,10 @@
                                             <constraint firstAttribute="trailing" secondItem="n4K-7o-T3k" secondAttribute="trailing" constant="20" id="epi-1X-KOK"/>
                                             <constraint firstItem="LIg-bY-o55" firstAttribute="leading" secondItem="7P7-en-Zj7" secondAttribute="trailing" constant="10" id="ii3-oG-e0f"/>
                                             <constraint firstItem="7P7-en-Zj7" firstAttribute="leading" secondItem="RP8-Qb-57w" secondAttribute="leading" constant="20" id="l8a-6x-RX1"/>
+                                            <constraint firstAttribute="trailing" secondItem="ir0-tg-lvX" secondAttribute="trailing" constant="20" id="lH5-xf-QNp"/>
                                             <constraint firstAttribute="trailing" secondItem="ACn-yF-dAo" secondAttribute="trailing" constant="20" id="mRo-EI-vEL"/>
                                             <constraint firstItem="yQb-Y7-GUS" firstAttribute="leading" secondItem="RP8-Qb-57w" secondAttribute="leading" constant="20" id="o4M-8e-lHf"/>
+                                            <constraint firstItem="ir0-tg-lvX" firstAttribute="leading" secondItem="RP8-Qb-57w" secondAttribute="leading" constant="20" id="oKc-pi-yc3"/>
                                             <constraint firstItem="SE4-zD-gYr" firstAttribute="top" secondItem="RP8-Qb-57w" secondAttribute="top" constant="16" id="opF-3H-bMI"/>
                                             <constraint firstItem="LIg-bY-o55" firstAttribute="centerY" secondItem="7P7-en-Zj7" secondAttribute="centerY" id="q95-Ut-9dP"/>
                                             <constraint firstItem="L8e-4O-8GP" firstAttribute="centerY" secondItem="QyO-e7-pnG" secondAttribute="centerY" id="tX8-By-EDI"/>
@@ -182,7 +188,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1.jpg" width="1200" height="1920"/>
         <image name="mel0.jpg" width="1300" height="729"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
