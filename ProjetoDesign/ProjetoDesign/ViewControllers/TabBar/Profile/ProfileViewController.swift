@@ -15,9 +15,8 @@ class ProfileViewController: UIViewController {
     var profileArray = [Profile]()
     var imagensArray = [imagensProfile]()
     override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidLoad()
-        
-        super.viewDidAppear(true)
+        super.viewDidAppear(animated)
+
         setupCollection()
         setup()
         imagensArray.append(imagensProfile(imagens: "mel0.jpg"))
@@ -40,7 +39,12 @@ class ProfileViewController: UIViewController {
         imagensArray.append(imagensProfile(imagens: "post3.jpg"))
 
         profileCollectionView.reloadData()
-        
+
+        profileImageView.layer.maskedCorners = CACornerMask(
+            rawValue: UIRectCorner(
+                [UIRectCorner.bottomLeft, UIRectCorner.bottomRight]
+            ).rawValue
+        )
     }
     func setupCollection(){
         profileCollectionView.delegate = self
