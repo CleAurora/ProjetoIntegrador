@@ -17,67 +17,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LAa-w9-xlX">
-                                <rect key="frame" x="8" y="554" width="398" height="259"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="398" id="V4x-6L-afs"/>
-                                    <constraint firstAttribute="height" constant="259" id="flN-bU-nMQ"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LpT-jS-8VJ">
-                                    <size key="itemSize" width="120" height="120"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="uploadCell" id="4Ql-6w-NMS" customClass="UploadCollectionCell" customModule="ProjetoDesign" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9bq-lg-LRj">
-                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="post2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="EBh-bp-09E" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="120" id="6Sf-gg-MgQ"/>
-                                                        <constraint firstAttribute="height" constant="120" id="jpu-Ok-Ij7"/>
-                                                    </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="16"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
-                                                    </userDefinedRuntimeAttributes>
-                                                </imageView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="EBh-bp-09E" firstAttribute="top" secondItem="9bq-lg-LRj" secondAttribute="top" id="3iI-Jz-0x9"/>
-                                                <constraint firstItem="EBh-bp-09E" firstAttribute="leading" secondItem="9bq-lg-LRj" secondAttribute="leading" id="Arh-xY-M5a"/>
-                                                <constraint firstAttribute="bottom" secondItem="EBh-bp-09E" secondAttribute="bottom" id="XgA-cx-GrZ"/>
-                                                <constraint firstAttribute="trailing" secondItem="EBh-bp-09E" secondAttribute="trailing" id="rRY-aW-S2u"/>
-                                            </constraints>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="120" height="120"/>
-                                        <connections>
-                                            <outlet property="uploadImageView" destination="EBh-bp-09E" id="hr5-FW-9z3"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3qF-eb-ufD" customClass="extensions" customModule="ProjetoDesign" customModuleProvider="target">
-                                <rect key="frame" x="17" y="-41" width="380" height="575"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3qF-eb-ufD">
+                                <rect key="frame" x="17" y="0.0" width="380" height="537.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QaN-Wt-2Ua" customClass="AdjustsViewBoundsImageView" customModule="ProjetoDesign" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="76" width="380" height="499"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="499" id="MLo-d9-YPi"/>
-                                            <constraint firstAttribute="width" constant="380" id="lu1-St-z5S"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="0.0" width="380" height="537.5"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="60"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXR-1q-4gP" customClass="extensions" customModule="ProjetoDesign" customModuleProvider="target">
-                                        <rect key="frame" x="294" y="100" width="71" height="37"/>
+                                        <rect key="frame" x="294" y="30" width="71" height="37"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuB-WQ-IfE">
                                                 <rect key="frame" x="0.0" y="0.0" width="71" height="37"/>
@@ -115,32 +67,69 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="JXR-1q-4gP" secondAttribute="trailing" constant="15" id="69x-UK-lx5"/>
                                     <constraint firstAttribute="bottom" secondItem="QaN-Wt-2Ua" secondAttribute="bottom" id="6tl-HU-QuT"/>
-                                    <constraint firstAttribute="width" constant="380" id="DuA-MQ-lof"/>
-                                    <constraint firstAttribute="height" constant="575" id="FVt-Ep-iBu"/>
-                                    <constraint firstItem="JXR-1q-4gP" firstAttribute="top" secondItem="3qF-eb-ufD" secondAttribute="top" constant="100" id="JoB-mb-pgK"/>
+                                    <constraint firstItem="JXR-1q-4gP" firstAttribute="top" secondItem="3qF-eb-ufD" secondAttribute="top" constant="30" id="JoB-mb-pgK"/>
                                     <constraint firstAttribute="trailing" secondItem="QaN-Wt-2Ua" secondAttribute="trailing" id="VlP-4v-js9"/>
-                                    <constraint firstItem="QaN-Wt-2Ua" firstAttribute="top" secondItem="3qF-eb-ufD" secondAttribute="top" constant="76" id="W6c-fb-beS"/>
-                                    <constraint firstAttribute="bottom" secondItem="JXR-1q-4gP" secondAttribute="bottom" constant="438" id="mUW-eL-LYl"/>
+                                    <constraint firstItem="QaN-Wt-2Ua" firstAttribute="top" secondItem="3qF-eb-ufD" secondAttribute="top" id="W6c-fb-beS"/>
                                     <constraint firstItem="QaN-Wt-2Ua" firstAttribute="leading" secondItem="3qF-eb-ufD" secondAttribute="leading" id="wUS-AN-Bd4"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="60"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
-                                </userDefinedRuntimeAttributes>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LAa-w9-xlX">
+                                <rect key="frame" x="8" y="557.5" width="398" height="255.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6ab-lg-LPi">
+                                    <size key="itemSize" width="120" height="120"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="uploadCell" id="4Ql-6w-NMS" customClass="UploadCollectionCell" customModule="ProjetoDesign" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9bq-lg-LRj">
+                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="post2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="EBh-bp-09E" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="rXL-M5-7TL"/>
+                                                        <constraint firstAttribute="height" constant="120" id="yNJ-Kp-5do"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="16"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="EBh-bp-09E" firstAttribute="top" secondItem="9bq-lg-LRj" secondAttribute="top" id="3iI-Jz-0x9"/>
+                                                <constraint firstItem="EBh-bp-09E" firstAttribute="leading" secondItem="9bq-lg-LRj" secondAttribute="leading" id="Arh-xY-M5a"/>
+                                                <constraint firstAttribute="bottom" secondItem="EBh-bp-09E" secondAttribute="bottom" id="XgA-cx-GrZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="EBh-bp-09E" secondAttribute="trailing" id="rRY-aW-S2u"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="120" height="120"/>
+                                        <connections>
+                                            <outlet property="uploadImageView" destination="EBh-bp-09E" id="hr5-FW-9z3"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9vB-7T-bhw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="3qF-eb-ufD" firstAttribute="leading" secondItem="9vB-7T-bhw" secondAttribute="leading" constant="17" id="1Ev-ok-bTo"/>
                             <constraint firstItem="LAa-w9-xlX" firstAttribute="top" secondItem="3qF-eb-ufD" secondAttribute="bottom" constant="20" id="1U3-Ir-9KO"/>
+                            <constraint firstItem="3qF-eb-ufD" firstAttribute="height" secondItem="AFT-Tp-Yr4" secondAttribute="height" multiplier="0.6" id="8VS-MH-J6P"/>
                             <constraint firstItem="LAa-w9-xlX" firstAttribute="bottom" secondItem="9vB-7T-bhw" secondAttribute="bottom" id="U7h-Mx-TZw"/>
                             <constraint firstItem="LAa-w9-xlX" firstAttribute="leading" secondItem="9vB-7T-bhw" secondAttribute="leading" constant="8" id="d2L-Bk-wac"/>
                             <constraint firstItem="9vB-7T-bhw" firstAttribute="trailing" secondItem="3qF-eb-ufD" secondAttribute="trailing" constant="17" id="ek3-fw-Um9"/>
                             <constraint firstItem="9vB-7T-bhw" firstAttribute="trailing" secondItem="LAa-w9-xlX" secondAttribute="trailing" constant="8" id="qKV-lM-9zo"/>
-                            <constraint firstItem="3qF-eb-ufD" firstAttribute="top" secondItem="AFT-Tp-Yr4" secondAttribute="top" constant="-41" id="xu2-hH-zXe"/>
+                            <constraint firstItem="3qF-eb-ufD" firstAttribute="top" secondItem="AFT-Tp-Yr4" secondAttribute="top" id="xu2-hH-zXe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="f4n-QH-dJA"/>

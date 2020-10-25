@@ -30,7 +30,12 @@ class UploadViewController: UIViewController {
 //        nextButton.isHidden = true
         viewButton.isHidden = true
         uploadCollectionView.reloadData()
-        // Do any additional setup after loading the view.
+
+        resizeImageView.layer.maskedCorners = CACornerMask(
+            rawValue: UIRectCorner(
+                [UIRectCorner.bottomLeft, UIRectCorner.bottomRight]
+            ).rawValue
+        )
     }
 
     @IBAction func nextAction(_ sender: Any) {
