@@ -29,7 +29,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXR-1q-4gP" customClass="extensions" customModule="ProjetoDesign" customModuleProvider="target">
-                                        <rect key="frame" x="294" y="30" width="71" height="37"/>
+                                        <rect key="frame" x="294" y="44" width="71" height="37"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuB-WQ-IfE">
                                                 <rect key="frame" x="0.0" y="0.0" width="71" height="37"/>
@@ -47,6 +47,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <viewLayoutGuide key="safeArea" id="r8f-Kg-qls"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="71" id="5dd-0u-Q1g"/>
@@ -67,7 +68,6 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="JXR-1q-4gP" secondAttribute="trailing" constant="15" id="69x-UK-lx5"/>
                                     <constraint firstAttribute="bottom" secondItem="QaN-Wt-2Ua" secondAttribute="bottom" id="6tl-HU-QuT"/>
-                                    <constraint firstItem="JXR-1q-4gP" firstAttribute="top" secondItem="3qF-eb-ufD" secondAttribute="top" constant="30" id="JoB-mb-pgK"/>
                                     <constraint firstAttribute="trailing" secondItem="QaN-Wt-2Ua" secondAttribute="trailing" id="VlP-4v-js9"/>
                                     <constraint firstItem="QaN-Wt-2Ua" firstAttribute="top" secondItem="3qF-eb-ufD" secondAttribute="top" id="W6c-fb-beS"/>
                                     <constraint firstItem="QaN-Wt-2Ua" firstAttribute="leading" secondItem="3qF-eb-ufD" secondAttribute="leading" id="wUS-AN-Bd4"/>
@@ -128,6 +128,7 @@
                             <constraint firstItem="LAa-w9-xlX" firstAttribute="bottom" secondItem="9vB-7T-bhw" secondAttribute="bottom" id="U7h-Mx-TZw"/>
                             <constraint firstItem="LAa-w9-xlX" firstAttribute="leading" secondItem="9vB-7T-bhw" secondAttribute="leading" constant="8" id="d2L-Bk-wac"/>
                             <constraint firstItem="9vB-7T-bhw" firstAttribute="trailing" secondItem="3qF-eb-ufD" secondAttribute="trailing" constant="17" id="ek3-fw-Um9"/>
+                            <constraint firstItem="JXR-1q-4gP" firstAttribute="top" secondItem="9vB-7T-bhw" secondAttribute="top" id="p2e-z0-f7m"/>
                             <constraint firstItem="9vB-7T-bhw" firstAttribute="trailing" secondItem="LAa-w9-xlX" secondAttribute="trailing" constant="8" id="qKV-lM-9zo"/>
                             <constraint firstItem="3qF-eb-ufD" firstAttribute="top" secondItem="AFT-Tp-Yr4" secondAttribute="top" id="xu2-hH-zXe"/>
                         </constraints>
