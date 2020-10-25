@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="kEf-Pr-ft1">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="850"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="911"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hIp-bI-po0">
                                                 <rect key="frame" x="16" y="16" width="382" height="150"/>
@@ -42,16 +42,16 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="Adiciona Clima?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwq-zX-qa4">
-                                                <rect key="frame" x="40" y="436" width="139.5" height="24"/>
+                                                <rect key="frame" x="40" y="466" width="139.5" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HW1-cI-BYa">
                                                 <rect key="frame" x="325" y="392.5" width="51" height="31"/>
-                                            </switch>
-                                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QGm-ff-Nqi">
-                                                <rect key="frame" x="325" y="432.5" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="localSwitchChanged:" destination="bFv-Uu-bXR" eventType="valueChanged" id="ABQ-pg-TZT"/>
+                                                </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Adiciona local?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Rg-Bm-eFl">
                                                 <rect key="frame" x="40" y="396" width="131" height="24"/>
@@ -60,7 +60,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5p-vj-eHt" customClass="RoundedButton" customModule="ProjetoDesign" customModuleProvider="target">
-                                                <rect key="frame" x="177" y="510" width="60" height="40"/>
+                                                <rect key="frame" x="177" y="571" width="60" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Os3-pH-bFZ"/>
                                                     <constraint firstAttribute="height" constant="40" id="ugv-Q7-M5w"/>
@@ -86,17 +86,40 @@
                                                     <action selector="postButtonTapped" destination="bFv-Uu-bXR" eventType="touchUpInside" id="rTr-Uq-g5r"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHW-Mj-6JC">
+                                                <rect key="frame" x="40" y="430" width="334" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMV-l0-QrN">
+                                                <rect key="frame" x="40" y="500" width="334" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QGm-ff-Nqi">
+                                                <rect key="frame" x="325" y="462.5" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="weatherSwitchChanged:" destination="bFv-Uu-bXR" eventType="valueChanged" id="76T-mj-kwS"/>
+                                                </connections>
+                                            </switch>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="z5p-vj-eHt" firstAttribute="top" secondItem="Jwq-zX-qa4" secondAttribute="bottom" constant="50" id="2I2-bO-g7q"/>
+                                            <constraint firstItem="z5p-vj-eHt" firstAttribute="top" secondItem="WMV-l0-QrN" secondAttribute="bottom" constant="50" id="2hf-5B-N7y"/>
+                                            <constraint firstItem="Jwq-zX-qa4" firstAttribute="top" secondItem="LHW-Mj-6JC" secondAttribute="bottom" constant="15" id="7AL-Ox-N7U"/>
+                                            <constraint firstItem="WMV-l0-QrN" firstAttribute="leading" secondItem="kEf-Pr-ft1" secondAttribute="leading" constant="40" id="AKx-vM-WPP"/>
+                                            <constraint firstItem="LHW-Mj-6JC" firstAttribute="top" secondItem="3Rg-Bm-eFl" secondAttribute="bottom" constant="10" id="AWS-iD-1jH"/>
                                             <constraint firstItem="QGm-ff-Nqi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Jwq-zX-qa4" secondAttribute="trailing" constant="16" id="BFs-M5-XNw"/>
                                             <constraint firstItem="hIp-bI-po0" firstAttribute="centerX" secondItem="kEf-Pr-ft1" secondAttribute="centerX" id="BeH-z5-LVs"/>
                                             <constraint firstItem="QGm-ff-Nqi" firstAttribute="centerY" secondItem="Jwq-zX-qa4" secondAttribute="centerY" id="CgT-LC-MUL"/>
                                             <constraint firstItem="hIp-bI-po0" firstAttribute="top" secondItem="kEf-Pr-ft1" secondAttribute="top" constant="16" id="DOh-TH-f3D"/>
-                                            <constraint firstItem="Jwq-zX-qa4" firstAttribute="top" secondItem="3Rg-Bm-eFl" secondAttribute="bottom" constant="16" id="KNx-Bz-UU4"/>
+                                            <constraint firstAttribute="trailing" secondItem="WMV-l0-QrN" secondAttribute="trailing" constant="40" id="MLa-Ho-aaj"/>
                                             <constraint firstItem="HW1-cI-BYa" firstAttribute="centerY" secondItem="3Rg-Bm-eFl" secondAttribute="centerY" id="NPY-Me-fcY"/>
+                                            <constraint firstItem="LHW-Mj-6JC" firstAttribute="leading" secondItem="kEf-Pr-ft1" secondAttribute="leading" constant="40" id="Vxt-BQ-bZK"/>
                                             <constraint firstAttribute="bottom" secondItem="z5p-vj-eHt" secondAttribute="bottom" constant="300" id="Vyd-iI-5JS"/>
+                                            <constraint firstAttribute="trailing" secondItem="LHW-Mj-6JC" secondAttribute="trailing" constant="40" id="Zbz-5u-HL3"/>
                                             <constraint firstAttribute="trailing" secondItem="hIp-bI-po0" secondAttribute="trailing" constant="16" id="dNa-1W-xHi"/>
                                             <constraint firstAttribute="trailing" secondItem="fmi-3s-Fef" secondAttribute="trailing" constant="16" id="e2X-Rg-xTs"/>
                                             <constraint firstItem="3Rg-Bm-eFl" firstAttribute="leading" secondItem="kEf-Pr-ft1" secondAttribute="leading" constant="40" id="god-58-WFA"/>
@@ -107,6 +130,7 @@
                                             <constraint firstItem="z5p-vj-eHt" firstAttribute="centerX" secondItem="kEf-Pr-ft1" secondAttribute="centerX" id="oBM-iP-Sak"/>
                                             <constraint firstItem="fmi-3s-Fef" firstAttribute="top" secondItem="hIp-bI-po0" secondAttribute="bottom" constant="20" id="rvy-If-IPi"/>
                                             <constraint firstAttribute="trailing" secondItem="HW1-cI-BYa" secondAttribute="trailing" constant="40" id="sWN-aL-lSe"/>
+                                            <constraint firstItem="WMV-l0-QrN" firstAttribute="top" secondItem="Jwq-zX-qa4" secondAttribute="bottom" constant="10" id="seg-hI-Tnt"/>
                                             <constraint firstAttribute="trailing" secondItem="QGm-ff-Nqi" secondAttribute="trailing" constant="40" id="tqy-f6-SKp"/>
                                             <constraint firstItem="Jwq-zX-qa4" firstAttribute="leading" secondItem="kEf-Pr-ft1" secondAttribute="leading" constant="40" id="zoG-pt-11e"/>
                                         </constraints>
@@ -133,8 +157,10 @@
                     <connections>
                         <outlet property="imageSelected" destination="hIp-bI-po0" id="8rz-ph-yae"/>
                         <outlet property="legendTextField" destination="fmi-3s-Fef" id="hZV-gb-rBh"/>
+                        <outlet property="localLabel" destination="LHW-Mj-6JC" id="rDe-53-nCp"/>
                         <outlet property="localSwitch" destination="HW1-cI-BYa" id="Ll7-wx-IAb"/>
                         <outlet property="postButton" destination="z5p-vj-eHt" id="tU5-9w-IUi"/>
+                        <outlet property="weatherLabel" destination="WMV-l0-QrN" id="zJp-ck-V7o"/>
                         <outlet property="weatherSwitch" destination="QGm-ff-Nqi" id="aWf-vE-EwS"/>
                     </connections>
                 </viewController>

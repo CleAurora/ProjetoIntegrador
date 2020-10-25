@@ -18,6 +18,9 @@ class LegendViewController: UIViewController {
 
     @IBOutlet weak var weatherSwitch: UISwitch!
 
+    @IBOutlet weak var weatherLabel: UILabel!
+    @IBOutlet weak var localLabel: UILabel!
+
     var upload: Upload?
 
     override func viewDidLoad() {
@@ -50,5 +53,17 @@ class LegendViewController: UIViewController {
 
     @IBAction func postButtonTapped() {
         navigationController?.popViewController(animated: true)
+    }
+
+    @IBAction func localSwitchChanged(_ sender: UISwitch) {
+        UIView.animate(withDuration: 0.6) {
+            self.localLabel.isHidden = !sender.isOn
+        }
+    }
+
+    @IBAction func weatherSwitchChanged(_ sender: UISwitch) {
+        UIView.animate(withDuration: 0.6) {
+            self.weatherLabel.isHidden = !sender.isOn
+        }
     }
 }
