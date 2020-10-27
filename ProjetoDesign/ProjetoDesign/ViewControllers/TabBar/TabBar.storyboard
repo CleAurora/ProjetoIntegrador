@@ -160,7 +160,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNK-JR-uZp" userLabel="SettingButton">
-                                                <rect key="frame" x="326" y="57" width="25" height="24"/>
+                                                <rect key="frame" x="326" y="8" width="25" height="24"/>
                                                 <state key="normal" image="pencil.circle" catalog="system">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                                 </state>

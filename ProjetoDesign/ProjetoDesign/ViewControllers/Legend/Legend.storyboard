@@ -20,13 +20,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="kEf-Pr-ft1">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="911"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="968"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hIp-bI-po0">
-                                                <rect key="frame" x="16" y="16" width="382" height="150"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="150" id="cuD-xf-AqN"/>
-                                                </constraints>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hIp-bI-po0">
+                                                <rect key="frame" x="103.5" y="16" width="207" height="207"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                         <integer key="value" value="40"/>
@@ -34,7 +31,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Digite sua legenda aqui" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fmi-3s-Fef">
-                                                <rect key="frame" x="16" y="186" width="382" height="120"/>
+                                                <rect key="frame" x="16" y="243" width="382" height="120"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="120" id="nMG-Cg-5gf"/>
                                                 </constraints>
@@ -42,25 +39,25 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="250" text="Adiciona Clima?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jwq-zX-qa4">
-                                                <rect key="frame" x="40" y="466" width="139.5" height="24"/>
+                                                <rect key="frame" x="40" y="523" width="139.5" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HW1-cI-BYa">
-                                                <rect key="frame" x="325" y="392.5" width="51" height="31"/>
+                                                <rect key="frame" x="325" y="449.5" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="localSwitchChanged:" destination="bFv-Uu-bXR" eventType="valueChanged" id="ABQ-pg-TZT"/>
                                                 </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Adiciona local?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Rg-Bm-eFl">
-                                                <rect key="frame" x="40" y="396" width="131" height="24"/>
+                                                <rect key="frame" x="40" y="453" width="131" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5p-vj-eHt" customClass="RoundedButton" customModule="ProjetoDesign" customModuleProvider="target">
-                                                <rect key="frame" x="177" y="571" width="60" height="40"/>
+                                                <rect key="frame" x="177" y="628" width="60" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Os3-pH-bFZ"/>
                                                     <constraint firstAttribute="height" constant="40" id="ugv-Q7-M5w"/>
@@ -87,19 +84,19 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHW-Mj-6JC">
-                                                <rect key="frame" x="40" y="430" width="334" height="21"/>
+                                                <rect key="frame" x="40" y="487" width="334" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMV-l0-QrN">
-                                                <rect key="frame" x="40" y="500" width="334" height="21"/>
+                                                <rect key="frame" x="40" y="557" width="334" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QGm-ff-Nqi">
-                                                <rect key="frame" x="325" y="462.5" width="51" height="31"/>
+                                                <rect key="frame" x="325" y="519.5" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="weatherSwitchChanged:" destination="bFv-Uu-bXR" eventType="valueChanged" id="76T-mj-kwS"/>
                                                 </connections>
@@ -120,10 +117,8 @@
                                             <constraint firstItem="LHW-Mj-6JC" firstAttribute="leading" secondItem="kEf-Pr-ft1" secondAttribute="leading" constant="40" id="Vxt-BQ-bZK"/>
                                             <constraint firstAttribute="bottom" secondItem="z5p-vj-eHt" secondAttribute="bottom" constant="300" id="Vyd-iI-5JS"/>
                                             <constraint firstAttribute="trailing" secondItem="LHW-Mj-6JC" secondAttribute="trailing" constant="40" id="Zbz-5u-HL3"/>
-                                            <constraint firstAttribute="trailing" secondItem="hIp-bI-po0" secondAttribute="trailing" constant="16" id="dNa-1W-xHi"/>
                                             <constraint firstAttribute="trailing" secondItem="fmi-3s-Fef" secondAttribute="trailing" constant="16" id="e2X-Rg-xTs"/>
                                             <constraint firstItem="3Rg-Bm-eFl" firstAttribute="leading" secondItem="kEf-Pr-ft1" secondAttribute="leading" constant="40" id="god-58-WFA"/>
-                                            <constraint firstItem="hIp-bI-po0" firstAttribute="leading" secondItem="kEf-Pr-ft1" secondAttribute="leading" constant="16" id="iQK-1w-Wi0"/>
                                             <constraint firstItem="HW1-cI-BYa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3Rg-Bm-eFl" secondAttribute="trailing" constant="16" id="kvB-So-oYb"/>
                                             <constraint firstItem="3Rg-Bm-eFl" firstAttribute="top" secondItem="fmi-3s-Fef" secondAttribute="bottom" constant="90" id="lbF-zf-khY"/>
                                             <constraint firstItem="fmi-3s-Fef" firstAttribute="leading" secondItem="kEf-Pr-ft1" secondAttribute="leading" constant="16" id="nKS-7L-VBW"/>
@@ -149,6 +144,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="b1Q-6R-U5n" firstAttribute="top" secondItem="UTT-gx-Krg" secondAttribute="top" id="6uN-WU-3TS"/>
+                            <constraint firstItem="hIp-bI-po0" firstAttribute="height" secondItem="UTT-gx-Krg" secondAttribute="width" multiplier="0.5" id="ZeT-I2-htu"/>
+                            <constraint firstItem="hIp-bI-po0" firstAttribute="width" secondItem="UTT-gx-Krg" secondAttribute="width" multiplier="0.5" id="d8g-Z1-Zqf"/>
                             <constraint firstItem="b1Q-6R-U5n" firstAttribute="bottom" secondItem="mnf-RB-eEs" secondAttribute="bottom" id="gzD-Ta-0NT"/>
                             <constraint firstItem="b1Q-6R-U5n" firstAttribute="leading" secondItem="mnf-RB-eEs" secondAttribute="leading" id="nwl-d8-aCe"/>
                             <constraint firstItem="b1Q-6R-U5n" firstAttribute="trailing" secondItem="mnf-RB-eEs" secondAttribute="trailing" id="sIT-bq-DAU"/>
