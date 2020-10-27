@@ -14,24 +14,41 @@ class FeedViewController: UIViewController {
     var arrayTable = [Post]()
     var arrayCollection = [stories]()
     var currentUser = [Profile]()
+    var postagem = [PostUser]()
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
         setupCollection()
         self.navigationController?.navigationBar.isHidden = true
-        arrayTable.append(Post(name: "Melissa", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "mel2.jpg",comments: " Eu sou simplesmente apaixonada em misturar peças mais femininas com outras mais pesadas ou retas!"))
-        arrayTable.append(Post(name: "Brendon", city: "Los Angeles", imageProfile: "brendon.jpg", imagePost: "post1.jpg", comments: "I like it in the city when the air is so thick and opaque"))
-        arrayTable.append(Post(name: "Melissa", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "mel1.jpeg",comments: "I just took a DNA test, turns out I'm 100% that bitch"))
-        arrayTable.append(Post(name: "Miles", city: "Vancouver, BC", imageProfile: "miles1.jpeg", imagePost: "miles0.jpeg",comments: "Needless to say, I keep her in check"))
+        postagem.append(PostUser(name: "Melissa", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "mel2.jpg",comments: " Eu sou simplesmente apaixonada em misturar peças mais femininas com outras mais pesadas ou retas!", allImages: ["mel2.jpg", "mel1.jpeg"]))
+        postagem.append(PostUser(name: "Brendon", city: "Los Angeles", imageProfile: "brendon.jpg", imagePost: "post1.jpg", comments: "I like it in the city when the air is so thick and opaque", allImages: ["post1.jpg", "gwen"]))
+        postagem.append(PostUser(name: "Melissa", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "mel1.jpeg",comments: "I just took a DNA test, turns out I'm 100% that bitch", allImages: ["mel2.jpg", "mel1.jpeg"]))
+        postagem.append(PostUser(name: "Miles", city: "Vancouver, BC", imageProfile: "miles1.jpeg", imagePost: "miles0.jpeg",comments: "Needless to say, I keep her in check", allImages: ["miles0.jpeg", "gwen"]))
+
+        
         currentUser.append(Profile(name: "Melissa", profileImage: "mel0.jpg"))
         
         arrayCollection.append(stories(storieImageView: "gwen"))
         arrayCollection.append(stories(storieImageView: "miles1.jpeg"))
         arrayCollection.append(stories(storieImageView: "brendon.jpg"))
-        
+        seeArray()
         feedTableView.reloadData()
         storieCollectionView.reloadData()
         // Do any additional setup after loading the view.
+    }
+    func seeArray(){
+        let searchValue = "Melissa"
+        print("fooooooooor")
+     
+       
+        for item in postagem{
+        if let i = postagem.firstIndex(where: { $0.name == "Miles" }) {
+                print("\(postagem[i])")
+            print(i)
+                print("\(postagem[i].imagePost)")
+        }
+        }
+        
     }
     func setupTableView(){
         feedTableView.delegate = self
@@ -54,7 +71,7 @@ class FeedViewController: UIViewController {
 
 extension FeedViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(arrayTable[indexPath.row].imagePost)
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -63,17 +80,16 @@ extension FeedViewController: UITableViewDataSource{
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrayTable.count
+        return postagem.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as! FeedTableViewCell
-        cell.setup(post: arrayTable[indexPath.row])
+        cell.setup(post: postagem[indexPath.row])
         cell.delegate = self
-        
         cell.nameTap = {
         if let viewcontroller = UIStoryboard(name: "User", bundle: nil).instantiateInitialViewController() as? UserViewController{
-            viewcontroller.post = self.arrayTable[indexPath.row]
+            viewcontroller.post = self.postagem[indexPath.row]
         self.navigationController?.pushViewController(viewcontroller, animated: true)
         }
     }

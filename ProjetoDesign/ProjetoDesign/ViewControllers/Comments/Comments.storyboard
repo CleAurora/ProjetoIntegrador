@@ -31,7 +31,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="82"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check your internet connection.Check any cables and reboot any routers, modems, or other network devices you may be using." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVU-b5-ijS">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check your internet connection.Check any cables and reboot any routers, modems, or other network devices you may be using." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVU-b5-ijS">
                                                     <rect key="frame" x="52" y="11" width="320" height="45"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="320" id="9uv-eD-kwA"/>
@@ -128,15 +128,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Owx-71-M1x">
-                                <rect key="frame" x="82" y="800" width="312" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="312" id="3tY-gX-DSN"/>
-                                    <constraint firstAttribute="height" constant="60" id="QJa-Xo-02i"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kyb-nX-dXd" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
                                 <rect key="frame" x="20" y="800" width="60" height="60"/>
                                 <constraints>
@@ -160,30 +151,38 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="obp-cQ-enD" customClass="RoundedTextField" customModule="ProjetoDesign" customModuleProvider="target">
+                                <rect key="frame" x="87" y="800" width="316" height="62"/>
+                                <color key="backgroundColor" red="0.56161708050000003" green="0.29417385629999998" blue="0.80162871209999997" alpha="0.84705882349999995" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="62" id="ZMB-pk-Akf"/>
+                                    <constraint firstAttribute="width" constant="316" id="xHC-lI-ML5"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="&quot;texto aqui&quot;"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2C7-j0-JLN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="obp-cQ-enD" firstAttribute="top" secondItem="tJ1-SN-cVl" secondAttribute="bottom" constant="8" symbolic="YES" id="15o-BR-2Rt"/>
+                            <constraint firstItem="obp-cQ-enD" firstAttribute="bottom" secondItem="2C7-j0-JLN" secondAttribute="bottom" id="686-aF-N8d"/>
                             <constraint firstItem="kyb-nX-dXd" firstAttribute="leading" secondItem="2C7-j0-JLN" secondAttribute="leading" constant="20" id="7FP-Xv-g98"/>
-                            <constraint firstItem="Owx-71-M1x" firstAttribute="top" secondItem="qgH-Gv-POi" secondAttribute="bottom" constant="725" id="EaB-6x-d91"/>
-                            <constraint firstItem="Owx-71-M1x" firstAttribute="top" secondItem="tJ1-SN-cVl" secondAttribute="bottom" constant="8" symbolic="YES" id="Gwd-v2-h4f"/>
                             <constraint firstItem="qgH-Gv-POi" firstAttribute="leading" secondItem="2C7-j0-JLN" secondAttribute="leading" constant="94" id="LgY-IU-Ccx"/>
+                            <constraint firstItem="obp-cQ-enD" firstAttribute="leading" secondItem="kyb-nX-dXd" secondAttribute="trailing" constant="7" id="O0d-QL-aEh"/>
+                            <constraint firstItem="2C7-j0-JLN" firstAttribute="trailing" secondItem="obp-cQ-enD" secondAttribute="trailing" constant="11" id="O28-vZ-4xa"/>
                             <constraint firstItem="kyb-nX-dXd" firstAttribute="top" secondItem="tJ1-SN-cVl" secondAttribute="bottom" constant="8" symbolic="YES" id="QaT-JT-Ih5"/>
                             <constraint firstItem="tJ1-SN-cVl" firstAttribute="leading" secondItem="2C7-j0-JLN" secondAttribute="leading" id="Qpw-ez-mAp"/>
                             <constraint firstItem="tJ1-SN-cVl" firstAttribute="trailing" secondItem="2C7-j0-JLN" secondAttribute="trailing" id="ahh-Ta-coY"/>
-                            <constraint firstItem="2C7-j0-JLN" firstAttribute="trailing" secondItem="Owx-71-M1x" secondAttribute="trailing" constant="20" id="cC5-ws-Wz3"/>
                             <constraint firstItem="tJ1-SN-cVl" firstAttribute="top" secondItem="2C7-j0-JLN" secondAttribute="top" constant="30" id="eXA-eG-ol7"/>
                             <constraint firstItem="2C7-j0-JLN" firstAttribute="trailing" secondItem="qgH-Gv-POi" secondAttribute="trailing" constant="93" id="g6A-qm-bf7"/>
-                            <constraint firstItem="Owx-71-M1x" firstAttribute="leading" secondItem="kyb-nX-dXd" secondAttribute="trailing" constant="2" id="jCi-rZ-Lu1"/>
                             <constraint firstItem="qgH-Gv-POi" firstAttribute="top" secondItem="2C7-j0-JLN" secondAttribute="top" constant="9" id="oVr-cu-3dJ"/>
-                            <constraint firstItem="Owx-71-M1x" firstAttribute="leading" secondItem="kyb-nX-dXd" secondAttribute="trailing" constant="2" id="r13-yt-A55"/>
                             <constraint firstItem="2C7-j0-JLN" firstAttribute="bottom" secondItem="kyb-nX-dXd" secondAttribute="bottom" constant="2" id="uDQ-NZ-av3"/>
-                            <constraint firstItem="2C7-j0-JLN" firstAttribute="bottom" secondItem="Owx-71-M1x" secondAttribute="bottom" constant="2" id="vsJ-2C-ZWj"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="commentsTableview" destination="tJ1-SN-cVl" id="cHh-Eb-HaE"/>
-                        <outlet property="commentsTextfield" destination="Owx-71-M1x" id="fVg-ih-yBy"/>
                         <outlet property="profileImageView" destination="kyb-nX-dXd" id="fUr-tr-Tzm"/>
                     </connections>
                 </viewController>

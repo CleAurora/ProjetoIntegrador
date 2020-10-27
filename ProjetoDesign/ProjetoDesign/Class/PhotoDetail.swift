@@ -1,12 +1,12 @@
 //
-//  Post.swift
+//  PhotoDetail.swift
 //  ProjetoDesign
 //
-//  Created by Lestad on 2020-10-04.
+//  Created by Lestad on 2020-10-25.
 //
 
 import Foundation
-class Post{
+class PhotoDetail{
     var name: String
     var city: String
     var imageProfile: String

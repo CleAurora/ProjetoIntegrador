@@ -37,8 +37,15 @@ class FeedTableViewCell: UITableViewCell {
     @IBAction func commentsButton(_ sender: Any) {
         delegate?.didButtonPressed()
     }
-    
-    func setup(post: Post){
+    func setupPhoto(photo: PhotoDetail){
+        uploadImageView.image = UIImage(named: photo.imageProfile)
+        postImageView.image = UIImage(named: photo.imagePost)
+        nameButton.setTitle("\(photo.name)", for: .normal)
+        cityLabel.text = photo.city
+        let text = "\(photo.name): \(photo.comments)".withBoldText(text: "\(photo.name)")
+        subtitlesLabel.attributedText = text
+    }
+    func setup(post: PostUser){
         uploadImageView.image = UIImage(named: post.imageProfile)
         postImageView.image = UIImage(named: post.imagePost)
         nameButton.setTitle("\(post.name)", for: .normal)

@@ -17,11 +17,14 @@ class UserViewController: UIViewController {
     @IBOutlet weak var profileCollectionView: UICollectionView!
     var name: String?
     var userArray = [Post]()
-    var post: Post?
+    var post: PostUser?
+    var images: [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         profileCollectionView.delegate = self
         profileCollectionView.dataSource = self
+        images.append(contentsOf: post!.allImages)
+        print(images)
         setup()
         // Do any additional setup after loading the view.
     }
@@ -32,15 +35,25 @@ class UserViewController: UIViewController {
     }
 }
 extension UserViewController: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("clicou")
+        if let vc = UIStoryboard(name: "PhotoDetail", bundle: nil).instantiateInitialViewController() as? PhotoDetailViewController{
+            print("user clicked")
+            print(post?.allImages)
+            vc.post = post
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
 }
 extension UserViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return userArray.count
+        return images.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! UserCollectionCell
-        
+        cell.imageCollection.image = UIImage(named: images[indexPath.row])
+        print(images[indexPath.row])
         return cell
     }
     

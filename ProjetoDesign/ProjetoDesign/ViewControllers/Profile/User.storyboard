@@ -13,14 +13,14 @@
         <scene sceneID="h8b-Yo-GXg">
             <objects>
                 <viewController id="OUw-tn-mmE" customClass="UserViewController" customModule="ProjetoDesign" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ph5-Dw-ycO">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="Ph5-Dw-ycO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tK9-VV-pqg">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" alwaysBounceVertical="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tK9-VV-pqg">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yxl-FL-sbO" customClass="extensions" customModule="ProjetoDesign" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yxl-FL-sbO" customClass="extensions" customModule="ProjetoDesign" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="-11" width="414" height="863"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="axZ-fc-Jk7" customClass="extensions" customModule="ProjetoDesign" customModuleProvider="target">
@@ -60,7 +60,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N32-5F-uxk">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" directionalLockEnabled="YES" alwaysBounceVertical="YES" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N32-5F-uxk">
                                                 <rect key="frame" x="7" y="489" width="398" height="330"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -80,9 +80,12 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="post1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="DLB-hL-aT6" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="post1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="DLB-hL-aT6" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="120" id="ADF-Rm-iYT"/>
+                                                                        <constraint firstAttribute="height" constant="120" id="gOh-bJ-vI8"/>
+                                                                    </constraints>
                                                                     <userDefinedRuntimeAttributes>
                                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                             <real key="value" value="16"/>
@@ -95,12 +98,16 @@
                                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 </imageView>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="bottom" secondItem="DLB-hL-aT6" secondAttribute="bottom" id="6As-J2-gCl"/>
+                                                                <constraint firstItem="DLB-hL-aT6" firstAttribute="leading" secondItem="iAi-mI-7x6" secondAttribute="leading" id="A4a-bv-a9U"/>
+                                                                <constraint firstItem="DLB-hL-aT6" firstAttribute="top" secondItem="iAi-mI-7x6" secondAttribute="top" id="OcI-m9-pVF"/>
+                                                                <constraint firstAttribute="trailing" secondItem="DLB-hL-aT6" secondAttribute="trailing" id="Ujk-T2-fbZ"/>
+                                                            </constraints>
                                                         </collectionViewCellContentView>
                                                         <size key="customSize" width="120" height="120"/>
                                                         <connections>
                                                             <outlet property="imageCollection" destination="DLB-hL-aT6" id="iJM-Vn-Xfo"/>
-                                                            <outlet property="uploadImageview" destination="DLB-hL-aT6" id="cPo-2B-QO5"/>
-                                                            <outlet property="weatherImageView" destination="NbI-KG-twf" id="q6M-B1-sr8"/>
                                                         </connections>
                                                     </collectionViewCell>
                                                 </cells>
