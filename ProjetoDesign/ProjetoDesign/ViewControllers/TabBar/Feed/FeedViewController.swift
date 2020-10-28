@@ -22,7 +22,7 @@ class FeedViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
         postagem.append(PostUser(name: "Melissa", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "mel2.jpg",comments: " Eu sou simplesmente apaixonada em misturar peças mais femininas com outras mais pesadas ou retas!", allImages: ["mel2.jpg", "mel1.jpeg"]))
         postagem.append(PostUser(name: "Brendon", city: "Los Angeles", imageProfile: "brendon.jpg", imagePost: "post1.jpg", comments: "I like it in the city when the air is so thick and opaque", allImages: ["post1.jpg", "gwen"]))
-        postagem.append(PostUser(name: "Melissa", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "mel1.jpeg",comments: "I just took a DNA test, turns out I'm 100% that bitch", allImages: ["mel2.jpg", "mel1.jpeg"]))
+        postagem.append(PostUser(name: "Melissa ", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "mel1.jpeg",comments: "I just took a DNA test, turns out I'm 100% that bitch", allImages: ["mel2.jpg", "mel1.jpeg"]))
         postagem.append(PostUser(name: "Miles", city: "Vancouver, BC", imageProfile: "miles1.jpeg", imagePost: "miles0.jpeg",comments: "Needless to say, I keep her in check", allImages: ["miles0.jpeg", "gwen"]))
 
         
@@ -87,6 +87,7 @@ extension FeedViewController: UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as! FeedTableViewCell
         cell.setup(post: postagem[indexPath.row])
         cell.delegate = self
+        
         cell.nameTap = {
         if let viewcontroller = UIStoryboard(name: "User", bundle: nil).instantiateInitialViewController() as? UserViewController{
             viewcontroller.post = self.postagem[indexPath.row]

@@ -34,9 +34,9 @@ class PhotoDetailTableViewCell: UITableViewCell {
         @IBAction func commentsButton(_ sender: Any) {
             delegate?.didButtonPressed()
         }
-        func setupPhoto(photo: PhotoDetail){
+        func setupPhoto(photo: PostUser){
             uploadImageView.image = UIImage(named: photo.imageProfile)
-            postImageView.image = UIImage(named: photo.allImages.joined(separator: " "))
+            postImageView.image = UIImage(named: photo.imagePost)
             nameButton.setTitle("\(photo.name)", for: .normal)
             cityLabel.text = photo.city
             let text = "\(photo.name): \(photo.comments)".withBoldText(text: "\(photo.name)")

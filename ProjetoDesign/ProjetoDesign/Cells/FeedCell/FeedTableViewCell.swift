@@ -19,6 +19,7 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var subtitlesLabel: UILabel!
     @IBOutlet weak var nameButton: UIButton!
+    @IBOutlet weak var viewLiked: extensions!
     var delegate: ButtonsTableView?
     var heart: String? = nil
     var nameTap : (() -> ()) = {}
@@ -37,6 +38,7 @@ class FeedTableViewCell: UITableViewCell {
     @IBAction func commentsButton(_ sender: Any) {
         delegate?.didButtonPressed()
     }
+
     func setupPhoto(photo: PhotoDetail){
         uploadImageView.image = UIImage(named: photo.imageProfile)
         postImageView.image = UIImage(named: photo.imagePost)

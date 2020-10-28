@@ -10,22 +10,24 @@ import UIKit
 class PhotoDetailViewController: UIViewController {
     @IBOutlet weak var photoTableView: UITableView!
     var post: PostUser?
-    var photoDetail = [PhotoDetail]()
-    var photos: [String] = []
+    var photoDetail = [PostUser]()
+    var name: String?
+    var image: String?
+    var comments: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        photoDetail.append(PhotoDetail(name: "\(post?.name)", city: "\(post?.city)", imageProfile: "\(post?.imageProfile)", imagePost: "\(post?.imagePost)", comments: "\(post?.comments)", allImages: ["\(post?.allImages)"]))
-        photos.append(contentsOf: post!.allImages)
-        print(post?.allImages)
-        print(post?.imagePost)
+        name = post!.name
         photoTableView.delegate = self
         photoTableView.dataSource = self
+        photoDetail.append(PostUser(name: "\(name!)", city: "\(post!.city)", imageProfile: "\(post!.imageProfile)", imagePost: "\(image!)", comments: "\(comments!)", allImages: ["",""]))
         // Do any additional setup after loading the view.
-    }
-    
+    }    
 }
 extension PhotoDetailViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
     
 }
 extension PhotoDetailViewController: UITableViewDataSource{
@@ -35,7 +37,7 @@ extension PhotoDetailViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as! PhotoDetailTableViewCell
-       cell.setupPhoto(photo: photoDetail[indexPath.row])
+        cell.setupPhoto(photo: photoDetail[indexPath.row])
         return cell
     }
     

@@ -36,10 +36,11 @@ class UserViewController: UIViewController {
 }
 extension UserViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("clicou")
+        print(images[indexPath.row])
         if let vc = UIStoryboard(name: "PhotoDetail", bundle: nil).instantiateInitialViewController() as? PhotoDetailViewController{
-            print("user clicked")
-            print(post?.allImages)
+            vc.name = post?.name
+            vc.comments = post?.comments
+            vc.image = images[indexPath.row]
             vc.post = post
             navigationController?.pushViewController(vc, animated: true)
         }

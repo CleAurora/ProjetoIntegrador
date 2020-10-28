@@ -94,9 +94,9 @@
                             <constraint firstItem="zyL-sa-2BJ" firstAttribute="leading" secondItem="z7R-3E-GQS" secondAttribute="leading" id="zGt-vZ-Gq0"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="heart-2" id="J3R-uQ-zwr">
+                    <tabBarItem key="tabBarItem" title="" image="heart-2" selectedImage="heart-fill" id="J3R-uQ-zwr">
                         <inset key="imageInsets" minX="0.0" minY="30" maxX="0.0" maxY="25"/>
-                        <color key="badgeColor" red="0.1060770014" green="0.24054854319999999" blue="0.38894511009999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -109,7 +109,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="heart-2" width="100" height="100"/>
+        <image name="heart-2" width="50" height="50"/>
+        <image name="heart-fill" width="50" height="50"/>
         <image name="mel0.jpg" width="1300" height="729"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
