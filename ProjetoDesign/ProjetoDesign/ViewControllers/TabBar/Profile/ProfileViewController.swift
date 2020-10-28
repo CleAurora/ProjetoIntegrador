@@ -18,7 +18,8 @@ class ProfileViewController: UIViewController {
         super.viewDidAppear(animated)
 
         setupCollection()
-        setup()
+        //setup()
+        profileArray.append(Profile(name: "Melissa", profileImage: "mel0.jpg", bio: "It’s always important when preparing for your movie premiere to keep your neck napkin tucked in while you apply your press on nails"))
         imagensArray.append(imagensProfile(imagens: "mel0.jpg"))
         imagensArray.append(imagensProfile(imagens: "mel1.jpeg"))
         imagensArray.append(imagensProfile(imagens: "mel2.jpg"))
@@ -40,11 +41,11 @@ class ProfileViewController: UIViewController {
 
         profileCollectionView.reloadData()
 
-        profileImageView.layer.maskedCorners = CACornerMask(
+        /*profileImageView.layer.maskedCorners = CACornerMask(
             rawValue: UIRectCorner(
                 [UIRectCorner.bottomLeft, UIRectCorner.bottomRight]
             ).rawValue
-        )
+        )*/
     }
     func setupCollection(){
         profileCollectionView.delegate = self
@@ -53,7 +54,7 @@ class ProfileViewController: UIViewController {
     }
     func setup(){
 //        let profileUser = Profile(name: "Brendon", profileImage: "brendon.jpg")
-        let profileUser = Profile(name: "Melissa", profileImage: "mel0.jpg")
+        let profileUser = Profile(name: "Melissa", profileImage: "mel0.jpg", bio: "")
         nameLabel.text = profileUser.name
         profileImageView.image = UIImage(named: profileUser.profileImage)
     }
@@ -71,6 +72,11 @@ extension ProfileViewController: UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! ProfileCollectionCell
         cell.setup(user: imagensArray[indexPath.row])
         
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView,viewForSupplementaryElementOfKind kind: String,at indexPath: IndexPath) -> UICollectionReusableView {
+        let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "profileReuCell", for: indexPath) as! ProfileCollectionReusableView
+        cell.setup(post: profileArray[indexPath.row])
         return cell
     }
     

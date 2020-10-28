@@ -9,10 +9,11 @@ import Foundation
 class Profile{
     var name: String
     var profileImage: String
-    
-    init(name: String, profileImage: String) {
+    var bio: String
+    init(name: String, profileImage: String, bio: String) {
         self.name = name
         self.profileImage = profileImage
+        self.bio = bio
         
     }
 }

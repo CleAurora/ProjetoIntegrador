@@ -26,7 +26,7 @@ class FeedViewController: UIViewController {
         postagem.append(PostUser(name: "Miles", city: "Vancouver, BC", imageProfile: "miles1.jpeg", imagePost: "miles0.jpeg",comments: "Needless to say, I keep her in check", allImages: ["miles0.jpeg", "gwen"]))
 
         
-        currentUser.append(Profile(name: "Melissa", profileImage: "mel0.jpg"))
+        currentUser.append(Profile(name: "Melissa", profileImage: "mel0.jpg", bio: ""))
         
         arrayCollection.append(stories(storieImageView: "gwen"))
         arrayCollection.append(stories(storieImageView: "miles1.jpeg"))
