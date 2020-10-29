@@ -13,10 +13,10 @@ class StorieCollectionCell: UICollectionViewCell {
     
     func setup(storie: stories){
         myImageView.image = UIImage(named: storie.storieImageView)
-        borderView.backgroundColor = UIColor(patternImage: UIImage(named: "storiesImage.jpg")!)
+        borderView.backgroundColor = UIColor(patternImage: UIImage(named: "stories2.jpg")!)
     }
     func user(storie: Profile){
         myImageView.image = UIImage(named: storie.profileImage)
-        borderView.backgroundColor = UIColor(patternImage: UIImage(named: "storiesImage.jpg")!)
+        borderView.backgroundColor = UIColor(patternImage: UIImage(named: "stories2.jpg")!)
     }
 }

@@ -9,7 +9,6 @@ import UIKit
 import Foundation
 protocol ButtonsTableView{
     func didButtonPressed()
-    //func nameTapped()
 }
 class FeedTableViewCell: UITableViewCell {
     
@@ -23,7 +22,7 @@ class FeedTableViewCell: UITableViewCell {
     var delegate: ButtonsTableView?
     var heart: String? = nil
     var nameTap : (() -> ()) = {}
-    
+    var heartTap : (() -> ()) = {}
     override func awakeFromNib() {
         super.awakeFromNib()
         likeImageView.isHidden = true
@@ -33,12 +32,20 @@ class FeedTableViewCell: UITableViewCell {
     
     @IBAction func nameButton(_ sender: Any) {
         nameTap()
-//        delegate?.nameTapped()
     }
     @IBAction func commentsButton(_ sender: Any) {
         delegate?.didButtonPressed()
     }
-
+    @IBAction func likedButton(_ sender: Any) {
+        heartTap()
+    }
+    @IBAction func commentsViewButton(_ sender: Any) {
+        delegate?.didButtonPressed()
+    }
+    
+    @IBAction func heartLikeButton(_ sender: Any) {
+        heartTap()
+    }
     func setupPhoto(photo: PhotoDetail){
         uploadImageView.image = UIImage(named: photo.imageProfile)
         postImageView.image = UIImage(named: photo.imagePost)

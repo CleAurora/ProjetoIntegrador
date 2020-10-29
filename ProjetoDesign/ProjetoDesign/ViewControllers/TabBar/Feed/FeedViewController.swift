@@ -31,6 +31,7 @@ class FeedViewController: UIViewController {
         arrayCollection.append(stories(storieImageView: "gwen"))
         arrayCollection.append(stories(storieImageView: "miles1.jpeg"))
         arrayCollection.append(stories(storieImageView: "brendon.jpg"))
+        arrayCollection.append(stories(storieImageView: "Connor"))
         seeArray()
         feedTableView.reloadData()
         storieCollectionView.reloadData()
@@ -94,6 +95,68 @@ extension FeedViewController: UITableViewDataSource{
         self.navigationController?.pushViewController(viewcontroller, animated: true)
         }
     }
+        cell.heartTap = {
+            print("heart click")
+            print(cell.heart)
+            let h2 = cell.heart
+                print("h2")
+                print(h2)
+                if h2 != nil {
+                    cell.likeImageView.isHidden = false
+                    cell.viewLiked.backgroundColor = UIColor.red
+                    cell.likeImageView.image = UIImage(named: "heart1.png")
+                    cell.heart = nil
+                    let toImage = UIImage(named:"heart1.png")
+                    UIView.transition(with: cell,
+                                      duration: 0.3,
+                                          options: .transitionCrossDissolve,
+                                          animations: {
+                                            cell.likeImageView.image = toImage
+                                          },
+                                          completion: {_ in (
+                                            //let notImage = UIImage(named:"")
+                                                        UIView.transition(with: cell.likeImageView,
+                                                                              duration: 2,
+                                                                              options: .transitionCrossDissolve,
+                                                                              animations: {
+                                                                                cell.likeImageView.image = UIImage(named: "")
+                                                                              },
+                                                                              completion: nil)
+                                          )})
+                    
+                    
+                }else {
+                    cell.viewLiked.backgroundColor = UIColor.lightGray
+                    //cell.likeImageView.image = UIImage(named: "heart0.png")
+                    cell.heart = "Item"
+                    
+                    let toImage = UIImage(named:"broken")
+                    
+                    UIView.transition(with: cell.likeImageView,
+                                      duration: 0.3,
+                                          options: .transitionCrossDissolve,
+                                          animations: {
+                                            cell.likeImageView.image = toImage
+                                          },
+                                          completion: {_ in (
+                                            //let notImage = UIImage(named:"")
+                                            UIView.transition(with: cell.likeImageView,
+                                                duration: 1,
+                                                options: .transitionCrossDissolve,
+                                                animations: {
+                                                cell.likeImageView.image = UIImage(named: "brokenwhite")
+                                                },
+                                                    completion: {_ in (
+                                                     UIView.transition(with: cell.likeImageView,
+                                                     duration: 0.5, options: .transitionCrossDissolve,
+                                                     animations: {
+                                                     cell.likeImageView.image = UIImage(named: "")
+                                                    },
+                                                     completion: nil)
+                 )})
+              )})
+            }
+        }
         return cell
     }
 }
@@ -105,7 +168,7 @@ extension FeedViewController: ButtonsTableView{
         
             present(viewcontroller, animated: true, completion: nil)
     }
-    }
+}
     
 }
 extension FeedViewController: UICollectionViewDelegate{

@@ -22,7 +22,7 @@ class PhotoDetailViewController: UIViewController {
         photoTableView.dataSource = self
         photoDetail.append(PostUser(name: "\(name!)", city: "\(post!.city)", imageProfile: "\(post!.imageProfile)", imagePost: "\(image!)", comments: "\(comments!)", allImages: ["",""]))
         // Do any additional setup after loading the view.
-    }    
+    }
 }
 extension PhotoDetailViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
