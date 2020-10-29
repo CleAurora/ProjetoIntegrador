@@ -13,7 +13,7 @@ class StoriesReusableView: UICollectionReusableView {
     
     func setup(user: Profile){
         currentUserImageView.image = UIImage(named: user.profileImage)
-        borderView.backgroundColor = UIColor(patternImage: UIImage(named: "stories2.jpg")!)
+        //borderView.backgroundColor = UIColor(patternImage: UIImage(named: "stories2.jpg")!)
         
         
     }
