@@ -13,7 +13,10 @@ class infoPostViewController: UIViewController {
     var settingsArray = ["Report",  "Share to...", "Turn On Post Notifications", "Mute", "Unfollow"]
     
     override func viewDidLoad() {
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationController?.navigationBar.isHidden = true
         super.viewDidLoad()
+        
         setupView()
         settingsTableView.delegate = self
         settingsTableView.dataSource = self

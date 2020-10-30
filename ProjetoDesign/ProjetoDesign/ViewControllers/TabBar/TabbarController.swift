@@ -20,8 +20,8 @@ class TabbarController: UITabBarController {
         self.tabBar.tintColor = UIColor.black
         UITabBar.appearance().unselectedItemTintColor = UIColor.black
         let feed = (self.tabBar.items?[0])! as UITabBarItem
-        feed.image = UIImage(named: "menu-2.png")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
-        feed.selectedImage = UIImage(named: "menu")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        feed.image = UIImage(named: "home")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
+        feed.selectedImage = UIImage(named: "homefill")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         feed.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: 0, right: 0)
 
         let upload = (self.tabBar.items?[2])! as UITabBarItem

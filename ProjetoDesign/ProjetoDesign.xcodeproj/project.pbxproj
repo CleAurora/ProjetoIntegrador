@@ -372,7 +372,6 @@
 				4CADCC9D25422810005676F7 /* Comments.swift */,
 				4C573F3C2545E8E700A2982F /* PhotoDetail.swift */,
 				4C47EE7E254631AE000F934B /* User.swift */,
-				4CE2D15925485C0F004045B2 /* RoundedTextField.swift */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -575,6 +574,7 @@
 		4CCB5273252A4B0F00F9AB19 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4CE2D15925485C0F004045B2 /* RoundedTextField.swift */,
 				4CCB5274252A4B2100F9AB19 /* RoundedView.swift */,
 				4CCB5279252A4B3F00F9AB19 /* RoundedButton.swift */,
 				4CCB527E252A4B5100F9AB19 /* editTextField.swift */,

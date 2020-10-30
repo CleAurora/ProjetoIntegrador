@@ -14,9 +14,12 @@ class CommentsTableCell: UITableViewCell {
     @IBOutlet weak var likesLabel: UIButton!
     @IBOutlet weak var replyButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
-    
+    @IBOutlet var likeImage: UIImageView!
+    var likedButton : (() -> ()) = {}
+    var imageString = "suit.heart"
     override func awakeFromNib() {
         super.awakeFromNib()
+        likeImage.image = UIImage(systemName: "suit.heart")
         // Initialization code
     }
 
@@ -24,6 +27,22 @@ class CommentsTableCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    @IBAction func likeButton(_ sender: Any) {
+        likedButton()
+    }
+    func changeImage(){
+        print("change image executed")
+        if imageString == "suit.heart" {
+            imageString = "suit.heart.fill"
+            print(imageString)
+        }else if imageString == "suit.heart.fill"{
+            imageString = "suit.heart"
+            print(imageString)
+        }else {
+            imageString = "suit.heart"
+            print(imageString)
+        }
     }
     func setup(comments: comments){
         profileImageView.image = UIImage(named: comments.image)

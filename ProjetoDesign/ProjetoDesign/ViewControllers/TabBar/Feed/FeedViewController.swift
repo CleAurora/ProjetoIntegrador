@@ -96,14 +96,10 @@ extension FeedViewController: UITableViewDataSource{
         }
     }
         cell.heartTap = {
-            print("heart click")
-            print(cell.heart)
             let h2 = cell.heart
-                print("h2")
-                print(h2)
                 if h2 != nil {
                     cell.likeImageView.isHidden = false
-                    cell.viewLiked.backgroundColor = UIColor.red
+                    cell.viewLiked.backgroundColor = UIColor.systemIndigo
                     cell.likeImageView.image = UIImage(named: "heart1.png")
                     cell.heart = nil
                     let toImage = UIImage(named:"heart1.png")
@@ -165,7 +161,7 @@ extension FeedViewController: ButtonsTableView{
     func didButtonPressed() {
         
         if let viewcontroller = UIStoryboard(name: "Comments", bundle: nil).instantiateInitialViewController() as? CommentsViewController{
-        
+            
             present(viewcontroller, animated: true, completion: nil)
     }
 }
