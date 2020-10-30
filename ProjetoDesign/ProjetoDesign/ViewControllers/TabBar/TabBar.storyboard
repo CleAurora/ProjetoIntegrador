@@ -607,7 +607,7 @@
                                             </collectionReusableView>
                                         </collectionView>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="feedCell" rowHeight="606" id="9Gy-jy-QHO" customClass="FeedTableViewCell" customModule="ProjetoDesign" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="feedCell" rowHeight="606" id="9Gy-jy-QHO" customClass="FeedTableViewCell" customModule="ProjetoDesign" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="128" width="375" height="606"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9Gy-jy-QHO" id="IYO-oJ-ESX">
