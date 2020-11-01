@@ -87,6 +87,8 @@
 		4CCB527F252A4B5100F9AB19 /* editTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB527E252A4B5100F9AB19 /* editTextField.swift */; };
 		4CCB5285252A4DB000F9AB19 /* Registrar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CCB5284252A4DB000F9AB19 /* Registrar.storyboard */; };
 		4CCB528A252A4DC000F9AB19 /* RegistrarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB5289252A4DC000F9AB19 /* RegistrarViewController.swift */; };
+		4CDB7B18254F47E500A97B25 /* mel3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4CDB7B17254F47E500A97B25 /* mel3.jpeg */; };
+		4CDB7B20254F480E00A97B25 /* mel4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CDB7B1F254F480E00A97B25 /* mel4.jpg */; };
 		4CE2D15A25485C0F004045B2 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2D15925485C0F004045B2 /* RoundedTextField.swift */; };
 /* End PBXBuildFile section */
 
@@ -194,6 +196,8 @@
 		4CCB527E252A4B5100F9AB19 /* editTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editTextField.swift; sourceTree = "<group>"; };
 		4CCB5284252A4DB000F9AB19 /* Registrar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registrar.storyboard; sourceTree = "<group>"; };
 		4CCB5289252A4DC000F9AB19 /* RegistrarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrarViewController.swift; sourceTree = "<group>"; };
+		4CDB7B17254F47E500A97B25 /* mel3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel3.jpeg; sourceTree = "<group>"; };
+		4CDB7B1F254F480E00A97B25 /* mel4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel4.jpg; sourceTree = "<group>"; };
 		4CE2D15925485C0F004045B2 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -450,6 +454,8 @@
 			children = (
 				4C6DF0AA252B5B2C0099D857 /* mel0.jpg */,
 				4C6DF0A9252B5B2C0099D857 /* mel1.jpeg */,
+				4CDB7B17254F47E500A97B25 /* mel3.jpeg */,
+				4CDB7B1F254F480E00A97B25 /* mel4.jpg */,
 				4C6DF0AB252B5B2C0099D857 /* mel2.jpg */,
 			);
 			path = melissa;
@@ -705,6 +711,7 @@
 				4C0D1A18252A7BCC00462862 /* brendon.jpg in Resources */,
 				4CCB5243252A45E800F9AB19 /* LaunchScreen.storyboard in Resources */,
 				4C0D1A13252A786100462862 /* heart0.png in Resources */,
+				4CDB7B20254F480E00A97B25 /* mel4.jpg in Resources */,
 				4CADCC9425422665005676F7 /* Comments.storyboard in Resources */,
 				4C57A13E253F89310018C522 /* search.storyboard in Resources */,
 				4C6DF0B5252B5D510099D857 /* miles0.jpeg in Resources */,
@@ -712,6 +719,7 @@
 				4C0D1A29252A801E00462862 /* post3.jpg in Resources */,
 				4C0D1A0C252A768300462862 /* heart1.png in Resources */,
 				4C0D19F9252A6D8200462862 /* tag.png in Resources */,
+				4CDB7B18254F47E500A97B25 /* mel3.jpeg in Resources */,
 				426414202540DF1900F47C5D /* Legend.storyboard in Resources */,
 				4C6DF0AC252B5B2D0099D857 /* mel1.jpeg in Resources */,
 				4C0D19AB252A585600462862 /* facebook.png in Resources */,

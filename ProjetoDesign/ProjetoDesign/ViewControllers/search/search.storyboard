@@ -77,10 +77,6 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xxj-qY-2jb">
                                 <rect key="frame" x="0.0" y="100" width="414" height="796"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="796" id="ot7-qF-FYd"/>
-                                    <constraint firstAttribute="width" constant="414" id="rST-CB-jpF"/>
-                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="d8N-GX-IMk">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -126,17 +122,17 @@
                         <viewLayoutGuide key="safeArea" id="1o8-rW-cFg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="boJ-pQ-M2u" firstAttribute="trailing" secondItem="1o8-rW-cFg" secondAttribute="trailing" id="8rF-Kd-XZV"/>
-                            <constraint firstItem="V0X-n2-Awq" firstAttribute="leading" secondItem="1o8-rW-cFg" secondAttribute="leading" id="CH6-bx-svJ"/>
-                            <constraint firstAttribute="bottom" secondItem="V0X-n2-Awq" secondAttribute="bottom" id="CSy-PF-aps"/>
-                            <constraint firstItem="xxj-qY-2jb" firstAttribute="top" secondItem="boJ-pQ-M2u" secondAttribute="bottom" id="Pd1-yh-gGT"/>
-                            <constraint firstItem="V0X-n2-Awq" firstAttribute="top" secondItem="boJ-pQ-M2u" secondAttribute="bottom" id="WR3-nz-NTQ"/>
-                            <constraint firstItem="xxj-qY-2jb" firstAttribute="leading" secondItem="1o8-rW-cFg" secondAttribute="leading" id="WpT-8Q-Qw9"/>
-                            <constraint firstItem="boJ-pQ-M2u" firstAttribute="leading" secondItem="1o8-rW-cFg" secondAttribute="leading" id="dGO-pK-r3d"/>
-                            <constraint firstItem="xxj-qY-2jb" firstAttribute="trailing" secondItem="1o8-rW-cFg" secondAttribute="trailing" id="kc6-MF-Oaa"/>
-                            <constraint firstItem="boJ-pQ-M2u" firstAttribute="top" secondItem="1o8-rW-cFg" secondAttribute="top" id="mkt-tb-FjN"/>
-                            <constraint firstItem="V0X-n2-Awq" firstAttribute="trailing" secondItem="1o8-rW-cFg" secondAttribute="trailing" id="xD2-cN-tI5"/>
-                            <constraint firstAttribute="bottom" secondItem="xxj-qY-2jb" secondAttribute="bottom" id="yfo-wD-Uxv"/>
+                            <constraint firstItem="xxj-qY-2jb" firstAttribute="leading" secondItem="1o8-rW-cFg" secondAttribute="leading" id="3hu-tu-DQN"/>
+                            <constraint firstItem="xxj-qY-2jb" firstAttribute="top" secondItem="boJ-pQ-M2u" secondAttribute="bottom" id="8sH-NT-GaQ"/>
+                            <constraint firstAttribute="bottom" secondItem="xxj-qY-2jb" secondAttribute="bottom" id="Aa8-Wo-Szz"/>
+                            <constraint firstItem="boJ-pQ-M2u" firstAttribute="trailing" secondItem="1o8-rW-cFg" secondAttribute="trailing" id="HJC-ak-plX"/>
+                            <constraint firstItem="boJ-pQ-M2u" firstAttribute="leading" secondItem="1o8-rW-cFg" secondAttribute="leading" id="ITr-z3-LUY"/>
+                            <constraint firstItem="V0X-n2-Awq" firstAttribute="top" secondItem="boJ-pQ-M2u" secondAttribute="bottom" id="KQ8-FQ-cHl"/>
+                            <constraint firstItem="V0X-n2-Awq" firstAttribute="leading" secondItem="1o8-rW-cFg" secondAttribute="leading" id="OcS-Nc-2DZ"/>
+                            <constraint firstItem="boJ-pQ-M2u" firstAttribute="top" secondItem="1o8-rW-cFg" secondAttribute="top" id="RTT-Xp-uvc"/>
+                            <constraint firstItem="V0X-n2-Awq" firstAttribute="trailing" secondItem="1o8-rW-cFg" secondAttribute="trailing" id="WtC-7P-7cm"/>
+                            <constraint firstAttribute="bottom" secondItem="V0X-n2-Awq" secondAttribute="bottom" id="Zgh-bB-ql3"/>
+                            <constraint firstItem="xxj-qY-2jb" firstAttribute="trailing" secondItem="1o8-rW-cFg" secondAttribute="trailing" id="eBm-Cg-Ync"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="lupa" selectedImage="lupa-fill" id="BOr-Nk-9jE">

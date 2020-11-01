@@ -17,11 +17,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gw6-PF-m1Y" customClass="RoundedButton" customModule="ProjetoDesign" customModuleProvider="target">
-                                <rect key="frame" x="20" y="821" width="374" height="59"/>
+                                <rect key="frame" x="20" y="815" width="374" height="59"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="59" id="qc9-Tg-bmI"/>
-                                    <constraint firstAttribute="width" constant="374" id="stG-wj-om9"/>
+                                    <constraint firstAttribute="width" constant="374" id="b9Q-km-Kvm"/>
+                                    <constraint firstAttribute="height" constant="59" id="gNI-bS-dbw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Cancel">
@@ -40,11 +40,10 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bcf-OQ-yKy">
-                                <rect key="frame" x="20" y="445" width="374" height="360"/>
+                                <rect key="frame" x="20" y="437" width="374" height="360"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="374" id="D0d-Tn-W1C"/>
-                                    <constraint firstAttribute="height" constant="360" id="g7f-dz-1M2"/>
+                                    <constraint firstAttribute="width" constant="374" id="Y3q-3g-AF7"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InfoCell" rowHeight="62" id="aNW-1F-nBW" customClass="InfoPostTableCell" customModule="ProjetoDesign" customModuleProvider="target">
@@ -82,13 +81,13 @@
                         <viewLayoutGuide key="safeArea" id="bQX-Uv-3H3"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Gw6-PF-m1Y" secondAttribute="bottom" constant="16" id="2yS-q1-R4J"/>
-                            <constraint firstItem="Gw6-PF-m1Y" firstAttribute="leading" secondItem="bQX-Uv-3H3" secondAttribute="leading" constant="20" id="Nhk-oj-eae"/>
-                            <constraint firstItem="bQX-Uv-3H3" firstAttribute="trailing" secondItem="Gw6-PF-m1Y" secondAttribute="trailing" constant="20" id="NrZ-vN-WpM"/>
-                            <constraint firstItem="Bcf-OQ-yKy" firstAttribute="top" secondItem="bQX-Uv-3H3" secondAttribute="top" constant="401" id="b0c-jB-Dok"/>
-                            <constraint firstItem="Bcf-OQ-yKy" firstAttribute="leading" secondItem="bQX-Uv-3H3" secondAttribute="leading" constant="20" id="sS1-bw-sCN"/>
-                            <constraint firstItem="Gw6-PF-m1Y" firstAttribute="top" secondItem="Bcf-OQ-yKy" secondAttribute="bottom" constant="16" id="spu-ej-nEC"/>
-                            <constraint firstItem="bQX-Uv-3H3" firstAttribute="trailing" secondItem="Bcf-OQ-yKy" secondAttribute="trailing" constant="20" id="vzP-OD-jcn"/>
+                            <constraint firstItem="Bcf-OQ-yKy" firstAttribute="leading" secondItem="bQX-Uv-3H3" secondAttribute="leading" constant="20" id="0gN-nO-gAC"/>
+                            <constraint firstItem="bQX-Uv-3H3" firstAttribute="trailing" secondItem="Bcf-OQ-yKy" secondAttribute="trailing" constant="20" id="9RW-1I-AoY"/>
+                            <constraint firstItem="Bcf-OQ-yKy" firstAttribute="top" secondItem="bQX-Uv-3H3" secondAttribute="top" constant="393" id="NHg-83-qzX"/>
+                            <constraint firstAttribute="bottom" secondItem="Gw6-PF-m1Y" secondAttribute="bottom" constant="22" id="wIB-WG-eDq"/>
+                            <constraint firstItem="bQX-Uv-3H3" firstAttribute="trailing" secondItem="Gw6-PF-m1Y" secondAttribute="trailing" constant="20" id="wU7-JK-nbZ"/>
+                            <constraint firstItem="Gw6-PF-m1Y" firstAttribute="top" secondItem="Bcf-OQ-yKy" secondAttribute="bottom" constant="18" id="zrt-zK-ymS"/>
+                            <constraint firstItem="Gw6-PF-m1Y" firstAttribute="leading" secondItem="bQX-Uv-3H3" secondAttribute="leading" constant="20" id="zsN-3c-VeW"/>
                         </constraints>
                     </view>
                     <connections>

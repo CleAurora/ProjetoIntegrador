@@ -32,21 +32,19 @@ class FeedViewController: UIViewController {
         arrayCollection.append(stories(storieImageView: "miles1.jpeg"))
         arrayCollection.append(stories(storieImageView: "brendon.jpg"))
         arrayCollection.append(stories(storieImageView: "Connor"))
-        seeArray()
+        //seeArray()
         feedTableView.reloadData()
         storieCollectionView.reloadData()
         // Do any additional setup after loading the view.
     }
     func seeArray(){
         let searchValue = "Melissa"
-        print("fooooooooor")
-     
-       
         for item in postagem{
-        if let i = postagem.firstIndex(where: { $0.name == "Miles" }) {
-                print("\(postagem[i])")
+        if let i = postagem.firstIndex(where: { $0.name == "Melissa" }) {
+            print("\(postagem[i].imagePost)")
+            print("achar no array!!!")
             print(i)
-                print("\(postagem[i].imagePost)")
+            
         }
         }
         
@@ -63,7 +61,7 @@ class FeedViewController: UIViewController {
     }
     @IBAction func infoButton(_ sender: Any) {
         if let vc = UIStoryboard(name: "InfoPost", bundle: nil).instantiateInitialViewController() as? infoPostViewController {
-        vc.modalPresentationStyle = . overCurrentContext
+            vc.modalPresentationStyle = .overFullScreen
             present(vc, animated: true, completion: nil)
             
         }
@@ -103,6 +101,7 @@ extension FeedViewController: UITableViewDataSource{
                     cell.likeImageView.image = UIImage(named: "heart1.png")
                     cell.heart = nil
                     let toImage = UIImage(named:"heart1.png")
+                    
                     UIView.transition(with: cell,
                                       duration: 0.3,
                                           options: .transitionCrossDissolve,
@@ -118,9 +117,7 @@ extension FeedViewController: UITableViewDataSource{
                                                                                 cell.likeImageView.image = UIImage(named: "")
                                                                               },
                                                                               completion: nil)
-                                          )})
-                    
-                    
+                    )})
                 }else {
                     cell.viewLiked.backgroundColor = UIColor.lightGray
                     //cell.likeImageView.image = UIImage(named: "heart0.png")

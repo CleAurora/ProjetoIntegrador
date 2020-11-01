@@ -13,7 +13,7 @@ class notificationsViewController: UIViewController {
     var userArray = [Post]()
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.navigationController?.navigationBar.isHidden = true
         userArray.append(Post(name: "Brendon", city: "Los Angeles", imageProfile: "brendon.jpg", imagePost: "post1.jpg", comments: "", allImages: [""]))
         userArray.append(Post(name: "Miles", city: "Vancouver, BC", imageProfile: "miles1.jpeg", imagePost: "miles0.jpeg", comments: "", allImages: [""]))
         
@@ -25,7 +25,6 @@ class notificationsViewController: UIViewController {
     }
     func setupTab(){
         let notifications = self.tabBarItem!
-       // UITabBar.appearance().tintColor = .black
         notifications.selectedImage = UIImage(named: "heart-fill")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         notifications.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: 0, right: 0)
     }

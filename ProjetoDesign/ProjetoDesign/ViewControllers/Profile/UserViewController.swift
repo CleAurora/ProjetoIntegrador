@@ -8,12 +8,7 @@
 import UIKit
 
 class UserViewController: UIViewController {
-    @IBOutlet weak var profileImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var postLabel: UILabel!
-    @IBOutlet weak var followersLabel: UILabel!
-    @IBOutlet weak var followingLabel: UILabel!
-    @IBOutlet weak var bioLabel: UILabel!
+
     @IBOutlet weak var profileCollectionView: UICollectionView!
     var name: String?
     var userArray = [Post]()
@@ -21,17 +16,12 @@ class UserViewController: UIViewController {
     var images: [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         profileCollectionView.delegate = self
         profileCollectionView.dataSource = self
+        
+        userArray.append(Post(name: "\(post!.name)", city: "", imageProfile: "\(post!.imageProfile)", imagePost: "", comments: "\(post!.comments)", allImages: ["", ""]))
         images.append(contentsOf: post!.allImages)
-        print(images)
-        setup()
-        // Do any additional setup after loading the view.
-    }
-    func setup(){
-        nameLabel.text = post?.name
-        profileImageView.image = UIImage(named: "\(post!.imageProfile)")
-        bioLabel.text = post?.comments
     }
 }
 extension UserViewController: UICollectionViewDelegate{
@@ -52,9 +42,14 @@ extension UserViewController: UICollectionViewDataSource{
         return images.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! UserCollectionCell
-        cell.imageCollection.image = UIImage(named: images[indexPath.row])
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! ProfileCollectionCell
+        //cell.setup(user: userArray[indexPath.row])
         print(images[indexPath.row])
+        return cell
+    }
+    func collectionView(_ collectionView: UICollectionView,viewForSupplementaryElementOfKind kind: String,at indexPath: IndexPath) -> UICollectionReusableView {
+        let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "profileReuCell", for: indexPath) as! ProfileCollectionReusableView
+        cell.setup(post: userArray[indexPath.row])
         return cell
     }
     

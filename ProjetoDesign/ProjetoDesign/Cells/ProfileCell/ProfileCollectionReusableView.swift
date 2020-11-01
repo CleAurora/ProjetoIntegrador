@@ -22,4 +22,14 @@ class ProfileCollectionReusableView: UICollectionReusableView {
             ).rawValue
         )
     }
+    func setup(post: Post){
+        profileImageView.image = UIImage(named: post.imageProfile)
+        nameLabel.text = post.name
+        bioLabel.text = post.comments
+        profileImageView.layer.maskedCorners = CACornerMask(
+            rawValue: UIRectCorner(
+                [UIRectCorner.bottomLeft, UIRectCorner.bottomRight]
+            ).rawValue
+        )
+    }
 }
