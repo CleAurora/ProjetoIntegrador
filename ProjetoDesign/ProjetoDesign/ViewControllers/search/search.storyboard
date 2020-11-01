@@ -31,8 +31,8 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="29L-dp-thn" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="11" width="64" height="57"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="57" id="FHy-xp-Hnx"/>
-                                                        <constraint firstAttribute="width" constant="64" id="qLd-NK-j5Q"/>
+                                                        <constraint firstAttribute="width" constant="64" id="9FP-Op-reA"/>
+                                                        <constraint firstAttribute="height" constant="57" id="a7m-dm-bBb"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -42,25 +42,18 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMf-yA-smI">
-                                                    <rect key="frame" x="109" y="18" width="245" height="41"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="245" id="cEk-84-wwv"/>
-                                                        <constraint firstAttribute="height" constant="41" id="dJ6-VM-HQR"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="109" y="18" width="41.5" height="41"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="LMf-yA-smI" firstAttribute="leading" secondItem="29L-dp-thn" secondAttribute="trailing" constant="25" id="Dcj-PX-dP6"/>
-                                                <constraint firstItem="LMf-yA-smI" firstAttribute="top" secondItem="gPJ-Zi-9nI" secondAttribute="topMargin" constant="7" id="GoF-jq-KBH"/>
-                                                <constraint firstItem="29L-dp-thn" firstAttribute="bottom" secondItem="gPJ-Zi-9nI" secondAttribute="bottomMargin" id="Xvp-EO-Wf6"/>
-                                                <constraint firstItem="29L-dp-thn" firstAttribute="top" secondItem="gPJ-Zi-9nI" secondAttribute="topMargin" id="dY9-TM-Zsd"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="LMf-yA-smI" secondAttribute="trailing" constant="40" id="hju-7B-eIG"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="LMf-yA-smI" secondAttribute="bottom" constant="9" id="n3y-FB-4bY"/>
-                                                <constraint firstItem="29L-dp-thn" firstAttribute="leading" secondItem="gPJ-Zi-9nI" secondAttribute="leadingMargin" id="tBY-zo-jfG"/>
-                                                <constraint firstItem="LMf-yA-smI" firstAttribute="leading" secondItem="29L-dp-thn" secondAttribute="trailing" constant="25" id="w9B-h9-f0b"/>
+                                                <constraint firstItem="29L-dp-thn" firstAttribute="top" secondItem="gPJ-Zi-9nI" secondAttribute="topMargin" id="25P-Y8-nVp"/>
+                                                <constraint firstItem="LMf-yA-smI" firstAttribute="top" secondItem="gPJ-Zi-9nI" secondAttribute="topMargin" constant="7" id="Aay-To-Yt0"/>
+                                                <constraint firstItem="29L-dp-thn" firstAttribute="leading" secondItem="gPJ-Zi-9nI" secondAttribute="leadingMargin" id="BQf-4O-XnR"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="LMf-yA-smI" secondAttribute="bottom" constant="9" id="JtI-SR-Vbk"/>
+                                                <constraint firstItem="LMf-yA-smI" firstAttribute="leading" secondItem="29L-dp-thn" secondAttribute="trailing" constant="25" id="k0L-Ae-al7"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -94,8 +87,8 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xrv-8R-I3v" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="128" id="Xze-Ft-Wz2"/>
-                                                        <constraint firstAttribute="width" constant="128" id="YUz-gL-T1i"/>
+                                                        <constraint firstAttribute="height" constant="128" id="So8-Tb-gwN"/>
+                                                        <constraint firstAttribute="width" constant="128" id="WSM-bR-09I"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -106,10 +99,10 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="xrv-8R-I3v" firstAttribute="top" secondItem="wTn-vI-zwh" secondAttribute="top" id="5SO-Bz-cTR"/>
-                                                <constraint firstItem="xrv-8R-I3v" firstAttribute="leading" secondItem="wTn-vI-zwh" secondAttribute="leading" id="Cu2-B3-CVi"/>
-                                                <constraint firstAttribute="trailing" secondItem="xrv-8R-I3v" secondAttribute="trailing" id="iyL-oh-uJO"/>
-                                                <constraint firstAttribute="bottom" secondItem="xrv-8R-I3v" secondAttribute="bottom" id="l90-RB-kFj"/>
+                                                <constraint firstItem="xrv-8R-I3v" firstAttribute="leading" secondItem="wTn-vI-zwh" secondAttribute="leading" id="JSY-4d-oZD"/>
+                                                <constraint firstAttribute="trailing" secondItem="xrv-8R-I3v" secondAttribute="trailing" id="NDG-5k-59e"/>
+                                                <constraint firstItem="xrv-8R-I3v" firstAttribute="top" secondItem="wTn-vI-zwh" secondAttribute="top" id="cKe-oL-FC7"/>
+                                                <constraint firstAttribute="bottom" secondItem="xrv-8R-I3v" secondAttribute="bottom" id="iYa-ZM-eMd"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
@@ -122,17 +115,17 @@
                         <viewLayoutGuide key="safeArea" id="1o8-rW-cFg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="xxj-qY-2jb" firstAttribute="leading" secondItem="1o8-rW-cFg" secondAttribute="leading" id="3hu-tu-DQN"/>
-                            <constraint firstItem="xxj-qY-2jb" firstAttribute="top" secondItem="boJ-pQ-M2u" secondAttribute="bottom" id="8sH-NT-GaQ"/>
-                            <constraint firstAttribute="bottom" secondItem="xxj-qY-2jb" secondAttribute="bottom" id="Aa8-Wo-Szz"/>
-                            <constraint firstItem="boJ-pQ-M2u" firstAttribute="trailing" secondItem="1o8-rW-cFg" secondAttribute="trailing" id="HJC-ak-plX"/>
-                            <constraint firstItem="boJ-pQ-M2u" firstAttribute="leading" secondItem="1o8-rW-cFg" secondAttribute="leading" id="ITr-z3-LUY"/>
-                            <constraint firstItem="V0X-n2-Awq" firstAttribute="top" secondItem="boJ-pQ-M2u" secondAttribute="bottom" id="KQ8-FQ-cHl"/>
-                            <constraint firstItem="V0X-n2-Awq" firstAttribute="leading" secondItem="1o8-rW-cFg" secondAttribute="leading" id="OcS-Nc-2DZ"/>
-                            <constraint firstItem="boJ-pQ-M2u" firstAttribute="top" secondItem="1o8-rW-cFg" secondAttribute="top" id="RTT-Xp-uvc"/>
-                            <constraint firstItem="V0X-n2-Awq" firstAttribute="trailing" secondItem="1o8-rW-cFg" secondAttribute="trailing" id="WtC-7P-7cm"/>
-                            <constraint firstAttribute="bottom" secondItem="V0X-n2-Awq" secondAttribute="bottom" id="Zgh-bB-ql3"/>
-                            <constraint firstItem="xxj-qY-2jb" firstAttribute="trailing" secondItem="1o8-rW-cFg" secondAttribute="trailing" id="eBm-Cg-Ync"/>
+                            <constraint firstItem="boJ-pQ-M2u" firstAttribute="top" secondItem="1o8-rW-cFg" secondAttribute="top" id="8yC-Gk-UYv"/>
+                            <constraint firstItem="V0X-n2-Awq" firstAttribute="leading" secondItem="1o8-rW-cFg" secondAttribute="leading" id="E1M-6o-KEm"/>
+                            <constraint firstItem="xxj-qY-2jb" firstAttribute="top" secondItem="boJ-pQ-M2u" secondAttribute="bottom" id="I70-SA-xel"/>
+                            <constraint firstItem="xxj-qY-2jb" firstAttribute="trailing" secondItem="1o8-rW-cFg" secondAttribute="trailing" id="Ii1-4J-9fa"/>
+                            <constraint firstItem="V0X-n2-Awq" firstAttribute="trailing" secondItem="1o8-rW-cFg" secondAttribute="trailing" id="J8u-Cc-kZd"/>
+                            <constraint firstItem="V0X-n2-Awq" firstAttribute="top" secondItem="boJ-pQ-M2u" secondAttribute="bottom" id="bwd-5c-fKB"/>
+                            <constraint firstItem="xxj-qY-2jb" firstAttribute="leading" secondItem="1o8-rW-cFg" secondAttribute="leading" id="eEk-QM-7Dv"/>
+                            <constraint firstAttribute="bottom" secondItem="V0X-n2-Awq" secondAttribute="bottom" id="rrx-Pj-ZBr"/>
+                            <constraint firstAttribute="bottom" secondItem="xxj-qY-2jb" secondAttribute="bottom" id="t2V-Of-Lrg"/>
+                            <constraint firstItem="boJ-pQ-M2u" firstAttribute="leading" secondItem="1o8-rW-cFg" secondAttribute="leading" id="wFa-Lj-R98"/>
+                            <constraint firstItem="boJ-pQ-M2u" firstAttribute="trailing" secondItem="1o8-rW-cFg" secondAttribute="trailing" id="wp1-fN-GBn"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="lupa" selectedImage="lupa-fill" id="BOr-Nk-9jE">
