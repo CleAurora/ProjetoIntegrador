@@ -29,7 +29,6 @@ class PhotoDetailTableViewCell: UITableViewCell {
         
         @IBAction func nameButton(_ sender: Any) {
             nameTap()
-    //        delegate?.nameTapped()
         }
         @IBAction func commentsButton(_ sender: Any) {
             delegate?.didButtonPressed()
