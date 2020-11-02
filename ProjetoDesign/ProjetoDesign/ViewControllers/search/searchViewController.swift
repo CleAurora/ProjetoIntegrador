@@ -36,7 +36,6 @@ class searchViewController: UIViewController {
     
     func filter() {
         if searchIn.isEmpty {
-//            filteredArray = userArray
             dataCollectionView.isHidden = false
         }else{
             

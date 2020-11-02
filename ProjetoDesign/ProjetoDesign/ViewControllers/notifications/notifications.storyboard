@@ -79,9 +79,8 @@
                             <constraint firstItem="zyL-sa-2BJ" firstAttribute="trailing" secondItem="z7R-3E-GQS" secondAttribute="trailing" id="qm9-A3-26D"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="heart-2" selectedImage="heart-fill" id="J3R-uQ-zwr">
+                    <tabBarItem key="tabBarItem" title="" selectedImage="heart-fill" id="J3R-uQ-zwr">
                         <inset key="imageInsets" minX="0.0" minY="30" maxX="0.0" maxY="25"/>
-                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -94,7 +93,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="heart-2" width="50" height="50"/>
         <image name="heart-fill" width="50" height="50"/>
         <image name="mel0.jpg" width="1300" height="729"/>
         <systemColor name="systemBackgroundColor">

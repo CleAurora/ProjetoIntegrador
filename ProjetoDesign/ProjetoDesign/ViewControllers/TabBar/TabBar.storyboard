@@ -412,7 +412,7 @@
                             <constraint firstAttribute="bottom" secondItem="csg-6z-C5z" secondAttribute="bottom" constant="26" id="OHu-Up-0Gq"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" selectedImage="usuario" id="50v-bG-78c"/>
+                    <tabBarItem key="tabBarItem" title="" selectedImage="usuario-fill" id="50v-bG-78c"/>
                     <connections>
                         <outlet property="profileCollectionView" destination="csg-6z-C5z" id="h7S-sY-8dq"/>
                     </connections>
@@ -855,21 +855,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="unselectedItemTintColor">
                                 <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBar>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                            <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="oOO-NB-rug" kind="relationship" relationship="viewControllers" id="hX3-Jz-LAI"/>
                         <segue destination="nyu-cr-27T" kind="relationship" relationship="viewControllers" destinationCreationSelector="3" id="jpt-Qi-vuO"/>
@@ -916,7 +907,7 @@
         <scene sceneID="4fx-VV-Oj3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="arZ-xg-a4O" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="ukd-sa-j6J">
+                    <tabBarItem key="tabBarItem" title="" selectedImage="mais-fill" id="ukd-sa-j6J">
                         <color key="badgeColor" red="0.76702153500000003" green="0.76702153500000003" blue="0.76702153500000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -936,7 +927,7 @@
         <scene sceneID="leT-Zx-uhC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oOO-NB-rug" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="j1h-ej-jd0"/>
+                    <tabBarItem key="tabBarItem" title="" selectedImage="homefill" id="j1h-ej-jd0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="t1d-UM-X4r">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -955,7 +946,7 @@
         <scene sceneID="GyK-d9-z1n">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oFx-5C-JZy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" id="a5h-uY-Zeg"/>
+                    <tabBarItem key="tabBarItem" title="" selectedImage="heart-fill" id="a5h-uY-Zeg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uXM-wx-gHH">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -975,7 +966,10 @@
         <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="facebook.png" width="250" height="250"/>
+        <image name="heart-fill" width="50" height="50"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="homefill" width="50" height="50"/>
+        <image name="mais-fill" width="50" height="50"/>
         <image name="mais1" width="80" height="80"/>
         <image name="mel1.jpeg" width="855" height="1117.5"/>
         <image name="message.fill" catalog="system" width="128" height="113"/>
@@ -983,7 +977,7 @@
         <image name="post1.jpg" width="384" height="256.07998657226562"/>
         <image name="post2.jpg" width="1920" height="1279"/>
         <image name="snow" catalog="system" width="121" height="128"/>
-        <image name="usuario" width="50" height="50"/>
+        <image name="usuario-fill" width="50" height="50"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
