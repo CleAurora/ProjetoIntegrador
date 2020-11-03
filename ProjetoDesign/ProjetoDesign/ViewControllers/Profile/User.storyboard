@@ -218,28 +218,25 @@
                                                 <constraint firstItem="GPq-T4-JTt" firstAttribute="top" secondItem="GT0-FU-TAC" secondAttribute="top" id="mfq-aY-eCY"/>
                                             </constraints>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xoxo. - Gossip Girls" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIb-X0-RbS">
-                                            <rect key="frame" x="42" y="355" width="331" height="18"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="331" id="GMP-Ha-3zp"/>
-                                            </constraints>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xoxo. - Gossip Girls" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIb-X0-RbS">
+                                            <rect key="frame" x="42" y="355" width="331" height="73"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="jIb-X0-RbS" secondAttribute="trailing" constant="33" id="2rc-pK-Tfi"/>
                                         <constraint firstItem="y4E-9f-xHL" firstAttribute="top" secondItem="eIC-gf-EaO" secondAttribute="top" constant="-27" id="3ng-Sy-I9P"/>
                                         <constraint firstItem="hU7-ud-zkO" firstAttribute="leading" secondItem="eIC-gf-EaO" secondAttribute="leadingMargin" id="7dW-iE-3cG"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="jIb-X0-RbS" secondAttribute="trailing" constant="33" id="8eA-h1-dDc"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="jIb-X0-RbS" secondAttribute="bottom" constant="55" id="AC3-hg-EYU"/>
                                         <constraint firstAttribute="trailing" secondItem="y4E-9f-xHL" secondAttribute="trailing" constant="115" id="FTt-zK-fVT"/>
+                                        <constraint firstItem="jIb-X0-RbS" firstAttribute="top" secondItem="GT0-FU-TAC" secondAttribute="bottom" constant="15" id="JT8-VJ-R3r"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="GT0-FU-TAC" secondAttribute="trailing" constant="14" id="PFd-4U-5Cp"/>
-                                        <constraint firstItem="jIb-X0-RbS" firstAttribute="leading" secondItem="eIC-gf-EaO" secondAttribute="leadingMargin" constant="34" id="PeV-LT-e8u"/>
                                         <constraint firstItem="GT0-FU-TAC" firstAttribute="top" secondItem="hU7-ud-zkO" secondAttribute="bottom" constant="8" symbolic="YES" id="UAC-bS-dTl"/>
                                         <constraint firstItem="y4E-9f-xHL" firstAttribute="leading" secondItem="eIC-gf-EaO" secondAttribute="leading" constant="116" id="YBY-jy-S6f"/>
-                                        <constraint firstItem="jIb-X0-RbS" firstAttribute="top" secondItem="GT0-FU-TAC" secondAttribute="bottom" constant="15" id="YSm-jk-5Op"/>
+                                        <constraint firstItem="jIb-X0-RbS" firstAttribute="bottom" secondItem="eIC-gf-EaO" secondAttribute="bottomMargin" id="jWz-aX-db4"/>
                                         <constraint firstItem="hU7-ud-zkO" firstAttribute="top" secondItem="y4E-9f-xHL" secondAttribute="bottom" constant="8" symbolic="YES" id="stN-Cv-wgM"/>
+                                        <constraint firstItem="jIb-X0-RbS" firstAttribute="leading" secondItem="eIC-gf-EaO" secondAttribute="leadingMargin" constant="34" id="vW8-9b-wla"/>
                                         <constraint firstItem="GT0-FU-TAC" firstAttribute="leading" secondItem="eIC-gf-EaO" secondAttribute="leadingMargin" constant="14" id="vdD-Gn-5KV"/>
                                         <constraint firstItem="hU7-ud-zkO" firstAttribute="trailing" secondItem="eIC-gf-EaO" secondAttribute="trailingMargin" id="zWd-OP-tU1"/>
                                     </constraints>

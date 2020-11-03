@@ -16,6 +16,9 @@ class ProfileCollectionReusableView: UICollectionReusableView {
         profileImageView.image = UIImage(named: post.profileImage)
         nameLabel.text = post.name
         bioLabel.text = post.bio
+        //bioLabel.adjustsFontSizeToFitWidth = true
+        //bioLabel.minimumScaleFactor = 0.5
+        //bioLabel.font = UIFont.systemFont(ofSize: 25)
         profileImageView.layer.maskedCorners = CACornerMask(
             rawValue: UIRectCorner(
                 [UIRectCorner.bottomLeft, UIRectCorner.bottomRight]
