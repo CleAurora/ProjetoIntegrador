@@ -52,10 +52,13 @@ class LegendViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     func infoText(){
-        if let image = upload?.image{
-            if let vc = UIStoryboard(name: "Feed", bundle: nil).instantiateInitialViewController() as? FeedViewController {
-                vc.postagem.append(PostUser(name: "Melissa", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "\(image)", comments: "\(legendTextField.text)", allImages: ["",""]))
-                print(image)
+        if let image = upload?.image {
+            if let tabBarController = tabBarController, let viewControllers = tabBarController.viewControllers,
+               let navController = viewControllers.first as? UINavigationController,
+               let feedViewController = navController.viewControllers.first as? FeedViewController {
+                tabBarController.selectedIndex = 0
+                feedViewController.postagem.insert(PostUser(name: "Melissa", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "\(image)", comments: legendTextField.text ?? "", allImages: ["",""]), at: 0)
+                feedViewController.feedTableView.reloadData()
             }
            
             navigationController?.popViewController(animated: true)

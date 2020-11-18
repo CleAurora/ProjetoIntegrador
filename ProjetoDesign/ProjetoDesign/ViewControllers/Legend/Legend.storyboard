@@ -2,7 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bFv-Uu-bXR">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="kEf-Pr-ft1">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="968"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="972"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hIp-bI-po0">
                                                 <rect key="frame" x="103.5" y="16" width="207" height="207"/>
@@ -44,7 +45,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HW1-cI-BYa">
+                                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HW1-cI-BYa">
                                                 <rect key="frame" x="325" y="449.5" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="localSwitchChanged:" destination="bFv-Uu-bXR" eventType="valueChanged" id="ABQ-pg-TZT"/>
@@ -57,10 +58,9 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5p-vj-eHt" customClass="RoundedButton" customModule="ProjetoDesign" customModuleProvider="target">
-                                                <rect key="frame" x="177" y="628" width="60" height="40"/>
+                                                <rect key="frame" x="41.5" y="628" width="331" height="44"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Os3-pH-bFZ"/>
-                                                    <constraint firstAttribute="height" constant="40" id="ugv-Q7-M5w"/>
+                                                    <constraint firstAttribute="height" constant="44" id="ugv-Q7-M5w"/>
                                                 </constraints>
                                                 <state key="normal" title="Postar">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -83,19 +83,19 @@
                                                     <action selector="postButtonTapped" destination="bFv-Uu-bXR" eventType="touchUpInside" id="rTr-Uq-g5r"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHW-Mj-6JC">
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHW-Mj-6JC">
                                                 <rect key="frame" x="40" y="487" width="334" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMV-l0-QrN">
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMV-l0-QrN">
                                                 <rect key="frame" x="40" y="557" width="334" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QGm-ff-Nqi">
+                                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QGm-ff-Nqi">
                                                 <rect key="frame" x="325" y="519.5" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="weatherSwitchChanged:" destination="bFv-Uu-bXR" eventType="valueChanged" id="76T-mj-kwS"/>
@@ -144,6 +144,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="b1Q-6R-U5n" firstAttribute="top" secondItem="UTT-gx-Krg" secondAttribute="top" id="6uN-WU-3TS"/>
+                            <constraint firstItem="z5p-vj-eHt" firstAttribute="width" secondItem="UTT-gx-Krg" secondAttribute="width" multiplier="0.8" id="JXC-Ua-d5Z"/>
                             <constraint firstItem="hIp-bI-po0" firstAttribute="height" secondItem="UTT-gx-Krg" secondAttribute="width" multiplier="0.5" id="ZeT-I2-htu"/>
                             <constraint firstItem="hIp-bI-po0" firstAttribute="width" secondItem="UTT-gx-Krg" secondAttribute="width" multiplier="0.5" id="d8g-Z1-Zqf"/>
                             <constraint firstItem="b1Q-6R-U5n" firstAttribute="bottom" secondItem="mnf-RB-eEs" secondAttribute="bottom" id="gzD-Ta-0NT"/>
@@ -151,6 +152,7 @@
                             <constraint firstItem="b1Q-6R-U5n" firstAttribute="trailing" secondItem="mnf-RB-eEs" secondAttribute="trailing" id="sIT-bq-DAU"/>
                         </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="imageSelected" destination="hIp-bI-po0" id="8rz-ph-yae"/>
                         <outlet property="legendTextField" destination="fmi-3s-Fef" id="hZV-gb-rBh"/>
