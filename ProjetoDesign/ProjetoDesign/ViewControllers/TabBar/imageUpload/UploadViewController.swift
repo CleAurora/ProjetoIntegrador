@@ -27,6 +27,11 @@ class UploadViewController: UIViewController {
         uploadArray.append(Upload(image: "instagram.png"))
         uploadArray.append(Upload(image: "facebook.png"))
         uploadArray.append(Upload(image: "mel1.jpeg"))
+        uploadArray.append(Upload(image: "seraphine"))
+        uploadArray.append(Upload(image: "Eve"))
+        uploadArray.append(Upload(image: "serakda"))
+        uploadArray.append(Upload(image: "seraphine2"))
+        
 //        nextButton.isHidden = true
         viewButton.isHidden = true
         uploadCollectionView.reloadData()

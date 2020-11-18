@@ -22,7 +22,8 @@ class LegendViewController: UIViewController {
     @IBOutlet weak var localLabel: UILabel!
 
     var upload: Upload?
-
+    var postagem = [PostUser]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,9 +51,22 @@ class LegendViewController: UIViewController {
 
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
-
+    func infoText(){
+        if let image = upload?.image{
+            if let vc = UIStoryboard(name: "Feed", bundle: nil).instantiateInitialViewController() as? FeedViewController {
+                vc.postagem.append(PostUser(name: "Melissa", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "\(image)", comments: "\(legendTextField.text)", allImages: ["",""]))
+                print(image)
+            }
+           
+            navigationController?.popViewController(animated: true)
+          
+            
+        }
+      
+    }
     @IBAction func postButtonTapped() {
-        navigationController?.popViewController(animated: true)
+       // navigationController?.popViewController(animated: true)
+        infoText()
     }
 
     @IBAction func localSwitchChanged(_ sender: UISwitch) {

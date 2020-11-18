@@ -10,6 +10,7 @@ import Foundation
 protocol ButtonsTableView{
     func didButtonPressed()
 }
+
 class FeedTableViewCell: UITableViewCell {
     
     @IBOutlet weak var likeImageView: UIImageView!
