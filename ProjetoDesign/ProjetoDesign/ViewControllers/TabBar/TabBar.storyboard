@@ -133,7 +133,9 @@
                             <constraint firstItem="3qF-eb-ufD" firstAttribute="top" secondItem="AFT-Tp-Yr4" secondAttribute="top" id="xu2-hH-zXe"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="f4n-QH-dJA"/>
+                    <navigationItem key="navigationItem" id="f4n-QH-dJA">
+                        <barButtonItem key="backBarButtonItem" title=" " id="zIe-jh-Bbh"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="nextButton" destination="WuB-WQ-IfE" id="Wlb-kE-GKe"/>
                         <outlet property="resizeImageView" destination="QaN-Wt-2Ua" id="XMb-ct-7Hk"/>
