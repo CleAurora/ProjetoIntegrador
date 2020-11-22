@@ -18,6 +18,10 @@ class CommentsViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.isHidden = false
+        tabBarController?.tabBar.isHidden = true
+        self.title = "Comments"
+        
         commentsArray.append(comments(name: "Melissa", comment: "The black rose should bloom once more", image: "mel0.jpg"))
         commentsArray.append(comments(name: "Brendon", comment: "Too weird to live, too rare to die ", image: "brendon.jpg"))
         commentsArray.append(comments(name: "Miles", comment: "Needless to say, I keep her in check", image: "miles0.jpeg"))
@@ -31,10 +35,20 @@ class CommentsViewController: UIViewController{
         commentsTableview.reloadData()
         
         commentTextField.delegate = self
-        tabBarController?.tabBar.isHidden = true
-        self.title = "Comments"
+      
+        let imageView = UIImage(systemName: "square.and.pencil")!.withTintColor(.systemIndigo)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: imageView, style: .plain, target: self, action: #selector(addTapped))
+        
         NotificationCenter.default.addObserver(self, selector: #selector(CommentsViewController.keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(CommentsViewController.keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    @objc func addTapped(){
+
+        tabBarController?.tabBar.isHidden = false
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.popViewController(animated: true)
+          
+       
     }
     func buttonShow(){
         if commentTextField.text!.isEmpty || commentTextField.text == "" {
