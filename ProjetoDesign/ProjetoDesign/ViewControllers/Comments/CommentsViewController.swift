@@ -31,7 +31,8 @@ class CommentsViewController: UIViewController{
         commentsTableview.reloadData()
         
         commentTextField.delegate = self
-
+        tabBarController?.tabBar.isHidden = true
+        self.title = "Comments"
         NotificationCenter.default.addObserver(self, selector: #selector(CommentsViewController.keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(CommentsViewController.keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
@@ -44,6 +45,7 @@ class CommentsViewController: UIViewController{
     }
     func addNewItem(){
         commentsArray.append(comments(name: "Melissa ", comment: "\(commentTextField.text!)", image: "mel0.jpg"))
+        
         commentTextField.resignFirstResponder()
         commentsTableview.reloadData()
         commentTextField.text = ""
@@ -89,10 +91,8 @@ extension CommentsViewController: UITableViewDataSource{
             let itemList = cell.imageString
             if itemList == "suit.heart.fill"{
                 cell.likeImage.image = UIImage(systemName: "suit.heart")
-                print("if")
             } else {
-                cell.likeImage.image = UIImage(systemName: "suit.heart.fill")!.withTintColor(UIColor.red)
-                print("else")
+                cell.likeImage.image = UIImage(systemName: "suit.heart.fill")!.withTintColor(UIColor.systemIndigo)
             }
             cell.changeImage()
         }

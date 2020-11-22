@@ -17,6 +17,7 @@ class CommentsTableCell: UITableViewCell {
     @IBOutlet var likeImage: UIImageView!
     var likedButton : (() -> ()) = {}
     var imageString = "suit.heart"
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         likeImage.image = UIImage(systemName: "suit.heart")
@@ -25,8 +26,6 @@ class CommentsTableCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     @IBAction func likeButton(_ sender: Any) {
         likedButton()

@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CSY-Ag-cv3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -167,17 +167,17 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profileCell" id="NRv-yR-0N6" customClass="ProfileCollectionCell" customModule="ProjetoDesign" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="436" width="115" height="110"/>
+                                        <rect key="frame" x="5" y="436" width="130" height="130"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zCO-Kk-uaN">
-                                            <rect key="frame" x="0.0" y="0.0" width="115" height="110"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="post1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="xbB-QA-mZb" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="115" height="110"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="110" id="OTY-sB-jC7"/>
-                                                        <constraint firstAttribute="width" constant="115" id="S9q-eH-ELK"/>
+                                                        <constraint firstAttribute="height" constant="130" id="gFO-4Z-oAH"/>
+                                                        <constraint firstAttribute="width" constant="130" id="y89-24-eLA"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -186,7 +186,7 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snow" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nBH-gq-eWo">
-                                                    <rect key="frame" x="88" y="1" width="27" height="29"/>
+                                                    <rect key="frame" x="103" y="1" width="27" height="29"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="27" id="6M5-yM-X8H"/>
@@ -195,15 +195,15 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="xbB-QA-mZb" firstAttribute="leading" secondItem="zCO-Kk-uaN" secondAttribute="leading" id="Acy-Ap-jTx"/>
-                                                <constraint firstAttribute="trailing" secondItem="xbB-QA-mZb" secondAttribute="trailing" id="LyT-Tg-da2"/>
+                                                <constraint firstAttribute="trailing" secondItem="xbB-QA-mZb" secondAttribute="trailing" id="5fd-DI-mXZ"/>
                                                 <constraint firstItem="nBH-gq-eWo" firstAttribute="top" secondItem="zCO-Kk-uaN" secondAttribute="top" constant="0.5" id="OKX-PF-P3g"/>
-                                                <constraint firstItem="xbB-QA-mZb" firstAttribute="top" secondItem="zCO-Kk-uaN" secondAttribute="top" id="PuO-6b-pot"/>
                                                 <constraint firstAttribute="trailing" secondItem="nBH-gq-eWo" secondAttribute="trailing" id="TIq-Bk-HRI"/>
-                                                <constraint firstAttribute="bottom" secondItem="xbB-QA-mZb" secondAttribute="bottom" id="fAh-lE-NHi"/>
+                                                <constraint firstAttribute="bottom" secondItem="xbB-QA-mZb" secondAttribute="bottom" id="f7t-Ot-IDj"/>
+                                                <constraint firstItem="xbB-QA-mZb" firstAttribute="leading" secondItem="zCO-Kk-uaN" secondAttribute="leading" id="gMM-6i-G20"/>
+                                                <constraint firstItem="xbB-QA-mZb" firstAttribute="top" secondItem="zCO-Kk-uaN" secondAttribute="top" id="rQW-8p-3zY"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="115" height="110"/>
+                                        <size key="customSize" width="130" height="130"/>
                                         <connections>
                                             <outlet property="uploadImageview" destination="xbB-QA-mZb" id="vC1-lt-m7n"/>
                                             <outlet property="weatherImageView" destination="nBH-gq-eWo" id="tHe-aq-guD"/>

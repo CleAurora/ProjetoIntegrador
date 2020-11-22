@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tJ1-SN-cVl">
-                                <rect key="frame" x="0.0" y="128" width="414" height="664"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="819"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <inset key="separatorInset" minX="25" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
@@ -113,86 +113,93 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kyb-nX-dXd" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
-                                <rect key="frame" x="20" y="800" width="60" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="Vm3-IB-Bnf"/>
-                                    <constraint firstAttribute="height" constant="60" id="ZRG-gq-6aZ"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="20"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qgH-Gv-POi">
-                                <rect key="frame" x="94" y="75" width="227" height="27.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YAv-1F-g8y" customClass="BorderView" customModule="ProjetoDesign" customModuleProvider="target">
-                                <rect key="frame" x="88" y="805" width="312" height="48"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CLS-dg-OM7">
+                                <rect key="frame" x="0.0" y="824" width="414" height="72"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KDL-oy-EUu">
-                                        <rect key="frame" x="8" y="0.0" width="304" height="48"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmi-6H-p6g">
-                                        <rect key="frame" x="268" y="4" width="44" height="40"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kyb-nX-dXd" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
+                                        <rect key="frame" x="30" y="0.0" width="50" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="1EQ-H1-Pmf"/>
-                                            <constraint firstAttribute="width" constant="44" id="hZh-sV-86e"/>
+                                            <constraint firstAttribute="height" constant="50" id="TQF-8l-hQO"/>
+                                            <constraint firstAttribute="width" constant="50" id="z7q-jy-3RI"/>
                                         </constraints>
-                                        <state key="normal" image="paperplane.fill" catalog="system"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="PlaceHolder" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="postButton:" destination="yt3-SY-1ic" eventType="touchUpInside" id="elM-tZ-UMh"/>
-                                        </connections>
-                                    </button>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YAv-1F-g8y" customClass="BorderView" customModule="ProjetoDesign" customModuleProvider="target">
+                                        <rect key="frame" x="88" y="-1" width="299" height="53"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KDL-oy-EUu">
+                                                <rect key="frame" x="0.0" y="0.0" width="299" height="53"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jmi-6H-p6g">
+                                                <rect key="frame" x="255" y="6" width="44" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="44" id="Izh-Th-kuA"/>
+                                                </constraints>
+                                                <state key="normal" image="paperplane.fill" catalog="system"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="PlaceHolder" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="postButton:" destination="yt3-SY-1ic" eventType="touchUpInside" id="elM-tZ-UMh"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.26745557339999998" green="0.23957824680000001" blue="0.98888403179999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="53" id="083-9e-uMu"/>
+                                            <constraint firstAttribute="bottom" secondItem="jmi-6H-p6g" secondAttribute="bottom" constant="7" id="9lJ-Ct-49Z"/>
+                                            <constraint firstItem="jmi-6H-p6g" firstAttribute="top" secondItem="YAv-1F-g8y" secondAttribute="top" constant="6" id="A7j-Li-YZF"/>
+                                            <constraint firstAttribute="width" constant="299" id="ANW-JQ-PRh"/>
+                                            <constraint firstAttribute="bottom" secondItem="KDL-oy-EUu" secondAttribute="bottom" id="Dyq-h0-bC3"/>
+                                            <constraint firstAttribute="trailing" secondItem="jmi-6H-p6g" secondAttribute="trailing" id="PtC-Mb-4s1"/>
+                                            <constraint firstItem="KDL-oy-EUu" firstAttribute="top" secondItem="YAv-1F-g8y" secondAttribute="top" id="QKq-YF-nm7"/>
+                                            <constraint firstItem="KDL-oy-EUu" firstAttribute="leading" secondItem="YAv-1F-g8y" secondAttribute="leading" id="WEo-ih-xwv"/>
+                                            <constraint firstAttribute="trailing" secondItem="KDL-oy-EUu" secondAttribute="trailing" id="i88-FC-POm"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" red="0.6463795309" green="0.65117197120000003" blue="0.70072572970000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
                                 </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="KDL-oy-EUu" secondAttribute="bottom" id="4ZB-f3-T18"/>
-                                    <constraint firstAttribute="trailing" secondItem="jmi-6H-p6g" secondAttribute="trailing" id="Aag-pd-uvb"/>
-                                    <constraint firstItem="KDL-oy-EUu" firstAttribute="leading" secondItem="YAv-1F-g8y" secondAttribute="leading" constant="8" id="b3C-DI-jGq"/>
-                                    <constraint firstAttribute="height" constant="48" id="esf-oz-o5M"/>
-                                    <constraint firstAttribute="bottom" secondItem="jmi-6H-p6g" secondAttribute="bottom" constant="4" id="mC4-pA-1dd"/>
-                                    <constraint firstAttribute="trailing" secondItem="KDL-oy-EUu" secondAttribute="trailing" id="shR-eG-QOI"/>
-                                    <constraint firstItem="KDL-oy-EUu" firstAttribute="top" secondItem="YAv-1F-g8y" secondAttribute="top" id="vOB-M5-C4F"/>
+                                    <constraint firstItem="YAv-1F-g8y" firstAttribute="leading" secondItem="kyb-nX-dXd" secondAttribute="trailing" constant="8" symbolic="YES" id="0Df-4j-LLC"/>
+                                    <constraint firstAttribute="bottom" secondItem="YAv-1F-g8y" secondAttribute="bottom" constant="20" symbolic="YES" id="0Dj-2y-9PD"/>
+                                    <constraint firstAttribute="trailing" secondItem="YAv-1F-g8y" secondAttribute="trailing" constant="27" id="4um-49-kmB"/>
+                                    <constraint firstItem="kyb-nX-dXd" firstAttribute="top" secondItem="CLS-dg-OM7" secondAttribute="top" id="GxW-XS-Ib7"/>
+                                    <constraint firstAttribute="bottom" secondItem="kyb-nX-dXd" secondAttribute="bottom" constant="22" id="PoD-eO-hWg"/>
+                                    <constraint firstItem="kyb-nX-dXd" firstAttribute="leading" secondItem="CLS-dg-OM7" secondAttribute="leading" constant="30" id="uN7-Pr-n3S"/>
+                                    <constraint firstItem="YAv-1F-g8y" firstAttribute="top" secondItem="CLS-dg-OM7" secondAttribute="top" constant="-1" id="vgm-Z0-zkl"/>
                                 </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="25"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="0.6463795309" green="0.65117197120000003" blue="0.70072572970000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="2C7-j0-JLN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="2C7-j0-JLN" firstAttribute="trailing" secondItem="qgH-Gv-POi" secondAttribute="trailing" constant="93" id="9KV-Yh-Z25"/>
-                            <constraint firstItem="2C7-j0-JLN" firstAttribute="bottom" secondItem="YAv-1F-g8y" secondAttribute="bottom" constant="9" id="9bX-aN-5To"/>
-                            <constraint firstItem="2C7-j0-JLN" firstAttribute="trailing" secondItem="YAv-1F-g8y" secondAttribute="trailing" constant="14" id="G97-8H-89v"/>
-                            <constraint firstItem="tJ1-SN-cVl" firstAttribute="leading" secondItem="2C7-j0-JLN" secondAttribute="leading" id="H8c-a0-CnK"/>
-                            <constraint firstItem="qgH-Gv-POi" firstAttribute="top" secondItem="2C7-j0-JLN" secondAttribute="top" constant="31" id="PzF-uv-fqH"/>
-                            <constraint firstItem="tJ1-SN-cVl" firstAttribute="top" secondItem="qgH-Gv-POi" secondAttribute="bottom" constant="25.5" id="cC7-6a-FR6"/>
-                            <constraint firstItem="YAv-1F-g8y" firstAttribute="top" secondItem="tJ1-SN-cVl" secondAttribute="bottom" constant="13" id="fOB-Vg-A6a"/>
-                            <constraint firstItem="qgH-Gv-POi" firstAttribute="leading" secondItem="2C7-j0-JLN" secondAttribute="leading" constant="94" id="fPY-R6-V7s"/>
-                            <constraint firstItem="kyb-nX-dXd" firstAttribute="leading" secondItem="2C7-j0-JLN" secondAttribute="leading" constant="20" id="hYG-lp-AAF"/>
-                            <constraint firstItem="YAv-1F-g8y" firstAttribute="leading" secondItem="kyb-nX-dXd" secondAttribute="trailing" constant="8" symbolic="YES" id="lMI-46-Vfq"/>
-                            <constraint firstItem="2C7-j0-JLN" firstAttribute="bottom" secondItem="kyb-nX-dXd" secondAttribute="bottom" constant="2" id="sD5-ef-8nA"/>
-                            <constraint firstItem="tJ1-SN-cVl" firstAttribute="trailing" secondItem="2C7-j0-JLN" secondAttribute="trailing" id="wht-VT-jPi"/>
+                            <constraint firstItem="CLS-dg-OM7" firstAttribute="top" secondItem="tJ1-SN-cVl" secondAttribute="bottom" constant="5" id="Row-RB-sga"/>
+                            <constraint firstItem="CLS-dg-OM7" firstAttribute="leading" secondItem="2C7-j0-JLN" secondAttribute="leading" id="Xng-xc-PZp"/>
+                            <constraint firstItem="tJ1-SN-cVl" firstAttribute="leading" secondItem="2C7-j0-JLN" secondAttribute="leading" id="YMK-Ba-Xgi"/>
+                            <constraint firstAttribute="bottom" secondItem="CLS-dg-OM7" secondAttribute="bottom" id="biw-8x-Jue"/>
+                            <constraint firstItem="CLS-dg-OM7" firstAttribute="trailing" secondItem="2C7-j0-JLN" secondAttribute="trailing" id="emB-kz-3DR"/>
+                            <constraint firstItem="tJ1-SN-cVl" firstAttribute="trailing" secondItem="2C7-j0-JLN" secondAttribute="trailing" id="gdQ-ht-Clk"/>
+                            <constraint firstItem="tJ1-SN-cVl" firstAttribute="top" secondItem="Yje-et-lAQ" secondAttribute="top" id="zv9-KJ-ZZL"/>
                         </constraints>
                     </view>
                     <connections>

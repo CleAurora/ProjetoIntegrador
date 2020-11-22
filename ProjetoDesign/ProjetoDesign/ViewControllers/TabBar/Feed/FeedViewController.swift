@@ -192,7 +192,8 @@ extension FeedViewController: ButtonsTableView{
         
         if let viewcontroller = UIStoryboard(name: "Comments", bundle: nil).instantiateInitialViewController() as? CommentsViewController{
             
-            present(viewcontroller, animated: true, completion: nil)
+//            present(viewcontroller, animated: true, completion: nil)
+            navigationController?.pushViewController(viewcontroller, animated: true)
     }
 }
     

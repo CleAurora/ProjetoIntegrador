@@ -10,6 +10,7 @@ import UIKit
 class notificationsViewController: UIViewController {
 
     @IBOutlet weak var notificationsTableView: UITableView!
+    
     var userArray = [Post]()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,13 +24,6 @@ class notificationsViewController: UIViewController {
         //setupTab()
 
     }
-//    func setupTab(){
-//        let notifications = self.tabBarItem!
-//        notifications.selectedImage = UIImage(named: "heart-fill")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
-//        notifications.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: 0, right: 0)
-//    }
-
-
 }
 extension notificationsViewController: UITableViewDelegate {
     
@@ -43,9 +37,9 @@ extension notificationsViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "notificationsCell", for: indexPath) as! NotificationsTableCell
         cell.setup(users: userArray[indexPath.row])
+        cell.buttonTapped()
         return cell
     }
-    
-    
 }
+
 

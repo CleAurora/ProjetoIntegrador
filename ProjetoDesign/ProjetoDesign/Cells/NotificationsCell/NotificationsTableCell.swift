@@ -6,21 +6,33 @@
 //
 
 import UIKit
-
+protocol buttonsTable {
+    func didButtonPressed()
+}
 class NotificationsTableCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userImage: roundImageView!
+    @IBOutlet var notificationButton: UIButton!
     
+    var buttonTapped : (() -> ()) = {}
     override func awakeFromNib() {
         super.awakeFromNib()
-//        let text = "melissamccarthy: started following you".withBoldText(text: "melissamccarthy")
-//        nameLabel.attributedText = text
-        // Initialization code
     }
 
+    @IBAction func notificationButton(_ sender: Any) {
+        buttonTapped()
+        let actualText = notificationButton.titleLabel?.text
+        print(actualText)
+        
+        if actualText == "Follow" {
+            notificationButton.setTitle("Following", for: .normal)
+        }else{
+            notificationButton.setTitle("Follow", for: .normal)
+        }
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     func setup(users: Post){
