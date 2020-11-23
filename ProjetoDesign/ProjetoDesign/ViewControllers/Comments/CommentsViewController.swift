@@ -9,13 +9,17 @@ import UIKit
 
 
 class CommentsViewController: UIViewController{
+    
+    // MARK: - IBOutlets
     @IBOutlet weak var commentsTableview: UITableView!
     @IBOutlet weak var profileImageView: roundImageView!
-    var commentsArray = [comments]()
     @IBOutlet var commentTextField: UITextField!
     @IBOutlet var postButton: UIButton!
     
-    
+    // MARK: - Proprierts
+    var commentsArray = [comments]()
+
+    // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = false
@@ -42,6 +46,8 @@ class CommentsViewController: UIViewController{
         NotificationCenter.default.addObserver(self, selector: #selector(CommentsViewController.keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(CommentsViewController.keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
+    // MARK: OBJC Methods
     @objc func addTapped(){
 
         tabBarController?.tabBar.isHidden = false
@@ -50,6 +56,8 @@ class CommentsViewController: UIViewController{
           
        
     }
+    
+    // MARK: - Methods
     func buttonShow(){
         if commentTextField.text!.isEmpty || commentTextField.text == "" {
             postButton.isHidden = true
@@ -66,6 +74,8 @@ class CommentsViewController: UIViewController{
         
     }
     
+    
+    // MARK: - OBJC Methods
     @objc func keyboardWillChange(notification: NSNotification){
         guard let userInfo = notification.userInfo else {return}
         guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
@@ -80,6 +90,8 @@ class CommentsViewController: UIViewController{
             self.view.frame.origin.y = 0
         }
     }
+    
+    // MARK: - IBActions
     @IBAction func postButton(_ sender: Any) {
         addNewItem()
     }
@@ -89,6 +101,8 @@ class CommentsViewController: UIViewController{
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }
+
+// MARK: - Extensions 
 extension CommentsViewController: UITableViewDelegate{
     
 }

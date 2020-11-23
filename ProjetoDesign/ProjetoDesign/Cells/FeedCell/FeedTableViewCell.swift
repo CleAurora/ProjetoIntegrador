@@ -7,12 +7,14 @@
 
 import UIKit
 import Foundation
+// MARK: - Protocols
 protocol ButtonsTableView{
     func didButtonPressed()
 }
 
 class FeedTableViewCell: UITableViewCell {
     
+    // MARK: - IBOutlets
     @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var uploadImageView: UIImageView!
     @IBOutlet weak var postImageView: UIImageView!
@@ -20,10 +22,14 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var subtitlesLabel: UILabel!
     @IBOutlet weak var nameButton: UIButton!
     @IBOutlet weak var viewLiked: extensions!
+    
+    // MARK: - Proprierts
     var delegate: ButtonsTableView?
     var heart: String? = nil
     var nameTap : (() -> ()) = {}
     var heartTap : (() -> ()) = {}
+    
+    // MARK: - Super Methods
     override func awakeFromNib() {
         super.awakeFromNib()
         likeImageView.isHidden = true
@@ -31,6 +37,7 @@ class FeedTableViewCell: UITableViewCell {
                 // Initialization code
     }
     
+    // MARK: - IBActions
     @IBAction func nameButton(_ sender: Any) {
         nameTap()
     }
@@ -47,6 +54,8 @@ class FeedTableViewCell: UITableViewCell {
     @IBAction func heartLikeButton(_ sender: Any) {
         heartTap()
     }
+    
+    // MARK: - Methods
     func setupPhoto(photo: PhotoDetail){
         uploadImageView.image = UIImage(named: photo.imageProfile)
         postImageView.image = UIImage(named: photo.imagePost)
@@ -79,6 +88,7 @@ class FeedTableViewCell: UITableViewCell {
         singleTapGesture.require(toFail: doubleTapGesture)
     }
 
+    // MARK: - OBJC Methods 
     @objc private func handleSingleTap(_ tapGesture: UITapGestureRecognizer) {
         likeImageView.isHidden = true
     }

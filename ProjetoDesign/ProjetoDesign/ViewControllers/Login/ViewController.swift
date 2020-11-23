@@ -8,12 +8,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    // MARK: - IBOutlets
     @IBOutlet weak var backgroundImageView: UIImageView!
-
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loginView: UIView!
     
+    // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundImageView.image = UIImage(named: "2.jpg")
@@ -22,12 +23,15 @@ class ViewController: UIViewController {
         setupView()
     }
 
+    // MARK: - Methods
     func setupView(){
         loginView.layer.shadowPath = UIBezierPath(rect: loginView.bounds).cgPath
         loginView.layer.shadowRadius = 15
         loginView.layer.shadowOffset = .zero
         loginView.layer.shadowOpacity = 1
     }
+    
+    // MARK: - IBActions 
     @IBAction func loginButton(_ sender: Any) {
        
         if let vc = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() as? TabbarController{

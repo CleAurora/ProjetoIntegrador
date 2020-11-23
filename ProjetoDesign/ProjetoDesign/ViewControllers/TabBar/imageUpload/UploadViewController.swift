@@ -9,15 +9,17 @@ import UIKit
 
 class UploadViewController: UIViewController {
     
-
+    // MARK: - IBOutlets
     @IBOutlet weak var resizeImageView: UIImageView!
     @IBOutlet weak var uploadCollectionView: UICollectionView!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var viewButton: UIView!
     
+    // MARK: - Proprierts
     var uploadArray = [Upload]()
     var uploadSelected: Upload?
     
+    // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollection()
@@ -43,6 +45,7 @@ class UploadViewController: UIViewController {
         )
     }
 
+    // MARK: - IBActions
     @IBAction func nextAction(_ sender: Any) {
         if let legendViewController = UIStoryboard(name: "Legend", bundle: nil).instantiateInitialViewController() as? LegendViewController {
         legendViewController.upload = uploadSelected
@@ -50,6 +53,8 @@ class UploadViewController: UIViewController {
         navigationController?.pushViewController(legendViewController, animated: true)
     }
     }
+    
+    // MARK: - Methods
     func setupCollection(){
         uploadCollectionView.delegate = self
         uploadCollectionView.dataSource = self
@@ -57,6 +62,8 @@ class UploadViewController: UIViewController {
     }
     
 }
+
+// MARK: - Extensions 
 extension UploadViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let image = uploadArray[indexPath.row].image

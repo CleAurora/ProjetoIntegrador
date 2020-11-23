@@ -8,10 +8,15 @@
 import UIKit
 
 class infoPostViewController: UIViewController {
+    
+    // MARK: - IBOutlets
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var settingsTableView: UITableView!
+    
+    // MARK: - Proprierts
     var settingsArray = ["Report",  "Share to...", "Turn On Post Notifications", "Mute", "Unfollow"]
     
+    // MARK: - Super Methods
     override func viewDidLoad() {
         
         self.navigationController?.navigationBar.isHidden = true
@@ -28,6 +33,7 @@ class infoPostViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    // MARK: - Methods
     func setupTable(){
         settingsTableView.layer.cornerRadius = 16
     }
@@ -38,15 +44,20 @@ class infoPostViewController: UIViewController {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(self.checkAction))
         self.view.addGestureRecognizer(gesture)
     }
+    
+    // MARK: - ONJC Methods
     @objc func checkAction(sender: UITapGestureRecognizer){
         self.dismiss(animated: true, completion: nil)
     }
-
+    
+    // MARK: - IBActions
     @IBAction func dismissButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
 
 }
+
+// MARK: - IBActions 
 extension infoPostViewController: UITableViewDelegate{
     
 }

@@ -8,12 +8,17 @@
 import UIKit
 
 class UserViewController: UIViewController {
-
+    
+    // MARK: - IBOutlets
     @IBOutlet weak var profileCollectionView: UICollectionView!
+    
+    // MARK: - Proprierts
     var name: String?
     var userArray = [Post]()
     var post: PostUser?
     var images: [String] = []
+    
+    // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +29,8 @@ class UserViewController: UIViewController {
         images.append(contentsOf: post!.allImages)
     }
 }
+
+// MARK: - Extensions 
 extension UserViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(images[indexPath.row])

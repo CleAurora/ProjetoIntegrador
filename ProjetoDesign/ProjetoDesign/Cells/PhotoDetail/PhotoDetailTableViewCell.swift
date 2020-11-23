@@ -10,29 +10,37 @@ import Foundation
     
 class PhotoDetailTableViewCell: UITableViewCell {
     
+        // MARK: - IBOutlets
         @IBOutlet weak var likeImageView: UIImageView!
         @IBOutlet weak var uploadImageView: UIImageView!
         @IBOutlet weak var postImageView: UIImageView!
         @IBOutlet weak var cityLabel: UILabel!
         @IBOutlet weak var subtitlesLabel: UILabel!
         @IBOutlet weak var nameButton: UIButton!
+    
+        // MARK: - Proprierts
         var delegate: ButtonsTableView?
         var heart: String? = nil
         var nameTap : (() -> ()) = {}
         
+        // MARK: - Super Methods
         override func awakeFromNib() {
             super.awakeFromNib()
             likeImageView.isHidden = true
             addSingleAndDoubleTapGesture()
-                    // Initialization code
+            nameButton.layer.cornerRadius = 10
+            cityLabel.layer.cornerRadius = 10 
         }
         
+        // MARK: - IBActions
         @IBAction func nameButton(_ sender: Any) {
             nameTap()
         }
         @IBAction func commentsButton(_ sender: Any) {
             delegate?.didButtonPressed()
         }
+    
+        // MARK: - Methods
         func setupPhoto(photo: PostUser){
             uploadImageView.image = UIImage(named: photo.imageProfile)
             postImageView.image = UIImage(named: photo.imagePost)
@@ -54,6 +62,8 @@ class PhotoDetailTableViewCell: UITableViewCell {
             singleTapGesture.require(toFail: doubleTapGesture)
         }
 
+    
+        // MARK: - OBJC Methods 
         @objc private func handleSingleTap(_ tapGesture: UITapGestureRecognizer) {
             likeImageView.isHidden = true
         }

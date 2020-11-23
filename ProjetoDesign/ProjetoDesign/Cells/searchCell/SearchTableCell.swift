@@ -8,9 +8,11 @@
 import UIKit
 
 class SearchTableCell: UITableViewCell {
+    // MARK: - IBOtlets
     @IBOutlet weak var userImageView: roundImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     
+    // MARK: - Super Methods
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,6 +23,8 @@ class SearchTableCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    // MARK: - Methods 
     func setup(user: Post){
         userNameLabel.text = user.name
         userImageView.image = UIImage(named: user.imageProfile)

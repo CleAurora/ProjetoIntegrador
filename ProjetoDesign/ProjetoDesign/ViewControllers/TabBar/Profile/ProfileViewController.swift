@@ -8,12 +8,17 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+    
+    // MARK: - IBOutlets
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileCollectionView: UICollectionView!
     @IBOutlet weak var profileImageView: UIImageView!
     
+    // MARK: - Proprierts
     var profileArray = [Profile]()
     var imagensArray = [imagensProfile]()
+    
+    // MARK: - Super Methods
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
@@ -47,6 +52,8 @@ class ProfileViewController: UIViewController {
             ).rawValue
         )*/
     }
+    
+    // MARK: - Methods
     func setupCollection(){
         profileCollectionView.delegate = self
         profileCollectionView.dataSource = self
@@ -60,6 +67,8 @@ class ProfileViewController: UIViewController {
     }
 
 }
+
+// MARK: - Extensions 
 extension ProfileViewController: UICollectionViewDelegate{
     
 }

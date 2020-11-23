@@ -8,10 +8,14 @@
 import UIKit
 
 class notificationsViewController: UIViewController {
-
+    
+    // MARK: - IBOultes
     @IBOutlet weak var notificationsTableView: UITableView!
     
+    // MARK: - Proprierts
     var userArray = [Post]()
+    
+    // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
@@ -25,6 +29,8 @@ class notificationsViewController: UIViewController {
 
     }
 }
+
+// MARK: - Extensions 
 extension notificationsViewController: UITableViewDelegate {
     
 }

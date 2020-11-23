@@ -8,13 +8,18 @@
 import UIKit
 
 class FeedViewController: UIViewController, HeaderDelegate {
+    
+    // MARK: - IBOutlets
     @IBOutlet weak var feedTableView: UITableView!
     @IBOutlet weak var storieCollectionView: UICollectionView!
     
+    // MARK: - Proprierts
     var arrayTable = [Post]()
     var arrayCollection = [stories]()
     var currentUser = [Profile]()
     var postagem = [PostUser]()
+    
+    // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,6 +52,8 @@ class FeedViewController: UIViewController, HeaderDelegate {
             print("reload")
            }
     }
+    
+    // MARK: - Methods
     func seeArray(){
         let searchValue = "Melissa"
         for item in postagem{
@@ -86,6 +93,8 @@ class FeedViewController: UIViewController, HeaderDelegate {
         storieCollectionView.dataSource = self
         storieCollectionView.reloadData()
     }
+    
+    // MARK: - IBActions
     @IBAction func infoButton(_ sender: Any) {
         if let vc = UIStoryboard(name: "InfoPost", bundle: nil).instantiateInitialViewController() as? infoPostViewController {
             vc.modalPresentationStyle = .overFullScreen
@@ -97,6 +106,7 @@ class FeedViewController: UIViewController, HeaderDelegate {
     
 }
 
+// MARK: - Extensions 
 extension FeedViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         

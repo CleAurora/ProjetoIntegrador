@@ -7,7 +7,10 @@
 
 import Foundation
 class stories{
+    // MARK: - Proprierts 
     var storieImageView: String
+    
+    // MARK: - Constructors
     init(storieImageView: String) {
         self.storieImageView = storieImageView
     }

@@ -6,8 +6,10 @@
 //
 
 class Upload {
+    // MARK: - Proprierts 
     var image: String
 
+    // MARK: - Constructors
     init(image: String){
         self.image = image
     }

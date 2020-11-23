@@ -8,11 +8,6 @@
 import UIKit
 
 class UserCollectionCell: UICollectionViewCell {
+    // MARK: - IBOutlets 
     @IBOutlet weak var imageCollection: roundImageView!
-
-    
-
-
-    
-
 }

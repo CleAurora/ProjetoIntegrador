@@ -8,12 +8,17 @@
 import UIKit
 
 class RegistrarViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    @IBOutlet weak var registerView: extensions!
     
-     let imagePicker = UIImagePickerController()
+    // MARK: - IBOutlets
+    @IBOutlet weak var registerView: extensions!
     @IBOutlet weak var registerLabel: UILabel!
     @IBOutlet weak var userImage: UIImageView!
+    
+    // MARK: - Proprierts
+    let imagePicker = UIImagePickerController()
     var controller: Alert?
+    
+    // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 //        view.backgroundColor = UIColor(patternImage: UIImage(named: "2.jpg")!)
@@ -26,6 +31,7 @@ class RegistrarViewController: UIViewController, UIImagePickerControllerDelegate
         
        userImage.isUserInteractionEnabled = true
     }
+        // MARK: - OBJC Methods
             @objc func click()
                {
                    imagePicker.allowsEditing = false
@@ -47,6 +53,7 @@ class RegistrarViewController: UIViewController, UIImagePickerControllerDelegate
                    dismiss(animated: true, completion: nil)
                }
     
+    // MARK: - Methods
     func isDeveloping(){
         let alert = UIAlertController(title: "This option still under development", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
@@ -65,6 +72,7 @@ class RegistrarViewController: UIViewController, UIImagePickerControllerDelegate
         self.present(alert, animated: true, completion: nil)
     }
     
+    // MARK: - IBActions 
     @IBAction func registerButton(_ sender: Any) {
         if let vc = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() as? TabbarController{
             vc.modalPresentationStyle = .fullScreen

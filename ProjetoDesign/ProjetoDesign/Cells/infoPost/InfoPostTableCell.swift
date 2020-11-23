@@ -8,8 +8,10 @@
 import UIKit
 
 class InfoPostTableCell: UITableViewCell {
+    // MARK: - IBOtlets
     @IBOutlet weak var settingsLabel: UILabel!
     
+    // MARK: - Super Methods 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

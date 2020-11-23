@@ -8,7 +8,10 @@
 import Foundation
 
 class imagensProfile{
+    // MARK: - Proprierts 
     var imagens: String
+    
+    // MARK: - Constructors
     init(imagens: String) {
         self.imagens = imagens
     }

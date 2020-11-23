@@ -9,6 +9,7 @@ import UIKit
 
 class TabbarController: UITabBarController {
 
+    // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -16,6 +17,7 @@ class TabbarController: UITabBarController {
         // Do any additional setup after loading the view.
     }
     
+    // MARK: - Methods 
     func setTabBarItems(){
         self.tabBar.tintColor = UIColor.systemIndigo
         UITabBar.appearance().unselectedItemTintColor = UIColor.black

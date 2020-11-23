@@ -8,6 +8,8 @@
 import UIKit
 
 class CommentsTableCell: UITableViewCell {
+    
+    // MARK: - IBOtlets
     @IBOutlet weak var profileImageView: roundImageView!
     @IBOutlet weak var daysLabel: UILabel!
     @IBOutlet weak var CommentsLabel: UILabel!
@@ -15,9 +17,12 @@ class CommentsTableCell: UITableViewCell {
     @IBOutlet weak var replyButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet var likeImage: UIImageView!
+    
+    // MARK: - Proprierts
     var likedButton : (() -> ()) = {}
     var imageString = "suit.heart"
     
+    // MARK: - Super Methods
     override func awakeFromNib() {
         super.awakeFromNib()
         likeImage.image = UIImage(systemName: "suit.heart")
@@ -27,9 +32,13 @@ class CommentsTableCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
+    
+    // MARK: - IBActions
     @IBAction func likeButton(_ sender: Any) {
         likedButton()
     }
+    
+    // MARK: - Methods 
     func changeImage(){
         print("change image executed")
         if imageString == "suit.heart" {

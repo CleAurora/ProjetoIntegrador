@@ -6,19 +6,26 @@
 //
 
 import UIKit
+// MARK: - Protocols
 protocol buttonsTable {
     func didButtonPressed()
 }
 class NotificationsTableCell: UITableViewCell {
+    
+    // MARK: - IBOtlets
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userImage: roundImageView!
     @IBOutlet var notificationButton: UIButton!
     
+    // MARK: - Proprierts
     var buttonTapped : (() -> ()) = {}
+    
+    // MARK: - Super Methods
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
+    // MARK: - IBActions
     @IBAction func notificationButton(_ sender: Any) {
         buttonTapped()
         let actualText = notificationButton.titleLabel?.text
@@ -43,12 +50,16 @@ class NotificationsTableCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
+    
+    // MARK: - Methods
     func setup(users: Post){
         let text = "\(users.name): started following you".withBoldText(text: "\(users.name)")
         nameLabel.attributedText = text
         userImage.image = UIImage(named: users.imageProfile)
     }
 }
+
+// MARK: - Extensions 
 extension String {
     func withBoldText(text: String, font: UIFont? = nil) -> NSAttributedString {
       let _font = font ?? UIFont.systemFont(ofSize: 14, weight: .regular)

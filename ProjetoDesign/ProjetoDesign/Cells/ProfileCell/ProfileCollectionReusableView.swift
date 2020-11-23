@@ -8,10 +8,12 @@
 import UIKit
 
 class ProfileCollectionReusableView: UICollectionReusableView {
+    // MARK: - IBOtlets
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
+    // MARK: - Methods 
     func setup(post: Profile){
         profileImageView.image = UIImage(named: post.profileImage)
         nameLabel.text = post.name

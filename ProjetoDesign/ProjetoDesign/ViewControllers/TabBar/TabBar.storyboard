@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CSY-Ag-cv3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -249,8 +249,9 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51h-UH-YKg" userLabel="SettingButton">
-                                            <rect key="frame" x="367" y="18" width="25" height="24"/>
+                                            <rect key="frame" x="368" y="19" width="25" height="24"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <state key="normal" image="pencil.circle" catalog="system">
                                                 <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                             </state>
@@ -398,7 +399,7 @@
                             <constraint firstItem="NeS-zw-TkG" firstAttribute="bottom" secondItem="vZ7-jk-Yo8" secondAttribute="bottom" id="ykQ-e0-xyo"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" selectedImage="usuario-fill" id="50v-bG-78c"/>
+                    <tabBarItem key="tabBarItem" title="" selectedImage="usuario-fill" id="50v-bG-78c" colorLabel="IBBuiltInLabel-Red"/>
                     <connections>
                         <outlet property="profileCollectionView" destination="vZ7-jk-Yo8" id="Exp-4T-0GE"/>
                     </connections>

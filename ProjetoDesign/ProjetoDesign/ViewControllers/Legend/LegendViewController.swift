@@ -8,22 +8,21 @@
 import UIKit
 
 class LegendViewController: UIViewController {
-    @IBOutlet weak var imageSelected: UIImageView!
-
-    @IBOutlet weak var legendTextField: UITextField!
-
-    @IBOutlet weak var postButton: RoundedButton!
     
+    // MARK: - IBOutlets
+    @IBOutlet weak var imageSelected: UIImageView!
+    @IBOutlet weak var legendTextField: UITextField!
+    @IBOutlet weak var postButton: RoundedButton!
     @IBOutlet weak var localSwitch: UISwitch!
-
     @IBOutlet weak var weatherSwitch: UISwitch!
-
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var localLabel: UILabel!
 
+    // MARK: - Proprierts
     var upload: Upload?
     var postagem = [PostUser]()
     
+    // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -51,6 +50,8 @@ class LegendViewController: UIViewController {
 
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
+    
+    // MARK: - Methods
     func infoText(){
         if let image = upload?.image {
             if let tabBarController = tabBarController, let viewControllers = tabBarController.viewControllers,
@@ -67,6 +68,8 @@ class LegendViewController: UIViewController {
         }
       
     }
+    
+    // MARK: - IBActions 
     @IBAction func postButtonTapped() {
        // navigationController?.popViewController(animated: true)
         infoText()

@@ -8,9 +8,11 @@
 import UIKit
 
 class StorieCollectionCell: UICollectionViewCell {
+    // MARK: - IBOtlets
     @IBOutlet weak var myImageView: UIImageView!
     @IBOutlet weak var borderView: BorderView!
     
+    // MARK: - Methods 
     func setup(storie: stories){
         myImageView.image = UIImage(named: storie.storieImageView)
         borderView.backgroundColor = UIColor(patternImage: UIImage(named: "stories2.jpg")!)
