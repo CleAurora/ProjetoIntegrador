@@ -36,7 +36,7 @@ class CommentsViewController: UIViewController{
         
         commentTextField.delegate = self
       
-        let imageView = UIImage(systemName: "square.and.pencil")!.withTintColor(.systemIndigo)
+        let imageView = UIImage(systemName: "chevron.backward")!.withTintColor(.systemIndigo)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: imageView, style: .plain, target: self, action: #selector(addTapped))
         
         NotificationCenter.default.addObserver(self, selector: #selector(CommentsViewController.keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)

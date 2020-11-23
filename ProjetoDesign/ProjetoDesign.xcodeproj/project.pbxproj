@@ -89,10 +89,7 @@
 		4CCB528A252A4DC000F9AB19 /* RegistrarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB5289252A4DC000F9AB19 /* RegistrarViewController.swift */; };
 		4CDB7B18254F47E500A97B25 /* mel3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4CDB7B17254F47E500A97B25 /* mel3.jpeg */; };
 		4CDB7B20254F480E00A97B25 /* mel4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CDB7B1F254F480E00A97B25 /* mel4.jpg */; };
-		4CDBF3CB256B37A100D363A5 /* imagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CDBF3CA256B37A100D363A5 /* imagePicker.swift */; };
 		4CE2D15A25485C0F004045B2 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2D15925485C0F004045B2 /* RoundedTextField.swift */; };
-		4CEADA72256B2446001F2CE3 /* imagePick.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CEADA71256B2446001F2CE3 /* imagePick.storyboard */; };
-		4CEADA77256B245F001F2CE3 /* imagepickViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEADA76256B245F001F2CE3 /* imagepickViewController.swift */; };
 		4CF5BFF92564D70F004AFFB5 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF5BFF82564D70F004AFFB5 /* Alert.swift */; };
 /* End PBXBuildFile section */
 
@@ -202,10 +199,7 @@
 		4CCB5289252A4DC000F9AB19 /* RegistrarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrarViewController.swift; sourceTree = "<group>"; };
 		4CDB7B17254F47E500A97B25 /* mel3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel3.jpeg; sourceTree = "<group>"; };
 		4CDB7B1F254F480E00A97B25 /* mel4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel4.jpg; sourceTree = "<group>"; };
-		4CDBF3CA256B37A100D363A5 /* imagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imagePicker.swift; sourceTree = "<group>"; };
 		4CE2D15925485C0F004045B2 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
-		4CEADA71256B2446001F2CE3 /* imagePick.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = imagePick.storyboard; sourceTree = "<group>"; };
-		4CEADA76256B245F001F2CE3 /* imagepickViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imagepickViewController.swift; sourceTree = "<group>"; };
 		4CF5BFF82564D70F004AFFB5 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -481,7 +475,6 @@
 		4C6E473E252E8640001F74A9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				4CEADA70256B2426001F2CE3 /* imagePick */,
 				4C573F2B2545DFD900A2982F /* PhotoDetail */,
 				4C8F1538254373CF0010F790 /* Profile */,
 				4CADCC922542264C005676F7 /* Comments */,
@@ -611,16 +604,6 @@
 			path = Registrar;
 			sourceTree = "<group>";
 		};
-		4CEADA70256B2426001F2CE3 /* imagePick */ = {
-			isa = PBXGroup;
-			children = (
-				4CEADA71256B2446001F2CE3 /* imagePick.storyboard */,
-				4CEADA76256B245F001F2CE3 /* imagepickViewController.swift */,
-				4CDBF3CA256B37A100D363A5 /* imagePicker.swift */,
-			);
-			path = imagePick;
-			sourceTree = "<group>";
-		};
 		4CF5BFF72564D6FB004AFFB5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -741,7 +724,6 @@
 				4C0D1A13252A786100462862 /* heart0.png in Resources */,
 				4CDB7B20254F480E00A97B25 /* mel4.jpg in Resources */,
 				4CADCC9425422665005676F7 /* Comments.storyboard in Resources */,
-				4CEADA72256B2446001F2CE3 /* imagePick.storyboard in Resources */,
 				4C57A13E253F89310018C522 /* search.storyboard in Resources */,
 				4C6DF0B5252B5D510099D857 /* miles0.jpeg in Resources */,
 				4C573F2D2545DFF100A2982F /* PhotoDetail.storyboard in Resources */,
@@ -793,12 +775,10 @@
 			files = (
 				4CCB5275252A4B2100F9AB19 /* RoundedView.swift in Sources */,
 				4C8F153F254374050010F790 /* UserViewController.swift in Sources */,
-				4CEADA77256B245F001F2CE3 /* imagepickViewController.swift in Sources */,
 				4C0D19E1252A629E00462862 /* FeedTableViewCell.swift in Sources */,
 				4C0D19CE252A5D5900462862 /* UploadViewController.swift in Sources */,
 				4C2CD8502533920400CC0BF1 /* infoPostViewController.swift in Sources */,
 				4C2CD8562533950D00CC0BF1 /* InfoPostTableCell.swift in Sources */,
-				4CDBF3CB256B37A100D363A5 /* imagePicker.swift in Sources */,
 				4CADCC8E2542208B005676F7 /* BoldLabel.swift in Sources */,
 				4C502F95254260540001FAB2 /* StoriesReusableView.swift in Sources */,
 				4C393216252DEE9000844D64 /* ResizeImage.swift in Sources */,
