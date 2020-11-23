@@ -22,12 +22,20 @@ class NotificationsTableCell: UITableViewCell {
     @IBAction func notificationButton(_ sender: Any) {
         buttonTapped()
         let actualText = notificationButton.titleLabel?.text
-        print(actualText)
+        notificationButton.layer.cornerRadius = 10
+        notificationButton.backgroundColor = .systemIndigo
+        print(actualText!)
         
         if actualText == "Follow" {
             notificationButton.setTitle("Following", for: .normal)
+            notificationButton.setTitleColor(.white, for: .normal)
         }else{
             notificationButton.setTitle("Follow", for: .normal)
+            notificationButton.layer.cornerRadius = 10
+            notificationButton.backgroundColor = .clear
+            notificationButton.layer.borderWidth = 1
+            notificationButton.setTitleColor(.black, for: .normal)
+
         }
     }
     
