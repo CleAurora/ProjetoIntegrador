@@ -10,9 +10,11 @@ import Foundation
 class imagensProfile{
     // MARK: - Proprierts 
     var imagens: String
+    var weatherImage: String
     
     // MARK: - Constructors
-    init(imagens: String) {
+    init(imagens: String, weatherImage: String) {
         self.imagens = imagens
+        self.weatherImage = weatherImage
     }
 }

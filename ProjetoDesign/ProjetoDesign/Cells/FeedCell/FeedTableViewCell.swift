@@ -60,7 +60,7 @@ class FeedTableViewCell: UITableViewCell {
         uploadImageView.image = UIImage(named: photo.imageProfile)
         postImageView.image = UIImage(named: photo.imagePost)
         nameButton.setTitle("\(photo.name)", for: .normal)
-        cityLabel.text = photo.city
+        cityLabel.text = "\(photo.city) 3°C"
         let text = "\(photo.name): \(photo.comments)".withBoldText(text: "\(photo.name)")
         subtitlesLabel.attributedText = text
     }
@@ -68,7 +68,7 @@ class FeedTableViewCell: UITableViewCell {
         uploadImageView.image = UIImage(named: post.imageProfile)
         postImageView.image = UIImage(named: post.imagePost)
         nameButton.setTitle("\(post.name)", for: .normal)
-        cityLabel.text = post.city
+        cityLabel.text = "\(post.city) 3°C"
         let text = "\(post.name): \(post.comments)".withBoldText(text: "\(post.name)")
         subtitlesLabel.attributedText = text
     }

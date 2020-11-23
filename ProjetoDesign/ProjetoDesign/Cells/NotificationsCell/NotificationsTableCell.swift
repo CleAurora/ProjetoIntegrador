@@ -23,6 +23,11 @@ class NotificationsTableCell: UITableViewCell {
     // MARK: - Super Methods
     override func awakeFromNib() {
         super.awakeFromNib()
+        notificationButton.setTitle("Follow", for: .normal)
+        notificationButton.layer.cornerRadius = 10
+        notificationButton.backgroundColor = .clear
+        notificationButton.layer.borderWidth = 1
+        notificationButton.setTitleColor(.black, for: .normal)
     }
 
     // MARK: - IBActions

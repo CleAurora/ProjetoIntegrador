@@ -43,8 +43,6 @@ class CommentsViewController: UIViewController{
         let imageView = UIImage(systemName: "chevron.backward")!.withTintColor(.systemIndigo)
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: imageView, style: .plain, target: self, action: #selector(addTapped))
         
-        NotificationCenter.default.addObserver(self, selector: #selector(CommentsViewController.keyboardWillChange(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(CommentsViewController.keyboardWillHide(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
     // MARK: OBJC Methods
@@ -74,22 +72,6 @@ class CommentsViewController: UIViewController{
         
     }
     
-    
-    // MARK: - OBJC Methods
-    @objc func keyboardWillChange(notification: NSNotification){
-        guard let userInfo = notification.userInfo else {return}
-        guard let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else {return}
-        let keyboardFrame = keyboardSize.cgRectValue
-        if self.view.frame.origin.y == 0{
-            self.view.frame.origin.y -= keyboardFrame.height
-        }
-        buttonShow()
-    }
-    @objc func keyboardWillHide(notification: NSNotification){
-        if self.view.frame.origin.y != 0 {
-            self.view.frame.origin.y = 0
-        }
-    }
     
     // MARK: - IBActions
     @IBAction func postButton(_ sender: Any) {

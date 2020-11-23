@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CSY-Ag-cv3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CSY-Ag-cv3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -185,22 +185,22 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="snow" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nBH-gq-eWo">
-                                                    <rect key="frame" x="103" y="1" width="27" height="29"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloud" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="nBH-gq-eWo">
+                                                    <rect key="frame" x="103" y="3" width="27" height="25"/>
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="27" id="6M5-yM-X8H"/>
-                                                        <constraint firstAttribute="height" constant="30" id="Irp-mI-MsY"/>
+                                                        <constraint firstAttribute="width" constant="27" id="l0d-hf-g92"/>
+                                                        <constraint firstAttribute="height" constant="30" id="rQp-sS-dnb"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="xbB-QA-mZb" secondAttribute="trailing" id="5fd-DI-mXZ"/>
-                                                <constraint firstItem="nBH-gq-eWo" firstAttribute="top" secondItem="zCO-Kk-uaN" secondAttribute="top" constant="0.5" id="OKX-PF-P3g"/>
-                                                <constraint firstAttribute="trailing" secondItem="nBH-gq-eWo" secondAttribute="trailing" id="TIq-Bk-HRI"/>
+                                                <constraint firstItem="nBH-gq-eWo" firstAttribute="top" secondItem="zCO-Kk-uaN" secondAttribute="top" constant="0.5" id="Toc-hM-i2s"/>
                                                 <constraint firstAttribute="bottom" secondItem="xbB-QA-mZb" secondAttribute="bottom" id="f7t-Ot-IDj"/>
                                                 <constraint firstItem="xbB-QA-mZb" firstAttribute="leading" secondItem="zCO-Kk-uaN" secondAttribute="leading" id="gMM-6i-G20"/>
                                                 <constraint firstItem="xbB-QA-mZb" firstAttribute="top" secondItem="zCO-Kk-uaN" secondAttribute="top" id="rQW-8p-3zY"/>
+                                                <constraint firstAttribute="trailing" secondItem="nBH-gq-eWo" secondAttribute="trailing" id="zJl-vY-tGP"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="130" height="130"/>
@@ -950,6 +950,7 @@
     </scenes>
     <resources>
         <image name="bookmark" catalog="system" width="112" height="128"/>
+        <image name="cloud" catalog="system" width="128" height="87"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="facebook.png" width="250" height="250"/>
         <image name="heart-fill" width="50" height="50"/>
@@ -962,7 +963,6 @@
         <image name="pencil.circle" catalog="system" width="128" height="121"/>
         <image name="post1.jpg" width="384" height="256.07998657226562"/>
         <image name="post2.jpg" width="1920" height="1279"/>
-        <image name="snow" catalog="system" width="121" height="128"/>
         <image name="usuario-fill" width="50" height="50"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
