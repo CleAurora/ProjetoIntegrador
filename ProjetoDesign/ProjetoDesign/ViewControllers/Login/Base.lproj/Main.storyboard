@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -40,18 +40,18 @@
                                 <rect key="frame" x="0.0" y="560" width="414" height="336"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qGq-M4-2Mr" customClass="extensions" customModule="ProjetoDesign" customModuleProvider="target">
-                                        <rect key="frame" x="83" y="-42" width="248" height="85"/>
+                                        <rect key="frame" x="83" y="-43" width="248" height="86"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" highlightedImage="person.fill" translatesAutoresizingMaskIntoConstraints="NO" id="OzS-4f-qU1">
-                                                <rect key="frame" x="0.0" y="1.5" width="40" height="37"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email" translatesAutoresizingMaskIntoConstraints="NO" id="OzS-4f-qU1">
+                                                <rect key="frame" x="4" y="4" width="30" height="30"/>
                                                 <color key="tintColor" red="0.15027937290000001" green="0.34056115149999999" blue="0.54567253589999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="De3-ax-pWg"/>
-                                                    <constraint firstAttribute="width" constant="40" id="LRg-3q-pdR"/>
+                                                    <constraint firstAttribute="height" constant="30" id="De3-ax-pWg"/>
+                                                    <constraint firstAttribute="width" constant="30" id="LRg-3q-pdR"/>
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sIA-PZ-hJa" customClass="customUITextField" customModule="ProjetoDesign" customModuleProvider="target">
-                                                <rect key="frame" x="50" y="0.0" width="198" height="40"/>
+                                                <rect key="frame" x="44" y="-1" width="204" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="HRx-UO-Eue"/>
                                                 </constraints>
@@ -59,16 +59,16 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="key.fill" catalog="system" highlightedImage="person.fill" translatesAutoresizingMaskIntoConstraints="NO" id="K3m-Ek-raR">
-                                                <rect key="frame" x="0.0" y="43.5" width="40" height="43"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="password" translatesAutoresizingMaskIntoConstraints="NO" id="K3m-Ek-raR">
+                                                <rect key="frame" x="4" y="47" width="30" height="30"/>
                                                 <color key="tintColor" red="0.15496441720000001" green="0.33335733410000001" blue="0.54567700620000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="6YN-x6-emH"/>
-                                                    <constraint firstAttribute="width" constant="40" id="If8-nz-gyY"/>
+                                                    <constraint firstAttribute="height" constant="30" id="6YN-x6-emH"/>
+                                                    <constraint firstAttribute="width" constant="30" id="If8-nz-gyY"/>
                                                 </constraints>
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jlC-PX-LAG">
-                                                <rect key="frame" x="50" y="45" width="198" height="40"/>
+                                                <rect key="frame" x="44" y="42" width="204" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="404-3h-c23"/>
                                                 </constraints>
@@ -79,16 +79,16 @@
                                         </subviews>
                                         <color key="backgroundColor" red="0.85486156088082899" green="0.85486156088082899" blue="0.85486156088082899" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstItem="OzS-4f-qU1" firstAttribute="leading" secondItem="qGq-M4-2Mr" secondAttribute="leading" id="1T3-Lr-F0X"/>
+                                            <constraint firstItem="OzS-4f-qU1" firstAttribute="leading" secondItem="qGq-M4-2Mr" secondAttribute="leading" constant="4" id="1T3-Lr-F0X"/>
                                             <constraint firstItem="sIA-PZ-hJa" firstAttribute="leading" secondItem="OzS-4f-qU1" secondAttribute="trailing" constant="10" id="1Wz-Ko-JSd"/>
-                                            <constraint firstAttribute="bottom" secondItem="K3m-Ek-raR" secondAttribute="bottom" id="6Lm-l0-j4O"/>
-                                            <constraint firstItem="K3m-Ek-raR" firstAttribute="leading" secondItem="qGq-M4-2Mr" secondAttribute="leading" id="6NV-W1-2br"/>
+                                            <constraint firstItem="K3m-Ek-raR" firstAttribute="leading" secondItem="qGq-M4-2Mr" secondAttribute="leading" constant="4" id="6NV-W1-2br"/>
                                             <constraint firstItem="sIA-PZ-hJa" firstAttribute="centerY" secondItem="OzS-4f-qU1" secondAttribute="centerY" id="9CJ-PR-Hoy"/>
                                             <constraint firstAttribute="trailing" secondItem="sIA-PZ-hJa" secondAttribute="trailing" id="9ZH-us-K42"/>
                                             <constraint firstItem="jlC-PX-LAG" firstAttribute="leading" secondItem="K3m-Ek-raR" secondAttribute="trailing" constant="10" id="RP0-lx-lgL"/>
-                                            <constraint firstItem="OzS-4f-qU1" firstAttribute="top" secondItem="qGq-M4-2Mr" secondAttribute="top" id="aus-zz-HFW"/>
-                                            <constraint firstItem="K3m-Ek-raR" firstAttribute="top" secondItem="OzS-4f-qU1" secondAttribute="bottom" constant="5" id="fV4-gx-95q"/>
+                                            <constraint firstAttribute="bottom" secondItem="jlC-PX-LAG" secondAttribute="bottom" constant="4" id="a4Z-U3-gQD"/>
+                                            <constraint firstItem="OzS-4f-qU1" firstAttribute="top" secondItem="qGq-M4-2Mr" secondAttribute="top" constant="4" id="aus-zz-HFW"/>
                                             <constraint firstAttribute="trailing" secondItem="jlC-PX-LAG" secondAttribute="trailing" id="iPB-FT-iCr"/>
+                                            <constraint firstItem="K3m-Ek-raR" firstAttribute="top" secondItem="sIA-PZ-hJa" secondAttribute="bottom" constant="8" id="q6n-Ie-nZQ"/>
                                             <constraint firstItem="jlC-PX-LAG" firstAttribute="centerY" secondItem="K3m-Ek-raR" secondAttribute="centerY" id="vv0-bS-Y61"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
@@ -107,16 +107,19 @@
                                                     <constraint firstAttribute="width" constant="40" id="L0c-T2-e7u"/>
                                                 </constraints>
                                                 <color key="tintColor" red="0.1060770014" green="0.24054854319999999" blue="0.38894511009999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" image="instagram.png">
+                                                <state key="normal" image="face">
                                                     <color key="titleColor" red="0.399966985" green="0.40001851319999998" blue="0.39994949099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="faceButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="pWI-ke-6bM"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFU-yv-ccs" userLabel="FacebookLoginButton">
                                                 <rect key="frame" x="56" y="0.0" width="40" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="zLp-AE-IRk"/>
                                                 </constraints>
-                                                <state key="normal" image="facebook.png">
+                                                <state key="normal" image="insta">
                                                     <color key="titleColor" red="0.399966985" green="0.40001851319999998" blue="0.39994949099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -124,6 +127,9 @@
                                                         <integer key="value" value="10"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="instagramButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="UaK-6L-CIn"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -138,11 +144,11 @@
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9oN-pL-PF4" userLabel="RegistrarButton">
-                                        <rect key="frame" x="30" y="236" width="62" height="40"/>
+                                        <rect key="frame" x="30" y="236" width="57" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="0h9-4l-K6V"/>
                                         </constraints>
-                                        <state key="normal" title="Registrar">
+                                        <state key="normal" title="Register">
                                             <color key="titleColor" red="0.1060770014" green="0.24054854319999999" blue="0.38894511009999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -177,7 +183,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.80304808937823835" green="0.80304808937823835" blue="0.80304808937823835" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="9oN-pL-PF4" secondAttribute="bottom" constant="60" id="3SF-L6-8WO"/>
@@ -186,7 +192,7 @@
                                     <constraint firstItem="kMF-mj-qrR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9oN-pL-PF4" secondAttribute="trailing" constant="8" symbolic="YES" id="B0C-58-Bmb"/>
                                     <constraint firstItem="qGq-M4-2Mr" firstAttribute="centerX" secondItem="VdV-oZ-PgY" secondAttribute="centerX" id="E5E-Hi-vPO"/>
                                     <constraint firstItem="9oN-pL-PF4" firstAttribute="leading" secondItem="VdV-oZ-PgY" secondAttribute="leading" constant="30" id="KIl-9G-IHj"/>
-                                    <constraint firstItem="qGq-M4-2Mr" firstAttribute="top" secondItem="VdV-oZ-PgY" secondAttribute="top" constant="-42" id="P4t-L0-Cen"/>
+                                    <constraint firstItem="qGq-M4-2Mr" firstAttribute="top" secondItem="VdV-oZ-PgY" secondAttribute="top" constant="-43" id="P4t-L0-Cen"/>
                                     <constraint firstItem="rGp-Bh-Vr1" firstAttribute="centerX" secondItem="qGq-M4-2Mr" secondAttribute="centerX" id="XL5-13-bD8"/>
                                     <constraint firstAttribute="trailing" secondItem="kMF-mj-qrR" secondAttribute="trailing" constant="30" id="sYE-7v-ife"/>
                                     <constraint firstItem="rGp-Bh-Vr1" firstAttribute="top" secondItem="qGq-M4-2Mr" secondAttribute="bottom" constant="20" id="tZO-Si-Wch"/>
@@ -227,12 +233,15 @@
         </designable>
     </designables>
     <resources>
-        <image name="facebook.png" width="250" height="250"/>
-        <image name="instagram.png" width="1000" height="1000"/>
-        <image name="key.fill" catalog="system" width="83" height="128"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="email" width="50" height="50"/>
+        <image name="face" width="64" height="64"/>
+        <image name="insta" width="64" height="64"/>
+        <image name="password" width="50" height="50"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

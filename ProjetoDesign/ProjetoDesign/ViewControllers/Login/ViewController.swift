@@ -31,21 +31,39 @@ class ViewController: UIViewController {
         loginView.layer.shadowOpacity = 1
     }
     
-    // MARK: - IBActions 
+    // MARK: - IBActions
+
     @IBAction func loginButton(_ sender: Any) {
-       
         if let vc = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() as? TabbarController{
             vc.modalPresentationStyle = .fullScreen
             present(vc, animated: true, completion: nil)
         }
-       
     }
+
     @IBAction func registerButton(_ sender: Any) {
         if let vc = UIStoryboard(name: "Registrar", bundle: nil).instantiateInitialViewController() as? RegistrarViewController {
             present(vc, animated: true, completion: nil)
         }
     }
-    
+
+    @IBAction func faceButtonTapped() {
+        showUnderDevelopment()
+    }
+
+
+    @IBAction func instagramButtonTapped() {
+        showUnderDevelopment()
+    }
+
+    private func showUnderDevelopment(){
+        let alert = UIAlertController(
+            title: "This option still under development", message: nil, preferredStyle: .alert
+        )
+
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+
+        present(alert, animated: true)
+    }
 
 }
 
