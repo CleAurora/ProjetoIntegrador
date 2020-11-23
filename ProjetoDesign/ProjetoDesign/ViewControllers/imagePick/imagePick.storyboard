@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kKa-CC-P3k">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--imagePick-->
+        <scene sceneID="Ta4-NY-6R5">
+            <objects>
+                <viewController storyboardIdentifier="imagePick" title="imagePick" useStoryboardIdentifierAsRestorationIdentifier="YES" id="kKa-CC-P3k" customClass="imagepickViewController" customModule="ProjetoDesign" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5PQ-X8-x4v">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GWQ-VZ-9xe" customClass="AdjustsViewBoundsImageView" customModule="ProjetoDesign" customModuleProvider="target">
+                                <rect key="frame" x="17" y="44" width="380" height="537.5"/>
+                                <color key="backgroundColor" red="0.87450980389999999" green="0.7725490196" blue="0.99607843139999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="537.5" id="Orh-K9-1pm"/>
+                                    <constraint firstAttribute="width" constant="380" id="ZE3-ba-typ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="60"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AH5-ck-6VB">
+                                <rect key="frame" x="184" y="671" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ey6-h2-JAR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ey6-h2-JAR" firstAttribute="trailing" secondItem="GWQ-VZ-9xe" secondAttribute="trailing" constant="17" id="80l-Fc-FOF"/>
+                            <constraint firstItem="AH5-ck-6VB" firstAttribute="leading" secondItem="ey6-h2-JAR" secondAttribute="leading" constant="184" id="OQa-gH-cdV"/>
+                            <constraint firstItem="ey6-h2-JAR" firstAttribute="trailing" secondItem="AH5-ck-6VB" secondAttribute="trailing" constant="184" id="cgA-oe-JES"/>
+                            <constraint firstItem="ey6-h2-JAR" firstAttribute="bottom" secondItem="AH5-ck-6VB" secondAttribute="bottom" constant="161" id="ej4-EV-W7v"/>
+                            <constraint firstItem="GWQ-VZ-9xe" firstAttribute="leading" secondItem="ey6-h2-JAR" secondAttribute="leading" constant="17" id="hei-Mi-E7U"/>
+                            <constraint firstItem="GWQ-VZ-9xe" firstAttribute="top" secondItem="ey6-h2-JAR" secondAttribute="top" id="htq-40-3zR"/>
+                            <constraint firstItem="AH5-ck-6VB" firstAttribute="top" secondItem="GWQ-VZ-9xe" secondAttribute="bottom" constant="89.5" id="lF0-Gj-wrN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="userImage" destination="GWQ-VZ-9xe" id="mZV-7c-f1o"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b4N-ol-4u5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-352.17391304347831" y="84.375"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

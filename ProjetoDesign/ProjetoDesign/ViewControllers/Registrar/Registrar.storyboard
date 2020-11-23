@@ -35,6 +35,9 @@
                                                 <state key="normal" title="Register">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="registerButton:" destination="NJq-OM-TuN" eventType="touchUpInside" id="Y17-c9-Hdo"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -267,14 +270,14 @@
         </designable>
     </designables>
     <resources>
-        <image name="email" width="50" height="50"/>
+        <image name="email" width="128" height="128"/>
         <image name="face" width="64" height="64"/>
         <image name="insta" width="64" height="64"/>
         <image name="mail" catalog="system" width="128" height="93"/>
         <image name="nickname" width="50" height="50"/>
         <image name="password" width="50" height="50"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="user" width="50" height="50"/>
+        <image name="user" width="128" height="128"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
