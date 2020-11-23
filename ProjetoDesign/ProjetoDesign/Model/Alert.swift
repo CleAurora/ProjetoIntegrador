@@ -10,30 +10,18 @@ import UIKit
 
 class Alert {
     var controller: RegistrarViewController?
+
     func isDeveloping(completionHandler: (_ result: Bool, _ error: Error?) -> Void){
         controller = RegistrarViewController()
-        do{
-            
-            let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                  switch action.style{
-                  case .default:
-                        print("default")
 
-                  case .cancel:
-                        print("cancel")
+        let alert = UIAlertController(title: "Alert", message: "Message", preferredStyle: .alert)
 
-                  case .destructive:
-                        print("destructive")
+        alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
+            print("default")
+        })
 
+        controller?.present(alert, animated: true, completion: nil)
 
-            }}))
-            controller?.present(alert, animated: true, completion: nil)
-            
-            completionHandler(true,nil)
-        }catch{
-            completionHandler(false,nil)
-        }
-        
+        completionHandler(true, nil)
     }
 }
