@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RP8-Qb-57w" userLabel="ContainerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="722.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="791"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SE4-zD-gYr" userLabel="CloseButton">
                                                 <rect key="frame" x="371" y="0.0" width="30" height="30"/>
@@ -29,8 +29,8 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAT-pc-kau">
-                                                <rect key="frame" x="126" y="320" width="142" height="30"/>
-                                                <state key="normal" title="Alterar Foto do Perfil"/>
+                                                <rect key="frame" x="124.5" y="320" width="145" height="30"/>
+                                                <state key="normal" title="Change Profile Photo"/>
                                                 <connections>
                                                     <action selector="changePictureButtonTapped" destination="dPJ-1v-DSf" eventType="touchUpInside" id="U9H-m6-eue"/>
                                                 </connections>
@@ -46,8 +46,8 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Melissa McCarthy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n4K-7o-T3k">
-                                                <rect key="frame" x="120" y="409.5" width="274" height="23"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                <rect key="frame" x="120" y="409" width="274" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -78,8 +78,8 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="https://Melissa_McCarthy" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIg-bY-o55">
-                                                <rect key="frame" x="120" y="513" width="274" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <rect key="frame" x="120" y="516.5" width="274" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -94,21 +94,22 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ir0-tg-lvX">
-                                                <rect key="frame" x="20" y="662.5" width="374" height="40"/>
+                                                <rect key="frame" x="20" y="731" width="374" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="fPi-lm-O4Q"/>
                                                 </constraints>
-                                                <state key="normal" title="Sair">
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" title="Logout">
                                                     <color key="titleColor" red="1" green="0.0020680644083768129" blue="0.051592729985713959" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
                                                     <segue destination="dPJ-1v-DSf" kind="custom" customClass="LogoutSegue" customModule="ProjetoDesign" customModuleProvider="target" id="1Sx-Zo-V7v"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACn-yF-dAo">
-                                                <rect key="frame" x="120" y="547" width="274" height="95.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACn-yF-dAo">
+                                                <rect key="frame" x="120" y="543.5" width="274" height="167.5"/>
                                                 <string key="text">Melissa Ann McCarthy (Plainfield, 26 de agosto de 1970) é uma atriz, comediante, escritora, produtora e empresária americana. É conhecida pela sua atuação como Sookie St. James na aclamada série Gilmore Girls, que estrelou de 2000 a 2007. Atua no seriado Mike &amp; Molly, pelo qual ganhou o Emmy do Primetime de melhor atriz numa série de comédia em 2011. Em 2012 foi indicada ao Oscar de melhor atriz coadjuvante, por sua atuação no filme Bridesmaids.[1]</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
