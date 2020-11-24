@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dPJ-1v-DSf">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -20,10 +20,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RP8-Qb-57w" userLabel="ContainerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1033"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="722.5"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="close" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SE4-zD-gYr" userLabel="CloseButton">
-                                                <rect key="frame" x="371" y="16" width="30" height="30"/>
+                                                <rect key="frame" x="371" y="0.0" width="30" height="30"/>
                                                 <connections>
                                                     <segue destination="dPJ-1v-DSf" kind="custom" identifier="DismissEditProfile" customClass="DismissSegue" customModule="ProjetoDesign" customModuleProvider="target" id="c6p-Kr-RHc"/>
                                                 </connections>
@@ -31,6 +31,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dAT-pc-kau">
                                                 <rect key="frame" x="126" y="320" width="142" height="30"/>
                                                 <state key="normal" title="Alterar Foto do Perfil"/>
+                                                <connections>
+                                                    <action selector="changePictureButtonTapped" destination="dPJ-1v-DSf" eventType="touchUpInside" id="U9H-m6-eue"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s1u-WH-Oxo">
                                                 <rect key="frame" x="20" y="400" width="90" height="42"/>
@@ -91,7 +94,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ir0-tg-lvX">
-                                                <rect key="frame" x="20" y="973" width="374" height="40"/>
+                                                <rect key="frame" x="20" y="662.5" width="374" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="fPi-lm-O4Q"/>
                                                 </constraints>
@@ -102,8 +105,8 @@
                                                     <segue destination="dPJ-1v-DSf" kind="custom" customClass="LogoutSegue" customModule="ProjetoDesign" customModuleProvider="target" id="1Sx-Zo-V7v"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACn-yF-dAo">
-                                                <rect key="frame" x="120" y="547" width="274" height="406"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ACn-yF-dAo">
+                                                <rect key="frame" x="120" y="547" width="274" height="95.5"/>
                                                 <string key="text">Melissa Ann McCarthy (Plainfield, 26 de agosto de 1970) é uma atriz, comediante, escritora, produtora e empresária americana. É conhecida pela sua atuação como Sookie St. James na aclamada série Gilmore Girls, que estrelou de 2000 a 2007. Atua no seriado Mike &amp; Molly, pelo qual ganhou o Emmy do Primetime de melhor atriz numa série de comédia em 2011. Em 2012 foi indicada ao Oscar de melhor atriz coadjuvante, por sua atuação no filme Bridesmaids.[1]</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="textColor"/>
@@ -122,6 +125,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                         </subviews>
+                                        <viewLayoutGuide key="safeArea" id="d34-jr-Mee"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="ACn-yF-dAo" firstAttribute="leading" secondItem="yQb-Y7-GUS" secondAttribute="trailing" constant="10" id="0uA-mz-7VW"/>
@@ -149,7 +153,7 @@
                                             <constraint firstAttribute="trailing" secondItem="ACn-yF-dAo" secondAttribute="trailing" constant="20" id="mRo-EI-vEL"/>
                                             <constraint firstItem="yQb-Y7-GUS" firstAttribute="leading" secondItem="RP8-Qb-57w" secondAttribute="leading" constant="20" id="o4M-8e-lHf"/>
                                             <constraint firstItem="ir0-tg-lvX" firstAttribute="leading" secondItem="RP8-Qb-57w" secondAttribute="leading" constant="20" id="oKc-pi-yc3"/>
-                                            <constraint firstItem="SE4-zD-gYr" firstAttribute="top" secondItem="RP8-Qb-57w" secondAttribute="top" constant="16" id="opF-3H-bMI"/>
+                                            <constraint firstItem="SE4-zD-gYr" firstAttribute="top" secondItem="d34-jr-Mee" secondAttribute="top" id="opF-3H-bMI"/>
                                             <constraint firstItem="LIg-bY-o55" firstAttribute="centerY" secondItem="7P7-en-Zj7" secondAttribute="centerY" id="q95-Ut-9dP"/>
                                             <constraint firstItem="L8e-4O-8GP" firstAttribute="centerY" secondItem="QyO-e7-pnG" secondAttribute="centerY" id="tX8-By-EDI"/>
                                             <constraint firstItem="f0J-Ml-o3Q" firstAttribute="centerX" secondItem="RP8-Qb-57w" secondAttribute="centerX" id="tvm-2l-j3s"/>
