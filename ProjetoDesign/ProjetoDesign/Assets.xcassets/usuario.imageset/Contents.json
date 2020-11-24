@@ -1,16 +1,18 @@
 {
   "images" : [
     {
-      "filename" : "icons8-usuario-50-3.png",
-      "idiom" : "universal",
+      "filename" : "icons8-usuario-50-3~iphone@1x.png",
+      "idiom" : "iphone",
       "scale" : "1x"
     },
     {
-      "idiom" : "universal",
+      "filename" : "icons8-usuario-50-3~iphone@2x.png",
+      "idiom" : "iphone",
       "scale" : "2x"
     },
     {
-      "idiom" : "universal",
+      "filename" : "icons8-usuario-50-3~iphone@3x.png",
+      "idiom" : "iphone",
       "scale" : "3x"
     }
   ],
