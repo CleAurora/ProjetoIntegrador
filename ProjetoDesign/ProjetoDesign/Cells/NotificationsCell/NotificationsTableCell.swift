@@ -39,7 +39,7 @@ class NotificationsTableCell: UITableViewCell {
         print(actualText!)
         
         if actualText == "Follow" {
-            notificationButton.setTitle("Following", for: .normal)
+            notificationButton.setTitle("unfollow", for: .normal)
             notificationButton.setTitleColor(.white, for: .normal)
         }else{
             notificationButton.setTitle("Follow", for: .normal)
