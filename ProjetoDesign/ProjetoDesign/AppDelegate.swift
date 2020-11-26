@@ -15,5 +15,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidFinishLaunching(_ application: UIApplication) {
         UITabBar.appearance().unselectedItemTintColor = UIColor.green
         IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
     }
 }
