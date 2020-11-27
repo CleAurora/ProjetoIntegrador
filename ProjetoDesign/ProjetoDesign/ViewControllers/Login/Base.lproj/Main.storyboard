@@ -120,7 +120,7 @@
                                                     <color key="titleColor" red="0.399966985" green="0.40001851319999998" blue="0.39994949099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="faceButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="pWI-ke-6bM"/>
+                                                    <action selector="faceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fwj-tb-mrE"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFU-yv-ccs" userLabel="FacebookLoginButton">
@@ -137,7 +137,7 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="instagramButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="UaK-6L-CIn"/>
+                                                    <action selector="instagramButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lC7-xd-mKG"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -224,8 +224,11 @@
                     <navigationItem key="navigationItem" id="f2f-4g-4LE"/>
                     <connections>
                         <outlet property="backgroundImageView" destination="Y5z-yZ-uQQ" id="qxv-gw-0o7"/>
+                        <outlet property="faceButtonTapped" destination="Axj-Yt-znw" id="jys-5N-hqk"/>
+                        <outlet property="instagramButtonTapped" destination="RFU-yv-ccs" id="c3E-qP-oXZ"/>
                         <outlet property="loginButton" destination="kMF-mj-qrR" id="9bb-fY-gqR"/>
                         <outlet property="loginView" destination="qGq-M4-2Mr" id="0Fq-sa-t4g"/>
+                        <outlet property="registerButton" destination="9oN-pL-PF4" id="goL-HM-tnZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

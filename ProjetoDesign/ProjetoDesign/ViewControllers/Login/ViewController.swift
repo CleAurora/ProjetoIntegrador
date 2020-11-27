@@ -13,7 +13,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loginView: UIView!
-    
+    @IBOutlet weak var instagramButtonTapped: UIButton!
+    @IBOutlet weak var faceButtonTapped: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
+    var loginModel = LoginViewModel()
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +24,14 @@ class ViewController: UIViewController {
         backgroundImageView.layer.maskedCorners = CACornerMask(rawValue: UIRectCorner([.bottomLeft, .bottomRight]).rawValue)
         loginButton.backgroundColor = UIColor(patternImage: UIImage(named: "2.jpg")!)
         setupView()
+        setupUI()
+    }
+
+    func setupUI(){
+        self.loginButton.setTitle(loginModel.titleBtnLogin, for: .normal )
+        self.registerButton.setTitle(loginModel.titleBtnRegister, for: .normal)
+        self.faceButtonTapped.setImage(UIImage(named: loginModel.imageBtnFaceBook), for: .normal)
+        self.instagramButtonTapped.setImage(UIImage(named: loginModel.imageBtnInstagram), for: .normal)
     }
 
     // MARK: - Methods
@@ -46,12 +57,12 @@ class ViewController: UIViewController {
         }
     }
 
-    @IBAction func faceButtonTapped() {
+    @IBAction func faceButtonTapped(_ sender: Any) {
         showUnderDevelopment()
     }
 
 
-    @IBAction func instagramButtonTapped() {
+    @IBAction func instagramButtonTapped(_ sender: Any) {
         showUnderDevelopment()
     }
 
