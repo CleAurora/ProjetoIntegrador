@@ -13,7 +13,7 @@ class CurrentWeather{
     private var _cityName: String!
     private var _date: String!
     private var _weatherType: String!
-    private var _currentTemp: Int!
+    private var _currentTemp: Double!
     
     var cityName: String{
         if _cityName == nil{
@@ -35,9 +35,9 @@ class CurrentWeather{
         return _weatherType
     }
     
-    var currentTemp: Int{
+    var currentTemp: Double{
         if _currentTemp == nil{
-            _currentTemp == 1
+            _currentTemp = 0
         }
         return _currentTemp
     }
@@ -61,7 +61,7 @@ class CurrentWeather{
             
             let downloadedTemp = jsonObject["main"]["temp"].double
             let tmp = downloadedTemp! - 273.15
-            self._currentTemp = Int(round(tmp))
+            self._currentTemp = tmp
            
             // The code below is just to see more info about our API
             print(self._cityName!)

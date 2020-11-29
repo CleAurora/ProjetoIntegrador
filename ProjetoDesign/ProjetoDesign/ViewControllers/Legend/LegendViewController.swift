@@ -23,7 +23,7 @@ class LegendViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
        
     //Variables
-    var currentWeather: CurrentWeather!
+    var currentWeather: CurrentWeather = CurrentWeather()
     var currentLocation: CLLocation!
     
     // MARK: - Proprierts
@@ -35,8 +35,7 @@ class LegendViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         self.callDelegate()
         self.setupLocation()
-        currentWeather = CurrentWeather()
-        
+
         if let upload = upload {
             imageSelected.image = UIImage(named: upload.image)
         }
@@ -88,7 +87,7 @@ class LegendViewController: UIViewController, CLLocationManagerDelegate {
     func setupUI(){
         //setup labels using MVVM Archictecture
         localLabel.text = currentWeather.cityName
-        weatherLabel.text = "\(currentWeather.currentTemp)°C"
+        weatherLabel.text = String(format: "%.2fºC", arguments: [currentWeather.currentTemp])
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -104,7 +103,18 @@ class LegendViewController: UIViewController, CLLocationManagerDelegate {
                let navController = viewControllers.first as? UINavigationController,
                let feedViewController = navController.viewControllers.first as? FeedViewController {
                 tabBarController.selectedIndex = 0
-                feedViewController.postagem.insert(PostUser(name: "Melissa", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "\(image)", comments: legendTextField.text ?? "", allImages: ["",""]), at: 0)
+                feedViewController.postagem.insert(
+                    PostUser(
+                        name: "Melissa",
+                        city: localSwitch.isOn ? currentWeather.cityName : nil,
+                        temperature: weatherSwitch.isOn ? currentWeather.currentTemp : nil,
+                        imageProfile: "mel0.jpg",
+                        imagePost: "\(image)",
+                        comments: legendTextField.text ?? "",
+                        allImages: ["",""]
+                    )
+                    , at: 0
+                )
                 feedViewController.feedTableView.reloadData()
             }
            
