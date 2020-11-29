@@ -24,7 +24,7 @@ class CurrentWeather{
     
     var date: String{
         if _date == nil{
-            _date == ""
+            _date = ""
         }
         return _date
     }

@@ -16,7 +16,7 @@ class ProfileViewController: UIViewController {
     
     // MARK: - Proprierts
     var profileArray = [Profile]()
-    var imagensArray = [imagensProfile]()
+    var imagensArray = [ImagensProfile]()
     
     // MARK: - Super Methods
     override func viewDidAppear(_ animated: Bool) {
@@ -26,15 +26,15 @@ class ProfileViewController: UIViewController {
         //setup()
         profileArray.append(Profile(name: "Melissa", profileImage: "mel0.jpg", bio: "It’s always important when preparing for your movie premiere to keep your neck napkin tucked in while you apply your press on nails"))
         
-        imagensArray.append(imagensProfile(imagens: "mel0.jpg", weatherImage: "sun"))
-        imagensArray.append(imagensProfile(imagens: "mel1.jpeg", weatherImage: "snowflake"))
-        imagensArray.append(imagensProfile(imagens: "mel2.jpg", weatherImage: ""))
-        imagensArray.append(imagensProfile(imagens: "melissa1.jpg", weatherImage: "snowflake"))
-        imagensArray.append(imagensProfile(imagens: "melissa2.jpeg", weatherImage: "cloud.rain"))
-        imagensArray.append(imagensProfile(imagens: "melissa3.jpg", weatherImage: ""))
-        imagensArray.append(imagensProfile(imagens: "melissa4.jpg", weatherImage: "cloud"))
-        imagensArray.append(imagensProfile(imagens: "melissa5.jpeg", weatherImage: "sun"))
-        imagensArray.append(imagensProfile(imagens: "melissa0.jpg", weatherImage: "cloud.rain"))
+        imagensArray.append(ImagensProfile(imagens: "mel0.jpg", weatherImage: "sun"))
+        imagensArray.append(ImagensProfile(imagens: "mel1.jpeg", weatherImage: "snowflake"))
+        imagensArray.append(ImagensProfile(imagens: "mel2.jpg", weatherImage: ""))
+        imagensArray.append(ImagensProfile(imagens: "melissa1.jpg", weatherImage: "snowflake"))
+        imagensArray.append(ImagensProfile(imagens: "melissa2.jpeg", weatherImage: "cloud.rain"))
+        imagensArray.append(ImagensProfile(imagens: "melissa3.jpg", weatherImage: ""))
+        imagensArray.append(ImagensProfile(imagens: "melissa4.jpg", weatherImage: "cloud"))
+        imagensArray.append(ImagensProfile(imagens: "melissa5.jpeg", weatherImage: "sun"))
+        imagensArray.append(ImagensProfile(imagens: "melissa0.jpg", weatherImage: "cloud.rain"))
 
         profileCollectionView.reloadData()
     }

@@ -23,7 +23,7 @@ class ProfileCollectionCell: UICollectionViewCell {
     }
     
     // MARK: - Methods 
-    func setup(user: imagensProfile){
+    func setup(user: ImagensProfile){
         uploadImageview.image = UIImage(named: user.imagens)
         weatherImageView?.image = UIImage(named: user.weatherImage)
     }

@@ -109,7 +109,7 @@ class LegendViewController: UIViewController, CLLocationManagerDelegate {
                         city: localSwitch.isOn ? currentWeather.cityName : nil,
                         temperature: weatherSwitch.isOn ? currentWeather.currentTemp : nil,
                         imageProfile: "mel0.jpg",
-                        imagePost: "\(image)",
+                        imagePost: image,
                         comments: legendTextField.text ?? "",
                         allImages: ["",""]
                     )
@@ -117,14 +117,16 @@ class LegendViewController: UIViewController, CLLocationManagerDelegate {
                 )
                 feedViewController.feedTableView.reloadData()
             }
-           
+
+            if let tabBarController = tabBarController, let profileViewController = tabBarController.viewControllers?.last as? ProfileViewController {
+                profileViewController.imagensArray.append(ImagensProfile(imagens: image, weatherImage: currentWeather.weatherType.lowercased()))
+                profileViewController.profileCollectionView?.reloadData()
+            }
+
             navigationController?.popViewController(animated: true)
-          
-            
         }
-      
     }
-    
+
     // MARK: - IBActions 
     @IBAction func postButtonTapped() {
        // navigationController?.popViewController(animated: true)
