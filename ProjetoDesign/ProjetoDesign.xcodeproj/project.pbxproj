@@ -49,6 +49,9 @@
 		4C47EE84254634F6000F934B /* PhotoDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C47EE83254634F6000F934B /* PhotoDetailTableViewCell.swift */; };
 		4C502F95254260540001FAB2 /* StoriesReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C502F94254260540001FAB2 /* StoriesReusableView.swift */; };
 		4C502F9A254267240001FAB2 /* BorderImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C502F99254267240001FAB2 /* BorderImage.swift */; };
+		4C5526EF257394A1007AA6C8 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5526EE257394A1007AA6C8 /* CurrentWeather.swift */; };
+		4C5526FD257395A8007AA6C8 /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5526FC257395A8007AA6C8 /* Locations.swift */; };
+		4C55270225739B75007AA6C8 /* Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C55270125739B75007AA6C8 /* Extras.swift */; };
 		4C573F2D2545DFF100A2982F /* PhotoDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C573F2C2545DFF100A2982F /* PhotoDetail.storyboard */; };
 		4C573F322545E01300A2982F /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C573F312545E01300A2982F /* PhotoDetailViewController.swift */; };
 		4C573F3D2545E8E700A2982F /* PhotoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C573F3C2545E8E700A2982F /* PhotoDetail.swift */; };
@@ -161,6 +164,9 @@
 		4C47EE83254634F6000F934B /* PhotoDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailTableViewCell.swift; sourceTree = "<group>"; };
 		4C502F94254260540001FAB2 /* StoriesReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesReusableView.swift; sourceTree = "<group>"; };
 		4C502F99254267240001FAB2 /* BorderImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderImage.swift; sourceTree = "<group>"; };
+		4C5526EE257394A1007AA6C8 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
+		4C5526FC257395A8007AA6C8 /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
+		4C55270125739B75007AA6C8 /* Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extras.swift; sourceTree = "<group>"; };
 		4C573F2C2545DFF100A2982F /* PhotoDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoDetail.storyboard; sourceTree = "<group>"; };
 		4C573F312545E01300A2982F /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		4C573F3C2545E8E700A2982F /* PhotoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetail.swift; sourceTree = "<group>"; };
@@ -638,6 +644,9 @@
 			isa = PBXGroup;
 			children = (
 				4CF5BFF82564D70F004AFFB5 /* Alert.swift */,
+				4C5526EE257394A1007AA6C8 /* CurrentWeather.swift */,
+				4C5526FC257395A8007AA6C8 /* Locations.swift */,
+				4C55270125739B75007AA6C8 /* Extras.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -942,6 +951,7 @@
 				4C6DF0BB252B602B0099D857 /* Stories.swift in Sources */,
 				4CCB528A252A4DC000F9AB19 /* RegistrarViewController.swift in Sources */,
 				4CCB523B252A45E700F9AB19 /* ViewController.swift in Sources */,
+				4C5526FD257395A8007AA6C8 /* Locations.swift in Sources */,
 				4C0D1A56252A98FF00462862 /* imagensProfile.swift in Sources */,
 				4C0D1A4C252A920500462862 /* Profile.swift in Sources */,
 				4CADCCA425422926005676F7 /* CommentsTableCell.swift in Sources */,
@@ -949,6 +959,7 @@
 				4C84732F2548F007000ECD02 /* ProfileCollectionReusableView.swift in Sources */,
 				4CCB527F252A4B5100F9AB19 /* editTextField.swift in Sources */,
 				4C0D19E6252A659B00462862 /* RoundedImage.swift in Sources */,
+				4C55270225739B75007AA6C8 /* Extras.swift in Sources */,
 				4C47EE7F254631AE000F934B /* User.swift in Sources */,
 				4C0D19D7252A5DBE00462862 /* ProfileViewController.swift in Sources */,
 				4C573F322545E01300A2982F /* PhotoDetailViewController.swift in Sources */,
@@ -960,6 +971,7 @@
 				4CCB5237252A45E700F9AB19 /* AppDelegate.swift in Sources */,
 				42F8651E25713E57009DBA88 /* LoginViewModel.swift in Sources */,
 				4CADCC992542267A005676F7 /* CommentsViewController.swift in Sources */,
+				4C5526EF257394A1007AA6C8 /* CurrentWeather.swift in Sources */,
 				4C0D19B6252A5C3F00462862 /* FeedViewController.swift in Sources */,
 				4CE2D15A25485C0F004045B2 /* RoundedTextField.swift in Sources */,
 				4C502F9A254267240001FAB2 /* BorderImage.swift in Sources */,

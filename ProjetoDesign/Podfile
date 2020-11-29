@@ -6,7 +6,9 @@ target 'ProjetoDesign' do
 
   # Pods for ProjetoDesign
   pod 'IQKeyboardManagerSwift', '6.3.0'
-
+  pod 'SwiftyJSON', '~> 4.0'
+  pod 'Alamofire', '~> 5.2'
+  
   target 'ProjetoDesignTests' do
     inherit! :search_paths
     # Pods for testing

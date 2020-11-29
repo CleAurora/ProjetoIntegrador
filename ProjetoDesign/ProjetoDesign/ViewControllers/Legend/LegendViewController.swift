@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class LegendViewController: UIViewController {
+class LegendViewController: UIViewController, CLLocationManagerDelegate {
     
     // MARK: - IBOutlets
     @IBOutlet weak var imageSelected: UIImageView!
@@ -18,6 +19,13 @@ class LegendViewController: UIViewController {
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var localLabel: UILabel!
 
+    //Constants
+    let locationManager = CLLocationManager()
+       
+    //Variables
+    var currentWeather: CurrentWeather!
+    var currentLocation: CLLocation!
+    
     // MARK: - Proprierts
     var upload: Upload?
     var postagem = [PostUser]()
@@ -25,7 +33,10 @@ class LegendViewController: UIViewController {
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.callDelegate()
+        self.setupLocation()
+        currentWeather = CurrentWeather()
+        
         if let upload = upload {
             imageSelected.image = UIImage(named: upload.image)
         }
@@ -40,9 +51,44 @@ class LegendViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
+        //super.viewWillAppear(animated)
+        locationAutoCheck()
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    func callDelegate(){
+        locationManager.delegate = self
+    }
+    
+    func setupLocation(){
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization() // take permission from user.
+        locationManager.startMonitoringSignificantLocationChanges()
+    }
+    
+    func locationAutoCheck() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            //get the location from device
+            currentLocation = locationManager.location
+            //pass the location coord to our API
+            Locations.sharedInstance.latitude = currentLocation.coordinate.latitude
+            Locations.sharedInstance.longitude = currentLocation.coordinate.longitude
+            // download API data
+            currentWeather.downloadCurrentWeather {
+                self.setupUI()
+            // update the UI after download is completed
+            }
+            
+        } else{ // user did not allow
+            locationManager.requestWhenInUseAuthorization() //take permission from the user
+            locationAutoCheck()
+            
+        }
+    }
+    func setupUI(){
+        //setup labels using MVVM Archictecture
+        localLabel.text = currentWeather.cityName
+        weatherLabel.text = "\(currentWeather.currentTemp)°C"
     }
 
     override func viewWillDisappear(_ animated: Bool) {
