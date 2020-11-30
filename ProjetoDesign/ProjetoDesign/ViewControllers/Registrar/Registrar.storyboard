@@ -314,7 +314,7 @@
     </designables>
     <resources>
         <image name="default.user" width="165" height="165"/>
-        <image name="email" width="50" height="50"/>
+        <image name="email" width="128" height="128"/>
         <image name="face" width="64" height="64"/>
         <image name="insta" width="64" height="64"/>
         <image name="mail" catalog="system" width="128" height="93"/>
