@@ -12,11 +12,7 @@ class UploadCollectionCell: UICollectionViewCell {
     @IBOutlet weak var uploadImageView: UIImageView!
     
     // MARK: - Methods 
-    func setup(upload: Upload){
-        uploadImageView.image = UIImage(named: upload.image)
-    }
     func setupImage(image: UIImage){
-        print(image)
         uploadImageView.image = image
     }
 }

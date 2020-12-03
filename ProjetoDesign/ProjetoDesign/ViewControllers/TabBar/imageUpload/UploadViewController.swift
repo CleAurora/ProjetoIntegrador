@@ -26,11 +26,11 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-       
         imageViewBorder.roundedBottom()
-
     }
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        uploadData.photosArray.removeAll()
         grabPhotos()
     }
     func grabPhotos(){
@@ -50,7 +50,6 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
         uploadCollectionView.dataSource = uploadDataSource
         uploadCollectionView.reloadData()
     }
-
     // MARK: - IBActions
     @IBAction func nextAction(_ sender: Any) {
         if let legendViewController = UIStoryboard(name: "Legend", bundle: nil).instantiateInitialViewController() as? LegendViewController {
