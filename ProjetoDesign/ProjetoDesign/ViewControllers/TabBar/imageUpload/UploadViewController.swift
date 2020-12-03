@@ -40,10 +40,6 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
             }
         })
     }
-    func isImageSelected(){
-        self.resizeImageView.image = imageSelected
-        
-    }
     func collectionSetup(){
         self.uploadDataSource = uploadCollectionDelegateSource(uploadView: uploadData, view: self)
         uploadCollectionView.delegate = uploadDataSource
@@ -54,6 +50,7 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
     @IBAction func nextAction(_ sender: Any) {
         if let legendViewController = UIStoryboard(name: "Legend", bundle: nil).instantiateInitialViewController() as? LegendViewController {
         legendViewController.upload = uploadSelected
+        legendViewController.imagemProfile = resizeImageView.image
 
         navigationController?.pushViewController(legendViewController, animated: true)
     }

@@ -15,6 +15,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     
     // MARK: - Proprierts
+    
     var profileArray = [Profile]()
     var imagensArray = [ImagensProfile]()
     

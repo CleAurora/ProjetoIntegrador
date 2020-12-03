@@ -62,7 +62,6 @@
 		4C57A143253F89550018C522 /* searchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57A142253F89550018C522 /* searchViewController.swift */; };
 		4C57A149253F8CC40018C522 /* SearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57A148253F8CC40018C522 /* SearchTableCell.swift */; };
 		4C57A157253F99480018C522 /* searchCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57A156253F99480018C522 /* searchCollectionCell.swift */; };
-		4C5CCC49257853C300B2DD45 /* uploadTableDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5CCC48257853C300B2DD45 /* uploadTableDelegateDataSource.swift */; };
 		4C5CCC4E2578545400B2DD45 /* UploadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5CCC4D2578545400B2DD45 /* UploadTableViewCell.swift */; };
 		4C5CCC53257856E900B2DD45 /* uploadImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5CCC52257856E900B2DD45 /* uploadImagePicker.swift */; };
 		4C5CCC6E2578654900B2DD45 /* uploadCollectionDelegateSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5CCC6D2578654900B2DD45 /* uploadCollectionDelegateSource.swift */; };
@@ -182,7 +181,6 @@
 		4C57A142253F89550018C522 /* searchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchViewController.swift; sourceTree = "<group>"; };
 		4C57A148253F8CC40018C522 /* SearchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableCell.swift; sourceTree = "<group>"; };
 		4C57A156253F99480018C522 /* searchCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchCollectionCell.swift; sourceTree = "<group>"; };
-		4C5CCC48257853C300B2DD45 /* uploadTableDelegateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadTableDelegateDataSource.swift; sourceTree = "<group>"; };
 		4C5CCC4D2578545400B2DD45 /* UploadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTableViewCell.swift; sourceTree = "<group>"; };
 		4C5CCC52257856E900B2DD45 /* uploadImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadImagePicker.swift; sourceTree = "<group>"; };
 		4C5CCC6D2578654900B2DD45 /* uploadCollectionDelegateSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadCollectionDelegateSource.swift; sourceTree = "<group>"; };
@@ -499,7 +497,6 @@
 		4C5CCC472578539700B2DD45 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				4C5CCC48257853C300B2DD45 /* uploadTableDelegateDataSource.swift */,
 				4C5CCC52257856E900B2DD45 /* uploadImagePicker.swift */,
 				4C5CCC6D2578654900B2DD45 /* uploadCollectionDelegateSource.swift */,
 			);
@@ -986,7 +983,6 @@
 				4C0D19E6252A659B00462862 /* RoundedImage.swift in Sources */,
 				4C55270225739B75007AA6C8 /* Extras.swift in Sources */,
 				4C47EE7F254631AE000F934B /* User.swift in Sources */,
-				4C5CCC49257853C300B2DD45 /* uploadTableDelegateDataSource.swift in Sources */,
 				4C0D19D7252A5DBE00462862 /* ProfileViewController.swift in Sources */,
 				4C573F322545E01300A2982F /* PhotoDetailViewController.swift in Sources */,
 				4C573F3D2545E8E700A2982F /* PhotoDetail.swift in Sources */,

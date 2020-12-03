@@ -11,6 +11,7 @@ import CoreLocation
 class LegendViewController: UIViewController, CLLocationManagerDelegate {
     
     // MARK: - IBOutlets
+    var imagemProfile: UIImage?
     @IBOutlet weak var imageSelected: UIImageView!
     @IBOutlet weak var legendTextField: UITextField!
     @IBOutlet weak var postButton: RoundedButton!
@@ -35,10 +36,13 @@ class LegendViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         self.callDelegate()
         self.setupLocation()
-
-        if let upload = upload {
-            imageSelected.image = UIImage(named: upload.image)
+        
+        if imagemProfile != nil {
+            imageSelected.image = imagemProfile
         }
+//        if let upload = upload {
+//            imageSelected.image = UIImage(named: upload.image)
+//        }
 
         imageSelected.layer.maskedCorners = CACornerMask(
             rawValue: UIRectCorner(
@@ -48,7 +52,6 @@ class LegendViewController: UIViewController, CLLocationManagerDelegate {
         postButton.backgroundColor = UIColor(patternImage: UIImage(named: "2.jpg")!)
 
     }
-
     override func viewWillAppear(_ animated: Bool) {
         //super.viewWillAppear(animated)
         locationAutoCheck()
@@ -87,7 +90,7 @@ class LegendViewController: UIViewController, CLLocationManagerDelegate {
     func setupUI(){
         //setup labels using MVVM Archictecture
         localLabel.text = currentWeather.cityName
-        weatherLabel.text = String(format: "%.2fºC", arguments: [currentWeather.currentTemp])
+        weatherLabel.text = String(format: "%.0fºC", arguments: [currentWeather.currentTemp])
     }
 
     override func viewWillDisappear(_ animated: Bool) {
