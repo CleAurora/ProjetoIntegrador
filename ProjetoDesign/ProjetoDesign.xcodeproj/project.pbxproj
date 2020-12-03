@@ -66,6 +66,7 @@
 		4C5CCC53257856E900B2DD45 /* uploadImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5CCC52257856E900B2DD45 /* uploadImagePicker.swift */; };
 		4C5CCC6E2578654900B2DD45 /* uploadCollectionDelegateSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5CCC6D2578654900B2DD45 /* uploadCollectionDelegateSource.swift */; };
 		4C5CCC762578773E00B2DD45 /* BorderBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5CCC752578773E00B2DD45 /* BorderBottom.swift */; };
+		4C61CE052579A61800491964 /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C61CE042579A61800491964 /* RegisterViewModel.swift */; };
 		4C6DF0AC252B5B2D0099D857 /* mel1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4C6DF0A9252B5B2C0099D857 /* mel1.jpeg */; };
 		4C6DF0AD252B5B2D0099D857 /* mel0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4C6DF0AA252B5B2C0099D857 /* mel0.jpg */; };
 		4C6DF0AE252B5B2D0099D857 /* mel2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4C6DF0AB252B5B2C0099D857 /* mel2.jpg */; };
@@ -185,6 +186,7 @@
 		4C5CCC52257856E900B2DD45 /* uploadImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadImagePicker.swift; sourceTree = "<group>"; };
 		4C5CCC6D2578654900B2DD45 /* uploadCollectionDelegateSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadCollectionDelegateSource.swift; sourceTree = "<group>"; };
 		4C5CCC752578773E00B2DD45 /* BorderBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderBottom.swift; sourceTree = "<group>"; };
+		4C61CE042579A61800491964 /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		4C6DF0A9252B5B2C0099D857 /* mel1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel1.jpeg; sourceTree = "<group>"; };
 		4C6DF0AA252B5B2C0099D857 /* mel0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel0.jpg; sourceTree = "<group>"; };
 		4C6DF0AB252B5B2C0099D857 /* mel2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel2.jpg; sourceTree = "<group>"; };
@@ -656,6 +658,7 @@
 			children = (
 				4CCB5284252A4DB000F9AB19 /* Registrar.storyboard */,
 				4CCB5289252A4DC000F9AB19 /* RegistrarViewController.swift */,
+				4C61CE042579A61800491964 /* RegisterViewModel.swift */,
 			);
 			path = Registrar;
 			sourceTree = "<group>";
@@ -999,6 +1002,7 @@
 				4CE2D15A25485C0F004045B2 /* RoundedTextField.swift in Sources */,
 				4C5CCC6E2578654900B2DD45 /* uploadCollectionDelegateSource.swift in Sources */,
 				4C502F9A254267240001FAB2 /* BorderImage.swift in Sources */,
+				4C61CE052579A61800491964 /* RegisterViewModel.swift in Sources */,
 				4C57A157253F99480018C522 /* searchCollectionCell.swift in Sources */,
 				4C0D1A1E252A7F0D00462862 /* ProfileCollectionCell.swift in Sources */,
 				426414282540E79500F47C5D /* LegendViewController.swift in Sources */,
