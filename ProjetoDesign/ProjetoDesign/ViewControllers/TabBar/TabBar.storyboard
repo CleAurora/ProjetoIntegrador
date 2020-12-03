@@ -20,23 +20,18 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3qF-eb-ufD">
                                 <rect key="frame" x="17" y="0.0" width="380" height="537.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QaN-Wt-2Ua" customClass="AdjustsViewBoundsImageView" customModule="ProjetoDesign" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="380" height="537.5"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="60"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QaN-Wt-2Ua">
+                                        <rect key="frame" x="0.0" y="0.0" width="380" height="538"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="380" id="esZ-o0-8hF"/>
+                                            <constraint firstAttribute="height" constant="538" id="mQM-Mz-x4R"/>
+                                        </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JXR-1q-4gP" customClass="extensions" customModule="ProjetoDesign" customModuleProvider="target">
                                         <rect key="frame" x="294" y="44" width="71" height="37"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuB-WQ-IfE">
                                                 <rect key="frame" x="0.0" y="0.0" width="71" height="37"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="37" id="X35-Ax-jWS"/>
-                                                    <constraint firstAttribute="width" constant="71" id="vhd-Gh-fnd"/>
-                                                </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
                                                 <state key="normal" title="Next">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -50,12 +45,10 @@
                                         <viewLayoutGuide key="safeArea" id="r8f-Kg-qls"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="71" id="5dd-0u-Q1g"/>
-                                            <constraint firstAttribute="trailing" secondItem="WuB-WQ-IfE" secondAttribute="trailing" id="7ZM-aq-HwL"/>
-                                            <constraint firstItem="WuB-WQ-IfE" firstAttribute="top" secondItem="JXR-1q-4gP" secondAttribute="top" id="AQL-Kp-uSK"/>
-                                            <constraint firstAttribute="height" constant="37" id="Ol3-be-pa5"/>
-                                            <constraint firstItem="WuB-WQ-IfE" firstAttribute="leading" secondItem="JXR-1q-4gP" secondAttribute="leading" id="ezP-eT-5Ie"/>
-                                            <constraint firstAttribute="bottom" secondItem="WuB-WQ-IfE" secondAttribute="bottom" id="klH-Df-yFY"/>
+                                            <constraint firstItem="WuB-WQ-IfE" firstAttribute="top" secondItem="r8f-Kg-qls" secondAttribute="top" id="NUQ-89-ojo"/>
+                                            <constraint firstItem="WuB-WQ-IfE" firstAttribute="bottom" secondItem="r8f-Kg-qls" secondAttribute="bottom" id="Nss-H7-aJ0"/>
+                                            <constraint firstItem="WuB-WQ-IfE" firstAttribute="trailing" secondItem="r8f-Kg-qls" secondAttribute="trailing" id="ZYm-7P-Rlw"/>
+                                            <constraint firstItem="WuB-WQ-IfE" firstAttribute="leading" secondItem="r8f-Kg-qls" secondAttribute="leading" id="pNs-yO-F2W"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -66,54 +59,50 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="JXR-1q-4gP" secondAttribute="trailing" constant="15" id="69x-UK-lx5"/>
-                                    <constraint firstAttribute="bottom" secondItem="QaN-Wt-2Ua" secondAttribute="bottom" id="6tl-HU-QuT"/>
-                                    <constraint firstAttribute="trailing" secondItem="QaN-Wt-2Ua" secondAttribute="trailing" id="VlP-4v-js9"/>
-                                    <constraint firstItem="QaN-Wt-2Ua" firstAttribute="top" secondItem="3qF-eb-ufD" secondAttribute="top" id="W6c-fb-beS"/>
-                                    <constraint firstItem="QaN-Wt-2Ua" firstAttribute="leading" secondItem="3qF-eb-ufD" secondAttribute="leading" id="wUS-AN-Bd4"/>
+                                    <constraint firstAttribute="bottom" secondItem="QaN-Wt-2Ua" secondAttribute="bottom" constant="-0.5" id="6ya-oR-ff8"/>
+                                    <constraint firstAttribute="trailing" secondItem="JXR-1q-4gP" secondAttribute="trailing" constant="15" id="PML-wv-Udy"/>
+                                    <constraint firstItem="QaN-Wt-2Ua" firstAttribute="leading" secondItem="3qF-eb-ufD" secondAttribute="leading" id="T2a-ye-xmH"/>
+                                    <constraint firstAttribute="bottom" secondItem="JXR-1q-4gP" secondAttribute="bottom" constant="456.5" id="nWq-Yv-b5c"/>
+                                    <constraint firstItem="QaN-Wt-2Ua" firstAttribute="top" secondItem="3qF-eb-ufD" secondAttribute="top" id="ogK-6S-eyx"/>
+                                    <constraint firstItem="JXR-1q-4gP" firstAttribute="top" secondItem="3qF-eb-ufD" secondAttribute="top" constant="44" id="os8-TW-vne"/>
+                                    <constraint firstAttribute="trailing" secondItem="QaN-Wt-2Ua" secondAttribute="trailing" id="wjA-Hv-ZJ8"/>
+                                    <constraint firstItem="JXR-1q-4gP" firstAttribute="leading" secondItem="3qF-eb-ufD" secondAttribute="leading" constant="294" id="zta-bh-XwF"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="LAa-w9-xlX">
-                                <rect key="frame" x="8" y="557.5" width="398" height="255.5"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aPL-gA-eRD">
+                                <rect key="frame" x="0.0" y="545" width="414" height="268"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6ab-lg-LPi">
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Dbb-m8-pnB">
                                     <size key="itemSize" width="120" height="120"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="uploadCell" id="4Ql-6w-NMS" customClass="UploadCollectionCell" customModule="ProjetoDesign" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="uploadCell" id="swU-Y2-K4q" customClass="UploadCollectionCell" customModule="ProjetoDesign" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="9bq-lg-LRj">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ckg-tT-Ksr">
                                             <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="post2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="EBh-bp-09E" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ulQ-J5-wsm">
                                                     <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="120" id="rXL-M5-7TL"/>
-                                                        <constraint firstAttribute="height" constant="120" id="yNJ-Kp-5do"/>
+                                                        <constraint firstAttribute="height" constant="120" id="RHI-qM-wUu"/>
+                                                        <constraint firstAttribute="width" constant="120" id="hmb-1S-ZCo"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                            <real key="value" value="16"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
-                                                    </userDefinedRuntimeAttributes>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="EBh-bp-09E" firstAttribute="top" secondItem="9bq-lg-LRj" secondAttribute="top" id="3iI-Jz-0x9"/>
-                                                <constraint firstItem="EBh-bp-09E" firstAttribute="leading" secondItem="9bq-lg-LRj" secondAttribute="leading" id="Arh-xY-M5a"/>
-                                                <constraint firstAttribute="bottom" secondItem="EBh-bp-09E" secondAttribute="bottom" id="XgA-cx-GrZ"/>
-                                                <constraint firstAttribute="trailing" secondItem="EBh-bp-09E" secondAttribute="trailing" id="rRY-aW-S2u"/>
+                                                <constraint firstItem="ulQ-J5-wsm" firstAttribute="leading" secondItem="ckg-tT-Ksr" secondAttribute="leading" id="Swc-4v-MxV"/>
+                                                <constraint firstItem="ulQ-J5-wsm" firstAttribute="top" secondItem="ckg-tT-Ksr" secondAttribute="top" id="Zi0-C9-mEN"/>
+                                                <constraint firstAttribute="bottom" secondItem="ulQ-J5-wsm" secondAttribute="bottom" id="hlV-Iy-Qhu"/>
+                                                <constraint firstAttribute="trailing" secondItem="ulQ-J5-wsm" secondAttribute="trailing" id="wp4-EK-X8L"/>
                                             </constraints>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="120" height="120"/>
                                         <connections>
-                                            <outlet property="uploadImageView" destination="EBh-bp-09E" id="hr5-FW-9z3"/>
+                                            <outlet property="uploadImageView" destination="ulQ-J5-wsm" id="2yq-4Y-cxl"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -122,30 +111,29 @@
                         <viewLayoutGuide key="safeArea" id="9vB-7T-bhw"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="3qF-eb-ufD" firstAttribute="leading" secondItem="9vB-7T-bhw" secondAttribute="leading" constant="17" id="1Ev-ok-bTo"/>
-                            <constraint firstItem="LAa-w9-xlX" firstAttribute="top" secondItem="3qF-eb-ufD" secondAttribute="bottom" constant="20" id="1U3-Ir-9KO"/>
-                            <constraint firstItem="3qF-eb-ufD" firstAttribute="height" secondItem="AFT-Tp-Yr4" secondAttribute="height" multiplier="0.6" id="8VS-MH-J6P"/>
-                            <constraint firstItem="LAa-w9-xlX" firstAttribute="bottom" secondItem="9vB-7T-bhw" secondAttribute="bottom" id="U7h-Mx-TZw"/>
-                            <constraint firstItem="LAa-w9-xlX" firstAttribute="leading" secondItem="9vB-7T-bhw" secondAttribute="leading" constant="8" id="d2L-Bk-wac"/>
-                            <constraint firstItem="9vB-7T-bhw" firstAttribute="trailing" secondItem="3qF-eb-ufD" secondAttribute="trailing" constant="17" id="ek3-fw-Um9"/>
-                            <constraint firstItem="JXR-1q-4gP" firstAttribute="top" secondItem="9vB-7T-bhw" secondAttribute="top" id="p2e-z0-f7m"/>
-                            <constraint firstItem="9vB-7T-bhw" firstAttribute="trailing" secondItem="LAa-w9-xlX" secondAttribute="trailing" constant="8" id="qKV-lM-9zo"/>
-                            <constraint firstItem="3qF-eb-ufD" firstAttribute="top" secondItem="AFT-Tp-Yr4" secondAttribute="top" id="xu2-hH-zXe"/>
+                            <constraint firstItem="3qF-eb-ufD" firstAttribute="top" secondItem="AFT-Tp-Yr4" secondAttribute="top" id="0xM-Xv-Bmi"/>
+                            <constraint firstItem="aPL-gA-eRD" firstAttribute="top" secondItem="3qF-eb-ufD" secondAttribute="bottom" constant="7.5" id="E0K-Bc-dbn"/>
+                            <constraint firstItem="aPL-gA-eRD" firstAttribute="leading" secondItem="9vB-7T-bhw" secondAttribute="leading" id="KL3-hd-QlQ"/>
+                            <constraint firstItem="3qF-eb-ufD" firstAttribute="leading" secondItem="9vB-7T-bhw" secondAttribute="leading" constant="17" id="XLy-IX-Mk9"/>
+                            <constraint firstItem="9vB-7T-bhw" firstAttribute="trailing" secondItem="3qF-eb-ufD" secondAttribute="trailing" constant="17" id="eIP-Ew-zdG"/>
+                            <constraint firstItem="aPL-gA-eRD" firstAttribute="trailing" secondItem="9vB-7T-bhw" secondAttribute="trailing" id="o94-rQ-WiD"/>
+                            <constraint firstItem="aPL-gA-eRD" firstAttribute="bottom" secondItem="9vB-7T-bhw" secondAttribute="bottom" id="v0M-qW-4sZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="f4n-QH-dJA">
                         <barButtonItem key="backBarButtonItem" title=" " id="zIe-jh-Bbh"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="imageViewBorder" destination="3qF-eb-ufD" id="itB-kP-A9d"/>
                         <outlet property="nextButton" destination="WuB-WQ-IfE" id="Wlb-kE-GKe"/>
                         <outlet property="resizeImageView" destination="QaN-Wt-2Ua" id="XMb-ct-7Hk"/>
-                        <outlet property="uploadCollectionView" destination="LAa-w9-xlX" id="A2o-5B-QkA"/>
+                        <outlet property="uploadCollectionView" destination="aPL-gA-eRD" id="XZG-19-8I2"/>
                         <outlet property="viewButton" destination="JXR-1q-4gP" id="WN5-Tf-d87"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7aQ-Uj-QPQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1652" y="628.07881773399015"/>
+            <point key="canvasLocation" x="1650.7246376811595" y="627.45535714285711"/>
         </scene>
         <!--Profile-->
         <scene sceneID="Ssq-qQ-8Dd">
@@ -953,17 +941,16 @@
         <image name="cloud" catalog="system" width="128" height="87"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="facebook.png" width="250" height="250"/>
-        <image name="heart-fill" width="50" height="50"/>
+        <image name="heart-fill" width="40" height="40"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
-        <image name="homefill" width="50" height="50"/>
-        <image name="mais-fill" width="50" height="50"/>
+        <image name="homefill" width="40" height="40"/>
+        <image name="mais-fill" width="40" height="40"/>
         <image name="mais1" width="80" height="80"/>
         <image name="mel1.jpeg" width="855" height="1117.5"/>
         <image name="message.fill" catalog="system" width="128" height="113"/>
         <image name="pencil.circle" catalog="system" width="128" height="121"/>
         <image name="post1.jpg" width="384" height="256.07998657226562"/>
-        <image name="post2.jpg" width="1920" height="1279"/>
-        <image name="usuario-fill" width="50" height="50"/>
+        <image name="usuario-fill" width="40" height="40"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -62,6 +62,11 @@
 		4C57A143253F89550018C522 /* searchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57A142253F89550018C522 /* searchViewController.swift */; };
 		4C57A149253F8CC40018C522 /* SearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57A148253F8CC40018C522 /* SearchTableCell.swift */; };
 		4C57A157253F99480018C522 /* searchCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C57A156253F99480018C522 /* searchCollectionCell.swift */; };
+		4C5CCC49257853C300B2DD45 /* uploadTableDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5CCC48257853C300B2DD45 /* uploadTableDelegateDataSource.swift */; };
+		4C5CCC4E2578545400B2DD45 /* UploadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5CCC4D2578545400B2DD45 /* UploadTableViewCell.swift */; };
+		4C5CCC53257856E900B2DD45 /* uploadImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5CCC52257856E900B2DD45 /* uploadImagePicker.swift */; };
+		4C5CCC6E2578654900B2DD45 /* uploadCollectionDelegateSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5CCC6D2578654900B2DD45 /* uploadCollectionDelegateSource.swift */; };
+		4C5CCC762578773E00B2DD45 /* BorderBottom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5CCC752578773E00B2DD45 /* BorderBottom.swift */; };
 		4C6DF0AC252B5B2D0099D857 /* mel1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4C6DF0A9252B5B2C0099D857 /* mel1.jpeg */; };
 		4C6DF0AD252B5B2D0099D857 /* mel0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4C6DF0AA252B5B2C0099D857 /* mel0.jpg */; };
 		4C6DF0AE252B5B2D0099D857 /* mel2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4C6DF0AB252B5B2C0099D857 /* mel2.jpg */; };
@@ -177,6 +182,11 @@
 		4C57A142253F89550018C522 /* searchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchViewController.swift; sourceTree = "<group>"; };
 		4C57A148253F8CC40018C522 /* SearchTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableCell.swift; sourceTree = "<group>"; };
 		4C57A156253F99480018C522 /* searchCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchCollectionCell.swift; sourceTree = "<group>"; };
+		4C5CCC48257853C300B2DD45 /* uploadTableDelegateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadTableDelegateDataSource.swift; sourceTree = "<group>"; };
+		4C5CCC4D2578545400B2DD45 /* UploadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTableViewCell.swift; sourceTree = "<group>"; };
+		4C5CCC52257856E900B2DD45 /* uploadImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadImagePicker.swift; sourceTree = "<group>"; };
+		4C5CCC6D2578654900B2DD45 /* uploadCollectionDelegateSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = uploadCollectionDelegateSource.swift; sourceTree = "<group>"; };
+		4C5CCC752578773E00B2DD45 /* BorderBottom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderBottom.swift; sourceTree = "<group>"; };
 		4C6DF0A9252B5B2C0099D857 /* mel1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel1.jpeg; sourceTree = "<group>"; };
 		4C6DF0AA252B5B2C0099D857 /* mel0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel0.jpg; sourceTree = "<group>"; };
 		4C6DF0AB252B5B2C0099D857 /* mel2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel2.jpg; sourceTree = "<group>"; };
@@ -364,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				4C0D1A2F252A857300462862 /* UploadCollectionCell.swift */,
+				4C5CCC4D2578545400B2DD45 /* UploadTableViewCell.swift */,
 			);
 			path = UploadCell;
 			sourceTree = "<group>";
@@ -485,6 +496,16 @@
 			path = searchCell;
 			sourceTree = "<group>";
 		};
+		4C5CCC472578539700B2DD45 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4C5CCC48257853C300B2DD45 /* uploadTableDelegateDataSource.swift */,
+				4C5CCC52257856E900B2DD45 /* uploadImagePicker.swift */,
+				4C5CCC6D2578654900B2DD45 /* uploadCollectionDelegateSource.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4C6DF0A8252B5B030099D857 /* melissa */ = {
 			isa = PBXGroup;
 			children = (
@@ -584,6 +605,7 @@
 		4CCB5235252A45E700F9AB19 /* ProjetoDesign */ = {
 			isa = PBXGroup;
 			children = (
+				4C5CCC472578539700B2DD45 /* ViewModel */,
 				4CF5BFF72564D6FB004AFFB5 /* Model */,
 				4C6E473E252E8640001F74A9 /* ViewControllers */,
 				4C0D1A45252A8D8F00462862 /* Class */,
@@ -627,6 +649,7 @@
 				4C393215252DEE9000844D64 /* ResizeImage.swift */,
 				4CADCC8D2542208B005676F7 /* BoldLabel.swift */,
 				4C502F99254267240001FAB2 /* BorderImage.swift */,
+				4C5CCC752578773E00B2DD45 /* BorderBottom.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -943,6 +966,7 @@
 				4CADCC8E2542208B005676F7 /* BoldLabel.swift in Sources */,
 				4C502F95254260540001FAB2 /* StoriesReusableView.swift in Sources */,
 				4C393216252DEE9000844D64 /* ResizeImage.swift in Sources */,
+				4C5CCC4E2578545400B2DD45 /* UploadTableViewCell.swift in Sources */,
 				4C0D1A51252A971B00462862 /* upload.swift in Sources */,
 				4CCB527A252A4B3F00F9AB19 /* RoundedButton.swift in Sources */,
 				4C0D1A47252A8D9F00462862 /* Post.swift in Sources */,
@@ -955,12 +979,14 @@
 				4C0D1A56252A98FF00462862 /* ImagensProfile.swift in Sources */,
 				4C0D1A4C252A920500462862 /* Profile.swift in Sources */,
 				4CADCCA425422926005676F7 /* CommentsTableCell.swift in Sources */,
+				4C5CCC762578773E00B2DD45 /* BorderBottom.swift in Sources */,
 				4C0D1A30252A857300462862 /* UploadCollectionCell.swift in Sources */,
 				4C84732F2548F007000ECD02 /* ProfileCollectionReusableView.swift in Sources */,
 				4CCB527F252A4B5100F9AB19 /* editTextField.swift in Sources */,
 				4C0D19E6252A659B00462862 /* RoundedImage.swift in Sources */,
 				4C55270225739B75007AA6C8 /* Extras.swift in Sources */,
 				4C47EE7F254631AE000F934B /* User.swift in Sources */,
+				4C5CCC49257853C300B2DD45 /* uploadTableDelegateDataSource.swift in Sources */,
 				4C0D19D7252A5DBE00462862 /* ProfileViewController.swift in Sources */,
 				4C573F322545E01300A2982F /* PhotoDetailViewController.swift in Sources */,
 				4C573F3D2545E8E700A2982F /* PhotoDetail.swift in Sources */,
@@ -968,12 +994,14 @@
 				4C57A149253F8CC40018C522 /* SearchTableCell.swift in Sources */,
 				4CF5BFF92564D70F004AFFB5 /* Alert.swift in Sources */,
 				4C57A12F253F839A0018C522 /* notificationsViewController.swift in Sources */,
+				4C5CCC53257856E900B2DD45 /* uploadImagePicker.swift in Sources */,
 				4CCB5237252A45E700F9AB19 /* AppDelegate.swift in Sources */,
 				42F8651E25713E57009DBA88 /* LoginViewModel.swift in Sources */,
 				4CADCC992542267A005676F7 /* CommentsViewController.swift in Sources */,
 				4C5526EF257394A1007AA6C8 /* CurrentWeather.swift in Sources */,
 				4C0D19B6252A5C3F00462862 /* FeedViewController.swift in Sources */,
 				4CE2D15A25485C0F004045B2 /* RoundedTextField.swift in Sources */,
+				4C5CCC6E2578654900B2DD45 /* uploadCollectionDelegateSource.swift in Sources */,
 				4C502F9A254267240001FAB2 /* BorderImage.swift in Sources */,
 				4C57A157253F99480018C522 /* searchCollectionCell.swift in Sources */,
 				4C0D1A1E252A7F0D00462862 /* ProfileCollectionCell.swift in Sources */,
