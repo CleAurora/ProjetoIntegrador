@@ -59,31 +59,39 @@ class RegisterViewModel: NSObject, UINavigationControllerDelegate, UIImagePicker
         }}))
         register.present(alert, animated: true, completion: nil)
     }
-    func registerNewUser(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
+    func isEmpty(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         do{
-        if register.emailTextField.text != nil && register.passwordTextField.text == register.secureTextField.text {
-            Auth.auth().createUser(withEmail: register.emailTextField.text!, password: register.passwordTextField.text!) { authResult, error in
+        if register.emailTextField.text != nil,
+           register.passwordTextField.text != nil,
+           register.nameTextField.text != nil,
+           register.nicknameTextField.text != nil,
+           register.secureTextField.text != nil{
+           registerNewUser()
+           completionHandler(true,nil)
+        }
+        }catch{
+            print("campos varios")
+        }
+    }
+    func registerNewUser(){
+        if register.emailTextField.text! != nil && register.emailTextField.text! != "" && register.passwordTextField.text! != nil && register.passwordTextField.text! != "" && register.secureTextField.text! != nil && register.secureTextField.text! != "" {
+            
+            if register.passwordTextField.text == register.secureTextField.text {
+                Auth.auth().createUser(withEmail: register.emailTextField.text!, password: register.passwordTextField.text!) { authResult, error in
 
-                if error != nil {
-                    print("erro ao registrar")
+                    if error != nil {
+                        print("erro ao registrar")
+                    }else{
+                        self.saveFIRData()
+                    }
                 }
-                self.saveFIRData()
-                completionHandler(true,nil)
             }
-        }
-        }catch {
-            completionHandler(false,nil)
-        }
-    }
-    func uid(){
-        self.ref = Database.database().reference()
-        let userReference = self.ref.child("users")
-        if let uid = Auth.auth().currentUser?.uid {
-            let newReference = userReference.child(uid)
-            newReference.setValue(["Name": register.nameTextField.text!, "email": register.emailTextField.text!, "Nickname": register.nicknameTextField, "uid": uid])
+        }else {
+            print("vazio")
         }
 
     }
+    
     func saveFIRData() {
         self.uploadImage(register.userImage.image!) { url in
             if url != nil {
