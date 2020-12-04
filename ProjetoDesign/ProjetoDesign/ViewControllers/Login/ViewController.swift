@@ -16,7 +16,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var instagramButtonTapped: UIButton!
     @IBOutlet weak var faceButtonTapped: UIButton!
     @IBOutlet weak var registerButton: UIButton!
-    var loginModel = LoginViewModel()
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var passwordTextField: UITextField!
+    var loginModel: LoginViewModel?
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,12 +28,24 @@ class ViewController: UIViewController {
         setupView()
         setupUI()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        self.loginModel = LoginViewModel(view: self)
+        loginModel?.isAlreadyLogged(completionHandler: { success, _ in
+            if success {
+                if let vc = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() as? TabbarController{
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true, completion: nil)
+                }
+            }
+        })
+    }
 
     func setupUI(){
-        self.loginButton.setTitle(loginModel.titleBtnLogin, for: .normal )
-        self.registerButton.setTitle(loginModel.titleBtnRegister, for: .normal)
-        self.faceButtonTapped.setImage(UIImage(named: loginModel.imageBtnFaceBook), for: .normal)
-        self.instagramButtonTapped.setImage(UIImage(named: loginModel.imageBtnInstagram), for: .normal)
+        self.loginModel = LoginViewModel(view: self)
+        self.loginButton.setTitle(loginModel?.titleBtnLogin, for: .normal )
+        self.registerButton.setTitle(loginModel?.titleBtnRegister, for: .normal)
+        self.faceButtonTapped.setImage(UIImage(named: loginModel!.imageBtnFaceBook), for: .normal)
+        self.instagramButtonTapped.setImage(UIImage(named: loginModel!.imageBtnInstagram), for: .normal)
     }
 
     // MARK: - Methods
@@ -45,10 +59,15 @@ class ViewController: UIViewController {
     // MARK: - IBActions
 
     @IBAction func loginButton(_ sender: Any) {
-        if let vc = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() as? TabbarController{
-            vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: true, completion: nil)
-        }
+        self.loginModel = LoginViewModel(view: self)
+        loginModel?.doLogin(completionHandler: { success, _ in
+            if success {
+                if let vc = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() as? TabbarController{
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true, completion: nil)
+                }
+            }
+        })
     }
 
     @IBAction func registerButton(_ sender: Any) {

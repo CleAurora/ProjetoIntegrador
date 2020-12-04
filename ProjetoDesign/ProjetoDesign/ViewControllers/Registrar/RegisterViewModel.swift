@@ -15,6 +15,7 @@ class RegisterViewModel: NSObject, UINavigationControllerDelegate, UIImagePicker
     var ref: DatabaseReference!
     var register = RegistrarViewController()
     var imageSelected: UIImage?
+    
     init(view: RegistrarViewController) {
         self.register = view
     }
@@ -59,21 +60,7 @@ class RegisterViewModel: NSObject, UINavigationControllerDelegate, UIImagePicker
         }}))
         register.present(alert, animated: true, completion: nil)
     }
-    func isEmpty(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
-        do{
-        if register.emailTextField.text != nil,
-           register.passwordTextField.text != nil,
-           register.nameTextField.text != nil,
-           register.nicknameTextField.text != nil,
-           register.secureTextField.text != nil{
-           registerNewUser()
-           completionHandler(true,nil)
-        }
-        }catch{
-            print("campos varios")
-        }
-    }
-    func registerNewUser(){
+    func registerNewUser(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         if register.emailTextField.text! != nil && register.emailTextField.text! != "" && register.passwordTextField.text! != nil && register.passwordTextField.text! != "" && register.secureTextField.text! != nil && register.secureTextField.text! != "" {
             
             if register.passwordTextField.text == register.secureTextField.text {
@@ -81,17 +68,18 @@ class RegisterViewModel: NSObject, UINavigationControllerDelegate, UIImagePicker
 
                     if error != nil {
                         print("erro ao registrar")
+                        
                     }else{
                         self.saveFIRData()
+                        completionHandler(true,nil)
                     }
                 }
             }
         }else {
-            print("vazio")
+            completionHandler(false,nil)
         }
 
     }
-    
     func saveFIRData() {
         self.uploadImage(register.userImage.image!) { url in
             if url != nil {
@@ -101,7 +89,6 @@ class RegisterViewModel: NSObject, UINavigationControllerDelegate, UIImagePicker
                     }
                 }
             }
-         
         }
     }
 }

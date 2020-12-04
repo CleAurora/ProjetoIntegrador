@@ -34,7 +34,7 @@ class RegistrarViewController: UIViewController{
     // MARK: - IBActions 
     @IBAction func registerButton(_ sender: Any) {
         self.viewModel = RegisterViewModel(view: self)
-        viewModel?.isEmpty(completionHandler: { success, _ in
+        viewModel?.registerNewUser(completionHandler: { success, _ in
             if success {
                 if let vc = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() as? TabbarController{
                     vc.modalPresentationStyle = .fullScreen

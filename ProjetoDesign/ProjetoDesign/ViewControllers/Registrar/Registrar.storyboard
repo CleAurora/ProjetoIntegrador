@@ -100,7 +100,7 @@
                                             <constraint firstAttribute="height" constant="40" id="gTY-Je-Yri"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email" highlightedImage="mail" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="x87-Gm-1OK">
                                         <rect key="frame" x="39" y="435" width="30" height="30"/>
@@ -141,7 +141,7 @@
                                             <constraint firstAttribute="height" constant="40" id="B1N-pw-L6y"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fill the form below for registering into the system." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syg-CK-XUl">
                                         <rect key="frame" x="27" y="138" width="361" height="18"/>
@@ -314,7 +314,7 @@
     </scenes>
     <designables>
         <designable name="4Bt-SQ-9sc">
-            <size key="intrinsicContentSize" width="117.5" height="18.5"/>
+            <size key="intrinsicContentSize" width="117.5" height="17"/>
         </designable>
         <designable name="YRv-Nf-lJQ">
             <size key="intrinsicContentSize" width="34.5" height="18.5"/>
@@ -326,7 +326,7 @@
             <size key="intrinsicContentSize" width="38" height="18.5"/>
         </designable>
         <designable name="oKZ-GB-qo0">
-            <size key="intrinsicContentSize" width="62.5" height="18.5"/>
+            <size key="intrinsicContentSize" width="62.5" height="17"/>
         </designable>
     </designables>
     <resources>
