@@ -6,13 +6,18 @@
 //
 
 import UIKit
-
+import FirebaseAuth
 class RegistrarViewController: UIViewController{
     
     // MARK: - IBOutlets
     @IBOutlet weak var registerView: extensions!
     @IBOutlet weak var registerLabel: UILabel!
     @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet var emailTextField: customUITextField!
+    @IBOutlet var passwordTextField: customUITextField!
+    @IBOutlet var secureTextField: customUITextField!
+    @IBOutlet var nameTextField: customUITextField!
+    @IBOutlet var nicknameTextField: customUITextField!
     
     // MARK: - Proprierts
     var viewModel: RegisterViewModel?
@@ -28,12 +33,16 @@ class RegistrarViewController: UIViewController{
     }
     // MARK: - IBActions 
     @IBAction func registerButton(_ sender: Any) {
-        if let vc = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() as? TabbarController{
-            vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: true, completion: nil)
-        }
+        self.viewModel = RegisterViewModel(view: self)
+        viewModel?.registerNewUser(completionHandler: { success, _ in
+            if success {
+                if let vc = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() as? TabbarController{
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true, completion: nil)
+                }
+            }
+        })
     }
-    
     @IBAction func instagramButton(_ sender: Any) {
         self.viewModel = RegisterViewModel(view: self)
         viewModel?.isDeveloping()

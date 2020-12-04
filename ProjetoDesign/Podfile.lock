@@ -1,24 +1,143 @@
 PODS:
   - Alamofire (5.4.0)
+  - Firebase/Analytics (7.1.0):
+    - Firebase/Core
+  - Firebase/Auth (7.1.0):
+    - Firebase/CoreOnly
+    - FirebaseAuth (~> 7.1.0)
+  - Firebase/Core (7.1.0):
+    - Firebase/CoreOnly
+    - FirebaseAnalytics (= 7.1.0)
+  - Firebase/CoreOnly (7.1.0):
+    - FirebaseCore (= 7.1.0)
+  - Firebase/Database (7.1.0):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (~> 7.1.0)
+  - Firebase/Storage (7.1.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (~> 7.1.0)
+  - FirebaseAnalytics (7.1.0):
+    - FirebaseCore (~> 7.0)
+    - FirebaseInstallations (~> 7.0)
+    - GoogleAppMeasurement (= 7.1.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
+    - GoogleUtilities/MethodSwizzler (~> 7.0)
+    - GoogleUtilities/Network (~> 7.0)
+    - "GoogleUtilities/NSData+zlib (~> 7.0)"
+    - nanopb (~> 2.30906.0)
+  - FirebaseAuth (7.1.0):
+    - FirebaseCore (~> 7.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GTMSessionFetcher/Core (~> 1.4)
+  - FirebaseCore (7.1.0):
+    - FirebaseCoreDiagnostics (~> 7.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/Logger (~> 7.0)
+  - FirebaseCoreDiagnostics (7.1.0):
+    - GoogleDataTransport (~> 8.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/Logger (~> 7.0)
+    - nanopb (~> 2.30906.0)
+  - FirebaseDatabase (7.1.0):
+    - FirebaseCore (~> 7.0)
+    - leveldb-library (~> 1.22)
+  - FirebaseInstallations (7.1.0):
+    - FirebaseCore (~> 7.0)
+    - GoogleUtilities/Environment (~> 7.0)
+    - GoogleUtilities/UserDefaults (~> 7.0)
+    - PromisesObjC (~> 1.2)
+  - FirebaseStorage (7.1.0):
+    - FirebaseCore (~> 7.0)
+    - GTMSessionFetcher/Core (~> 1.4)
+  - GoogleAppMeasurement (7.1.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
+    - GoogleUtilities/MethodSwizzler (~> 7.0)
+    - GoogleUtilities/Network (~> 7.0)
+    - "GoogleUtilities/NSData+zlib (~> 7.0)"
+    - nanopb (~> 2.30906.0)
+  - GoogleDataTransport (8.0.1):
+    - nanopb (~> 2.30906.0)
+  - GoogleUtilities/AppDelegateSwizzler (7.1.0):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (7.1.0):
+    - PromisesObjC (~> 1.2)
+  - GoogleUtilities/Logger (7.1.0):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (7.1.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (7.1.0):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (7.1.0)"
+  - GoogleUtilities/Reachability (7.1.0):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/UserDefaults (7.1.0):
+    - GoogleUtilities/Logger
+  - GTMSessionFetcher/Core (1.5.0)
   - IQKeyboardManagerSwift (6.3.0)
+  - leveldb-library (1.22)
+  - nanopb (2.30906.0):
+    - nanopb/decode (= 2.30906.0)
+    - nanopb/encode (= 2.30906.0)
+  - nanopb/decode (2.30906.0)
+  - nanopb/encode (2.30906.0)
+  - PromisesObjC (1.2.11)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
+  - Firebase/Analytics
+  - Firebase/Auth
+  - Firebase/Database
+  - Firebase/Storage
   - IQKeyboardManagerSwift (= 6.3.0)
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseAuth
+    - FirebaseCore
+    - FirebaseCoreDiagnostics
+    - FirebaseDatabase
+    - FirebaseInstallations
+    - FirebaseStorage
+    - GoogleAppMeasurement
+    - GoogleDataTransport
+    - GoogleUtilities
+    - GTMSessionFetcher
     - IQKeyboardManagerSwift
+    - leveldb-library
+    - nanopb
+    - PromisesObjC
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
+  Firebase: 78e8dd2e39d653de6270432ad84fe8b59f7bf4e8
+  FirebaseAnalytics: 7f165a56dea86ddd5b8ce02af3bee982c683405c
+  FirebaseAuth: f82c2cfcc1c107bb0a97735cdbce4eb2a601f710
+  FirebaseCore: 20046127eef0fcb8fa25df7fc12f7b97d4e48611
+  FirebaseCoreDiagnostics: 872cdb9b749b23346dddd5c1014d1babd2257de3
+  FirebaseDatabase: bf02ea57590aaab4e72b9b12b412a4c881ee81e2
+  FirebaseInstallations: 3de38553e86171b5f81d83cdeef63473d37bfdb0
+  FirebaseStorage: 80e2cd5200791540ca544f4dcac5e6b56994fc97
+  GoogleAppMeasurement: 89e1a64593f968713b0506ba1b53b38a154bf9a5
+  GoogleDataTransport: e4085e6762f36a6141738f46b0153473ce57fb18
+  GoogleUtilities: f734da554aade8cc7928a31c2f3311897933a1bd
+  GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
+  leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
+  nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
+  PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 826575926268fe858edc8eafc1c429b4ad624aa9
+PODFILE CHECKSUM: 8982f4f74bdc88db0243b0c95baecbfb80876c7d
 
 COCOAPODS: 1.10.0

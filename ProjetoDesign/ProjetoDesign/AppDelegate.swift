@@ -7,6 +7,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import Firebase
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,5 +17,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().unselectedItemTintColor = UIColor.green
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        FirebaseApp.configure()
+        
     }
 }

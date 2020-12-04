@@ -297,8 +297,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailTextField" destination="YRv-Nf-lJQ" id="PE9-cb-Dph"/>
+                        <outlet property="nameTextField" destination="fE0-hj-Wnm" id="2WA-76-BGz"/>
+                        <outlet property="nicknameTextField" destination="c0x-qy-GtI" id="jrm-8s-rUn"/>
+                        <outlet property="passwordTextField" destination="oKZ-GB-qo0" id="qCX-bm-i3b"/>
                         <outlet property="registerLabel" destination="Tck-3n-m2Z" id="iDf-Zk-GbX"/>
                         <outlet property="registerView" destination="UVk-jQ-8d7" id="hoH-7k-fWz"/>
+                        <outlet property="secureTextField" destination="4Bt-SQ-9sc" id="P2W-SJ-x6S"/>
                         <outlet property="userImage" destination="N1q-MK-mdm" id="620-Qd-8BY"/>
                     </connections>
                 </viewController>

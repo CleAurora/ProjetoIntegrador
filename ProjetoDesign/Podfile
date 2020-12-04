@@ -8,6 +8,10 @@ target 'ProjetoDesign' do
   pod 'IQKeyboardManagerSwift', '6.3.0'
   pod 'SwiftyJSON', '~> 4.0'
   pod 'Alamofire', '~> 5.2'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
   
   target 'ProjetoDesignTests' do
     inherit! :search_paths
