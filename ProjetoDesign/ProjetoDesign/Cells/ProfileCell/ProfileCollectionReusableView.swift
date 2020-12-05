@@ -26,6 +26,18 @@ class ProfileCollectionReusableView: UICollectionReusableView {
              bioLabel.text = user.bio
              let url = URL(string: user.profileUrl)
              profileImageView.kf.setImage(with: url)
+            if let followingCount = user.following {
+                followingCountLabel.text = "\(followingCount)"
+            }else{
+                followingCountLabel.text = "0"
+            }
+            if let followersCount = user.followers {
+                followersCountLabel.text = "\(followersCount)"
+            }else{
+                followingCountLabel.text = "0"
+            }
+             
+             
              bioLabel.adjustsFontSizeToFitWidth = true
              bioLabel.minimumScaleFactor = 0.5
              bioLabel.font = UIFont.systemFont(ofSize: 16)
