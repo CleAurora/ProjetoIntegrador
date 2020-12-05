@@ -48,7 +48,7 @@ class uploadImagePicker: UIViewController, UIImagePickerControllerDelegate, UINa
             completionHandler(true,nil)
      }
     }catch{
-        print(error)
+        completionHandler(false,nil)
     }
 }
     

@@ -6,26 +6,36 @@
 //
 
 import UIKit
-
+import FirebaseAuth
 class ProfileCollectionReusableView: UICollectionReusableView {
     // MARK: - IBOtlets
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet var postCountLabel: UILabel!
+    @IBOutlet var followersCountLabel: UILabel!
+    @IBOutlet var followingCountLabel: UILabel!
+    
     
     // MARK: - Methods 
-    func setup(post: Profile){
-        profileImageView.image = UIImage(named: post.profileImage)
-        nameLabel.text = post.name
-        bioLabel.text = post.bio
-        //bioLabel.adjustsFontSizeToFitWidth = true
-        //bioLabel.minimumScaleFactor = 0.5
-        //bioLabel.font = UIFont.systemFont(ofSize: 25)
-        profileImageView.layer.maskedCorners = CACornerMask(
-            rawValue: UIRectCorner(
-                [UIRectCorner.bottomLeft, UIRectCorner.bottomRight]
-            ).rawValue
-        )
+    func setup(user: Usuario){
+        let uid = Auth.auth().currentUser?.uid
+        if uid == user.userID {
+            
+             nameLabel.text = user.name
+             bioLabel.text = user.bio
+             let url = URL(string: user.profileUrl)
+             profileImageView.kf.setImage(with: url)
+             bioLabel.adjustsFontSizeToFitWidth = true
+             bioLabel.minimumScaleFactor = 0.5
+             bioLabel.font = UIFont.systemFont(ofSize: 16)
+             profileImageView.layer.maskedCorners = CACornerMask(
+                 rawValue: UIRectCorner(
+                     [UIRectCorner.bottomLeft, UIRectCorner.bottomRight]
+                 ).rawValue
+             )
+        }
+
     }
     func setup(post: Post){
         profileImageView.image = UIImage(named: post.imageProfile)

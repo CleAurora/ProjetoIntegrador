@@ -13,4 +13,5 @@ class Usuario: NSObject {
     var email: String!
     var userID: String!
     var profileUrl: String!
+    var bio: String!
 }

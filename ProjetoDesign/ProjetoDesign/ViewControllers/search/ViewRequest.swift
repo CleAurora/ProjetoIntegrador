@@ -13,6 +13,7 @@ class ViewRequest{
     var ref: DatabaseReference!
     var userArray = [Usuario]()
     var allUserArray = [Usuario]()
+    var currentUser = [Usuario]()
     func loadData(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         self.userArray.removeAll()
         
@@ -31,19 +32,23 @@ class ViewRequest{
                         let email = value["Email"] as? String
                         let userID = value["UserID"] as? String
                         let profileUrl = value["profileUrl"] as? String
-                            
+                        let bio = value["Bio"] as? String
                             userToshow.name = user
                             userToshow.nickname = nickname
                             userToshow.email = email
                             userToshow.userID = userID
                             userToshow.profileUrl = profileUrl
+                            userToshow.bio = bio
                             
                             if uid != userToshow.userID {
                                 self.userArray.append(userToshow)
+                                
+                            }else{
                                 print(userToshow.name)
-                                print(userToshow.nickname)
+                                self.currentUser.append(userToshow)
                             }
                                 self.allUserArray.append(userToshow)
+                            
                             
                             
                     }

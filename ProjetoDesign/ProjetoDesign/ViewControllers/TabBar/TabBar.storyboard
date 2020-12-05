@@ -390,8 +390,11 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="yXU-iA-3ac" secondAttribute="trailing" constant="14" id="xf0-vI-1m4"/>
                                     </constraints>
                                     <connections>
-                                        <outlet property="bioLabel" destination="zNx-9q-Tcd" id="rZw-m8-X2l"/>
+                                        <outlet property="bioLabel" destination="zNx-9q-Tcd" id="OOc-pV-cCy"/>
+                                        <outlet property="followersCountLabel" destination="Lhx-3V-oiV" id="cNg-NE-Xn8"/>
+                                        <outlet property="followingCountLabel" destination="98U-nU-Ir1" id="3bZ-lh-h7g"/>
                                         <outlet property="nameLabel" destination="cUx-cP-L76" id="gqS-uH-Jjp"/>
+                                        <outlet property="postCountLabel" destination="hif-nF-0Zm" id="un5-25-Nn6"/>
                                         <outlet property="profileImageView" destination="3mK-iT-zcl" id="epu-aL-sXQ"/>
                                     </connections>
                                 </collectionReusableView>
