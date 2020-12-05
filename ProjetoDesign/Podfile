@@ -12,7 +12,7 @@ target 'ProjetoDesign' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
-  
+  pod 'Kingfisher', '~> 5.0'
   target 'ProjetoDesignTests' do
     inherit! :search_paths
     # Pods for testing

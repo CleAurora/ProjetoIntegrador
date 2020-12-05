@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SearchTableCell: UITableViewCell {
     // MARK: - IBOtlets
@@ -25,8 +26,10 @@ class SearchTableCell: UITableViewCell {
     }
     
     // MARK: - Methods 
-    func setup(user: Post){
+    func setup(user: Usuario){
         userNameLabel.text = user.name
-        userImageView.image = UIImage(named: user.imageProfile)
+        let url = URL(string: user.profileUrl)
+        userImageView.kf.setImage(with: url)
+        //userImageView.image = UIImage(named: user.imageProfile)
     }
 }

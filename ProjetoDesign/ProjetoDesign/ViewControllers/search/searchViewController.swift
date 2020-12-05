@@ -17,8 +17,10 @@ class searchViewController: UIViewController {
     // MARK: - Proprierts
     var searchIn = ""
     var userArray = [Post]()
-    var filteredArray = [Post]()
+    var filteredArray = [Usuario]()
     
+    var controller = ViewRequest()
+    var viewModel: searchTableDelegateDatasource?
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,65 +28,56 @@ class searchViewController: UIViewController {
         userArray.append(Post(name: "Brendon", city: "Los Angeles", imageProfile: "brendon.jpg", imagePost: "post1.jpg", comments: "", allImages: [""]))
         userArray.append(Post(name: "Miles", city: "Vancouver, BC", imageProfile: "miles1.jpeg", imagePost: "miles0.jpeg", comments: "", allImages: [""]))
         
-        filteredArray = userArray
-        searchTableView.delegate = self
-        searchTableView.dataSource = self
+        //filteredArray = userArray
+        
         searchTableView.isHidden = true
-        userSearchView.delegate = self
         dataCollectionView.dataSource = self
         dataCollectionView.delegate = self
+        userSearchView.delegate = self
         dataCollectionView.reloadData()
         // Do any additional setup after loading the view.
     }
-    
-    // MARK: - Methods
-    func filter() {
-        if searchIn.isEmpty {
-            dataCollectionView.isHidden = false
-        }else{
-            
-            let searchText = searchIn.folding(options: [.caseInsensitive, .diacriticInsensitive], locale: nil)
-            filteredArray = userArray.filter({(name) -> Bool in
-                let canAppear = true
-
-                return canAppear
-            })
-            .filter({(name) -> Bool in
-                if searchText.isEmpty {
-                    return true
-                }
-                return name.name.folding(options: [.caseInsensitive, .diacriticInsensitive], locale: nil).contains(searchText)
-            })
-            
-        }
+    override func viewDidAppear(_ animated: Bool) {
+        getData()
+    }
+    func tableViewSetup(){
+        self.viewModel = searchTableDelegateDatasource(usuarioModel: controller, searchController: self)
+        
+        searchTableView.delegate = viewModel
+        searchTableView.dataSource = viewModel
         searchTableView.reloadData()
     }
-}
-
-// MARK: - Extensions 
-extension searchViewController: UITableViewDelegate{
     
-}
-extension searchViewController: UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return filteredArray.count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as! SearchTableCell
-        cell.setup(user: filteredArray[indexPath.row])
-        return cell
+    func getData(){
+        self.controller.loadData(completionHandler: { success, _ in
+            if success {
+                self.dataCollectionView.isHidden = true
+                self.searchTableView.isHidden = false
+                self.tableViewSetup()
+               }
+        })
     }
 }
 extension searchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        searchIn = searchText
+        self.viewModel = searchTableDelegateDatasource(usuarioModel: controller, searchController: self)
+        searchTableView.delegate = viewModel
+        searchTableView.dataSource = viewModel
+        
+        self.viewModel?.searchIn = searchText
+        
         dataCollectionView.isHidden = true
         searchTableView.isHidden = false
-        filter()
-    }
-    
+        
+        self.viewModel?.filter(completionHandler: { success, _ in
+            if success {
+               self.searchTableView.reloadData()
+            }
+    })
 }
+}
+
 extension searchViewController: UICollectionViewDelegate{
     
 }
