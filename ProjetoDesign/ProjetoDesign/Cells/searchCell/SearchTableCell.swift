@@ -7,7 +7,7 @@
 
 import UIKit
 import Kingfisher
-
+import FirebaseAuth
 class SearchTableCell: UITableViewCell {
     // MARK: - IBOtlets
     @IBOutlet weak var userImageView: roundImageView!
@@ -27,9 +27,14 @@ class SearchTableCell: UITableViewCell {
     
     // MARK: - Methods 
     func setup(user: Usuario){
-        userNameLabel.text = user.name
-        let url = URL(string: user.profileUrl)
-        userImageView.kf.setImage(with: url)
-        //userImageView.image = UIImage(named: user.imageProfile)
+        let uid = Auth.auth().currentUser?.uid
+        userNameLabel.text = ""
+        userImageView.image = nil
+        
+        if uid != user.userID {
+            userNameLabel.text = user.name
+            let url = URL(string: user.profileUrl)
+            userImageView.kf.setImage(with: url)
+        }
     }
 }

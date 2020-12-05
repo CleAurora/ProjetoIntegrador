@@ -51,8 +51,6 @@ class searchViewController: UIViewController {
     func getData(){
         self.controller.loadData(completionHandler: { success, _ in
             if success {
-                self.dataCollectionView.isHidden = true
-                self.searchTableView.isHidden = false
                 self.tableViewSetup()
                }
         })
