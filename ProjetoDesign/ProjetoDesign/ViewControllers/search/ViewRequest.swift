@@ -12,7 +12,7 @@ import FirebaseAuth
 class ViewRequest{
     var ref: DatabaseReference!
     var userArray = [Usuario]()
-    
+    var allUserArray = [Usuario]()
     func loadData(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         self.userArray.removeAll()
         
@@ -38,15 +38,19 @@ class ViewRequest{
                             userToshow.userID = userID
                             userToshow.profileUrl = profileUrl
                             
-
-                            self.userArray.append(userToshow)
-                            print(userToshow.name)
-                            print(userToshow.nickname)
+                            if uid != userToshow.userID {
+                                self.userArray.append(userToshow)
+                                print(userToshow.name)
+                                print(userToshow.nickname)
+                            }
+                                self.allUserArray.append(userToshow)
+                            
+                            
                     }
                         
                 }
                     completionHandler(true,nil)
-                    // reload here
+                
             }
             
            

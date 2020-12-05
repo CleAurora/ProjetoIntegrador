@@ -28,6 +28,7 @@ class SearchTableCell: UITableViewCell {
     // MARK: - Methods 
     func setup(user: Usuario){
         let uid = Auth.auth().currentUser?.uid
+        
         userNameLabel.text = ""
         userImageView.image = nil
         
