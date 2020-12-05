@@ -9,7 +9,11 @@ import UIKit
 
 final class SettingViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var settingImageView: UIImageView!
-
+    @IBOutlet var bioTextView: UITextView!
+    var nickname = "@melissa"
+    
+    var userModel = ViewRequest()
+    var profileView: editProfileViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,30 +23,17 @@ final class SettingViewController: UIViewController, UIImagePickerControllerDele
             ).rawValue
         )
     }
+    
 
     @IBAction func changePictureButtonTapped() {
-        let imagePicker = UIImagePickerController()
-
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.modalPresentationStyle = .fullScreen
-        imagePicker.delegate = self
-
-        present(imagePicker, animated: true, completion: nil)
+        self.profileView = editProfileViewModel(userModel: userModel, view: self)
+        userModel.loadData(completionHandler: { success, _ in
+            if success {
+                self.profileView?.changePictureButtonTapped()
+            }
+        })
     }
 
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let chosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-            settingImageView.contentMode = .scaleAspectFill
-            settingImageView.image = chosenImage
-        }
-
-        dismiss(animated: true, completion: nil)
-    }
-
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
-    }
 }
 
 

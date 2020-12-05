@@ -35,7 +35,7 @@ class ViewRequest{
                         let bio = value["Bio"] as? String
                         let followers = value ["Followers"] as? Int
                         let following = value["Following"] as? Int
-                            
+                        
                             userToshow.name = user
                             userToshow.nickname = nickname
                             userToshow.email = email

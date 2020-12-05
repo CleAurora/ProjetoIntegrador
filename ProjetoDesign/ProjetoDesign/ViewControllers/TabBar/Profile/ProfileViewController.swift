@@ -33,12 +33,11 @@ class ProfileViewController: UIViewController {
         imagensArray.append(ImagensProfile(imagens: "melissa4.jpg", weatherImage: "cloud"))
         imagensArray.append(ImagensProfile(imagens: "melissa5.jpeg", weatherImage: "sun"))
         imagensArray.append(ImagensProfile(imagens: "melissa0.jpg", weatherImage: "cloud.rain"))
+       getData()
 
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        getData()
-    }
+   
     
     func getData(){
         self.userModel.loadData(completionHandler: { success, _ in

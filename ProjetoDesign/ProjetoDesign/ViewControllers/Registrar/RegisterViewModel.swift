@@ -113,8 +113,8 @@ extension RegisterViewModel {
     func saveImage(name: String, profileURL:URL, completion: @escaping ((_ url: URL?) -> ())) {
         if let currentUserID = Auth.auth().currentUser?.uid{
             self.ref = Database.database().reference()
-            let dict = ["Name": register.nameTextField.text!,"Email": register.emailTextField.text!, "profileUrl":profileURL.absoluteString,"UserID": currentUserID,"Nickname": register.nicknameTextField.text!, "bio": ""] as [String: Any]
-            ref.child("users").childByAutoId().setValue(dict)
+            let dict = ["Name": register.nameTextField.text!,"Email": register.emailTextField.text!, "profileUrl":profileURL.absoluteString,"UserID": currentUserID,"Nickname": register.nicknameTextField.text!, "Bio": "", "Followers": 0, "Following": 0] as [String: Any]
+            ref.child("users").child(currentUserID).setValue(dict)
             
         }
     }
