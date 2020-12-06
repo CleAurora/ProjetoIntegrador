@@ -29,7 +29,7 @@ class SearchTableCell: UITableViewCell {
     func setup(user: Usuario){
         let uid = Auth.auth().currentUser?.uid
         
-        userNameLabel.text = ""
+        userNameLabel.text = nil
         userImageView.image = nil
         
         if uid != user.userID {

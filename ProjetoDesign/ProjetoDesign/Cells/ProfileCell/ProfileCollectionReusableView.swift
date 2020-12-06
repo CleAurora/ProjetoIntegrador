@@ -29,7 +29,6 @@ class ProfileCollectionReusableView: UICollectionReusableView {
         
         if uid != user.userID {
             followButton.isHidden = false
-            followButton.setTitle("following", for: .normal)
         }
             
              nameLabel.text = user.name

@@ -232,6 +232,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="173" id="yTH-mE-DPa"/>
                                             </constraints>
+                                            <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
                                             <state key="normal" title="Button"/>
                                             <connections>
                                                 <action selector="followButton:" destination="eIC-gf-EaO" eventType="touchUpInside" id="2bq-PX-LXJ"/>

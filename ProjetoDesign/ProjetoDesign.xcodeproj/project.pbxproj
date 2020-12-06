@@ -469,6 +469,8 @@
 		4C474745257C75B300D09556 /* Follow */ = {
 			isa = PBXGroup;
 			children = (
+				4C47473D257C735200D09556 /* FollowRequest.swift */,
+				4C474746257C75CC00D09556 /* readFollow.swift */,
 			);
 			path = Follow;
 			sourceTree = "<group>";
@@ -581,11 +583,9 @@
 			children = (
 				4C474745257C75B300D09556 /* Follow */,
 				4C8F1539254373EC0010F790 /* User.storyboard */,
-				4C474746257C75CC00D09556 /* readFollow.swift */,
 				4C474738257C65E700D09556 /* userSelectedrequest.swift */,
 				4C8F153E254374050010F790 /* UserViewController.swift */,
 				4C1C4D57257C6296003CA5AA /* UserCollectionDelegateDataSource.swift */,
-				4C47473D257C735200D09556 /* FollowRequest.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";

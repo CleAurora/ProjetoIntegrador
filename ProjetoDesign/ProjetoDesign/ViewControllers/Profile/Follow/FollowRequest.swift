@@ -12,6 +12,8 @@ import FirebaseDatabase
 class FollowRequest {
     var userSelected: Usuario?
     
+    var stillFollower: String!
+    
     var userFollowers: String!
     var idFollowers: String!
     var userFollowing: String!
@@ -25,14 +27,16 @@ class FollowRequest {
         if let userID = userSelected?.userID {
             
             self.ref = Database.database().reference()
-            var reference = self.ref            
+            var reference = self.ref
                 if userFollowers != uid {
                     let reference = ref.child("users").child(userID).child("followers").child(self.uid!)
                     
                     let dict = ["whoIsFollower": uid] as [String: Any]
                     reference.updateChildValues(dict)
+                    self.stillFollower = userFollowers
                 }else if userFollowers == uid {
                    reference?.child("users").child(userID).child("followers").child(self.uid!).removeValue()
+                    self.stillFollower = userFollowers
                 }
             self.userFollowers = nil
         }
@@ -66,8 +70,7 @@ class FollowRequest {
 
                         for (_, value) in users{
                             if let whoFollower = value["whoIsFollower"] as? String {
-                                print(whoFollower)
-                                print("tessssssste")
+
                                 let uid = self.uid
 
                                 if uid == whoFollower {
@@ -86,7 +89,6 @@ class FollowRequest {
                 })
              self.getFollowing()
              completionHandler(true,nil)
-            
         }
     }
     
@@ -119,4 +121,33 @@ class FollowRequest {
             
         }
     }
+    func getFollowersToButton(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
+        if let userID = userSelected?.userID {
+            self.ref = Database.database().reference()
+            self.ref.child("users").child(userID).child("followers").queryOrderedByKey().observeSingleEvent(of: .value, with: {snapshot in
+                    if let users = snapshot.value as? [String: AnyObject] {
+
+                        for (_, value) in users{
+                            if let whoFollower = value["whoIsFollower"] as? String {
+
+                                let uid = self.uid
+
+                                if uid == whoFollower {
+                                    let userToshow = readFollow()
+                                    
+                                    userToshow.followID = whoFollower
+                                    self.follower.append(userToshow)
+                                    self.userFollowers = whoFollower
+                                }
+                                
+                            }
+                        }
+                       
+                    }
+                completionHandler(true,nil)
+                })
+             
+        }
+    }
+    
 }

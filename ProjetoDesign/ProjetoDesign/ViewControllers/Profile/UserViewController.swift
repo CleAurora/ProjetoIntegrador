@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import FirebaseAuth
 class UserViewController: UIViewController {
     
     // MARK: - IBOutlets
@@ -15,7 +15,7 @@ class UserViewController: UIViewController {
     // MARK: - Proprierts
     var post: PostUser?
     var images: [String] = []
-   
+    var isFollowing: Bool?
     var userProfile: Usuario?
     
     var followModel = FollowRequest()
@@ -25,7 +25,12 @@ class UserViewController: UIViewController {
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        getData()
+//        self.getData()
+//        configureButtonFollow()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        //self.getData()
+        configureButtonFollow()
     }
     
     func getData(){
@@ -35,19 +40,34 @@ class UserViewController: UIViewController {
             print(success)
         })
     }
-    func getFollowers(){
+    
+    func getFollowers(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         followModel.userSelected = self.userProfile
+        
         followModel.getFollowers(completionHandler: { success, _ in
             if success {
                 print("success")
+                completionHandler(true,nil)
             }
         })
-//        followModel.setFollowing(completionHandler: { success, _ in
-//            if success{
-//                print("success")
-//            }
-//        })
-        
+    }
+    
+    func configureButtonFollow(){
+        let uid = Auth.auth().currentUser?.uid
+        followModel.userSelected = self.userProfile
+        followModel.getFollowersToButton(completionHandler: { success, _ in
+            if success {
+
+                if self.followModel.userFollowers == uid {
+
+                    self.isFollowing = true
+                }else{
+
+                    self.isFollowing = false
+                }
+                self.getData()
+            }
+        })
     }
     func setupCollection(){
         profileCollectionView.delegate = viewModel
@@ -56,7 +76,7 @@ class UserViewController: UIViewController {
     }
     
     func passDataThrough(){
-        self.viewModel = UserCollectionDelegateDataSource(userModel: userModel, view: self)
+        self.viewModel = UserCollectionDelegateDataSource(userModel: userModel, view: self, followModel: followModel)
         self.viewModel?.useArrayTo(completionHandler: { success,_ in
             self.setupCollection()
             print(success)
