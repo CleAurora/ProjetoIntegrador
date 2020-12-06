@@ -54,6 +54,7 @@ class searchViewController: UIViewController {
         })
     }
 }
+
 extension searchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         

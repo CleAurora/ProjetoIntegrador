@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OUw-tn-mmE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="OUw-tn-mmE">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -23,13 +23,13 @@
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="9Uq-X8-eBd">
                                     <size key="itemSize" width="110" height="110"/>
                                     <size key="estimatedItemSize" width="120" height="120"/>
-                                    <size key="headerReferenceSize" width="50" height="436"/>
+                                    <size key="headerReferenceSize" width="50" height="471"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="5" minY="0.0" maxX="5" maxY="16"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profileCell" id="FVK-c9-iDn" customClass="ProfileCollectionCell" customModule="ProjetoDesign" customModuleProvider="target">
-                                        <rect key="frame" x="5" y="436" width="110" height="110"/>
+                                        <rect key="frame" x="5" y="471" width="110" height="110"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="QUP-63-6vI">
                                             <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
@@ -73,7 +73,7 @@
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="profileReuCell" id="eIC-gf-EaO" customClass="ProfileCollectionReusableView" customModule="ProjetoDesign" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="436"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="471"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y4E-9f-xHL" userLabel="ProfileImageContainerView">
@@ -219,29 +219,45 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Xoxo. - Gossip Girls" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jIb-X0-RbS">
-                                            <rect key="frame" x="42" y="355" width="331" height="73"/>
+                                            <rect key="frame" x="42" y="355" width="331" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="331" id="TkS-mK-As6"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mqg-sS-q6q">
+                                            <rect key="frame" x="121" y="381" width="173" height="82"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="173" id="yTH-mE-DPa"/>
+                                            </constraints>
+                                            <state key="normal" title="Button"/>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailingMargin" secondItem="jIb-X0-RbS" secondAttribute="trailing" constant="33" id="2rc-pK-Tfi"/>
                                         <constraint firstItem="y4E-9f-xHL" firstAttribute="top" secondItem="eIC-gf-EaO" secondAttribute="top" constant="-27" id="3ng-Sy-I9P"/>
                                         <constraint firstItem="hU7-ud-zkO" firstAttribute="leading" secondItem="eIC-gf-EaO" secondAttribute="leadingMargin" id="7dW-iE-3cG"/>
+                                        <constraint firstItem="Mqg-sS-q6q" firstAttribute="bottom" secondItem="eIC-gf-EaO" secondAttribute="bottomMargin" id="9Sp-Fs-0Uz"/>
                                         <constraint firstAttribute="trailing" secondItem="y4E-9f-xHL" secondAttribute="trailing" constant="115" id="FTt-zK-fVT"/>
-                                        <constraint firstItem="jIb-X0-RbS" firstAttribute="top" secondItem="GT0-FU-TAC" secondAttribute="bottom" constant="15" id="JT8-VJ-R3r"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="GT0-FU-TAC" secondAttribute="trailing" constant="14" id="PFd-4U-5Cp"/>
                                         <constraint firstItem="GT0-FU-TAC" firstAttribute="top" secondItem="hU7-ud-zkO" secondAttribute="bottom" constant="8" symbolic="YES" id="UAC-bS-dTl"/>
+                                        <constraint firstItem="Mqg-sS-q6q" firstAttribute="leading" secondItem="eIC-gf-EaO" secondAttribute="leadingMargin" constant="113" id="Wz5-E2-vXl"/>
+                                        <constraint firstItem="Mqg-sS-q6q" firstAttribute="top" secondItem="jIb-X0-RbS" secondAttribute="bottom" constant="8" symbolic="YES" id="XgO-3D-bBF"/>
                                         <constraint firstItem="y4E-9f-xHL" firstAttribute="leading" secondItem="eIC-gf-EaO" secondAttribute="leading" constant="116" id="YBY-jy-S6f"/>
-                                        <constraint firstItem="jIb-X0-RbS" firstAttribute="bottom" secondItem="eIC-gf-EaO" secondAttribute="bottomMargin" id="jWz-aX-db4"/>
+                                        <constraint firstItem="jIb-X0-RbS" firstAttribute="top" secondItem="GT0-FU-TAC" secondAttribute="bottom" constant="15" id="nfL-7W-izM"/>
+                                        <constraint firstItem="jIb-X0-RbS" firstAttribute="leading" secondItem="eIC-gf-EaO" secondAttribute="leadingMargin" constant="34" id="qiA-p0-eNd"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Mqg-sS-q6q" secondAttribute="trailing" constant="112" id="sml-lo-H5t"/>
                                         <constraint firstItem="hU7-ud-zkO" firstAttribute="top" secondItem="y4E-9f-xHL" secondAttribute="bottom" constant="8" symbolic="YES" id="stN-Cv-wgM"/>
-                                        <constraint firstItem="jIb-X0-RbS" firstAttribute="leading" secondItem="eIC-gf-EaO" secondAttribute="leadingMargin" constant="34" id="vW8-9b-wla"/>
                                         <constraint firstItem="GT0-FU-TAC" firstAttribute="leading" secondItem="eIC-gf-EaO" secondAttribute="leadingMargin" constant="14" id="vdD-Gn-5KV"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="jIb-X0-RbS" secondAttribute="trailing" constant="33" id="yuz-Mw-XPo"/>
                                         <constraint firstItem="hU7-ud-zkO" firstAttribute="trailing" secondItem="eIC-gf-EaO" secondAttribute="trailingMargin" id="zWd-OP-tU1"/>
                                     </constraints>
                                     <connections>
                                         <outlet property="bioLabel" destination="jIb-X0-RbS" id="ZwV-P4-9wv"/>
+                                        <outlet property="followButton" destination="Mqg-sS-q6q" id="vCo-gC-RiA"/>
+                                        <outlet property="followersCountLabel" destination="9Z2-ue-IwB" id="Xdw-Qv-mI9"/>
+                                        <outlet property="followingCountLabel" destination="BkP-Oc-pkl" id="9hz-QD-G8b"/>
                                         <outlet property="nameLabel" destination="hU7-ud-zkO" id="fOZ-Z1-KGl"/>
                                         <outlet property="profileImageView" destination="O3a-fs-lCB" id="Arc-fh-e2Y"/>
                                     </connections>

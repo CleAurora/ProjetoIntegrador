@@ -41,10 +41,12 @@
 		4C0D1A4C252A920500462862 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D1A4B252A920500462862 /* Profile.swift */; };
 		4C0D1A51252A971B00462862 /* upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D1A50252A971B00462862 /* upload.swift */; };
 		4C0D1A56252A98FF00462862 /* ImagensProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D1A55252A98FF00462862 /* ImagensProfile.swift */; };
+		4C1C4D58257C6296003CA5AA /* UserCollectionDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C4D57257C6296003CA5AA /* UserCollectionDelegateDataSource.swift */; };
 		4C2CD84B2533916B00CC0BF1 /* InfoPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C2CD84A2533916B00CC0BF1 /* InfoPost.storyboard */; };
 		4C2CD8502533920400CC0BF1 /* infoPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2CD84F2533920400CC0BF1 /* infoPostViewController.swift */; };
 		4C2CD8562533950D00CC0BF1 /* InfoPostTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2CD8552533950D00CC0BF1 /* InfoPostTableCell.swift */; };
 		4C393216252DEE9000844D64 /* ResizeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C393215252DEE9000844D64 /* ResizeImage.swift */; };
+		4C474739257C65E700D09556 /* userSelectedrequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C474738257C65E700D09556 /* userSelectedrequest.swift */; };
 		4C47EE7F254631AE000F934B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C47EE7E254631AE000F934B /* User.swift */; };
 		4C47EE84254634F6000F934B /* PhotoDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C47EE83254634F6000F934B /* PhotoDetailTableViewCell.swift */; };
 		4C4EEFF0257AEFBA00E1D6CD /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4EEFEF257AEFBA00E1D6CD /* Usuario.swift */; };
@@ -167,10 +169,12 @@
 		4C0D1A4B252A920500462862 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		4C0D1A50252A971B00462862 /* upload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = upload.swift; sourceTree = "<group>"; };
 		4C0D1A55252A98FF00462862 /* ImagensProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagensProfile.swift; sourceTree = "<group>"; };
+		4C1C4D57257C6296003CA5AA /* UserCollectionDelegateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionDelegateDataSource.swift; sourceTree = "<group>"; };
 		4C2CD84A2533916B00CC0BF1 /* InfoPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InfoPost.storyboard; sourceTree = "<group>"; };
 		4C2CD84F2533920400CC0BF1 /* infoPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoPostViewController.swift; sourceTree = "<group>"; };
 		4C2CD8552533950D00CC0BF1 /* InfoPostTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPostTableCell.swift; sourceTree = "<group>"; };
 		4C393215252DEE9000844D64 /* ResizeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeImage.swift; sourceTree = "<group>"; };
+		4C474738257C65E700D09556 /* userSelectedrequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userSelectedrequest.swift; sourceTree = "<group>"; };
 		4C47EE7E254631AE000F934B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		4C47EE83254634F6000F934B /* PhotoDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailTableViewCell.swift; sourceTree = "<group>"; };
 		4C4EEFEF257AEFBA00E1D6CD /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
@@ -565,7 +569,9 @@
 			isa = PBXGroup;
 			children = (
 				4C8F1539254373EC0010F790 /* User.storyboard */,
+				4C474738257C65E700D09556 /* userSelectedrequest.swift */,
 				4C8F153E254374050010F790 /* UserViewController.swift */,
+				4C1C4D57257C6296003CA5AA /* UserCollectionDelegateDataSource.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -999,6 +1005,7 @@
 				4CCB523B252A45E700F9AB19 /* ViewController.swift in Sources */,
 				4C5526FD257395A8007AA6C8 /* Locations.swift in Sources */,
 				4C0D1A56252A98FF00462862 /* ImagensProfile.swift in Sources */,
+				4C1C4D58257C6296003CA5AA /* UserCollectionDelegateDataSource.swift in Sources */,
 				4C0D1A4C252A920500462862 /* Profile.swift in Sources */,
 				4CADCCA425422926005676F7 /* CommentsTableCell.swift in Sources */,
 				4C5CCC762578773E00B2DD45 /* BorderBottom.swift in Sources */,
@@ -1011,6 +1018,7 @@
 				4C47EE7F254631AE000F934B /* User.swift in Sources */,
 				4C0D19D7252A5DBE00462862 /* ProfileViewController.swift in Sources */,
 				4C573F322545E01300A2982F /* PhotoDetailViewController.swift in Sources */,
+				4C474739257C65E700D09556 /* userSelectedrequest.swift in Sources */,
 				4C573F3D2545E8E700A2982F /* PhotoDetail.swift in Sources */,
 				4C47EE84254634F6000F934B /* PhotoDetailTableViewCell.swift in Sources */,
 				4C4EEFF0257AEFBA00E1D6CD /* Usuario.swift in Sources */,

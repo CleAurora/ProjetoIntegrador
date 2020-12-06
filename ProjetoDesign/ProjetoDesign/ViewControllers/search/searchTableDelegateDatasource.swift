@@ -46,6 +46,15 @@ class searchTableDelegateDatasource: NSObject, UITableViewDelegate, UITableViewD
        completionHandler(true,nil)
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let viewcontroller = UIStoryboard(name: "User", bundle: nil).instantiateInitialViewController() as? UserViewController{
+            
+            viewcontroller.userProfile = filteredArray[indexPath.row]
+//            searchController.navigationController?.pushViewController(viewcontroller, animated: true)
+            searchController.present(viewcontroller, animated: true, completion: nil)
+        }
+     
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredArray.count
     }

@@ -13,52 +13,53 @@ class UserViewController: UIViewController {
     @IBOutlet weak var profileCollectionView: UICollectionView!
     
     // MARK: - Proprierts
-    var name: String?
-    var userArray = [Post]()
     var post: PostUser?
     var images: [String] = []
+    var userProfile: Usuario?
+    
+    var userModel = userSelectedrequest()
+    var viewModel: UserCollectionDelegateDataSource?
     
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        profileCollectionView.delegate = self
-        profileCollectionView.dataSource = self
-        
-        userArray.append(Post(name: "\(post!.name)", city: "", imageProfile: "\(post!.imageProfile)", imagePost: "", comments: "\(post!.comments)", allImages: ["", ""]))
-        images.append(contentsOf: post!.allImages)
+        getData()
+    }
+    
+    func getData(){
+        userModel.selectedUser = self.userProfile
+        userModel.loadData(completionHandler: { success,_ in
+            self.passDataThrough()
+            print(success)
+        })
+    }
+    func setupCollection(){
+        profileCollectionView.delegate = viewModel
+        profileCollectionView.dataSource = viewModel
+        profileCollectionView.reloadData()
+    }
+    
+    func passDataThrough(){
+        self.viewModel = UserCollectionDelegateDataSource(userModel: userModel, view: self)
+        self.viewModel?.useArrayTo(completionHandler: { success,_ in
+            self.setupCollection()
+            print(success)
+        })
     }
 }
 
 // MARK: - Extensions 
-extension UserViewController: UICollectionViewDelegate{
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(images[indexPath.row])
-        if let vc = UIStoryboard(name: "PhotoDetail", bundle: nil).instantiateInitialViewController() as? PhotoDetailViewController{
-            vc.name = post?.name
-            vc.comments = post?.comments
-            vc.image = images[indexPath.row]
-            vc.post = post
-            navigationController?.pushViewController(vc, animated: true)
-        }
-    }
-    
-}
-extension UserViewController: UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
-    }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! ProfileCollectionCell
-        //cell.setup(user: userArray[indexPath.row])
-        print(images[indexPath.row])
-        return cell
-    }
-    func collectionView(_ collectionView: UICollectionView,viewForSupplementaryElementOfKind kind: String,at indexPath: IndexPath) -> UICollectionReusableView {
-        let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "profileReuCell", for: indexPath) as! ProfileCollectionReusableView
-        cell.setup(post: userArray[indexPath.row])
-        return cell
-    }
-    
-    
-}
+//extension UserViewController: UICollectionViewDelegate{
+//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        print(images[indexPath.row])
+//        if let vc = UIStoryboard(name: "PhotoDetail", bundle: nil).instantiateInitialViewController() as? PhotoDetailViewController{
+//            vc.name = post?.name
+//            vc.comments = post?.comments
+//            vc.image = images[indexPath.row]
+//            vc.post = post
+//            navigationController?.pushViewController(vc, animated: true)
+//        }
+//    }
+//
+//}
+
