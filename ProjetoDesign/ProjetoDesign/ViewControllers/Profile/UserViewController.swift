@@ -15,8 +15,10 @@ class UserViewController: UIViewController {
     // MARK: - Proprierts
     var post: PostUser?
     var images: [String] = []
+   
     var userProfile: Usuario?
     
+    var followModel = FollowRequest()
     var userModel = userSelectedrequest()
     var viewModel: UserCollectionDelegateDataSource?
     
@@ -32,6 +34,20 @@ class UserViewController: UIViewController {
             self.passDataThrough()
             print(success)
         })
+    }
+    func getFollowers(){
+        followModel.userSelected = self.userProfile
+        followModel.getFollowers(completionHandler: { success, _ in
+            if success {
+                print("success")
+            }
+        })
+//        followModel.setFollowing(completionHandler: { success, _ in
+//            if success{
+//                print("success")
+//            }
+//        })
+        
     }
     func setupCollection(){
         profileCollectionView.delegate = viewModel

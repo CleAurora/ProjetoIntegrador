@@ -32,13 +32,16 @@ class UserCollectionDelegateDataSource: NSObject, UICollectionViewDelegate, UICo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! ProfileCollectionCell
-        //cell.setup(user: userArray[indexPath.row])
         print(view.images[indexPath.row])
         return cell
     }
     func collectionView(_ collectionView: UICollectionView,viewForSupplementaryElementOfKind kind: String,at indexPath: IndexPath) -> UICollectionReusableView {
         let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "profileReuCell", for: indexPath) as! ProfileCollectionReusableView
         cell.setup(user: userSelected[indexPath.row])
+        cell.nameTap = {
+            self.view.getFollowers()
+            cell.followButton.setTitle("Funcionou", for: .normal)
+        }
         return cell
     }
     

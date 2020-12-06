@@ -18,7 +18,12 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     
     @IBOutlet var followButton: UIButton!
     
-    // MARK: - Methods 
+    var nameTap : (() -> ()) = {}
+    // MARK: - Methods
+    
+    @IBAction func followButton(_ sender: Any) {
+        nameTap()
+    }
     func setup(user: Usuario){
         let uid = Auth.auth().currentUser?.uid
         
