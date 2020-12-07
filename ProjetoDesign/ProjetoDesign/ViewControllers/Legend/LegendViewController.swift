@@ -41,10 +41,6 @@ final class LegendViewController: UIViewController, CLLocationManagerDelegate {
         if imagemProfile != nil {
             imageSelected.image = imagemProfile
         }
-//        if let upload = upload {
-//            imageSelected.image = UIImage(named: upload.image)
-//        }
-
         imageSelected.layer.maskedCorners = CACornerMask(
             rawValue: UIRectCorner(
                 [UIRectCorner.bottomLeft, UIRectCorner.bottomRight]

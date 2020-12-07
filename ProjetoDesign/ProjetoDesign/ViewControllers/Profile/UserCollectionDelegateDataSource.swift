@@ -70,10 +70,6 @@ class UserCollectionDelegateDataSource: NSObject, UICollectionViewDelegate, UICo
                     }
                 }
             })
-           
-            self.view.isFollowing = nil
-            print(self.view.isFollowing)
-            print("status following")
         }
         return cell
     }

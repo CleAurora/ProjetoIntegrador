@@ -16,6 +16,7 @@ class RegisterViewModel: NSObject, UINavigationControllerDelegate, UIImagePicker
     var register = RegistrarViewController()
     var imageSelected: UIImage?
     
+    var uid = Auth.auth().currentUser?.uid
     init(view: RegistrarViewController) {
         self.register = view
     }
@@ -116,6 +117,26 @@ extension RegisterViewModel {
             let dict = ["Name": register.nameTextField.text!,"Email": register.emailTextField.text!, "profileUrl":profileURL.absoluteString,"UserID": currentUserID,"Nickname": register.nicknameTextField.text!, "Bio": "", "Followers": 0, "Following": 0] as [String: Any]
             ref.child("users").child(currentUserID).setValue(dict)
             
+            self.setFollower()
+            self.setFollowing()
+        }
+    }
+    func setFollower(){
+        if let currentUser = Auth.auth().currentUser?.uid{
+            self.ref = Database.database().reference()
+            let followers = ref.child("users").child(currentUser).child("followers")
+            let dict = ["first": ""]
+            followers.updateChildValues(dict)
+    
+        }
+    }
+    func setFollowing(){
+        if let currentUser = Auth.auth().currentUser?.uid{
+            self.ref = Database.database().reference()
+            let following = ref.child("users").child(currentUser).child("following")
+            let dict = ["first": ""]
+            following.updateChildValues(dict)
+    
         }
     }
 }
