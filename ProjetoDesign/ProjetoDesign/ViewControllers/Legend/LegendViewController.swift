@@ -8,7 +8,7 @@
 import UIKit
 import CoreLocation
 
-class LegendViewController: UIViewController, CLLocationManagerDelegate {
+final class LegendViewController: UIViewController, CLLocationManagerDelegate {
     
     // MARK: - IBOutlets
     var imagemProfile: UIImage?
@@ -22,7 +22,8 @@ class LegendViewController: UIViewController, CLLocationManagerDelegate {
 
     //Constants
     let locationManager = CLLocationManager()
-       
+    private lazy var viewModel = LegendViewModel(for: self)
+
     //Variables
     var currentWeather: CurrentWeather = CurrentWeather()
     var currentLocation: CLLocation!
@@ -53,7 +54,8 @@ class LegendViewController: UIViewController, CLLocationManagerDelegate {
 
     }
     override func viewWillAppear(_ animated: Bool) {
-        //super.viewWillAppear(animated)
+        super.viewWillAppear(animated)
+
         locationAutoCheck()
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
@@ -101,33 +103,16 @@ class LegendViewController: UIViewController, CLLocationManagerDelegate {
     
     // MARK: - Methods
     func infoText(){
-        if let image = upload?.image {
-            if let tabBarController = tabBarController, let viewControllers = tabBarController.viewControllers,
-               let navController = viewControllers.first as? UINavigationController,
-               let feedViewController = navController.viewControllers.first as? FeedViewController {
-                tabBarController.selectedIndex = 0
-                feedViewController.postagem.insert(
-                    PostUser(
-                        name: "Melissa",
-                        city: localSwitch.isOn ? currentWeather.cityName : nil,
-                        temperature: weatherSwitch.isOn ? currentWeather.currentTemp : nil,
-                        imageProfile: "mel0.jpg",
-                        imagePost: image,
-                        comments: legendTextField.text ?? "",
-                        allImages: ["",""]
-                    )
-                    , at: 0
-                )
-                feedViewController.feedTableView.reloadData()
-            }
-
-            if let tabBarController = tabBarController, let profileViewController = tabBarController.viewControllers?.last as? ProfileViewController {
-                profileViewController.imagensArray.append(ImagensProfile(imagens: image, weatherImage: currentWeather.weatherType.lowercased()))
-                profileViewController.profileCollectionView?.reloadData()
-            }
-
-            navigationController?.popViewController(animated: true)
-        }
+        viewModel.post(
+            NewPostViewModel(
+                weather: currentWeather,
+                hasPlace: localSwitch.isOn,
+                hasTemperature: weatherSwitch.isOn,
+                image: imagemProfile,
+                imageName: upload?.image,
+                comment: legendTextField.text
+            )
+        )
     }
 
     // MARK: - IBActions 
