@@ -10,7 +10,7 @@ import UIKit
 class ProfileCollectionCell: UICollectionViewCell {
     
     // MARK: - IBOtlets
-    @IBOutlet weak var uploadImageview: UIImageView!
+    @IBOutlet weak var uploadImageview: UIImageView?
     @IBOutlet weak var weatherImageView: UIImageView?
     
     // MARK: - Proprierts
@@ -23,8 +23,15 @@ class ProfileCollectionCell: UICollectionViewCell {
     }
     
     // MARK: - Methods 
-    func setup(user: ImagensProfile){
-        uploadImageview.image = UIImage(named: user.imagens)
-        weatherImageView?.image = UIImage(named: user.weatherImage)
+    func setup(post: DownloadPost){
+        uploadImageview?.image = nil
+        weatherImageView?.image = nil
+        if post != nil {
+            let url = URL(string: post.imagePost)
+            uploadImageview?.kf.setImage(with: url)
+        }
+        
+        //uploadImageview.image = UIImage(named: post.imagePost)
+        //weatherImageView?.image = UIImage(named: user.weatherImage)
     }
 }

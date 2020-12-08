@@ -35,13 +35,14 @@ final class FirebaseRealtimeDatabaseLegendService: LegendService {
 
         upload(image: image, forKey: key) { result in
             do {
+                let weather = String(format: "%.0f", legend.temperature as! CVarArg)
                 let url = try result.get()
                 let value = [
                     "UserId": user.uid,
                     "ImageUrl": url.absoluteString,
                     "City": legend.city ?? "",
-                    "Temperature": legend.temperature ?? 0,
-                    "Comments": legend.comments,
+                    "Weather": weather ?? "",
+                    "Caption": legend.comments,
                     "WeatherType": weatherType
                 ] as [String : Any]
 

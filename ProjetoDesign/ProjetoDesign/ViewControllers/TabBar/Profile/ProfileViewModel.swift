@@ -12,19 +12,21 @@ class ProfileViewModel: NSObject, UICollectionViewDelegate, UICollectionViewData
     
     var userModel = ViewRequest()
     var view = ProfileViewController()
+    var postRequest = DownloadImages()
     
-    init(userModel: ViewRequest, view: ProfileViewController) {
+    init(userModel: ViewRequest, view: ProfileViewController, posts: DownloadImages) {
         self.userModel = userModel
         self.view = view
+        self.postRequest = posts
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return view.imagensArray.count
+        return postRequest.currentUserPost.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! ProfileCollectionCell
-        cell.setup(user: view.imagensArray[indexPath.row])
+        cell.setup(post: postRequest.currentUserPost[indexPath.row])
         
         return cell
     }

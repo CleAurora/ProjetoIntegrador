@@ -19,6 +19,7 @@ class ProfileViewController: UIViewController {
     var viewModel: ProfileViewModel?
     var userModel = ViewRequest()
     var imagensArray = [ImagensProfile]()
+    var postRequest = DownloadImages()
     
     // MARK: - Super Methods
     override func viewDidAppear(_ animated: Bool) {
@@ -33,11 +34,18 @@ class ProfileViewController: UIViewController {
         imagensArray.append(ImagensProfile(imagens: "melissa4.jpg", weatherImage: "cloud"))
         imagensArray.append(ImagensProfile(imagens: "melissa5.jpeg", weatherImage: "sun"))
         imagensArray.append(ImagensProfile(imagens: "melissa0.jpg", weatherImage: "cloud.rain"))
-       getData()
+       
+       getPost()
 
     }
     
-   
+    func getPost(){
+        postRequest.loadData(completionHandler: { success, _ in
+            if success{
+                self.getData()
+            }
+        })
+    }
     
     func getData(){
         self.userModel.loadData(completionHandler: { success, _ in
@@ -48,7 +56,7 @@ class ProfileViewController: UIViewController {
     }
     // MARK: - Methods
     func setupCollection(){
-        self.viewModel = ProfileViewModel(userModel: userModel, view: self)
+        self.viewModel = ProfileViewModel(userModel: userModel, view: self, posts: postRequest)
         profileCollectionView.delegate = viewModel
         profileCollectionView.dataSource = viewModel
         profileCollectionView.reloadData()

@@ -93,6 +93,8 @@
 		4CADCC992542267A005676F7 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CADCC982542267A005676F7 /* CommentsViewController.swift */; };
 		4CADCC9E25422810005676F7 /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CADCC9D25422810005676F7 /* Comments.swift */; };
 		4CADCCA425422926005676F7 /* CommentsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CADCCA325422926005676F7 /* CommentsTableCell.swift */; };
+		4CB308E3257F0CB600FE3178 /* DownloadPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB308E2257F0CB600FE3178 /* DownloadPost.swift */; };
+		4CB308E8257F104C00FE3178 /* DownloadImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB308E7257F104C00FE3178 /* DownloadImages.swift */; };
 		4CB4BBEA256C254700976670 /* CaptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CB4BBE9256C254700976670 /* CaptionTableViewCell.swift */; };
 		4CCB5237252A45E700F9AB19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB5236252A45E700F9AB19 /* AppDelegate.swift */; };
 		4CCB523B252A45E700F9AB19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB523A252A45E700F9AB19 /* ViewController.swift */; };
@@ -226,6 +228,8 @@
 		4CADCC982542267A005676F7 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
 		4CADCC9D25422810005676F7 /* Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
 		4CADCCA325422926005676F7 /* CommentsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsTableCell.swift; sourceTree = "<group>"; };
+		4CB308E2257F0CB600FE3178 /* DownloadPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadPost.swift; sourceTree = "<group>"; };
+		4CB308E7257F104C00FE3178 /* DownloadImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImages.swift; sourceTree = "<group>"; };
 		4CB4BBE9256C254700976670 /* CaptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptionTableViewCell.swift; sourceTree = "<group>"; };
 		4CCB5233252A45E700F9AB19 /* ProjetoDesign.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProjetoDesign.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CCB5236252A45E700F9AB19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -717,6 +721,8 @@
 				4C5526EE257394A1007AA6C8 /* CurrentWeather.swift */,
 				4C5526FC257395A8007AA6C8 /* Locations.swift */,
 				4C55270125739B75007AA6C8 /* Extras.swift */,
+				4CB308E2257F0CB600FE3178 /* DownloadPost.swift */,
+				4CB308E7257F104C00FE3178 /* DownloadImages.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1036,6 +1042,7 @@
 				4C0D1A4C252A920500462862 /* Profile.swift in Sources */,
 				4CADCCA425422926005676F7 /* CommentsTableCell.swift in Sources */,
 				4C5CCC762578773E00B2DD45 /* BorderBottom.swift in Sources */,
+				4CB308E8257F104C00FE3178 /* DownloadImages.swift in Sources */,
 				4C0D1A30252A857300462862 /* UploadCollectionCell.swift in Sources */,
 				4C84732F2548F007000ECD02 /* ProfileCollectionReusableView.swift in Sources */,
 				4CCB527F252A4B5100F9AB19 /* editTextField.swift in Sources */,
@@ -1063,6 +1070,7 @@
 				4C502F9A254267240001FAB2 /* BorderImage.swift in Sources */,
 				4C61CE052579A61800491964 /* RegisterViewModel.swift in Sources */,
 				4C57A157253F99480018C522 /* searchCollectionCell.swift in Sources */,
+				4CB308E3257F0CB600FE3178 /* DownloadPost.swift in Sources */,
 				4C0D1A1E252A7F0D00462862 /* ProfileCollectionCell.swift in Sources */,
 				426414282540E79500F47C5D /* LegendViewController.swift in Sources */,
 				4C57A135253F87000018C522 /* NotificationsTableCell.swift in Sources */,
