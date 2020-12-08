@@ -18,6 +18,7 @@ class UserViewController: UIViewController {
     var isFollowing: Bool?
     var userProfile: Usuario?
     
+    var postRequest = DownloadImages()
     var followModel = FollowRequest()
     var userModel = userSelectedrequest()
     var viewModel: UserCollectionDelegateDataSource?
@@ -25,28 +26,35 @@ class UserViewController: UIViewController {
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.getData()
-//        configureButtonFollow()
+        navigationController?.navigationBar.isHidden = true
+        print("executou viewdid")
     }
     override func viewDidAppear(_ animated: Bool) {
         //self.getData()
-        configureButtonFollow()
+       // configureButtonFollow()
+        print("executou viewAPPEAR")
+        self.getPost()
     }
     
     func getData(){
         userModel.selectedUser = self.userProfile
         userModel.loadData(completionHandler: { success,_ in
             self.passDataThrough()
-            print(success)
+            
         })
     }
-    
+    func getPost(){
+        postRequest.selectedUser = self.userProfile
+        postRequest.loadData(completionHandler: {success, _ in
+          
+            self.configureButtonFollow()
+        })
+    }
     func getFollowers(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         followModel.userSelected = self.userProfile
         
         followModel.getFollowers(completionHandler: { success, _ in
             if success {
-                print("success")
                 completionHandler(true,nil)
             }
         })
@@ -76,10 +84,10 @@ class UserViewController: UIViewController {
     }
     
     func passDataThrough(){
-        self.viewModel = UserCollectionDelegateDataSource(userModel: userModel, view: self, followModel: followModel)
+        self.viewModel = UserCollectionDelegateDataSource(userModel: userModel, view: self, followModel: followModel, postRequest: postRequest)
         self.viewModel?.useArrayTo(completionHandler: { success,_ in
             self.setupCollection()
-            print(success)
+           self.viewModel?.isFollowing = self.isFollowing
         })
     }
 }

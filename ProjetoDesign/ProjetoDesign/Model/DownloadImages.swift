@@ -11,10 +11,16 @@ import FirebaseDatabase
 class DownloadImages {
     var allPost = [DownloadPost]()
     var currentUserPost = [DownloadPost]()
+    var selectedPost = [DownloadPost]()
+    var selectedUser: Usuario?
     let uid = Auth.auth().currentUser?.uid
     var ref: DatabaseReference!
+    
     func loadData(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         do{
+            self.allPost.removeAll()
+            self.currentUserPost.removeAll()
+            self.selectedPost.removeAll()
             self.ref = Database.database().reference()
             let reference = ref.child("posts")
             reference.observe(.value, with: {(snapshot) in
@@ -41,6 +47,11 @@ class DownloadImages {
                             if user == userToshow.userID {
                                 self.currentUserPost.append(userToshow)
                             }
+                            }
+                        let userSelectedID = self.selectedUser?.userID
+                        
+                        if userSelectedID == userToshow.userID{
+                        self.selectedPost.append(userToshow)
                         }
                     }
                     completionHandler(true,nil)

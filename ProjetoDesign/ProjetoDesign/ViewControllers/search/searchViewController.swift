@@ -27,7 +27,7 @@ class searchViewController: UIViewController {
         userArray.append(Post(name: "Melissa", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "mel2.jpg", comments: "", allImages: [""]))
         userArray.append(Post(name: "Brendon", city: "Los Angeles", imageProfile: "brendon.jpg", imagePost: "post1.jpg", comments: "", allImages: [""]))
         userArray.append(Post(name: "Miles", city: "Vancouver, BC", imageProfile: "miles1.jpeg", imagePost: "miles0.jpeg", comments: "", allImages: [""]))
-
+        navigationController?.navigationBar.isHidden = true
         searchTableView.isHidden = true
         dataCollectionView.dataSource = self
         dataCollectionView.delegate = self

@@ -15,53 +15,62 @@ class UserCollectionDelegateDataSource: NSObject, UICollectionViewDelegate, UICo
     var view = UserViewController()
     var userSelected = [Usuario]()
     var followModel = FollowRequest()
-   // var isFollowing: Bool?
+    var postRequest = DownloadImages()
+    var isFollowing: Bool?
     
-    init(userModel: userSelectedrequest, view: UserViewController, followModel: FollowRequest) {
+    init(userModel: userSelectedrequest, view: UserViewController, followModel: FollowRequest, postRequest: DownloadImages) {
         self.userModel = userModel
         self.view = view
         self.followModel = followModel
+        self.postRequest = postRequest
     }
+    
     func useArrayTo(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         userSelected.append(userModel.selectedUser!)
         completionHandler(true,nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return view.images.count
+        return postRequest.selectedPost.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! ProfileCollectionCell
-        print(view.images[indexPath.row])
+        cell.setup(post: postRequest.selectedPost[indexPath.row])
         return cell
     }
+    
     func collectionView(_ collectionView: UICollectionView,viewForSupplementaryElementOfKind kind: String,at indexPath: IndexPath) -> UICollectionReusableView {
         let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "profileReuCell", for: indexPath) as! ProfileCollectionReusableView
         cell.setup(user: userSelected[indexPath.row])
-        
-        if view.isFollowing == false{
+      
+        if self.followModel.stillFollower != nil{
+            //followButton.isHidden = false
             cell.followButton.setTitle("Follow", for: .normal)
             cell.followButton.layer.cornerRadius = 10
             cell.followButton.backgroundColor = .clear
             cell.followButton.layer.borderWidth = 1
             cell.followButton.setTitleColor(.black, for: .normal)
-        }else if view.isFollowing == true{
+        }else {
+          //  followButton.isHidden = false
             cell.followButton.setTitle("unfollow", for: .normal)
             cell.followButton.layer.cornerRadius = 10
             cell.followButton.setTitleColor(.white, for: .normal)
             cell.followButton.backgroundColor = UIColor(patternImage: (UIImage(named: "2.jpg")!))
         }
-       
+        
         cell.nameTap = {
-            
             self.view.getFollowers(completionHandler: { success, _ in
+              
                 if success {
-                    if self.followModel.stillFollower == self.uid {
+                    let buttonLabel = cell.followButton.titleLabel?.text
+                    print(buttonLabel)
+                    if buttonLabel == "Follow"{
                         cell.followButton.setTitle("unfollow", for: .normal)
                         cell.followButton.setTitleColor(.white, for: .normal)
                         cell.followButton.backgroundColor = UIColor(patternImage: (UIImage(named: "2.jpg")!))
-                    }else{
+            
+                    }else if buttonLabel == "unfollow"{
                         cell.followButton.setTitle("Follow", for: .normal)
                         cell.followButton.layer.cornerRadius = 10
                         cell.followButton.backgroundColor = .clear

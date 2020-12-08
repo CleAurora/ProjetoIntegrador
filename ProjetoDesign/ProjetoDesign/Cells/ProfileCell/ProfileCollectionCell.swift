@@ -24,8 +24,10 @@ class ProfileCollectionCell: UICollectionViewCell {
     
     // MARK: - Methods 
     func setup(post: DownloadPost){
+        
         uploadImageview?.image = nil
         weatherImageView?.image = nil
+        
         if post != nil {
             let url = URL(string: post.imagePost)
             uploadImageview?.kf.setImage(with: url)

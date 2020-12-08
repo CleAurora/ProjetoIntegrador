@@ -42,7 +42,6 @@ class searchTableDelegateDatasource: NSObject, UITableViewDelegate, UITableViewD
             })
             
         }
-        print(filteredArray)
        completionHandler(true,nil)
     }
     
@@ -50,8 +49,7 @@ class searchTableDelegateDatasource: NSObject, UITableViewDelegate, UITableViewD
         if let viewcontroller = UIStoryboard(name: "User", bundle: nil).instantiateInitialViewController() as? UserViewController{
             
             viewcontroller.userProfile = filteredArray[indexPath.row]
-//            searchController.navigationController?.pushViewController(viewcontroller, animated: true)
-            searchController.present(viewcontroller, animated: true, completion: nil)
+            searchController.navigationController?.pushViewController(viewcontroller, animated: true)
         }
      
     }

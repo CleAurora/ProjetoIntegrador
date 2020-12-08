@@ -26,6 +26,8 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     }
     func setup(user: Usuario){
         let uid = Auth.auth().currentUser?.uid
+       
+
         
         if uid != user.userID {
             followButton.isHidden = false
