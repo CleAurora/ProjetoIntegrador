@@ -32,6 +32,7 @@ class ProfileViewModel: NSObject, UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView,viewForSupplementaryElementOfKind kind: String,at indexPath: IndexPath) -> UICollectionReusableView {
         let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "profileReuCell", for: indexPath) as! ProfileCollectionReusableView
         cell.setup(user: userModel.currentUser[indexPath.row])
+        cell.postCountLabel.text = "\(postRequest.currentUserPost.count)"
         return cell
 
 }

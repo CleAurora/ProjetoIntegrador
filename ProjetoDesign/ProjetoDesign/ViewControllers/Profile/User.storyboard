@@ -253,9 +253,10 @@
                                     <connections>
                                         <outlet property="bioLabel" destination="jIb-X0-RbS" id="ZwV-P4-9wv"/>
                                         <outlet property="followButton" destination="Mqg-sS-q6q" id="vCo-gC-RiA"/>
-                                        <outlet property="followersCountLabel" destination="9Z2-ue-IwB" id="Xdw-Qv-mI9"/>
+                                        <outlet property="followersCountLabel" destination="9Z2-ue-IwB" id="71P-oj-Wgw"/>
                                         <outlet property="followingCountLabel" destination="BkP-Oc-pkl" id="9hz-QD-G8b"/>
                                         <outlet property="nameLabel" destination="hU7-ud-zkO" id="fOZ-Z1-KGl"/>
+                                        <outlet property="postCountLabel" destination="Ybw-DJ-weS" id="bvS-j9-fXe"/>
                                         <outlet property="profileImageView" destination="O3a-fs-lCB" id="Arc-fh-e2Y"/>
                                     </connections>
                                 </collectionReusableView>

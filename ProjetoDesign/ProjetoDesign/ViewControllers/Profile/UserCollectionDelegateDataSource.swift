@@ -43,7 +43,7 @@ class UserCollectionDelegateDataSource: NSObject, UICollectionViewDelegate, UICo
     func collectionView(_ collectionView: UICollectionView,viewForSupplementaryElementOfKind kind: String,at indexPath: IndexPath) -> UICollectionReusableView {
         let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "profileReuCell", for: indexPath) as! ProfileCollectionReusableView
         cell.setup(user: userSelected[indexPath.row])
-
+        cell.postCountLabel.text = "\(postRequest.selectedPost.count)"
         if self.followModel.stillFollower != nil{
             //followButton.isHidden = false
             cell.followButton.setTitle("Follow", for: .normal)
