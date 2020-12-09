@@ -46,19 +46,7 @@ class RegisterViewModel: NSObject, UINavigationControllerDelegate, UIImagePicker
     
     func isDeveloping(){
         let alert = UIAlertController(title: "This option still under development", message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-              switch action.style{
-              case .default:
-                    print("default")
-
-              case .cancel:
-                    print("cancel")
-
-              case .destructive:
-                    print("destructive")
-
-
-        }}))
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
         register.present(alert, animated: true, completion: nil)
     }
     func registerNewUser(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){

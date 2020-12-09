@@ -28,11 +28,15 @@ class StoriesReusableView: UICollectionReusableView {
     @objc func headerViewTapped() {
         delegate?.doSomething()
     }
+
     func setup(user: Profile){
-        currentUserImageView.image = UIImage(named: user.profileImage)
-        //borderView.backgroundColor = UIColor(patternImage: UIImage(named: "stories2.jpg")!)
-        
-        
+        if user.profileImage.hasPrefix("https") {
+            currentUserImageView.kf.setImage(with: URL(string: user.profileImage))
+        } else {
+            currentUserImageView.image = UIImage(named: user.profileImage)
+        }
+
+        borderView.backgroundColor = UIColor(patternImage: UIImage(named: "stories2.jpg")!)
     }
 }
 

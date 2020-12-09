@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FeedViewController: UIViewController, HeaderDelegate {
+final class FeedViewController: UIViewController, HeaderDelegate {
     
     // MARK: - IBOutlets
     @IBOutlet weak var feedTableView: UITableView!
@@ -16,9 +16,10 @@ class FeedViewController: UIViewController, HeaderDelegate {
     // MARK: - Proprierts
     var arrayTable = [Post]()
     var arrayCollection = [stories]()
-    var currentUser = [Profile]()
-    var postagem = [PostUser]()
-    
+    var currentUser: Profile?
+
+    private lazy var viewModel = FeedViewModel(for: self)
+
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,61 +27,38 @@ class FeedViewController: UIViewController, HeaderDelegate {
         setupTableView()
         setupCollection()
         
-        self.navigationController?.navigationBar.isHidden = true
-        
-        postagem.append(PostUser(name: "Melissa", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "mel2.jpg",comments: " Eu sou simplesmente apaixonada em misturar peças mais femininas com outras mais pesadas ou retas!", allImages: ["mel2.jpg", "mel1.jpeg"]))
-        postagem.append(PostUser(name: "Brendon", city: "Los Angeles", imageProfile: "brendon.jpg", imagePost: "post1.jpg", comments: "I like it in the city when the air is so thick and opaque", allImages: ["post1.jpg", "gwen"]))
-        postagem.append(PostUser(name: "Melissa ", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "mel1.jpeg",comments: "I just took a DNA test, turns out I'm 100% that bitch", allImages: ["mel2.jpg", "mel1.jpeg"]))
-        postagem.append(PostUser(name: "Miles", city: "Vancouver, BC", imageProfile: "miles1.jpeg", imagePost: "miles0.jpeg",comments: "Needless to say, I keep her in check", allImages: ["miles0.jpeg", "gwen"]))
+        navigationController?.navigationBar.isHidden = true
 
-        
-        currentUser.append(Profile(name: "Melissa", profileImage: "mel0.jpg", bio: ""))
-        
+        viewModel.load { [weak self] in
+            self?.feedTableView.reloadData()
+        }
+
+        viewModel.getCurrentUser { [weak self] profile in
+            self?.currentUser = profile
+            self?.storieCollectionView.reloadData()
+        }
+
         arrayCollection.append(stories(storieImageView: "gwen"))
         arrayCollection.append(stories(storieImageView: "miles1.jpeg"))
         arrayCollection.append(stories(storieImageView: "brendon.jpg"))
         arrayCollection.append(stories(storieImageView: "Connor"))
-        
-        feedTableView.reloadData()
+
         storieCollectionView.reloadData()
-       
-        // Do any additional setup after loading the view.
     }
+
     override func viewWillAppear(_ animated: Bool) {
-        DispatchQueue.main.async {
-               self.feedTableView.reloadData()
-            print("reload")
-           }
+        super.viewWillAppear(animated)
+
+        feedTableView.reloadData()
     }
     
     // MARK: - Methods
-    func seeArray(){
-        let searchValue = "Melissa"
-        for item in postagem{
-        if let i = postagem.firstIndex(where: { $0.name == "Melissa" }) {
-            print("\(postagem[i].imagePost)")
-            print(i)
-            
-        }
-        }
-        
-    }
+
     func isDeveloping(){
         let alert = UIAlertController(title: "This option still under development", message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-              switch action.style{
-              case .default:
-                    print("default")
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
 
-              case .cancel:
-                    print("cancel")
-
-              case .destructive:
-                    print("destructive")
-
-
-        }}))
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
     
     func setupTableView(){
@@ -115,24 +93,20 @@ extension FeedViewController: UITableViewDelegate{
     
 }
 
-
-
 extension FeedViewController: UITableViewDataSource{
-    
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return postagem.count
+        viewModel.posts.count
     }
-    
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as! FeedTableViewCell
-        cell.setup(post: postagem[indexPath.row])
+        cell.setup(post: viewModel.posts[indexPath.row])
         cell.delegate = self
         
         cell.nameTap = {
-        if let viewcontroller = UIStoryboard(name: "User", bundle: nil).instantiateInitialViewController() as? UserViewController{
-            viewcontroller.post = self.postagem[indexPath.row]
+        if let viewcontroller = UIStoryboard(name: "User", bundle: nil).instantiateInitialViewController() as? UserViewController {
+            viewcontroller.post = self.viewModel.posts[indexPath.row]
         self.navigationController?.pushViewController(viewcontroller, animated: true)
         }
     }
@@ -196,25 +170,21 @@ extension FeedViewController: UITableViewDataSource{
         return cell
     }
 }
-extension FeedViewController: ButtonsTableView{
 
+extension FeedViewController: ButtonsTableView{
     func didButtonPressed() {
-        
-        if let viewcontroller = UIStoryboard(name: "Comments", bundle: nil).instantiateInitialViewController() as? CommentsViewController{
-            
-//            present(viewcontroller, animated: true, completion: nil)
+        if let viewcontroller = UIStoryboard(name: "Comments", bundle: nil).instantiateInitialViewController(){
             navigationController?.pushViewController(viewcontroller, animated: true)
+        }
     }
 }
-    
-}
+
 extension FeedViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         isDeveloping()
     }
-    
-    
 }
+
 extension FeedViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arrayCollection.count
@@ -228,16 +198,18 @@ extension FeedViewController: UICollectionViewDataSource{
 
     func collectionView(_ collectionView: UICollectionView,viewForSupplementaryElementOfKind kind: String,at indexPath: IndexPath) -> UICollectionReusableView {
         let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "currentCell", for: indexPath) as! StoriesReusableView
-        cell.setup(user: currentUser[indexPath.row])
+
+        if let currentUser = currentUser {
+            cell.setup(user: currentUser)
+        }
+
         cell.teste()
         cell.delegate = self
+
         return cell
     }
+
     func doSomething() {
         isDeveloping()
     }
-    
-    
 }
-
-

@@ -11,6 +11,8 @@
 		424E9DC425351D2700C5AE62 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424E9DC325351D2700C5AE62 /* SettingViewController.swift */; };
 		426414202540DF1900F47C5D /* Legend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4264141F2540DF1900F47C5D /* Legend.storyboard */; };
 		426414282540E79500F47C5D /* LegendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426414272540E79500F47C5D /* LegendViewController.swift */; };
+		427B21C7257F122400F114E0 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B21C6257F122400F114E0 /* FeedService.swift */; };
+		427B21CC257F137600F114E0 /* FirebaseRealtimeDatabaseFeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B21CB257F137600F114E0 /* FirebaseRealtimeDatabaseFeedService.swift */; };
 		42997A1B2533A24D008C9CEF /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42997A1A2533A24D008C9CEF /* Setting.storyboard */; };
 		42997A262533CA29008C9CEF /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42997A252533CA29008C9CEF /* DismissSegue.swift */; };
 		42997A2B2533CB59008C9CEF /* LogoutSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42997A2A2533CB59008C9CEF /* LogoutSegue.swift */; };
@@ -18,6 +20,7 @@
 		42D2B1F1257DA06200E4AC6C /* FirebaseRealtimeDatabaseLegendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2B1F0257DA06200E4AC6C /* FirebaseRealtimeDatabaseLegendService.swift */; };
 		42D2B1F6257DAB6900E4AC6C /* LegendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2B1F5257DAB6800E4AC6C /* LegendViewModel.swift */; };
 		42F8651E25713E57009DBA88 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F8651D25713E57009DBA88 /* LoginViewModel.swift */; };
+		42FD406F25803FE3001257AB /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42FD406E25803FE2001257AB /* FeedViewModel.swift */; };
 		4C0D19A6252A584C00462862 /* instagram.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0D19A5252A584B00462862 /* instagram.png */; };
 		4C0D19AB252A585600462862 /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C0D19AA252A585500462862 /* facebook.png */; };
 		4C0D19B6252A5C3F00462862 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D19B5252A5C3F00462862 /* FeedViewController.swift */; };
@@ -146,6 +149,8 @@
 		424E9DC325351D2700C5AE62 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		4264141F2540DF1900F47C5D /* Legend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Legend.storyboard; sourceTree = "<group>"; };
 		426414272540E79500F47C5D /* LegendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendViewController.swift; sourceTree = "<group>"; };
+		427B21C6257F122400F114E0 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
+		427B21CB257F137600F114E0 /* FirebaseRealtimeDatabaseFeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRealtimeDatabaseFeedService.swift; sourceTree = "<group>"; };
 		42997A1A2533A24D008C9CEF /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		42997A252533CA29008C9CEF /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		42997A2A2533CB59008C9CEF /* LogoutSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutSegue.swift; sourceTree = "<group>"; };
@@ -153,6 +158,7 @@
 		42D2B1F0257DA06200E4AC6C /* FirebaseRealtimeDatabaseLegendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRealtimeDatabaseLegendService.swift; sourceTree = "<group>"; };
 		42D2B1F5257DAB6800E4AC6C /* LegendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendViewModel.swift; sourceTree = "<group>"; };
 		42F8651D25713E57009DBA88 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		42FD406E25803FE2001257AB /* FeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewModel.swift; sourceTree = "<group>"; };
 		4C0D19A5252A584B00462862 /* instagram.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = instagram.png; sourceTree = "<group>"; };
 		4C0D19AA252A585500462862 /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
 		4C0D19B5252A5C3F00462862 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
@@ -329,6 +335,9 @@
 			isa = PBXGroup;
 			children = (
 				4C0D19B5252A5C3F00462862 /* FeedViewController.swift */,
+				427B21C6257F122400F114E0 /* FeedService.swift */,
+				427B21CB257F137600F114E0 /* FirebaseRealtimeDatabaseFeedService.swift */,
+				42FD406E25803FE2001257AB /* FeedViewModel.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -1016,6 +1025,7 @@
 				4C47473E257C735200D09556 /* FollowRequest.swift in Sources */,
 				42D2B1F6257DAB6900E4AC6C /* LegendViewModel.swift in Sources */,
 				4C8F153F254374050010F790 /* UserViewController.swift in Sources */,
+				42FD406F25803FE3001257AB /* FeedViewModel.swift in Sources */,
 				4C0D19E1252A629E00462862 /* FeedTableViewCell.swift in Sources */,
 				4C0D19CE252A5D5900462862 /* UploadViewController.swift in Sources */,
 				4C2CD8502533920400CC0BF1 /* infoPostViewController.swift in Sources */,
@@ -1027,11 +1037,13 @@
 				4C5CCC4E2578545400B2DD45 /* UploadTableViewCell.swift in Sources */,
 				4C0D1A51252A971B00462862 /* upload.swift in Sources */,
 				4CCB527A252A4B3F00F9AB19 /* RoundedButton.swift in Sources */,
+				427B21C7257F122400F114E0 /* FeedService.swift in Sources */,
 				4C0D1A47252A8D9F00462862 /* Post.swift in Sources */,
 				42997A2B2533CB59008C9CEF /* LogoutSegue.swift in Sources */,
 				4CADCC9E25422810005676F7 /* Comments.swift in Sources */,
 				4C6DF0BB252B602B0099D857 /* Stories.swift in Sources */,
 				4CCB528A252A4DC000F9AB19 /* RegistrarViewController.swift in Sources */,
+				427B21CC257F137600F114E0 /* FirebaseRealtimeDatabaseFeedService.swift in Sources */,
 				4CE0F2E6257B2671007DA03C /* ProfileViewModel.swift in Sources */,
 				4C4EEFFA257AFC9900E1D6CD /* searchTableDelegateDatasource.swift in Sources */,
 				4CCB523B252A45E700F9AB19 /* ViewController.swift in Sources */,

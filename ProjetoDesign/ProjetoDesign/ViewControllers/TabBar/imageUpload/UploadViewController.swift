@@ -21,8 +21,7 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
     var uploadDataSource: uploadCollectionDelegateSource?
     // MARK: - Proprierts
     var uploadArray = [Upload]()
-    var uploadSelected: Upload?
-    
+
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +48,6 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
     // MARK: - IBActions
     @IBAction func nextAction(_ sender: Any) {
         if let legendViewController = UIStoryboard(name: "Legend", bundle: nil).instantiateInitialViewController() as? LegendViewController {
-        legendViewController.upload = uploadSelected
         legendViewController.imagemProfile = resizeImageView.image
 
         navigationController?.pushViewController(legendViewController, animated: true)

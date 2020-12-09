@@ -73,9 +73,19 @@ class FeedTableViewCell: UITableViewCell {
         subtitlesLabel.attributedText = text
     }
     func setup(post: PostUser){
-        uploadImageView.image = UIImage(named: post.imageProfile)
-        postImageView.image = UIImage(named: post.imagePost)
-        nameButton.setTitle("\(post.name)", for: .normal)
+        if post.user.imageProfileUrl.hasPrefix("https") {
+            uploadImageView.kf.setImage(with: URL(string: post.user.imageProfileUrl))
+        } else {
+            uploadImageView.image = UIImage(named: post.user.imageProfileUrl)
+        }
+
+        if post.imagePostUrl.hasPrefix("https") {
+            postImageView.kf.setImage(with: URL(string: post.imagePostUrl))
+        } else {
+            postImageView.image = UIImage(named: post.imagePostUrl)
+        }
+
+        nameButton.setTitle(post.user.name, for: .normal)
 
         var cityAndTemperature = ""
 
@@ -84,13 +94,17 @@ class FeedTableViewCell: UITableViewCell {
         }
 
         if let temperature = post.temperature {
-            cityAndTemperature += String(format: " %.2fºC", arguments: [temperature])
+            cityAndTemperature += String(format: " %@ºC", arguments: [temperature])
         }
 
         cityLabel.text = cityAndTemperature
 
-        let text = "\(post.name): \(post.comments)".withBoldText(text: "\(post.name)")
-        subtitlesLabel.attributedText = text
+        subtitlesLabel.attributedText = nil
+
+        if let comments = post.comments {
+            let text = "\(post.user.name): \(comments)".withBoldText(text: "\(post.user.name)")
+            subtitlesLabel.attributedText = text
+        }
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

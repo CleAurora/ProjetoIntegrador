@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PhotoDetailViewController: UIViewController {
+final class PhotoDetailViewController: UIViewController {
     
     // MARK: - IBOutlets
     @IBOutlet weak var photoTableView: UITableView!
@@ -22,11 +22,21 @@ class PhotoDetailViewController: UIViewController {
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        name = post!.name
+        name = post?.user.name
         photoTableView.delegate = self
         photoTableView.dataSource = self
-        photoDetail.append(PostUser(name: "\(name!)", city: "\(post!.city)", imageProfile: "\(post!.imageProfile)", imagePost: "\(image!)", comments: "\(comments!)", allImages: ["",""]))
-        // Do any additional setup after loading the view.
+
+        photoDetail.append(
+            PostUser(
+                userId: UUID().uuidString,
+                userName: name ?? "",
+                userProfileUrl: post?.user.imageProfileUrl ?? "",
+                city: post?.city,
+                temperature: post?.temperature,
+                weatherType: post?.weatherType,
+                imagePostUrl: post?.imagePostUrl ?? ""
+            )
+        )
     }
     
     // MARK: - Methods

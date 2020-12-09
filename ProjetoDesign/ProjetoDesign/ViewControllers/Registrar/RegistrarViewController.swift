@@ -7,8 +7,9 @@
 
 import UIKit
 import FirebaseAuth
-class RegistrarViewController: UIViewController{
-    
+
+final class RegistrarViewController: UIViewController{
+
     // MARK: - IBOutlets
     @IBOutlet weak var registerView: extensions!
     @IBOutlet weak var registerLabel: UILabel!
@@ -20,35 +21,38 @@ class RegistrarViewController: UIViewController{
     @IBOutlet var nicknameTextField: customUITextField!
     
     // MARK: - Proprierts
-    var viewModel: RegisterViewModel?
+
+    private lazy var viewModel: RegisterViewModel = RegisterViewModel(view: self)
+
     // MARK: - Super Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
         registerView.backgroundColor = UIColor(patternImage: UIImage(named: "2.jpg")!)
     }
-    
+
     @IBAction func imageviewButton(_ sender: Any) {
-        self.viewModel = RegisterViewModel(view: self)
-        viewModel?.click()
+        viewModel.click()
     }
-    // MARK: - IBActions 
+
+    // MARK: - IBActions
+
     @IBAction func registerButton(_ sender: Any) {
-        self.viewModel = RegisterViewModel(view: self)
-        viewModel?.registerNewUser(completionHandler: { success, _ in
+        viewModel.registerNewUser { success, _ in
             if success {
                 if let vc = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() as? TabbarController{
                     vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                 }
             }
-        })
+        }
     }
+    
     @IBAction func instagramButton(_ sender: Any) {
-        self.viewModel = RegisterViewModel(view: self)
-        viewModel?.isDeveloping()
+        viewModel.isDeveloping()
     }
+
     @IBAction func facebookButton(_ sender: Any) {
-        self.viewModel = RegisterViewModel(view: self)
-        viewModel?.isDeveloping()
+        viewModel.isDeveloping()
     }
 }

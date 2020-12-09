@@ -12,7 +12,6 @@ struct NewPostViewModel {
     let hasPlace: Bool
     let hasTemperature: Bool
     let image: UIImage?
-    let imageName: String?
     let comment: String?
 }
 
@@ -26,17 +25,14 @@ final class LegendViewModel {
     }
 
     func post(_ input: NewPostViewModel) {
-        let imageName = input.imageName ?? ""
-
         if let image = input.image {
+            let temperature = String(format: "%.0f", input.weather.currentTemp)
+
             let postUser = PostUser(
-                name: "Melissa",
                 city: input.hasPlace ? input.weather.cityName : nil,
-                temperature: input.hasTemperature ? input.weather.currentTemp : nil,
-                imageProfile: "mel0.jpg",
-                imagePost: imageName,
-                comments: input.comment ?? "",
-                allImages: []
+                temperature: input.hasTemperature ? temperature : nil,
+                weatherType: input.weather.weatherType,
+                comments: input.comment
             )
 
             service.add(legend: postUser, for: image, usingWeather: input.weather.weatherType.lowercased()) { [weak self] result in
@@ -65,12 +61,10 @@ final class LegendViewModel {
            let navController = viewControllers.first as? UINavigationController,
            let feedViewController = navController.viewControllers.first as? FeedViewController {
             tabBarController.selectedIndex = 0
-            feedViewController.postagem.insert(postUser, at: 0)
             feedViewController.feedTableView.reloadData()
         }
 
         if let viewController = viewController, let tabBarController = viewController.tabBarController, let profileViewController = tabBarController.viewControllers?.last as? ProfileViewController {
-            profileViewController.imagensArray.append(ImagensProfile(imagens: postUser.imagePost, weatherImage: input.weather.weatherType.lowercased()))
             profileViewController.profileCollectionView?.reloadData()
         }
 

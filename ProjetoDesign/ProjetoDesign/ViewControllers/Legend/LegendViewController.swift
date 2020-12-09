@@ -29,7 +29,7 @@ final class LegendViewController: UIViewController, CLLocationManagerDelegate {
     var currentLocation: CLLocation!
     
     // MARK: - Proprierts
-    var upload: Upload?
+
     var postagem = [PostUser]()
     
     // MARK: - Super Methods
@@ -105,7 +105,6 @@ final class LegendViewController: UIViewController, CLLocationManagerDelegate {
                 hasPlace: localSwitch.isOn,
                 hasTemperature: weatherSwitch.isOn,
                 image: imagemProfile,
-                imageName: upload?.image,
                 comment: legendTextField.text
             )
         )
