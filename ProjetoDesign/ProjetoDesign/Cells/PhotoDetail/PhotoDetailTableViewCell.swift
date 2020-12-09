@@ -7,9 +7,9 @@
 
 import UIKit
 import Foundation
-    
+
 class PhotoDetailTableViewCell: UITableViewCell {
-    
+
         // MARK: - IBOutlets
         @IBOutlet weak var likeImageView: UIImageView!
         @IBOutlet weak var uploadImageView: UIImageView!
@@ -17,12 +17,12 @@ class PhotoDetailTableViewCell: UITableViewCell {
         @IBOutlet weak var cityLabel: UILabel!
         @IBOutlet weak var subtitlesLabel: UILabel!
         @IBOutlet weak var nameButton: UIButton!
-    
+
         // MARK: - Proprierts
         var delegate: ButtonsTableView?
         var heart: String? = nil
         var nameTap : (() -> ()) = {}
-        
+
         // MARK: - Super Methods
         override func awakeFromNib() {
             super.awakeFromNib()
@@ -31,7 +31,7 @@ class PhotoDetailTableViewCell: UITableViewCell {
             nameButton.layer.cornerRadius = 10
             cityLabel.layer.cornerRadius = 10 
         }
-        
+
         // MARK: - IBActions
         @IBAction func nameButton(_ sender: Any) {
             nameTap()
@@ -39,17 +39,33 @@ class PhotoDetailTableViewCell: UITableViewCell {
         @IBAction func commentsButton(_ sender: Any) {
             delegate?.didButtonPressed()
         }
-    
+
         // MARK: - Methods
         func setupPhoto(photo: PostUser){
-            uploadImageView.image = UIImage(named: photo.imageProfile)
-            postImageView.image = UIImage(named: photo.imagePost)
-            nameButton.setTitle("\(photo.name)", for: .normal)
+            if photo.user.imageProfileUrl.hasPrefix("https") {
+                uploadImageView.kf.setImage(with: URL(string: photo.user.imageProfileUrl))
+            } else {
+                uploadImageView.image = UIImage(named: photo.user.imageProfileUrl)
+            }
+
+            if photo.imagePostUrl.hasPrefix("https") {
+                uploadImageView.kf.setImage(with: URL(string: photo.imagePostUrl))
+            } else {
+                uploadImageView.image = UIImage(named: photo.imagePostUrl)
+            }
+
+            nameButton.setTitle("\(photo.user.name)", for: .normal)
             cityLabel.text = photo.city
-            let text = "\(photo.name): \(photo.comments)".withBoldText(text: "\(photo.name)")
-            subtitlesLabel.attributedText = text
+
+            subtitlesLabel.attributedText = nil
+
+            if let comments = photo.comments {
+                let text = "\(photo.user.name): \(comments)".withBoldText(text: "\(photo.user.name)")
+                subtitlesLabel.attributedText = text
+            }
+
         }
-      
+
         private func addSingleAndDoubleTapGesture() {
             let singleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
             singleTapGesture.numberOfTapsRequired = 1
@@ -62,7 +78,6 @@ class PhotoDetailTableViewCell: UITableViewCell {
             singleTapGesture.require(toFail: doubleTapGesture)
         }
 
-    
         // MARK: - OBJC Methods 
         @objc private func handleSingleTap(_ tapGesture: UITapGestureRecognizer) {
             likeImageView.isHidden = true
@@ -72,16 +87,15 @@ class PhotoDetailTableViewCell: UITableViewCell {
             print("clicked")
             if heart != nil {
                 likeImageView.image = UIImage(named: "heart0.png")
-                
+
                 heart = nil
                 likeImageView.isHidden = false
-                
+
             }else {
                 likeImageView.image = UIImage(named: "heart1.png")
                 heart = "Item"
                 likeImageView.isHidden = false
-                
+
             }
         }
     }
-

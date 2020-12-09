@@ -2,6 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Please allow</string>
+	<key>NSLocationUsageDescription</key>
+	<string>we need to get your location to shared you photo</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>we whant to select on of your photos</string>
 	<key>LSApplicationCategoryType</key>

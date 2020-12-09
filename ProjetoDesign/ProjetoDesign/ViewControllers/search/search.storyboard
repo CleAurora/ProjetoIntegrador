@@ -33,10 +33,9 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="29L-dp-thn" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="11" width="64" height="57"/>
+                                                    <rect key="frame" x="20" y="11" width="60" height="60"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="64" id="9FP-Op-reA"/>
-                                                        <constraint firstAttribute="height" constant="57" id="a7m-dm-bBb"/>
+                                                        <constraint firstAttribute="width" constant="60" id="Ajh-vU-Osh"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -46,21 +45,20 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMf-yA-smI">
-                                                    <rect key="frame" x="109" y="18" width="41.5" height="41"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="41" id="uVd-n6-VSC"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="102" y="18" width="292" height="41"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="29L-dp-thn" firstAttribute="top" secondItem="gPJ-Zi-9nI" secondAttribute="topMargin" id="25P-Y8-nVp"/>
-                                                <constraint firstItem="LMf-yA-smI" firstAttribute="top" secondItem="gPJ-Zi-9nI" secondAttribute="topMargin" constant="7" id="Aay-To-Yt0"/>
-                                                <constraint firstItem="29L-dp-thn" firstAttribute="leading" secondItem="gPJ-Zi-9nI" secondAttribute="leadingMargin" id="BQf-4O-XnR"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="LMf-yA-smI" secondAttribute="bottom" constant="9" id="JtI-SR-Vbk"/>
-                                                <constraint firstItem="LMf-yA-smI" firstAttribute="leading" secondItem="29L-dp-thn" secondAttribute="trailing" constant="25" id="k0L-Ae-al7"/>
+                                                <constraint firstItem="29L-dp-thn" firstAttribute="leading" secondItem="gPJ-Zi-9nI" secondAttribute="leading" constant="20" symbolic="YES" id="GOM-jp-jl5"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="LMf-yA-smI" secondAttribute="bottom" constant="9" id="Nnu-wl-G3Y"/>
+                                                <constraint firstItem="29L-dp-thn" firstAttribute="top" secondItem="gPJ-Zi-9nI" secondAttribute="top" constant="11" id="OPj-hY-lox"/>
+                                                <constraint firstItem="LMf-yA-smI" firstAttribute="top" secondItem="gPJ-Zi-9nI" secondAttribute="topMargin" constant="7" id="VO6-jg-cAr"/>
+                                                <constraint firstAttribute="bottom" secondItem="29L-dp-thn" secondAttribute="bottom" constant="8" id="Zd8-6D-C6S"/>
+                                                <constraint firstItem="LMf-yA-smI" firstAttribute="trailing" secondItem="gPJ-Zi-9nI" secondAttribute="trailingMargin" id="stC-gy-2HT"/>
+                                                <constraint firstItem="LMf-yA-smI" firstAttribute="leading" secondItem="29L-dp-thn" secondAttribute="trailing" constant="22" id="wbK-2e-PTP"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -90,8 +88,7 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xrv-8R-I3v" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="128" id="So8-Tb-gwN"/>
-                                                        <constraint firstAttribute="width" constant="128" id="WSM-bR-09I"/>
+                                                        <constraint firstAttribute="height" constant="128" id="4cJ-Oe-WSG"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -102,10 +99,10 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="xrv-8R-I3v" firstAttribute="leading" secondItem="wTn-vI-zwh" secondAttribute="leading" id="JSY-4d-oZD"/>
-                                                <constraint firstAttribute="trailing" secondItem="xrv-8R-I3v" secondAttribute="trailing" id="NDG-5k-59e"/>
-                                                <constraint firstItem="xrv-8R-I3v" firstAttribute="top" secondItem="wTn-vI-zwh" secondAttribute="top" id="cKe-oL-FC7"/>
-                                                <constraint firstAttribute="bottom" secondItem="xrv-8R-I3v" secondAttribute="bottom" id="iYa-ZM-eMd"/>
+                                                <constraint firstItem="xrv-8R-I3v" firstAttribute="leading" secondItem="wTn-vI-zwh" secondAttribute="leading" id="6br-bG-bph"/>
+                                                <constraint firstAttribute="bottom" secondItem="xrv-8R-I3v" secondAttribute="bottom" id="QS0-xS-su1"/>
+                                                <constraint firstAttribute="trailing" secondItem="xrv-8R-I3v" secondAttribute="trailing" id="kqh-3j-jjA"/>
+                                                <constraint firstItem="xrv-8R-I3v" firstAttribute="top" secondItem="wTn-vI-zwh" secondAttribute="top" id="tZD-1O-GNF"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
@@ -156,8 +153,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="lupa" width="25" height="25"/>
-        <image name="lupa-fill" width="25" height="25"/>
+        <image name="lupa" width="40" height="40"/>
+        <image name="lupa-fill" width="40" height="40"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
