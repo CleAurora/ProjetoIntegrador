@@ -14,7 +14,7 @@ class editProfileViewModel: NSObject, UIImagePickerControllerDelegate, UINavigat
     var userModel = ViewRequest()
     var view = SettingViewController()
     var ref: DatabaseReference!
-    
+
     init(userModel: ViewRequest, view: SettingViewController) {
         self.userModel = userModel
         self.view = view
@@ -28,7 +28,7 @@ class editProfileViewModel: NSObject, UIImagePickerControllerDelegate, UINavigat
             imagePicker.delegate = self
 
             view.present(imagePicker, animated: true, completion: nil)
-        
+
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let chosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
@@ -42,7 +42,7 @@ class editProfileViewModel: NSObject, UIImagePickerControllerDelegate, UINavigat
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         view.dismiss(animated: true, completion: nil)
     }
-    
+
     func saveFIRData() {
         self.uploadImage(view.settingImageView.image!) { url in
             if url != nil {
@@ -78,7 +78,7 @@ extension editProfileViewModel {
             self.ref = Database.database().reference()
             let dict = ["profileUrl":profileURL.absoluteString,"Bio": view.bioTextView.text!] as [String: Any]
             ref.child("users").child(currentUserID).updateChildValues(dict)
-            
+
         }
     }
 }

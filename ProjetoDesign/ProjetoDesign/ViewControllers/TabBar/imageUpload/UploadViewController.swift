@@ -8,14 +8,14 @@
 import UIKit
 
 class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, UINavigationControllerDelegate{
-    
+
     // MARK: - IBOutlets
     @IBOutlet weak var resizeImageView: UIImageView!
     @IBOutlet weak var uploadCollectionView: UICollectionView!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var viewButton: UIView!
     @IBOutlet var imageViewBorder: UIView!
-    
+
     var imageSelected: UIImage?
     var uploadData = uploadImagePicker()
     var uploadDataSource: uploadCollectionDelegateSource?

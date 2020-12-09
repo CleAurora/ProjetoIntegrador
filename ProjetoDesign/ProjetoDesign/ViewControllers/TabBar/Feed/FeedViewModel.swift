@@ -60,4 +60,3 @@ final class FeedViewModel {
         viewController?.present(alertController, animated: true, completion: nil)
     }
 }
-

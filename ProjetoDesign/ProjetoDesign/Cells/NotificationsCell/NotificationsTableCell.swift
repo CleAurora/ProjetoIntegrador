@@ -11,15 +11,15 @@ protocol buttonsTable {
     func didButtonPressed()
 }
 class NotificationsTableCell: UITableViewCell {
-    
+
     // MARK: - IBOtlets
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userImage: roundImageView!
     @IBOutlet var notificationButton: UIButton!
-    
+
     // MARK: - Proprierts
     var buttonTapped : (() -> ()) = {}
-    
+
     // MARK: - Super Methods
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -37,7 +37,7 @@ class NotificationsTableCell: UITableViewCell {
         notificationButton.layer.cornerRadius = 10
         notificationButton.backgroundColor = .systemIndigo
         print(actualText!)
-        
+
         if actualText == "Follow" {
             notificationButton.setTitle("unfollow", for: .normal)
             notificationButton.setTitleColor(.white, for: .normal)
@@ -50,12 +50,12 @@ class NotificationsTableCell: UITableViewCell {
 
         }
     }
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
-    
+
     // MARK: - Methods
     func setup(users: Post){
         let text = "\(users.name): started following you".withBoldText(text: "\(users.name)")

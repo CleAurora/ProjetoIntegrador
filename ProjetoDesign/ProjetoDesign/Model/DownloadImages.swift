@@ -15,7 +15,7 @@ class DownloadImages {
     var selectedUser: Usuario?
     let uid = Auth.auth().currentUser?.uid
     var ref: DatabaseReference!
-    
+
     func loadData(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         do{
             self.allPost.removeAll()
@@ -27,21 +27,21 @@ class DownloadImages {
                 if let posts = snapshot.value as? [String: AnyObject] {
                     for(_, value) in posts {
                        let userToshow = DownloadPost()
-                        
+
                         let imagePost = value["ImageUrl"] as? String
                         let caption = value["Caption"] as? String
                         let city = value["City"] as? String
                         let userID = value["UserId"] as? String
                         let weather = value["Weather"] as? String
                         let weatherType = value["weatherType"] as? String
-                        
+
                         userToshow.imagePost = imagePost
                         userToshow.caption = caption
                         userToshow.city = city
                         userToshow.userID = userID
                         userToshow.weather = weather
                         userToshow.weatherype = weatherType
-                        
+
                         self.allPost.append(userToshow)
                         if let user = self.uid {
                             if user == userToshow.userID {
@@ -49,7 +49,7 @@ class DownloadImages {
                             }
                             }
                         let userSelectedID = self.selectedUser?.userID
-                        
+
                         if userSelectedID == userToshow.userID{
                         self.selectedPost.append(userToshow)
                         }

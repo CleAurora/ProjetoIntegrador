@@ -7,9 +7,9 @@
 
 import UIKit
 import Foundation
-    
+
 class PhotoDetailTableViewCell: UITableViewCell {
-    
+
         // MARK: - IBOutlets
         @IBOutlet weak var likeImageView: UIImageView!
         @IBOutlet weak var uploadImageView: UIImageView!
@@ -17,12 +17,12 @@ class PhotoDetailTableViewCell: UITableViewCell {
         @IBOutlet weak var cityLabel: UILabel!
         @IBOutlet weak var subtitlesLabel: UILabel!
         @IBOutlet weak var nameButton: UIButton!
-    
+
         // MARK: - Proprierts
         var delegate: ButtonsTableView?
         var heart: String? = nil
         var nameTap : (() -> ()) = {}
-        
+
         // MARK: - Super Methods
         override func awakeFromNib() {
             super.awakeFromNib()
@@ -31,7 +31,7 @@ class PhotoDetailTableViewCell: UITableViewCell {
             nameButton.layer.cornerRadius = 10
             cityLabel.layer.cornerRadius = 10 
         }
-        
+
         // MARK: - IBActions
         @IBAction func nameButton(_ sender: Any) {
             nameTap()
@@ -39,7 +39,7 @@ class PhotoDetailTableViewCell: UITableViewCell {
         @IBAction func commentsButton(_ sender: Any) {
             delegate?.didButtonPressed()
         }
-    
+
         // MARK: - Methods
         func setupPhoto(photo: PostUser){
             if photo.user.imageProfileUrl.hasPrefix("https") {
@@ -65,7 +65,7 @@ class PhotoDetailTableViewCell: UITableViewCell {
             }
 
         }
-      
+
         private func addSingleAndDoubleTapGesture() {
             let singleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
             singleTapGesture.numberOfTapsRequired = 1
@@ -78,7 +78,6 @@ class PhotoDetailTableViewCell: UITableViewCell {
             singleTapGesture.require(toFail: doubleTapGesture)
         }
 
-    
         // MARK: - OBJC Methods 
         @objc private func handleSingleTap(_ tapGesture: UITapGestureRecognizer) {
             likeImageView.isHidden = true
@@ -88,16 +87,15 @@ class PhotoDetailTableViewCell: UITableViewCell {
             print("clicked")
             if heart != nil {
                 likeImageView.image = UIImage(named: "heart0.png")
-                
+
                 heart = nil
                 likeImageView.isHidden = false
-                
+
             }else {
                 likeImageView.image = UIImage(named: "heart1.png")
                 heart = "Item"
                 likeImageView.isHidden = false
-                
+
             }
         }
     }
-

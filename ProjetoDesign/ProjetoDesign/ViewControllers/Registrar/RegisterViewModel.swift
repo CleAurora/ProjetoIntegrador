@@ -15,7 +15,7 @@ class RegisterViewModel: NSObject, UINavigationControllerDelegate, UIImagePicker
     var ref: DatabaseReference!
     var register = RegistrarViewController()
     var imageSelected: UIImage?
-    
+
     var uid = Auth.auth().currentUser?.uid
     init(view: RegistrarViewController) {
         self.register = view
@@ -28,14 +28,14 @@ class RegisterViewModel: NSObject, UINavigationControllerDelegate, UIImagePicker
         imagePicker.modalPresentationStyle = .fullScreen
         imagePicker.delegate = self
         register.present(imagePicker, animated: true, completion: nil)
-        
+
        }
        @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if  let chosenImage = info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage{
             register.userImage.contentMode = .scaleAspectFill
             register.userImage.image = chosenImage
             imageSelected = chosenImage
-            
+
            }
         register.dismiss(animated: true, completion: nil)
        }
@@ -43,7 +43,7 @@ class RegisterViewModel: NSObject, UINavigationControllerDelegate, UIImagePicker
        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         register.dismiss(animated: true, completion: nil)
        }
-    
+
     func isDeveloping(){
         let alert = UIAlertController(title: "This option still under development", message: "", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
@@ -51,13 +51,13 @@ class RegisterViewModel: NSObject, UINavigationControllerDelegate, UIImagePicker
     }
     func registerNewUser(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         if register.emailTextField.text! != nil && register.emailTextField.text! != "" && register.passwordTextField.text! != nil && register.passwordTextField.text! != "" && register.secureTextField.text! != nil && register.secureTextField.text! != "" {
-            
+
             if register.passwordTextField.text == register.secureTextField.text {
                 Auth.auth().createUser(withEmail: register.emailTextField.text!, password: register.passwordTextField.text!) { authResult, error in
 
                     if error != nil {
                         print("erro ao registrar")
-                        
+
                     }else{
                         self.saveFIRData()
                         completionHandler(true,nil)
@@ -104,7 +104,7 @@ extension RegisterViewModel {
             self.ref = Database.database().reference()
             let dict = ["Name": register.nameTextField.text!,"Email": register.emailTextField.text!, "profileUrl":profileURL.absoluteString,"UserID": currentUserID,"Nickname": register.nicknameTextField.text!, "Bio": "", "Followers": 0, "Following": 0] as [String: Any]
             ref.child("users").child(currentUserID).setValue(dict)
-            
+
             self.setFollower()
             self.setFollowing()
         }
@@ -115,7 +115,7 @@ extension RegisterViewModel {
             let followers = ref.child("users").child(currentUser).child("followers")
             let dict = ["first": ""]
             followers.updateChildValues(dict)
-    
+
         }
     }
     func setFollowing(){
@@ -124,8 +124,7 @@ extension RegisterViewModel {
             let following = ref.child("users").child(currentUser).child("following")
             let dict = ["first": ""]
             following.updateChildValues(dict)
-    
+
         }
     }
 }
-

@@ -8,7 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
+
     // MARK: - IBOutlets
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var loginButton: UIButton!
@@ -55,7 +55,7 @@ class ViewController: UIViewController {
         loginView.layer.shadowOffset = .zero
         loginView.layer.shadowOpacity = 1
     }
-    
+
     // MARK: - IBActions
 
     @IBAction func loginButton(_ sender: Any) {
@@ -80,7 +80,6 @@ class ViewController: UIViewController {
         showUnderDevelopment()
     }
 
-
     @IBAction func instagramButtonTapped(_ sender: Any) {
         showUnderDevelopment()
     }
@@ -96,4 +95,3 @@ class ViewController: UIViewController {
     }
 
 }
-

@@ -14,7 +14,7 @@ class Post{
     var imagePost: String
     var allImages: [String]
     var comments: String
-    
+
     // MARK: - Constructors
     init(name: String, city: String, imageProfile: String, imagePost: String, comments: String, allImages: [String]) {
         self.name = name

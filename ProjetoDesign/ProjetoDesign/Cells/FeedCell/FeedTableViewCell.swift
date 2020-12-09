@@ -13,7 +13,7 @@ protocol ButtonsTableView{
 }
 
 class FeedTableViewCell: UITableViewCell {
-    
+
     // MARK: - IBOutlets
     @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var uploadImageView: UIImageView!
@@ -22,13 +22,13 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var subtitlesLabel: UILabel!
     @IBOutlet weak var nameButton: UIButton!
     @IBOutlet weak var viewLiked: extensions!
-    
+
     // MARK: - Proprierts
     var delegate: ButtonsTableView?
     var heart: String? = nil
     var nameTap : (() -> ()) = {}
     var heartTap : (() -> ()) = {}
-    
+
     // MARK: - Super Methods
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,7 +36,7 @@ class FeedTableViewCell: UITableViewCell {
         addSingleAndDoubleTapGesture()
                 // Initialization code
     }
-    
+
     // MARK: - IBActions
     @IBAction func nameButton(_ sender: Any) {
         nameTap()
@@ -50,11 +50,11 @@ class FeedTableViewCell: UITableViewCell {
     @IBAction func commentsViewButton(_ sender: Any) {
         delegate?.didButtonPressed()
     }
-    
+
     @IBAction func heartLikeButton(_ sender: Any) {
         heartTap()
     }
-    
+
     // MARK: - Methods
     func setupPhoto(photo: PhotoDetail){
         uploadImageView.image = UIImage(named: photo.imageProfile)
@@ -109,7 +109,7 @@ class FeedTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-  
+
     private func addSingleAndDoubleTapGesture() {
         let singleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleSingleTap))
         singleTapGesture.numberOfTapsRequired = 1
@@ -131,18 +131,15 @@ class FeedTableViewCell: UITableViewCell {
         print("clicked")
         if heart != nil {
             likeImageView.image = UIImage(named: "heart0.png")
-            
+
             heart = nil
             likeImageView.isHidden = false
-            
+
         }else {
             likeImageView.image = UIImage(named: "heart1.png")
             heart = "Item"
             likeImageView.isHidden = false
-            
+
         }
     }
 }
-
-
-

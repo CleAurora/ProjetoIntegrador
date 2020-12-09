@@ -15,24 +15,22 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     @IBOutlet var postCountLabel: UILabel!
     @IBOutlet var followersCountLabel: UILabel!
     @IBOutlet var followingCountLabel: UILabel!
-    
+
     @IBOutlet var followButton: UIButton!
-    
+
     var nameTap : (() -> ()) = {}
     // MARK: - Methods
-    
+
     @IBAction func followButton(_ sender: Any) {
         nameTap()
     }
     func setup(user: Usuario){
         let uid = Auth.auth().currentUser?.uid
-       
 
-        
         if uid != user.userID {
             followButton.isHidden = false
         }
-            
+
              nameLabel.text = user.name
              bioLabel.text = user.bio
              let url = URL(string: user.profileUrl)
@@ -40,17 +38,17 @@ class ProfileCollectionReusableView: UICollectionReusableView {
 
         if  user.following == 0 {
         followingCountLabel.text = "0"
-            
+
         }else if let followingCount = user.following {
             followingCountLabel.text = "\(followingCount)"
         }
         if  user.followers == 0 {
             followersCountLabel.text = "0"
-            
+
         }else if let followersCount = user.followers {
             followersCountLabel.text = "\(followersCount)"
         }
-             
+
              bioLabel.adjustsFontSizeToFitWidth = true
              bioLabel.minimumScaleFactor = 0.5
              bioLabel.font = UIFont.systemFont(ofSize: 16)
@@ -59,7 +57,6 @@ class ProfileCollectionReusableView: UICollectionReusableView {
                      [UIRectCorner.bottomLeft, UIRectCorner.bottomRight]
                  ).rawValue
              )
-        
 
     }
     func setup(post: Post){

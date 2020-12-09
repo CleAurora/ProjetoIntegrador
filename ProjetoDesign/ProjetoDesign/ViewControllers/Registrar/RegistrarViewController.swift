@@ -19,7 +19,7 @@ final class RegistrarViewController: UIViewController{
     @IBOutlet var secureTextField: customUITextField!
     @IBOutlet var nameTextField: customUITextField!
     @IBOutlet var nicknameTextField: customUITextField!
-    
+
     // MARK: - Proprierts
 
     private lazy var viewModel: RegisterViewModel = RegisterViewModel(view: self)
@@ -47,7 +47,7 @@ final class RegistrarViewController: UIViewController{
             }
         }
     }
-    
+
     @IBAction func instagramButton(_ sender: Any) {
         viewModel.isDeveloping()
     }

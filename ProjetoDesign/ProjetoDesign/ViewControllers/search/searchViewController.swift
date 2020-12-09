@@ -8,17 +8,17 @@
 import UIKit
 
 class searchViewController: UIViewController {
-    
+
     // MARK: - IBOutlets
     @IBOutlet weak var searchTableView: UITableView!
     @IBOutlet weak var userSearchView: UISearchBar!
     @IBOutlet weak var dataCollectionView: UICollectionView!
-    
+
     // MARK: - Proprierts
     var searchIn = ""
     var userArray = [Post]()
     var filteredArray = [Usuario]()
-    
+
     var controller = ViewRequest()
     var viewModel: searchTableDelegateDatasource?
     // MARK: - Super Methods
@@ -40,12 +40,12 @@ class searchViewController: UIViewController {
     }
     func tableViewSetup(){
         self.viewModel = searchTableDelegateDatasource(usuarioModel: controller, searchController: self)
-        
+
         searchTableView.delegate = viewModel
         searchTableView.dataSource = viewModel
         searchTableView.reloadData()
     }
-    
+
     func getData(){
         self.controller.loadData(completionHandler: { success, _ in
             if success {
@@ -57,16 +57,16 @@ class searchViewController: UIViewController {
 
 extension searchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
+
         self.viewModel = searchTableDelegateDatasource(usuarioModel: controller, searchController: self)
         searchTableView.delegate = viewModel
         searchTableView.dataSource = viewModel
-        
+
         self.viewModel?.searchIn = searchText
-        
+
         dataCollectionView.isHidden = true
         searchTableView.isHidden = false
-        
+
         self.viewModel?.filter(completionHandler: { success, _ in
             if success {
                self.searchTableView.reloadData()
@@ -76,18 +76,17 @@ extension searchViewController: UISearchBarDelegate {
 }
 
 extension searchViewController: UICollectionViewDelegate{
-    
+
 }
 extension searchViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return userArray.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchCCell", for: indexPath) as! searchCollectionCell
         cell.setup(user: userArray[indexPath.row])
         return cell
     }
-    
-    
+
 }

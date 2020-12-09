@@ -14,16 +14,16 @@ class StoriesReusableView: UICollectionReusableView {
     // MARK: IBOutlets
     @IBOutlet weak var currentUserImageView: UIImageView!
     @IBOutlet weak var borderView: BorderView!
-    
+
     // MARK: - Proprierts
     var delegate: HeaderDelegate?
-    
+
     // MARK: - Methods
     func teste(){
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(headerViewTapped))
         addGestureRecognizer(tapGesture)
     }
-    
+
     // MARK: - OBJC Methods
     @objc func headerViewTapped() {
         delegate?.doSomething()
@@ -39,4 +39,3 @@ class StoriesReusableView: UICollectionReusableView {
         borderView.backgroundColor = UIColor(patternImage: UIImage(named: "stories2.jpg")!)
     }
 }
-

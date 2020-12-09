@@ -11,7 +11,7 @@ final class SettingViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet weak var settingImageView: UIImageView!
     @IBOutlet var bioTextView: UITextView!
     var nickname = "@melissa"
-    
+
     var userModel = ViewRequest()
     var profileView: editProfileViewModel?
     override func viewDidLoad() {
@@ -23,7 +23,6 @@ final class SettingViewController: UIViewController, UIImagePickerControllerDele
             ).rawValue
         )
     }
-    
 
     @IBAction func changePictureButtonTapped() {
         self.profileView = editProfileViewModel(userModel: userModel, view: self)
@@ -35,6 +34,3 @@ final class SettingViewController: UIViewController, UIImagePickerControllerDele
     }
 
 }
-
-
-

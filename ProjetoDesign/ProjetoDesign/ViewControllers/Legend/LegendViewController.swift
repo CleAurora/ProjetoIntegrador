@@ -9,7 +9,7 @@ import UIKit
 import CoreLocation
 
 final class LegendViewController: UIViewController, CLLocationManagerDelegate {
-    
+
     // MARK: - IBOutlets
     var imagemProfile: UIImage?
     @IBOutlet weak var imageSelected: UIImageView!
@@ -27,17 +27,17 @@ final class LegendViewController: UIViewController, CLLocationManagerDelegate {
     //Variables
     var currentWeather: CurrentWeather = CurrentWeather()
     var currentLocation: CLLocation!
-    
+
     // MARK: - Proprierts
 
     var postagem = [PostUser]()
-    
+
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.callDelegate()
         self.setupLocation()
-        
+
         if imagemProfile != nil {
             imageSelected.image = imagemProfile
         }
@@ -55,17 +55,17 @@ final class LegendViewController: UIViewController, CLLocationManagerDelegate {
         locationAutoCheck()
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
-    
+
     func callDelegate(){
         locationManager.delegate = self
     }
-    
+
     func setupLocation(){
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization() // take permission from user.
         locationManager.startMonitoringSignificantLocationChanges()
     }
-    
+
     func locationAutoCheck() {
         if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
             //get the location from device
@@ -78,11 +78,11 @@ final class LegendViewController: UIViewController, CLLocationManagerDelegate {
                 self.setupUI()
             // update the UI after download is completed
             }
-            
+
         } else{ // user did not allow
             locationManager.requestWhenInUseAuthorization() //take permission from the user
             locationAutoCheck()
-            
+
         }
     }
     func setupUI(){
@@ -96,7 +96,7 @@ final class LegendViewController: UIViewController, CLLocationManagerDelegate {
 
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
-    
+
     // MARK: - Methods
     func infoText(){
         viewModel.post(

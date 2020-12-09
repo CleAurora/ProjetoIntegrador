@@ -25,13 +25,13 @@ class LoginViewModel {
         return "face"
     }
     var view = ViewController()
-    
+
     init(view: ViewController) {
         self.view = view
     }
-    
+
     func doLogin(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
-        
+
         do{
             Auth.auth().signIn(withEmail: view.emailTextField.text!, password: view.passwordTextField.text!) { [weak self] user, error in
                if error != nil{
@@ -45,7 +45,7 @@ class LoginViewModel {
             completionHandler(false,nil)
         }
     }
-    
+
     func isAlreadyLogged(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         do{
             if let user = Auth.auth().currentUser?.uid {

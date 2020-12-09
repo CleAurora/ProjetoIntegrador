@@ -8,21 +8,21 @@
 import UIKit
 import FirebaseAuth
 class UserViewController: UIViewController {
-    
+
     // MARK: - IBOutlets
     @IBOutlet weak var profileCollectionView: UICollectionView!
-    
+
     // MARK: - Proprierts
     var post: PostUser?
     var images: [String] = []
     var isFollowing: Bool?
     var userProfile: Usuario?
-    
+
     var postRequest = DownloadImages()
     var followModel = FollowRequest()
     var userModel = userSelectedrequest()
     var viewModel: UserCollectionDelegateDataSource?
-    
+
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,31 +35,31 @@ class UserViewController: UIViewController {
         print("executou viewAPPEAR")
         self.getPost()
     }
-    
+
     func getData(){
         userModel.selectedUser = self.userProfile
         userModel.loadData(completionHandler: { success,_ in
             self.passDataThrough()
-            
+
         })
     }
     func getPost(){
         postRequest.selectedUser = self.userProfile
         postRequest.loadData(completionHandler: {success, _ in
-          
+
             self.configureButtonFollow()
         })
     }
     func getFollowers(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         followModel.userSelected = self.userProfile
-        
+
         followModel.getFollowers(completionHandler: { success, _ in
             if success {
                 completionHandler(true,nil)
             }
         })
     }
-    
+
     func configureButtonFollow(){
         let uid = Auth.auth().currentUser?.uid
         followModel.userSelected = self.userProfile
@@ -82,7 +82,7 @@ class UserViewController: UIViewController {
         profileCollectionView.dataSource = viewModel
         profileCollectionView.reloadData()
     }
-    
+
     func passDataThrough(){
         self.viewModel = UserCollectionDelegateDataSource(userModel: userModel, view: self, followModel: followModel, postRequest: postRequest)
         self.viewModel?.useArrayTo(completionHandler: { success,_ in
@@ -106,4 +106,3 @@ class UserViewController: UIViewController {
 //    }
 //
 //}
-
