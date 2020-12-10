@@ -30,7 +30,6 @@ class ProfileCollectionReusableView: UICollectionReusableView {
         if uid != user.userID {
             followButton.isHidden = false
         }
-
              nameLabel.text = user.name
              bioLabel.text = user.bio
              let url = URL(string: user.profileUrl)

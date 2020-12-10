@@ -19,6 +19,7 @@ class editProfileViewModel: NSObject, UIImagePickerControllerDelegate, UINavigat
         self.userModel = userModel
         self.view = view
     }
+    
     func changePictureButtonTapped(){
             let imagePicker = UIImagePickerController()
 
@@ -48,7 +49,6 @@ class editProfileViewModel: NSObject, UIImagePickerControllerDelegate, UINavigat
             if url != nil {
                 self.saveImage(name: "", profileURL: url!) { success in
                     if success != nil{
-                        print("Yeah")
                     }
                 }
             }
@@ -63,12 +63,10 @@ extension editProfileViewModel {
         metaData.contentType = "image/png"
         storageRef.putData(imgData!, metadata: metaData) {(metadata, error) in
             if error == nil{
-                print("success")
                 storageRef.downloadURL(completion: { (url, error) in
                     completion(url)
                 })
             }else {
-                print("error in save image")
                 completion(nil)
             }
         }
@@ -76,9 +74,17 @@ extension editProfileViewModel {
     func saveImage(name: String, profileURL:URL, completion: @escaping ((_ url: URL?) -> ())) {
         if let currentUserID = Auth.auth().currentUser?.uid{
             self.ref = Database.database().reference()
-            let dict = ["profileUrl":profileURL.absoluteString,"Bio": view.bioTextView.text!] as [String: Any]
+            let dict = ["profileUrl":profileURL.absoluteString] as [String: Any]
             ref.child("users").child(currentUserID).updateChildValues(dict)
 
+        }
+    }
+    
+    func editProfile(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
+        if let currentUserID = Auth.auth().currentUser?.uid{
+            self.ref = Database.database().reference()
+            let dict = ["Bio": view.bioTextView.text, "Name": view.nameTextView.text, "Website": view.webSiteTextView.text, "Nickname": view.userNameTextView.text]
+            ref.child("users").child(currentUserID).updateChildValues(dict)
         }
     }
 }

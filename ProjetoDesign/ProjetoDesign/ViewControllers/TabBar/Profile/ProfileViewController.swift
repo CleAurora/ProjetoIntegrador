@@ -23,7 +23,7 @@ class ProfileViewController: UIViewController {
     // MARK: - Super Methods
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        navigationController?.navigationBar.isHidden = true
         imagensArray.append(ImagensProfile(imagens: "mel0.jpg", weatherImage: "sun"))
         imagensArray.append(ImagensProfile(imagens: "mel1.jpeg", weatherImage: "snowflake"))
         imagensArray.append(ImagensProfile(imagens: "mel2.jpg", weatherImage: ""))
@@ -38,6 +38,11 @@ class ProfileViewController: UIViewController {
 
     }
 
+    @IBAction func settingButton(_ sender: Any) {
+        if let vc = UIStoryboard(name: "Setting", bundle: nil).instantiateInitialViewController() as? SettingViewController{
+            navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     func getPost(){
         postRequest.loadData(completionHandler: { success, _ in
             if success{
