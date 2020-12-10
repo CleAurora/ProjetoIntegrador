@@ -35,7 +35,8 @@ class ViewRequest{
                         let bio = value["Bio"] as? String
                         let followers = value ["Followers"] as? Int
                         let following = value["Following"] as? Int
-
+                        let website = value["Website"] as? String
+                            
                             userToshow.name = user
                             userToshow.nickname = nickname
                             userToshow.email = email
@@ -44,6 +45,7 @@ class ViewRequest{
                             userToshow.bio = bio
                             userToshow.followers = followers
                             userToshow.following = following
+                            userToshow.website = website
 
                             if uid != userToshow.userID {
                                 self.userArray.append(userToshow)

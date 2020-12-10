@@ -34,6 +34,7 @@ class DownloadImages {
                         let userID = value["UserId"] as? String
                         let weather = value["Weather"] as? String
                         let weatherType = value["weatherType"] as? String
+                        
 
                         userToshow.imagePost = imagePost
                         userToshow.caption = caption
@@ -41,6 +42,7 @@ class DownloadImages {
                         userToshow.userID = userID
                         userToshow.weather = weather
                         userToshow.weatherype = weatherType
+                        
 
                         self.allPost.append(userToshow)
                         if let user = self.uid {

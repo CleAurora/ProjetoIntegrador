@@ -35,7 +35,7 @@
                                                     <constraint firstAttribute="width" constant="90" id="YyO-c1-o8a"/>
                                                     <constraint firstAttribute="height" constant="42" id="xey-zV-w9C"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -45,7 +45,7 @@
                                                     <constraint firstAttribute="width" constant="90" id="VPT-Lu-55N"/>
                                                     <constraint firstAttribute="height" constant="42" id="tO7-x8-Jtz"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -55,7 +55,7 @@
                                                     <constraint firstAttribute="height" constant="42" id="cOj-RW-5vt"/>
                                                     <constraint firstAttribute="width" constant="90" id="oQt-Oe-F3Z"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -65,7 +65,7 @@
                                                     <constraint firstAttribute="width" constant="90" id="Kel-vZ-8V4"/>
                                                     <constraint firstAttribute="height" constant="42" id="QeF-9H-IQK"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -102,7 +102,7 @@
                                                     <constraint firstAttribute="width" constant="274" id="YLy-Es-eLn"/>
                                                 </constraints>
                                                 <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yam-xZ-8jg">
@@ -113,7 +113,7 @@
                                                     <constraint firstAttribute="height" constant="42" id="xzl-fr-BQb"/>
                                                 </constraints>
                                                 <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iP2-DW-jBZ">
@@ -124,7 +124,7 @@
                                                     <constraint firstAttribute="height" constant="42" id="zqo-te-Sjx"/>
                                                 </constraints>
                                                 <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="ArialHebrew" family="Arial Hebrew" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bTz-ZJ-PsI">
@@ -135,7 +135,7 @@
                                                     <constraint firstAttribute="height" constant="42" id="ykA-Ql-JUf"/>
                                                 </constraints>
                                                 <color key="textColor" systemColor="labelColor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                         </subviews>

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class SettingViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var settingImageView: UIImageView!
@@ -13,6 +14,7 @@ final class SettingViewController: UIViewController, UIImagePickerControllerDele
     @IBOutlet var nameTextView: UITextView!
     @IBOutlet var userNameTextView: UITextView!
     @IBOutlet var webSiteTextView: UITextView!
+    var userData: Usuario?
     var nickname = "@melissa"
 
     var userModel = ViewRequest()
@@ -30,6 +32,23 @@ final class SettingViewController: UIViewController, UIImagePickerControllerDele
                 [UIRectCorner.bottomLeft, UIRectCorner.bottomRight]
             ).rawValue
         )
+        
+        setupUI()
+    }
+    
+    func setupUI(){
+       
+        if let user = userData {
+            bioTextView.text = user.bio
+            nameTextView.text = user.name
+            userNameTextView.text = user.nickname
+            webSiteTextView.text = user.website
+            
+            let url = URL(string: user.profileUrl)
+            settingImageView.kf.setImage(with: url)
+
+        }
+       
     }
     
     @objc func addTapped(){

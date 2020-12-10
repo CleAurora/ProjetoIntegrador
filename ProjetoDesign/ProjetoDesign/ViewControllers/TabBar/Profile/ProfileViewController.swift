@@ -39,9 +39,7 @@ class ProfileViewController: UIViewController {
     }
 
     @IBAction func settingButton(_ sender: Any) {
-        if let vc = UIStoryboard(name: "Setting", bundle: nil).instantiateInitialViewController() as? SettingViewController{
-            navigationController?.pushViewController(vc, animated: true)
-        }
+        viewModel?.goNextView()
     }
     func getPost(){
         postRequest.loadData(completionHandler: { success, _ in

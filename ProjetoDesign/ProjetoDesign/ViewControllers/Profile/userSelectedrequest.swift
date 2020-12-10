@@ -36,6 +36,7 @@ class userSelectedrequest{
                             let bio = value["Bio"] as? String
                             let followers = value ["Followers"] as? Int
                             let following = value["Following"] as? Int
+                            
 
                                 userToshow.name = user
                                 userToshow.nickname = nickname
@@ -45,7 +46,7 @@ class userSelectedrequest{
                                 userToshow.bio = bio
                                 userToshow.followers = followers
                                 userToshow.following = following
-
+                                
                                     self.userArray.append(userToshow)
 
                         }

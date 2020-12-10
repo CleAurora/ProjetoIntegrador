@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 class ProfileViewModel: NSObject, UICollectionViewDelegate, UICollectionViewDataSource{
-
+    var userData: Usuario?
     var userModel = ViewRequest()
     var view = ProfileViewController()
     var postRequest = DownloadImages()
@@ -22,7 +22,12 @@ class ProfileViewModel: NSObject, UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return postRequest.currentUserPost.count
     }
-
+    func goNextView(){
+        if let vc = UIStoryboard(name: "Setting", bundle: nil).instantiateInitialViewController() as? SettingViewController{
+            vc.userData = userData
+            view.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! ProfileCollectionCell
         cell.setup(post: postRequest.currentUserPost[indexPath.row])
@@ -33,6 +38,7 @@ class ProfileViewModel: NSObject, UICollectionViewDelegate, UICollectionViewData
         let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "profileReuCell", for: indexPath) as! ProfileCollectionReusableView
         cell.setup(user: userModel.currentUser[indexPath.row])
         cell.postCountLabel.text = "\(postRequest.currentUserPost.count)"
+        userData = userModel.currentUser[indexPath.row]
         return cell
 
 }

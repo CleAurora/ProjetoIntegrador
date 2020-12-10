@@ -16,4 +16,5 @@ class Usuario: NSObject {
     var bio: String!
     var followers: Int!
     var following: Int!
+    var website: String!
 }
