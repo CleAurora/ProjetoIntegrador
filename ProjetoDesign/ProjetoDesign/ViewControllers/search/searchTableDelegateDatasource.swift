@@ -8,24 +8,26 @@
 import Foundation
 import UIKit
 
-class searchTableDelegateDatasource: NSObject, UITableViewDelegate, UITableViewDataSource {
+class searchTableDelegateDatasource: NSObject, UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource {
+    
     var searchIn = ""
     var usuarioModel = ViewRequest()
     var searchController = searchViewController()
     var filteredArray = [Usuario]()
+    var searchImage = searchImageRequest()
 
-    init(usuarioModel: ViewRequest, searchController: searchViewController) {
+    init(usuarioModel: ViewRequest, searchController: searchViewController, imageController: searchImageRequest) {
         self.usuarioModel = usuarioModel
         self.searchController = searchController
+        self.searchImage = imageController
         filteredArray = usuarioModel.userArray
     }
 
     func filter(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
+        
         if searchIn.isEmpty {
             searchController.dataCollectionView.isHidden = false
-
         }else{
-
             let searchText = searchIn.folding(options: [.caseInsensitive, .diacriticInsensitive], locale: nil)
 
             filteredArray = usuarioModel.userArray.filter({(name) -> Bool in
@@ -51,8 +53,8 @@ class searchTableDelegateDatasource: NSObject, UITableViewDelegate, UITableViewD
             viewcontroller.userProfile = filteredArray[indexPath.row]
             searchController.navigationController?.pushViewController(viewcontroller, animated: true)
         }
-
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredArray.count
     }
@@ -60,6 +62,16 @@ class searchTableDelegateDatasource: NSObject, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "searchCell", for: indexPath) as! SearchTableCell
         cell.setup(user: filteredArray[indexPath.row])
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return searchImage.userArray.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchCCell", for: indexPath) as! searchCollectionCell
+        cell.setup(user: searchImage.userArray[indexPath.row])
         return cell
     }
 }

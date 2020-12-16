@@ -68,27 +68,28 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xxj-qY-2jb">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xxj-qY-2jb">
                                 <rect key="frame" x="0.0" y="100" width="414" height="796"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="d8N-GX-IMk">
-                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="itemSize" width="201" height="250"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="searchCCell" id="fqy-Vt-46B" customClass="searchCollectionCell" customModule="ProjetoDesign" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="201" height="250"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="wTn-vI-zwh">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="201" height="250"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xrv-8R-I3v" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                                    <rect key="frame" x="3" y="3" width="195" height="244"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="128" id="4cJ-Oe-WSG"/>
+                                                        <constraint firstAttribute="height" constant="244" id="S8j-9P-cev"/>
+                                                        <constraint firstAttribute="width" constant="195" id="aAH-c5-Lqx"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -99,14 +100,15 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="xrv-8R-I3v" firstAttribute="leading" secondItem="wTn-vI-zwh" secondAttribute="leading" id="6br-bG-bph"/>
-                                                <constraint firstAttribute="bottom" secondItem="xrv-8R-I3v" secondAttribute="bottom" id="QS0-xS-su1"/>
-                                                <constraint firstAttribute="trailing" secondItem="xrv-8R-I3v" secondAttribute="trailing" id="kqh-3j-jjA"/>
-                                                <constraint firstItem="xrv-8R-I3v" firstAttribute="top" secondItem="wTn-vI-zwh" secondAttribute="top" id="tZD-1O-GNF"/>
+                                                <constraint firstItem="xrv-8R-I3v" firstAttribute="centerY" secondItem="wTn-vI-zwh" secondAttribute="centerY" id="17Z-Q4-FzF"/>
+                                                <constraint firstItem="xrv-8R-I3v" firstAttribute="top" secondItem="wTn-vI-zwh" secondAttribute="top" constant="3" id="DhR-zF-1gl"/>
+                                                <constraint firstItem="xrv-8R-I3v" firstAttribute="centerX" secondItem="wTn-vI-zwh" secondAttribute="centerX" id="VCD-Oy-17E"/>
+                                                <constraint firstItem="xrv-8R-I3v" firstAttribute="leading" secondItem="wTn-vI-zwh" secondAttribute="leading" constant="3" id="anh-B8-euS"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="201" height="250"/>
                                         <connections>
-                                            <outlet property="usersImageview" destination="xrv-8R-I3v" id="L8B-Hr-AgE"/>
+                                            <outlet property="usersImageview" destination="xrv-8R-I3v" id="vcz-Cg-G89"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

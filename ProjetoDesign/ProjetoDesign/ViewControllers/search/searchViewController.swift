@@ -20,27 +20,43 @@ class searchViewController: UIViewController {
     var filteredArray = [Usuario]()
 
     var controller = ViewRequest()
+    var imageRequest = searchImageRequest()
     var viewModel: searchTableDelegateDatasource?
+    
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        userArray.append(Post(name: "Melissa", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "mel2.jpg", comments: "", allImages: [""]))
-        userArray.append(Post(name: "Brendon", city: "Los Angeles", imageProfile: "brendon.jpg", imagePost: "post1.jpg", comments: "", allImages: [""]))
-        userArray.append(Post(name: "Miles", city: "Vancouver, BC", imageProfile: "miles1.jpeg", imagePost: "miles0.jpeg", comments: "", allImages: [""]))
         navigationController?.navigationBar.isHidden = true
         searchTableView.isHidden = true
-        dataCollectionView.dataSource = self
-        dataCollectionView.delegate = self
         userSearchView.delegate = self
-        dataCollectionView.reloadData()
+       
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
         getData()
+        getImage()
+       
+    }
+    
+    func getImage(){
+        self.imageRequest.loadData(completionHandler: { success, _ in
+            if success {
+                self.collectionSetup()
+            }
+        })
+    }
+    
+    func collectionSetup(){
+        self.viewModel = searchTableDelegateDatasource(usuarioModel: controller, searchController: self, imageController: imageRequest)
+        
+        dataCollectionView.delegate = viewModel
+        dataCollectionView.dataSource = viewModel
+        dataCollectionView.reloadData()
+
     }
     func tableViewSetup(){
-        self.viewModel = searchTableDelegateDatasource(usuarioModel: controller, searchController: self)
-
+        self.viewModel = searchTableDelegateDatasource(usuarioModel: controller, searchController: self, imageController: imageRequest)
+        
         searchTableView.delegate = viewModel
         searchTableView.dataSource = viewModel
         searchTableView.reloadData()
@@ -50,7 +66,7 @@ class searchViewController: UIViewController {
         self.controller.loadData(completionHandler: { success, _ in
             if success {
                 self.tableViewSetup()
-               }
+            }
         })
     }
 }
@@ -58,7 +74,7 @@ class searchViewController: UIViewController {
 extension searchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
-        self.viewModel = searchTableDelegateDatasource(usuarioModel: controller, searchController: self)
+        self.viewModel = searchTableDelegateDatasource(usuarioModel: controller, searchController: self, imageController: imageRequest)
         searchTableView.delegate = viewModel
         searchTableView.dataSource = viewModel
 
@@ -75,18 +91,3 @@ extension searchViewController: UISearchBarDelegate {
  }
 }
 
-extension searchViewController: UICollectionViewDelegate{
-
-}
-extension searchViewController: UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return userArray.count
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchCCell", for: indexPath) as! searchCollectionCell
-        cell.setup(user: userArray[indexPath.row])
-        return cell
-    }
-
-}

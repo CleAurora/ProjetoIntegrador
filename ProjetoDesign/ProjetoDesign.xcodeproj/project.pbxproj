@@ -48,6 +48,8 @@
 		4C0D1A51252A971B00462862 /* upload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D1A50252A971B00462862 /* upload.swift */; };
 		4C0D1A56252A98FF00462862 /* ImagensProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0D1A55252A98FF00462862 /* ImagensProfile.swift */; };
 		4C1C4D58257C6296003CA5AA /* UserCollectionDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1C4D57257C6296003CA5AA /* UserCollectionDelegateDataSource.swift */; };
+		4C21169B258A7F68001C3A54 /* searchImageRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21169A258A7F68001C3A54 /* searchImageRequest.swift */; };
+		4C2116A0258A8520001C3A54 /* searchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C21169F258A8520001C3A54 /* searchModel.swift */; };
 		4C2CD84B2533916B00CC0BF1 /* InfoPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C2CD84A2533916B00CC0BF1 /* InfoPost.storyboard */; };
 		4C2CD8502533920400CC0BF1 /* infoPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2CD84F2533920400CC0BF1 /* infoPostViewController.swift */; };
 		4C2CD8562533950D00CC0BF1 /* InfoPostTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2CD8552533950D00CC0BF1 /* InfoPostTableCell.swift */; };
@@ -186,6 +188,8 @@
 		4C0D1A50252A971B00462862 /* upload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = upload.swift; sourceTree = "<group>"; };
 		4C0D1A55252A98FF00462862 /* ImagensProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagensProfile.swift; sourceTree = "<group>"; };
 		4C1C4D57257C6296003CA5AA /* UserCollectionDelegateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionDelegateDataSource.swift; sourceTree = "<group>"; };
+		4C21169A258A7F68001C3A54 /* searchImageRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchImageRequest.swift; sourceTree = "<group>"; };
+		4C21169F258A8520001C3A54 /* searchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchModel.swift; sourceTree = "<group>"; };
 		4C2CD84A2533916B00CC0BF1 /* InfoPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InfoPost.storyboard; sourceTree = "<group>"; };
 		4C2CD84F2533920400CC0BF1 /* infoPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoPostViewController.swift; sourceTree = "<group>"; };
 		4C2CD8552533950D00CC0BF1 /* InfoPostTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPostTableCell.swift; sourceTree = "<group>"; };
@@ -539,6 +543,8 @@
 				4C4EEFEF257AEFBA00E1D6CD /* Usuario.swift */,
 				4C4EEFF4257AF8F000E1D6CD /* ViewRequest.swift */,
 				4C4EEFF9257AFC9900E1D6CD /* searchTableDelegateDatasource.swift */,
+				4C21169A258A7F68001C3A54 /* searchImageRequest.swift */,
+				4C21169F258A8520001C3A54 /* searchModel.swift */,
 			);
 			path = search;
 			sourceTree = "<group>";
@@ -1030,6 +1036,7 @@
 				4C0D19CE252A5D5900462862 /* UploadViewController.swift in Sources */,
 				4C2CD8502533920400CC0BF1 /* infoPostViewController.swift in Sources */,
 				4C2CD8562533950D00CC0BF1 /* InfoPostTableCell.swift in Sources */,
+				4C21169B258A7F68001C3A54 /* searchImageRequest.swift in Sources */,
 				4CB4BBEA256C254700976670 /* CaptionTableViewCell.swift in Sources */,
 				4CADCC8E2542208B005676F7 /* BoldLabel.swift in Sources */,
 				4C502F95254260540001FAB2 /* StoriesReusableView.swift in Sources */,
@@ -1077,6 +1084,7 @@
 				4CADCC992542267A005676F7 /* CommentsViewController.swift in Sources */,
 				4C5526EF257394A1007AA6C8 /* CurrentWeather.swift in Sources */,
 				4C0D19B6252A5C3F00462862 /* FeedViewController.swift in Sources */,
+				4C2116A0258A8520001C3A54 /* searchModel.swift in Sources */,
 				4CE2D15A25485C0F004045B2 /* RoundedTextField.swift in Sources */,
 				4C5CCC6E2578654900B2DD45 /* uploadCollectionDelegateSource.swift in Sources */,
 				4C502F9A254267240001FAB2 /* BorderImage.swift in Sources */,
