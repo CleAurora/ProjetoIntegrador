@@ -64,11 +64,15 @@ class searchTableDelegateDatasource: NSObject, UITableViewDelegate, UITableViewD
         cell.setup(user: filteredArray[indexPath.row])
         return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let vc = UIStoryboard(name: "PhotoDetail", bundle: nil).instantiateInitialViewController() as? PhotoDetailViewController {
+            vc.user = searchImage.userArray[indexPath.row]
+            searchController.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchImage.userArray.count
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "searchCCell", for: indexPath) as! searchCollectionCell
         cell.setup(user: searchImage.userArray[indexPath.row])

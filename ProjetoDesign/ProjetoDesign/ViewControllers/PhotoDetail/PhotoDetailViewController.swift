@@ -13,6 +13,8 @@ final class PhotoDetailViewController: UIViewController {
     @IBOutlet weak var photoTableView: UITableView!
 
     // MARK: - Proprierts
+    var user: searchModel?
+    
     var post: PostUser?
     var photoDetail = [PostUser]()
     var name: String?
@@ -50,10 +52,10 @@ extension PhotoDetailViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
     }
-
 }
 extension PhotoDetailViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return photoDetail.count
     }
 
