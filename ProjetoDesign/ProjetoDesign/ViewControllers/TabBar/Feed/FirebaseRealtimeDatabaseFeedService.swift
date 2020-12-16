@@ -10,6 +10,7 @@ import FirebaseDatabase
 
 final class FirebaseRealtimeDatabaseFeedService: FeedService {
     private let databaseReference: DatabaseReference
+    private var feeds: [PostUser] = []
 
     static let shared: FeedService = FirebaseRealtimeDatabaseFeedService()
 
@@ -48,12 +49,42 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
     }
 
     func load(then handler: @escaping (Result<[PostUser], Error>) -> Void) {
-        databaseReference.child("posts").observe(.value) { snapshot in
-            guard snapshot.exists(), let dictionary = snapshot.value as? NSDictionary else {
-                return handler(.success([]))
-            }
+        databaseReference.child("posts").queryOrdered(byChild: "TimeStamp").observeSingleEvent(of: .value) { [weak self] dataSnapshot in
+            self?.convert(snapshot: dataSnapshot, then: handler)
+            self?.waitForNewPosts(then: handler)
+        }
+    }
 
-            let posts = dictionary.allValues.compactMap{ value -> [String: AnyObject]? in
+    private func convert(snapshot: DataSnapshot, then handler: @escaping (Result<[PostUser], Error>) -> Void) {
+        guard snapshot.exists(), snapshot.hasChildren(), let dictionary = snapshot.value as? NSDictionary else {
+            return handler(.success(feeds))
+        }
+
+        let newPosts: [PostUser]
+
+        if dictionary["ImageUrl"] != nil, let element = dictionary as? [String: AnyObject] {
+            if let userId = element["UserId"] as? String,
+                  let imageUrl = element["ImageUrl"] as? String,
+                  let city = element["City"] as? String,
+                  let weather = element["Weather"] as? String,
+                  let caption = element["Caption"] as? String,
+                  let weatherType = element["WeatherType"] as? String
+            {
+                newPosts = [
+                    PostUser(
+                        userId: userId,
+                        city: city,
+                        temperature: weather,
+                        weatherType: weatherType,
+                        imagePostUrl: imageUrl,
+                        comments: caption
+                    )
+                ]
+            } else {
+                newPosts = []
+            }
+        } else {
+            newPosts = dictionary.allValues.compactMap{ value -> [String: AnyObject]? in
                 return value as? [String: AnyObject]
             }.compactMap { element -> PostUser? in
                 guard let userId = element["UserId"] as? String,
@@ -75,35 +106,45 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                     comments: caption
                 )
             }
+        }
 
-            var users = [User]()
-            var usersIdsRecovered = Set<String>()
+        var users = [User]()
+        var usersIdsRecovered = Set<String>()
 
-            let usersIds = Set(posts.map({ post in post.user.id }))
+        let usersIds = Set(newPosts.map({ post in post.user.id }))
 
-            usersIds.enumerated().forEach { index, userId in
-                self.databaseReference.child("users").child(userId).observeSingleEvent(of: .value) { userSnapshot in
-                    if userSnapshot.exists(), let dictionary = userSnapshot.value as? [String: AnyObject],
-                       let name = dictionary["Name"] as? String,
-                       let imageProfileUrl = dictionary["profileUrl"] as? String {
-                        users.append(User(id: userId, name: name, imageProfileUrl: imageProfileUrl))
-                    }
+        usersIds.enumerated().forEach { index, userId in
+            self.databaseReference.child("users").child(userId).observeSingleEvent(of: .value) { userSnapshot in
+                if userSnapshot.exists(), let dictionary = userSnapshot.value as? [String: AnyObject],
+                   let name = dictionary["Name"] as? String,
+                   let imageProfileUrl = dictionary["profileUrl"] as? String {
+                    users.append(User(id: userId, name: name, imageProfileUrl: imageProfileUrl))
+                }
 
-                    usersIdsRecovered.insert(userId)
+                usersIdsRecovered.insert(userId)
 
-                    if usersIdsRecovered.count == usersIds.count {
-                        let postsWithUsers = posts.compactMap { post -> PostUser? in
-                            guard let user = users.first(where: { user in user.id == post.user.id }) else {
-                                return nil
-                            }
-
-                            return PostUser(source: post, user: user)
+                if usersIdsRecovered.count == usersIds.count {
+                    let postsWithUsers = newPosts.compactMap { post -> PostUser? in
+                        guard let user = users.first(where: { user in user.id == post.user.id }) else {
+                            return nil
                         }
 
-                        handler(.success(postsWithUsers.reversed()))
+                        return PostUser(source: post, user: user)
                     }
+
+                    let cached = self.feeds
+                    let newList = postsWithUsers + cached
+                    self.feeds = newList
+
+                    handler(.success(newList))
                 }
             }
+        }
+    }
+
+    private func waitForNewPosts(then handler: @escaping (Result<[PostUser], Error>) -> Void) {
+        databaseReference.child("posts").observe(.childAdded) { [weak self] dataSnapshot in
+            self?.convert(snapshot: dataSnapshot, then: handler)
         }
     }
 }

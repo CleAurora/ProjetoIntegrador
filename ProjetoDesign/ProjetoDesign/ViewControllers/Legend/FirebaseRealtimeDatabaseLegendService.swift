@@ -44,7 +44,8 @@ final class FirebaseRealtimeDatabaseLegendService: LegendService {
                     "City": legend.city ?? "",
                     "Weather": legend.temperature ?? "",
                     "Caption": legend.comments ?? "",
-                    "WeatherType": weatherType
+                    "WeatherType": weatherType,
+                    "TimeStamp": Date().timeIntervalSince1970
                 ] as [String : Any]
 
                 newChild.setValue(value) { (error, ref) in
