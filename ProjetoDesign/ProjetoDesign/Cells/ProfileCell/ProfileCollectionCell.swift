@@ -7,33 +7,21 @@
 
 import UIKit
 
-class ProfileCollectionCell: UICollectionViewCell {
+final class ProfileCollectionCell: UICollectionViewCell {
+    @IBOutlet weak var uploadImageview: UIImageView!
+    @IBOutlet weak var weatherImageView: UIImageView!
 
-    // MARK: - IBOtlets
-    @IBOutlet weak var uploadImageview: UIImageView?
-    @IBOutlet weak var weatherImageView: UIImageView?
+    // MARK: - Methods
 
-    // MARK: - Proprierts
-    var postArray: [String] = []
+    func setup(post: DownloadPost) {
+        uploadImageview.image = nil
+        weatherImageView.image = nil
 
-    // MARK: - Super Methods
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+        let url = URL(string: post.imagePost)
+        uploadImageview.kf.setImage(with: url)
 
-    // MARK: - Methods 
-    func setup(post: DownloadPost){
-
-        uploadImageview?.image = nil
-        weatherImageView?.image = nil
-
-        if post != nil {
-            let url = URL(string: post.imagePost)
-            uploadImageview?.kf.setImage(with: url)
+        if let weatherType = post.weatherype, !weatherType.isEmpty {
+            weatherImageView.image = UIImage(named: weatherType)
         }
-
-        //uploadImageview.image = UIImage(named: post.imagePost)
-        //weatherImageView?.image = UIImage(named: user.weatherImage)
     }
 }

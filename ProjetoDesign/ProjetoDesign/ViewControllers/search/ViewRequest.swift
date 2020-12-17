@@ -67,7 +67,7 @@ class ViewRequest{
     }
 
     func getNumberOfRow() -> Int{
-        return userArray.count ?? 0
+        return userArray.count
     }
 
 }
