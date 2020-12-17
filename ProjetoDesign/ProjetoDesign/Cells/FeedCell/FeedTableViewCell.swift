@@ -72,6 +72,7 @@ class FeedTableViewCell: UITableViewCell {
         let text = "\(photo.name): \(photo.comments)".withBoldText(text: "\(photo.name)")
         subtitlesLabel.attributedText = text
     }
+
     func setup(post: PostUser){
         if post.user.imageProfileUrl.hasPrefix("https") {
             uploadImageView.kf.setImage(with: URL(string: post.user.imageProfileUrl))
@@ -93,7 +94,8 @@ class FeedTableViewCell: UITableViewCell {
             cityAndTemperature = city
         }
 
-        if let temperature = post.temperature {
+        if let temperature = post.temperature?.trimmingCharacters(in: .whitespacesAndNewlines),
+           !temperature.isEmpty {
             cityAndTemperature += String(format: " %@ºC", arguments: [temperature])
         }
 
