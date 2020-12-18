@@ -28,10 +28,11 @@ class UserViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
     }
+
     override func viewDidAppear(_ animated: Bool) {
-        //self.getData()
-       // configureButtonFollow()
-        self.getPost()
+        super.viewDidAppear(animated)
+
+        getPost()
     }
 
     func getData(){
@@ -89,18 +90,3 @@ class UserViewController: UIViewController {
         })
     }
 }
-
-// MARK: - Extensions 
-//extension UserViewController: UICollectionViewDelegate{
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        print(images[indexPath.row])
-//        if let vc = UIStoryboard(name: "PhotoDetail", bundle: nil).instantiateInitialViewController() as? PhotoDetailViewController{
-//            vc.name = post?.name
-//            vc.comments = post?.comments
-//            vc.image = images[indexPath.row]
-//            vc.post = post
-//            navigationController?.pushViewController(vc, animated: true)
-//        }
-//    }
-//
-//}

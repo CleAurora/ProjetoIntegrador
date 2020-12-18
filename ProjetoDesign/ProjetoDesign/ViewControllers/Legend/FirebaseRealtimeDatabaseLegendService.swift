@@ -44,7 +44,7 @@ final class FirebaseRealtimeDatabaseLegendService: LegendService {
                     "City": legend.city ?? "",
                     "Weather": legend.temperature ?? "",
                     "Caption": legend.comments ?? "",
-                    "WeatherType": weatherType,
+                    "WeatherType": legend.temperature == nil || legend.temperature?.isEmpty == true ? "" : weatherType,
                     "TimeStamp": Date().timeIntervalSince1970
                 ] as [String : Any]
 
