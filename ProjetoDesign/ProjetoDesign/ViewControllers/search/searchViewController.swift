@@ -29,7 +29,6 @@ class searchViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         searchTableView.isHidden = true
         userSearchView.delegate = self
-       
         // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {

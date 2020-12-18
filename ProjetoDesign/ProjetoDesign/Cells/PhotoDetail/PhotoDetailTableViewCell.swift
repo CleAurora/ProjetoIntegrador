@@ -39,12 +39,31 @@ class PhotoDetailTableViewCell: UITableViewCell {
         @IBAction func commentsButton(_ sender: Any) {
             delegate?.didButtonPressed()
         }
-    func setup(photo: searchModel){
-        uploadImageView.kf.setImage(with: URL(string: photo.imagePostUrl))
+    //teste 
+//    func setup(photo: searchModel){
+//        uploadImageView.kf.setImage(with: URL(string: photo.imagePostUrl))
+//    }
+    
+    func setup(photo: PhotoDetailModel){
+        if let photo = photo.imageProfile {
+            uploadImageView.kf.setImage(with: URL(string: photo))
+        }
+        if let image = photo.imagePost {
+            postImageView.kf.setImage(with: URL(string: image))
+        }
+        if let name = photo.name {
+            nameButton.setTitle("\(name)", for: .normal)
+            subtitlesLabel.attributedText = nil
+            if let caption = photo.caption {
+                let text = "\(name): \(caption)".withBoldText(text: "\(name)")
+                subtitlesLabel.attributedText = text
+            }
+        }
+        cityLabel.text = photo.city
     }
-
         // MARK: - Methods
         func setupPhoto(photo: PostUser){
+            
             if photo.user.imageProfileUrl.hasPrefix("https") {
                 uploadImageView.kf.setImage(with: URL(string: photo.user.imageProfileUrl))
             } else {
@@ -52,9 +71,9 @@ class PhotoDetailTableViewCell: UITableViewCell {
             }
 
             if photo.imagePostUrl.hasPrefix("https") {
-                uploadImageView.kf.setImage(with: URL(string: photo.imagePostUrl))
+                postImageView.kf.setImage(with: URL(string: photo.imagePostUrl))
             } else {
-                uploadImageView.image = UIImage(named: photo.imagePostUrl)
+                postImageView.image = UIImage(named: photo.imagePostUrl)
             }
 
             nameButton.setTitle("\(photo.user.name)", for: .normal)
