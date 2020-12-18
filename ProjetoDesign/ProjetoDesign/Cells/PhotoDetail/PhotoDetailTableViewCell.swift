@@ -39,7 +39,7 @@ class PhotoDetailTableViewCell: UITableViewCell {
         @IBAction func commentsButton(_ sender: Any) {
             delegate?.didButtonPressed()
         }
-//
+    //teste 
 //    func setup(photo: searchModel){
 //        uploadImageView.kf.setImage(with: URL(string: photo.imagePostUrl))
 //    }
@@ -59,14 +59,7 @@ class PhotoDetailTableViewCell: UITableViewCell {
                 subtitlesLabel.attributedText = text
             }
         }
-        
         cityLabel.text = photo.city
-        
-        
-        
-       
-        
-        
     }
         // MARK: - Methods
         func setupPhoto(photo: PostUser){
