@@ -42,6 +42,26 @@ class DownloadImages {
                         userToshow.weather = weather
                         userToshow.weatherype = weatherType
 
+                        if let weather = weather, weather.isEmpty {
+                            userToshow.weatherype = ""
+                        } else if weather == nil {
+                            userToshow.weatherype = ""
+                        } else if let weatherType = weatherType, !weatherType.isEmpty {
+                            switch weatherType.lowercased() {
+                            case "thunderstorm", "drizzle", "rain":
+                                userToshow.weatherype = "rain"
+
+                            case "snow":
+                                userToshow.weatherype = "snow"
+
+                            case "clear":
+                                userToshow.weatherype = "clear"
+
+                            default:
+                                userToshow.weatherype = "clouds"
+                            }
+                        }
+
                         self.allPost.append(userToshow)
                         if let user = self.uid {
                             if user == userToshow.userID {
