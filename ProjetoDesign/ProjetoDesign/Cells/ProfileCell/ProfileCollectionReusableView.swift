@@ -33,7 +33,7 @@ class ProfileCollectionReusableView: UICollectionReusableView {
              nameLabel.text = user.name
              bioLabel.text = user.bio
              let url = URL(string: user.profileUrl)
-             profileImageView.kf.setImage(with: url)
+            profileImageView.kf.setImage(with: url)
 
         if  user.following == 0 {
         followingCountLabel.text = "0"

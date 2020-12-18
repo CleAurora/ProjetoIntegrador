@@ -27,12 +27,10 @@ class UserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
-        print("executou viewdid")
     }
     override func viewDidAppear(_ animated: Bool) {
         //self.getData()
        // configureButtonFollow()
-        print("executou viewAPPEAR")
         self.getPost()
     }
 

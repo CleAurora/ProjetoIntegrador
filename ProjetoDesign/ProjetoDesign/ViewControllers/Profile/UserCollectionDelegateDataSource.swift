@@ -42,17 +42,16 @@ class UserCollectionDelegateDataSource: NSObject, UICollectionViewDelegate, UICo
 
     func collectionView(_ collectionView: UICollectionView,viewForSupplementaryElementOfKind kind: String,at indexPath: IndexPath) -> UICollectionReusableView {
         let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "profileReuCell", for: indexPath) as! ProfileCollectionReusableView
-        cell.setup(user: userSelected[indexPath.row])
+      cell.setup(user: userSelected[indexPath.row])
         cell.postCountLabel.text = "\(postRequest.selectedPost.count)"
+        
         if self.followModel.stillFollower != nil{
-            //followButton.isHidden = false
             cell.followButton.setTitle("Follow", for: .normal)
             cell.followButton.layer.cornerRadius = 10
             cell.followButton.backgroundColor = .clear
             cell.followButton.layer.borderWidth = 1
             cell.followButton.setTitleColor(.black, for: .normal)
         }else {
-          //  followButton.isHidden = false
             cell.followButton.setTitle("unfollow", for: .normal)
             cell.followButton.layer.cornerRadius = 10
             cell.followButton.setTitleColor(.white, for: .normal)
@@ -64,7 +63,6 @@ class UserCollectionDelegateDataSource: NSObject, UICollectionViewDelegate, UICo
 
                 if success {
                     let buttonLabel = cell.followButton.titleLabel?.text
-                    print(buttonLabel)
                     if buttonLabel == "Follow"{
                         cell.followButton.setTitle("unfollow", for: .normal)
                         cell.followButton.setTitleColor(.white, for: .normal)

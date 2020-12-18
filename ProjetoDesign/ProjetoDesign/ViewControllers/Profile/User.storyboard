@@ -257,7 +257,7 @@
                                         <outlet property="followingCountLabel" destination="BkP-Oc-pkl" id="9hz-QD-G8b"/>
                                         <outlet property="nameLabel" destination="hU7-ud-zkO" id="fOZ-Z1-KGl"/>
                                         <outlet property="postCountLabel" destination="Ybw-DJ-weS" id="bvS-j9-fXe"/>
-                                        <outlet property="profileImageView" destination="O3a-fs-lCB" id="Arc-fh-e2Y"/>
+                                        <outlet property="profileImageView" destination="O3a-fs-lCB" id="d0P-9Z-kii"/>
                                     </connections>
                                 </collectionReusableView>
                             </collectionView>
