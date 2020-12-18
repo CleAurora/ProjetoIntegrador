@@ -144,7 +144,7 @@
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="dataCollectionView" destination="xxj-qY-2jb" id="FZO-D3-5ZP"/>
+                        <outlet property="dataCollectionView" destination="xxj-qY-2jb" id="iK3-w4-2Ec"/>
                         <outlet property="searchTableView" destination="V0X-n2-Awq" id="w5O-y1-HoM"/>
                         <outlet property="userSearchView" destination="boJ-pQ-M2u" id="bLf-It-ME6"/>
                     </connections>
