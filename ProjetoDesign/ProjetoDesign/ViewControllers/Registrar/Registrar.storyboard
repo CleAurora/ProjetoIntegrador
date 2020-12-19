@@ -208,7 +208,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="hkb-Cz-GN7"/>
                                                     <constraint firstAttribute="width" constant="40" id="pIP-PC-YQa"/>
                                                 </constraints>
-                                                <state key="normal" image="insta">
+                                                <state key="normal" image="google">
                                                     <color key="titleColor" red="0.3990649288" green="0.3990649288" blue="0.3990649288" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -333,7 +333,7 @@
         <image name="default.user" width="165" height="165"/>
         <image name="email" width="128" height="128"/>
         <image name="face" width="64" height="64"/>
-        <image name="insta" width="64" height="64"/>
+        <image name="google" width="64" height="64"/>
         <image name="mail" catalog="system" width="128" height="93"/>
         <image name="nickname" width="50" height="50"/>
         <image name="password" width="50" height="50"/>

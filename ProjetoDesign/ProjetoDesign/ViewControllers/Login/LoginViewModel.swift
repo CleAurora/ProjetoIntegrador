@@ -18,7 +18,7 @@ class LoginViewModel {
     }
 
     var imageBtnInstagram: String {
-        return "insta"
+        return "google"
     }
 
     var imageBtnFaceBook: String {
