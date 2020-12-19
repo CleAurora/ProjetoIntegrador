@@ -29,12 +29,10 @@ class searchViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         searchTableView.isHidden = true
         userSearchView.delegate = self
-        // Do any additional setup after loading the view.
     }
     override func viewDidAppear(_ animated: Bool) {
+        // Do any additional setup after loading the view.
         getData()
-        getImage()
-       
     }
     
     func getImage(){
@@ -51,7 +49,6 @@ class searchViewController: UIViewController {
         dataCollectionView.delegate = viewModel
         dataCollectionView.dataSource = viewModel
         dataCollectionView.reloadData()
-
     }
     func tableViewSetup(){
         self.viewModel = searchTableDelegateDatasource(usuarioModel: controller, searchController: self, imageController: imageRequest)
@@ -64,6 +61,7 @@ class searchViewController: UIViewController {
     func getData(){
         self.controller.loadData(completionHandler: { success, _ in
             if success {
+                self.getImage()
                 self.tableViewSetup()
             }
         })
