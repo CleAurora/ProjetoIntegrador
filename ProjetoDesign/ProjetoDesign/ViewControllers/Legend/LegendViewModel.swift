@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PKHUD
 
 struct NewPostViewModel {
     let weather: CurrentWeather
@@ -26,7 +27,7 @@ final class LegendViewModel {
 
     func post(_ input: NewPostViewModel) {
         if let image = input.image {
-            let temperature = String(format: "%.0f", input.weather.currentTemp)
+            let temperature = String(format: "%.0f", round(input.weather.currentTemp))
 
             let postUser = PostUser(
                 city: input.hasPlace ? input.weather.cityName : nil,
@@ -35,7 +36,11 @@ final class LegendViewModel {
                 comments: input.comment
             )
 
+            HUD.show(.progress)
+
             service.add(legend: postUser, for: image, usingWeather: input.weather.weatherType.lowercased()) { [weak self] result in
+                HUD.hide()
+
                 do {
                     let result = try result.get()
 

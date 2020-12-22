@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PKHUD
 
 final class FeedViewModel {
     private let service: FeedService
@@ -23,7 +24,10 @@ final class FeedViewModel {
     func getCurrentUser(then handler: @escaping (Profile) -> Void) {
         error = nil
 
+        HUD.show(.progress)
+
         service.getUser { [weak self] result in
+            HUD.hide()
             do {
                 let profile = try result.get()
 
@@ -39,6 +43,8 @@ final class FeedViewModel {
     func load(then handler: @escaping () -> Void) {
         error = nil
 
+        HUD.show(.progress)
+
         service.load { [weak self] result in
             do {
                 self?.posts = try result.get()
@@ -46,6 +52,7 @@ final class FeedViewModel {
                 self?.show(error: error)
             }
 
+            HUD.hide()
             handler()
         }
     }

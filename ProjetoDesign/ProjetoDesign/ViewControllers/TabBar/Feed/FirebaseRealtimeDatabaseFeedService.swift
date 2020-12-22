@@ -90,11 +90,13 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                   let city = element["City"] as? String,
                   let weather = element["Weather"] as? String,
                   let caption = element["Caption"] as? String,
-                  let weatherType = element["WeatherType"] as? String
+                  let weatherType = element["WeatherType"] as? String,
+                  let timestamp = element["TimeStamp"] as? Double
             {
                 newPosts = [
                     PostUser(
                         userId: userId,
+                        timestamp: Date(timeIntervalSince1970: timestamp),
                         city: city,
                         temperature: weather,
                         weatherType: weatherType,
@@ -115,6 +117,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                       let weather = element["Weather"] as? String,
                       let caption = element["Caption"] as? String,
                       let weatherType = element["WeatherType"] as? String,
+                      let timestamp = element["TimeStamp"] as? Double,
                       followingUsers.contains(userId)
                 else {
                     return nil
@@ -122,6 +125,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
 
                 return PostUser(
                     userId: userId,
+                    timestamp: Date(timeIntervalSince1970: timestamp),
                     city: city,
                     temperature: weather,
                     weatherType: weatherType,
@@ -147,7 +151,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                 usersIdsRecovered.insert(userId)
 
                 if usersIdsRecovered.count == usersIds.count {
-                    let postsWithUsers = newPosts.compactMap { post -> PostUser? in
+                    let newPosts = newPosts.compactMap { post -> PostUser? in
                         guard let user = users.first(where: { user in user.id == post.user.id }) else {
                             return nil
                         }
@@ -156,8 +160,14 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                     }
 
                     let cached = self.feeds
-                    let newList = postsWithUsers + cached
-                    self.feeds = newList
+                    let newList = newPosts.filter({ newPost in !cached.contains(newPost) }) + cached
+                    self.feeds = newList.sorted(by: { (lhsPost, rhsPost) -> Bool in
+                        guard let lhsDate = lhsPost.timestamp, let rhsDate = rhsPost.timestamp else {
+                            return false
+                        }
+
+                        return lhsDate > rhsDate
+                    })
 
                     handler(.success(newList))
                 }

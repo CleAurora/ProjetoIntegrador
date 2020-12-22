@@ -5,7 +5,9 @@
 //  Created by Lestad on 2020-10-25.
 //
 
-struct User: Decodable {
+import Foundation
+
+struct User: Decodable, Equatable {
     let id: String
     let name: String
     let imageProfileUrl: String
@@ -17,9 +19,10 @@ struct User: Decodable {
     }
 }
 
-struct PostUser {
+struct PostUser: Equatable {
     // MARK: - Proprierts
 
+    let timestamp: Date?
     let city: String?
     let temperature: String?
     let weatherType: String?
@@ -30,10 +33,11 @@ struct PostUser {
 
     // MARK: - Constructors
 
-    init(userId: String = "", userName: String = "", userProfileUrl: String = "", city: String? = nil,
+    init(userId: String = "", timestamp: Date? = nil, userName: String = "", userProfileUrl: String = "", city: String? = nil,
          temperature: String? = nil, weatherType: String?, imagePostUrl: String = "", allImages: [String] = [],
          comments: String? = nil) {
         self.city = city
+        self.timestamp = timestamp
         self.temperature = temperature
         self.weatherType = weatherType
         self.imagePostUrl = imagePostUrl
@@ -44,6 +48,7 @@ struct PostUser {
 
     init(source: PostUser, user: User) {
         self.city = source.city
+        self.timestamp = source.timestamp
         self.temperature = source.temperature
         self.weatherType = source.weatherType
         self.imagePostUrl = source.imagePostUrl
