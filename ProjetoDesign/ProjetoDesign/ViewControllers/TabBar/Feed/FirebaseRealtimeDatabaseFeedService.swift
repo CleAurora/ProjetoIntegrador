@@ -55,23 +55,31 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
             return handler(.failure(FeedServiceError.userNotLogged))
         }
 
-        databaseReference.child("users").child(user.uid).observe(.value) { [self] snapshot in
-            guard snapshot.exists(), let dictionary = snapshot.value as? [String: AnyObject] else {
-                return handler(.failure(FeedServiceError.userNotFound))
-            }
-
-            var usersFollowing = [user.uid]
-
-            if let followingUsers = dictionary["following"] as? NSDictionary {
-                usersFollowing.append(contentsOf: followingUsers.allKeys.compactMap({ anyKey in anyKey as? String }))
-            }
-
-            if let newPostsCancellationToken = newPostsCancellationToken {
-                databaseReference.removeObserver(withHandle: newPostsCancellationToken)
-            }
-
-            loadPosts(followingUsers: usersFollowing, then: handler)
+        databaseReference.child("users").child(user.uid).observeSingleEvent(of: .value) { [self] snapshot in
+            loadPosts(userUid: user.uid, snapshot: snapshot, then: handler)
         }
+
+        databaseReference.child("users").child(user.uid).observe(.value) { [self] snapshot in
+            loadPosts(userUid: user.uid, snapshot: snapshot, then: handler)
+        }
+    }
+
+    private func loadPosts(userUid: String, snapshot: DataSnapshot, then handler: @escaping (Result<[PostUser], Error>) -> Void) {
+        guard snapshot.exists(), let dictionary = snapshot.value as? [String: AnyObject] else {
+            return handler(.failure(FeedServiceError.userNotFound))
+        }
+
+        var usersFollowing = [userUid]
+
+        if let followingUsers = dictionary["following"] as? NSDictionary {
+            usersFollowing.append(contentsOf: followingUsers.allKeys.compactMap({ anyKey in anyKey as? String }))
+        }
+
+        if let newPostsCancellationToken = newPostsCancellationToken {
+            databaseReference.removeObserver(withHandle: newPostsCancellationToken)
+        }
+
+        loadPosts(followingUsers: usersFollowing, then: handler)
     }
 
     private func loadPosts(followingUsers: [String], then handler: @escaping (Result<[PostUser], Error>) -> Void) {
