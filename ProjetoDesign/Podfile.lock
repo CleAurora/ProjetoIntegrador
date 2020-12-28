@@ -98,7 +98,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Storage
-  - IQKeyboardManagerSwift (~> 6.3.0)
+  - IQKeyboardManagerSwift (~> 6.3)
   - Kingfisher (~> 5.0)
   - PKHUD
   - SwiftyJSON (~> 4.0)
