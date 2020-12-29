@@ -156,7 +156,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
         let usersIds = Set(newPosts.map({ post in post.user.id }))
 
         usersIds.enumerated().forEach { index, userId in
-            self.databaseReference.child("users").child(userId).observeSingleEvent(of: .value) { userSnapshot in
+            databaseReference.child("users").child(userId).observeSingleEvent(of: .value) { [self] userSnapshot in
                 if userSnapshot.exists(), let dictionary = userSnapshot.value as? [String: AnyObject],
                    let name = dictionary["Name"] as? String,
                    let imageProfileUrl = dictionary["profileUrl"] as? String {
@@ -174,9 +174,9 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                         return PostUser(source: post, user: user)
                     }
 
-                    let cached = self.feeds
+                    let cached = feeds
                     let newList = newPosts.filter({ newPost in !cached.contains(newPost) }) + cached
-                    self.feeds = newList.sorted(by: { (lhsPost, rhsPost) -> Bool in
+                    let filteredList = newList.filter({ post in followingUsers.contains(post.user.id) }).sorted(by: { (lhsPost, rhsPost) -> Bool in
                         guard let lhsDate = lhsPost.timestamp, let rhsDate = rhsPost.timestamp else {
                             return false
                         }
@@ -184,7 +184,9 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                         return lhsDate > rhsDate
                     })
 
-                    handler(.success(newList))
+                    feeds = filteredList
+
+                    handler(.success(filteredList))
                 }
             }
         }
