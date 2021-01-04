@@ -52,9 +52,9 @@ class CommentsTableCell: UITableViewCell {
             print(imageString)
         }
     }
-    func setup(comments: comments){
-        profileImageView.image = UIImage(named: comments.image)
-        let text = "\(comments.name): \(comments.comment)".withBoldText(text: "\(comments.name)")
+    func setup(comments: CommentViewModel){
+        profileImageView.image = UIImage(named: comments.userImageUrl)
+        let text = "\(comments.userName): \(comments.text)".withBoldText(text: "\(comments.userName)")
         CommentsLabel.attributedText = text
     }
 

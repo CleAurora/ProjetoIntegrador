@@ -16,7 +16,7 @@ class CommentsViewController: UIViewController{
     @IBOutlet var postButton: UIButton!
 
     // MARK: - Proprierts
-    var commentsArray = [comments]()
+    var commentsArray = [CommentViewModel]()
 
     // MARK: - Super Methods
     override func viewDidLoad() {
@@ -25,11 +25,11 @@ class CommentsViewController: UIViewController{
         tabBarController?.tabBar.isHidden = true
         self.title = "Comments"
 
-        commentsArray.append(comments(name: "Melissa", comment: "The black rose should bloom once more", image: "mel0.jpg"))
-        commentsArray.append(comments(name: "Brendon", comment: "Too weird to live, too rare to die ", image: "brendon.jpg"))
-        commentsArray.append(comments(name: "Miles", comment: "Needless to say, I keep her in check", image: "miles0.jpeg"))
-        commentsArray.append(comments(name: "Gwen", comment: "Don't threaten me with a good time", image: "gwen"))
-        commentsArray.append(comments(name: "Connor", comment: "Have you never wondered who you really are? wheter you're just a machine executing a program or...", image: "Connor"))
+        commentsArray.append(CommentViewModel(userName: "Melissa", text: "The black rose should bloom once more", image: "mel0.jpg"))
+        commentsArray.append(CommentViewModel(userName: "Brendon", text: "Too weird to live, too rare to die ", image: "brendon.jpg"))
+        commentsArray.append(CommentViewModel(userName: "Miles", text: "Needless to say, I keep her in check", image: "miles0.jpeg"))
+        commentsArray.append(CommentViewModel(userName: "Gwen", text: "Don't threaten me with a good time", image: "gwen"))
+        commentsArray.append(CommentViewModel(userName: "Connor", text: "Have you never wondered who you really are? wheter you're just a machine executing a program or...", image: "Connor"))
 
         profileImageView.image = UIImage(named: "mel0.jpg")
         postButton.isHidden = true
@@ -62,7 +62,7 @@ class CommentsViewController: UIViewController{
         }
     }
     func addNewItem(){
-        commentsArray.append(comments(name: "Melissa ", comment: "\(commentTextField.text!)", image: "mel0.jpg"))
+        commentsArray.append(CommentViewModel(userName: "Melissa ", text: "\(commentTextField.text!)", image: "mel0.jpg"))
 
         commentTextField.resignFirstResponder()
         commentsTableview.reloadData()
