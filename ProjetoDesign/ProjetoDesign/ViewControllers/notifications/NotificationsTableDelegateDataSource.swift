@@ -21,7 +21,6 @@ class NotificationsTableDelegateDataSource: NSObject, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(request.notificationsUser.count)
         return request.notificationsUser.count
     }
     
@@ -30,8 +29,7 @@ class NotificationsTableDelegateDataSource: NSObject, UITableViewDelegate, UITab
         
         let notifications = request.notificationsUser[indexPath.row]
         cell.setup(notifications: notifications)
-       
-        print(notifications.name)
+        
         return cell
     }
 }
