@@ -7,23 +7,25 @@
 
 import struct Foundation.Date
 
+struct PostComment {
+    let comments: [Comment]
+    let user: UserComment
+}
+
 struct Comment {
-    let hasLike: Bool
     let text: String
     let user: UserComment
     let timeStamp: Date
     let numberOfLikes: Int
 }
 
-struct UserComment {
+struct UserComment: Equatable, Hashable {
     let id: String
-    let name: String
-    let photo: String
+    let name: String?
+    let photo: String?
 }
 
 protocol CommentsService {
-    func get(postId: String, then handler: @escaping (Result<[Comment], Error>) -> ())
+    func get(postId: String, then handler: @escaping (Result<PostComment, Error>) -> ())
     func add(text: String, then handler: @escaping (Result<Void, Error>) -> ())
-    func like(commentId: String, then handler: @escaping (Result<Void, Error>) -> ())
-    func dislike(commentId: String, then handler: @escaping (Result<Void, Error>) -> ())
 }

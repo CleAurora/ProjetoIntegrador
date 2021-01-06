@@ -123,7 +123,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                 newPosts = []
             }
         } else {
-            newPosts = dictionary.allValues.compactMap{ value -> [String: AnyObject]? in
+            newPosts = dictionary.allValues.compactMap { value -> [String: AnyObject]? in
                 return value as? [String: AnyObject]
             }.compactMap { element -> PostUser? in
                 guard let userId = element["UserId"] as? String,
