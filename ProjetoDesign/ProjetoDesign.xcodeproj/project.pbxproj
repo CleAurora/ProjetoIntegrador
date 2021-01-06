@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0F821C9EBF7B92941B5796D1 /* Pods_ProjetoDesign.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E919C162EB416B2CC4CBA1F /* Pods_ProjetoDesign.framework */; };
 		424E9DC425351D2700C5AE62 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424E9DC325351D2700C5AE62 /* SettingViewController.swift */; };
+		425DA40925A5397100E151B2 /* CommentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DA40825A5397100E151B2 /* CommentsService.swift */; };
+		425DA40E25A53A3C00E151B2 /* FirebaseRealtimeDatabaseCommentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DA40D25A53A3C00E151B2 /* FirebaseRealtimeDatabaseCommentsService.swift */; };
+		425DA41325A53A4A00E151B2 /* CommentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 425DA41225A53A4A00E151B2 /* CommentsViewModel.swift */; };
 		426414202540DF1900F47C5D /* Legend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4264141F2540DF1900F47C5D /* Legend.storyboard */; };
 		426414282540E79500F47C5D /* LegendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426414272540E79500F47C5D /* LegendViewController.swift */; };
 		427B21C7257F122400F114E0 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B21C6257F122400F114E0 /* FeedService.swift */; };
@@ -151,6 +154,9 @@
 		050826702E80BF8E38C59D07 /* Pods-ProjetoDesign.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjetoDesign.debug.xcconfig"; path = "Target Support Files/Pods-ProjetoDesign/Pods-ProjetoDesign.debug.xcconfig"; sourceTree = "<group>"; };
 		4249A428C4B9B2E6BDFE7C52 /* Pods-ProjetoDesignTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjetoDesignTests.debug.xcconfig"; path = "Target Support Files/Pods-ProjetoDesignTests/Pods-ProjetoDesignTests.debug.xcconfig"; sourceTree = "<group>"; };
 		424E9DC325351D2700C5AE62 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		425DA40825A5397100E151B2 /* CommentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsService.swift; sourceTree = "<group>"; };
+		425DA40D25A53A3C00E151B2 /* FirebaseRealtimeDatabaseCommentsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRealtimeDatabaseCommentsService.swift; sourceTree = "<group>"; };
+		425DA41225A53A4A00E151B2 /* CommentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewModel.swift; sourceTree = "<group>"; };
 		4264141F2540DF1900F47C5D /* Legend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Legend.storyboard; sourceTree = "<group>"; };
 		426414272540E79500F47C5D /* LegendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendViewController.swift; sourceTree = "<group>"; };
 		427B21C6257F122400F114E0 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
@@ -472,7 +478,6 @@
 				4C0D1A50252A971B00462862 /* upload.swift */,
 				4C0D1A55252A98FF00462862 /* ImagensProfile.swift */,
 				4C6DF0BA252B602B0099D857 /* Stories.swift */,
-				4CADCC9D25422810005676F7 /* CommentViewModel.swift */,
 				4C573F3C2545E8E700A2982F /* PhotoDetail.swift */,
 				4C47EE7E254631AE000F934B /* User.swift */,
 			);
@@ -637,6 +642,10 @@
 			children = (
 				4CADCC9325422665005676F7 /* Comments.storyboard */,
 				4CADCC982542267A005676F7 /* CommentsViewController.swift */,
+				4CADCC9D25422810005676F7 /* CommentViewModel.swift */,
+				425DA40825A5397100E151B2 /* CommentsService.swift */,
+				425DA40D25A53A3C00E151B2 /* FirebaseRealtimeDatabaseCommentsService.swift */,
+				425DA41225A53A4A00E151B2 /* CommentsViewModel.swift */,
 			);
 			path = Comments;
 			sourceTree = "<group>";
@@ -1055,6 +1064,7 @@
 				42997A2B2533CB59008C9CEF /* LogoutSegue.swift in Sources */,
 				4CADCC9E25422810005676F7 /* CommentViewModel.swift in Sources */,
 				4C6DF0BB252B602B0099D857 /* Stories.swift in Sources */,
+				425DA40E25A53A3C00E151B2 /* FirebaseRealtimeDatabaseCommentsService.swift in Sources */,
 				4CCB528A252A4DC000F9AB19 /* RegistrarViewController.swift in Sources */,
 				427B21CC257F137600F114E0 /* FirebaseRealtimeDatabaseFeedService.swift in Sources */,
 				4CE0F2E6257B2671007DA03C /* ProfileViewModel.swift in Sources */,
@@ -1093,6 +1103,7 @@
 				4C322D8A258C54B100DCA8B5 /* PhotoDetailModel.swift in Sources */,
 				4C0D19B6252A5C3F00462862 /* FeedViewController.swift in Sources */,
 				4C2116A0258A8520001C3A54 /* searchModel.swift in Sources */,
+				425DA41325A53A4A00E151B2 /* CommentsViewModel.swift in Sources */,
 				4CE2D15A25485C0F004045B2 /* RoundedTextField.swift in Sources */,
 				4C5CCC6E2578654900B2DD45 /* uploadCollectionDelegateSource.swift in Sources */,
 				4C502F9A254267240001FAB2 /* BorderImage.swift in Sources */,
@@ -1100,6 +1111,7 @@
 				4C57A157253F99480018C522 /* searchCollectionCell.swift in Sources */,
 				4CB308E3257F0CB600FE3178 /* DownloadPost.swift in Sources */,
 				4C0D1A1E252A7F0D00462862 /* ProfileCollectionCell.swift in Sources */,
+				425DA40925A5397100E151B2 /* CommentsService.swift in Sources */,
 				426414282540E79500F47C5D /* LegendViewController.swift in Sources */,
 				4C57A135253F87000018C522 /* NotificationsTableCell.swift in Sources */,
 				42997A262533CA29008C9CEF /* DismissSegue.swift in Sources */,
