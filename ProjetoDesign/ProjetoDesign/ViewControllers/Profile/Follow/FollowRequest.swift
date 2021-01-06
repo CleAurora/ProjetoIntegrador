@@ -28,12 +28,19 @@ class FollowRequest {
 
             self.ref = Database.database().reference()
             var reference = self.ref
+            var notific = self.ref
+            
                 if userFollowers != uid {
                     let reference = ref.child("users").child(userID).child("followers").child(self.uid!)
 
                     let dict = ["whoIsFollower": uid] as [String: Any]
                     reference.updateChildValues(dict)
                     self.stillFollower = userFollowers
+                    
+                    notific = ref.child("users").child(userID).child("notifications").child(self.uid!)
+                  
+                    notific?.updateChildValues(dict)
+                    
                 }else if userFollowers == uid {
                    reference?.child("users").child(userID).child("followers").child(self.uid!).removeValue()
                     self.stillFollower = userFollowers
@@ -48,14 +55,19 @@ class FollowRequest {
 
                 self.ref = Database.database().reference()
                 var reference = self.ref
+               
+                
                     if userFollowing != userID {
                         reference = ref.child("users").child(uid).child("following").child(userID)
 
                         let dict = ["whoIsFollowing": userID] as [String: Any]
                         reference?.updateChildValues(dict)
-
+                        
+                    
+                        
                     }else if userFollowing == userID {
                       reference?.child("users").child(uid).child("following").child(userID).removeValue()
+                        
                     }
                 self.userFollowing = nil
             }

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 // MARK: - Protocols
 protocol buttonsTable {
     func didButtonPressed()
@@ -36,8 +37,7 @@ class NotificationsTableCell: UITableViewCell {
         let actualText = notificationButton.titleLabel?.text
         notificationButton.layer.cornerRadius = 10
         notificationButton.backgroundColor = .systemIndigo
-        print(actualText!)
-
+ 
         if actualText == "Follow" {
             notificationButton.setTitle("unfollow", for: .normal)
             notificationButton.setTitleColor(.white, for: .normal)
@@ -50,17 +50,20 @@ class NotificationsTableCell: UITableViewCell {
 
         }
     }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
-
     // MARK: - Methods
-    func setup(users: Post){
-        let text = "\(users.name): started following you".withBoldText(text: "\(users.name)")
-        nameLabel.attributedText = text
-        userImage.image = UIImage(named: users.imageProfile)
+    func setup(notifications: Usuario){
+        if let name = notifications.name {
+            let text = "\(name): started following you".withBoldText(text: "\(name)")
+            nameLabel.attributedText = text
+        }
+        if let photo = notifications.profileUrl {
+            userImage.kf.setImage(with: URL(string: photo))
+        }
+        
     }
 }
 
