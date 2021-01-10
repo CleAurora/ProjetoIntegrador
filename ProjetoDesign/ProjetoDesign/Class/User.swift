@@ -22,6 +22,7 @@ struct User: Decodable, Equatable {
 struct PostUser: Equatable {
     // MARK: - Proprierts
 
+    let id: String?
     let timestamp: Date?
     let city: String?
     let temperature: String?
@@ -33,9 +34,10 @@ struct PostUser: Equatable {
 
     // MARK: - Constructors
 
-    init(userId: String = "", timestamp: Date? = nil, userName: String = "", userProfileUrl: String = "", city: String? = nil,
+    init(id: String? = nil, userId: String = "", timestamp: Date? = nil, userName: String = "", userProfileUrl: String = "", city: String? = nil,
          temperature: String? = nil, weatherType: String?, imagePostUrl: String = "", allImages: [String] = [],
          comments: String? = nil) {
+        self.id = id
         self.city = city
         self.timestamp = timestamp
         self.temperature = temperature
@@ -47,6 +49,7 @@ struct PostUser: Equatable {
     }
 
     init(source: PostUser, user: User) {
+        self.id = source.id
         self.city = source.city
         self.timestamp = source.timestamp
         self.temperature = source.temperature

@@ -171,9 +171,10 @@ extension FeedViewController: UITableViewDataSource{
 }
 
 extension FeedViewController: ButtonsTableView{
-    func didButtonPressed() {
-        if let viewcontroller = UIStoryboard(name: "Comments", bundle: nil).instantiateInitialViewController(){
-            navigationController?.pushViewController(viewcontroller, animated: true)
+    func didButtonPressed(postId: String?) {
+        if let viewController = UIStoryboard(name: "Comments", bundle: nil).instantiateInitialViewController() as? CommentsViewController {
+            viewController.postId = postId
+            navigationController?.pushViewController(viewController, animated: true)
         }
     }
 }
