@@ -6,10 +6,12 @@
 //
 
 import UIKit
+import CoreLocation
 
-class LegendViewController: UIViewController {
-    
+final class LegendViewController: UIViewController, CLLocationManagerDelegate {
+
     // MARK: - IBOutlets
+    var imagemProfile: UIImage?
     @IBOutlet weak var imageSelected: UIImageView!
     @IBOutlet weak var legendTextField: UITextField!
     @IBOutlet weak var postButton: RoundedButton!
@@ -18,18 +20,27 @@ class LegendViewController: UIViewController {
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var localLabel: UILabel!
 
+    //Constants
+    let locationManager = CLLocationManager()
+    private lazy var viewModel = LegendViewModel(for: self)
+
+    //Variables
+    var currentWeather: CurrentWeather = CurrentWeather()
+    var currentLocation: CLLocation!
+
     // MARK: - Proprierts
-    var upload: Upload?
+
     var postagem = [PostUser]()
-    
+
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.callDelegate()
+        self.setupLocation()
 
-        if let upload = upload {
-            imageSelected.image = UIImage(named: upload.image)
+        if imagemProfile != nil {
+            imageSelected.image = imagemProfile
         }
-
         imageSelected.layer.maskedCorners = CACornerMask(
             rawValue: UIRectCorner(
                 [UIRectCorner.bottomLeft, UIRectCorner.bottomRight]
@@ -38,11 +49,46 @@ class LegendViewController: UIViewController {
         postButton.backgroundColor = UIColor(patternImage: UIImage(named: "2.jpg")!)
 
     }
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        locationAutoCheck()
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+
+    func callDelegate(){
+        locationManager.delegate = self
+    }
+
+    func setupLocation(){
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization() // take permission from user.
+        locationManager.startMonitoringSignificantLocationChanges()
+    }
+
+    func locationAutoCheck() {
+        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+            //get the location from device
+            currentLocation = locationManager.location
+            //pass the location coord to our API
+            Locations.sharedInstance.latitude = currentLocation.coordinate.latitude
+            Locations.sharedInstance.longitude = currentLocation.coordinate.longitude
+            // download API data
+            currentWeather.downloadCurrentWeather {
+                self.setupUI()
+            // update the UI after download is completed
+            }
+
+        } else{ // user did not allow
+            locationManager.requestWhenInUseAuthorization() //take permission from the user
+            locationAutoCheck()
+
+        }
+    }
+    func setupUI(){
+        //setup labels using MVVM Archictecture
+        localLabel.text = currentWeather.cityName
+        weatherLabel.text = String(format: "%.0fºC", arguments: [currentWeather.currentTemp])
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -50,25 +96,20 @@ class LegendViewController: UIViewController {
 
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
-    
+
     // MARK: - Methods
     func infoText(){
-        if let image = upload?.image {
-            if let tabBarController = tabBarController, let viewControllers = tabBarController.viewControllers,
-               let navController = viewControllers.first as? UINavigationController,
-               let feedViewController = navController.viewControllers.first as? FeedViewController {
-                tabBarController.selectedIndex = 0
-                feedViewController.postagem.insert(PostUser(name: "Melissa", city: "Toronto, ON", imageProfile: "mel0.jpg", imagePost: "\(image)", comments: legendTextField.text ?? "", allImages: ["",""]), at: 0)
-                feedViewController.feedTableView.reloadData()
-            }
-           
-            navigationController?.popViewController(animated: true)
-          
-            
-        }
-      
+        viewModel.post(
+            NewPostViewModel(
+                weather: currentWeather,
+                hasPlace: localSwitch.isOn,
+                hasTemperature: weatherSwitch.isOn,
+                image: imagemProfile,
+                comment: legendTextField.text
+            )
+        )
     }
-    
+
     // MARK: - IBActions 
     @IBAction func postButtonTapped() {
        // navigationController?.popViewController(animated: true)

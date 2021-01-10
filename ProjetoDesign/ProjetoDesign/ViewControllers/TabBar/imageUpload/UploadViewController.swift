@@ -7,82 +7,50 @@
 
 import UIKit
 
-class UploadViewController: UIViewController {
-    
+class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+
     // MARK: - IBOutlets
     @IBOutlet weak var resizeImageView: UIImageView!
     @IBOutlet weak var uploadCollectionView: UICollectionView!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var viewButton: UIView!
-    
+    @IBOutlet var imageViewBorder: UIView!
+
+    var imageSelected: UIImage?
+    var uploadData = uploadImagePicker()
+    var uploadDataSource: uploadCollectionDelegateSource?
     // MARK: - Proprierts
     var uploadArray = [Upload]()
-    var uploadSelected: Upload?
-    
+
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCollection()
-        uploadArray.append(Upload(image: "post1.jpg"))
-        uploadArray.append(Upload(image: "post2.jpg"))
-        uploadArray.append(Upload(image: "post3.jpg"))
-        uploadArray.append(Upload(image: "instagram.png"))
-        uploadArray.append(Upload(image: "facebook.png"))
-        uploadArray.append(Upload(image: "mel1.jpeg"))
-        uploadArray.append(Upload(image: "seraphine"))
-        uploadArray.append(Upload(image: "Eve"))
-        uploadArray.append(Upload(image: "serakda"))
-        uploadArray.append(Upload(image: "seraphine2"))
-        
-//        nextButton.isHidden = true
-        viewButton.isHidden = true
-        uploadCollectionView.reloadData()
-
-        resizeImageView.layer.maskedCorners = CACornerMask(
-            rawValue: UIRectCorner(
-                [UIRectCorner.bottomLeft, UIRectCorner.bottomRight]
-            ).rawValue
-        )
+        imageViewBorder.roundedBottom()
     }
-
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        uploadData.photosArray.removeAll()
+        grabPhotos()
+    }
+    func grabPhotos(){
+        uploadData.grabPhotos(completionHandler: { success, _ in
+            if success {
+                collectionSetup()
+            }
+        })
+    }
+    func collectionSetup(){
+        self.uploadDataSource = uploadCollectionDelegateSource(uploadView: uploadData, view: self)
+        uploadCollectionView.delegate = uploadDataSource
+        uploadCollectionView.dataSource = uploadDataSource
+        uploadCollectionView.reloadData()
+    }
     // MARK: - IBActions
     @IBAction func nextAction(_ sender: Any) {
         if let legendViewController = UIStoryboard(name: "Legend", bundle: nil).instantiateInitialViewController() as? LegendViewController {
-        legendViewController.upload = uploadSelected
+        legendViewController.imagemProfile = resizeImageView.image
 
         navigationController?.pushViewController(legendViewController, animated: true)
     }
     }
-    
-    // MARK: - Methods
-    func setupCollection(){
-        uploadCollectionView.delegate = self
-        uploadCollectionView.dataSource = self
-        uploadCollectionView.reloadData()
-    }
-    
-}
-
-// MARK: - Extensions 
-extension UploadViewController: UICollectionViewDelegate{
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let image = uploadArray[indexPath.row].image
-        viewButton.backgroundColor = UIColor(patternImage: UIImage(named: "2.jpg")!)
-        resizeImageView.image = UIImage(named: image)
-        viewButton.isHidden = false
-        uploadSelected = uploadArray[indexPath.row]
-//        nextButton.isHidden = false
-    }
-}
-extension UploadViewController: UICollectionViewDataSource{
-
-func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return uploadArray.count
-}
-
-func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "uploadCell", for: indexPath) as! UploadCollectionCell
-    cell.setup(upload: uploadArray[indexPath.row])
-    return cell
-}
 }

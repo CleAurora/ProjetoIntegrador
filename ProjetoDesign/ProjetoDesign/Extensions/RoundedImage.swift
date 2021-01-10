@@ -33,7 +33,6 @@ class roundImageView: UIImageView {
            }
        }
 
-
        func addShadow(shadowColor: CGColor = UIColor.black.cgColor,
                   shadowOffset: CGSize = CGSize(width: 1.0, height: 2.0),
                   shadowOpacity: Float = 0.4,

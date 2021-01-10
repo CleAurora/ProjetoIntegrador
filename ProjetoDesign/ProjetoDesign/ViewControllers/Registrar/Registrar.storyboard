@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NJq-OM-TuN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NJq-OM-TuN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -100,7 +100,7 @@
                                             <constraint firstAttribute="height" constant="40" id="gTY-Je-Yri"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="email" highlightedImage="mail" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="x87-Gm-1OK">
                                         <rect key="frame" x="39" y="435" width="30" height="30"/>
@@ -141,7 +141,7 @@
                                             <constraint firstAttribute="height" constant="40" id="B1N-pw-L6y"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fill the form below for registering into the system." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="syg-CK-XUl">
                                         <rect key="frame" x="27" y="138" width="361" height="18"/>
@@ -208,7 +208,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="hkb-Cz-GN7"/>
                                                     <constraint firstAttribute="width" constant="40" id="pIP-PC-YQa"/>
                                                 </constraints>
-                                                <state key="normal" image="insta">
+                                                <state key="normal" image="google">
                                                     <color key="titleColor" red="0.3990649288" green="0.3990649288" blue="0.3990649288" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
@@ -226,6 +226,15 @@
                                             <constraint firstAttribute="bottom" secondItem="e6M-ua-Wvf" secondAttribute="bottom" id="fco-UA-5vy"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsI-0G-ECQ">
+                                        <rect key="frame" x="132" y="187" width="151" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="O2m-zV-R8a"/>
+                                        </constraints>
+                                        <connections>
+                                            <action selector="imageviewButton:" destination="NJq-OM-TuN" eventType="touchUpInside" id="TYh-cq-zzd"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
@@ -241,9 +250,11 @@
                                     <constraint firstItem="xOu-ad-5P8" firstAttribute="leading" secondItem="9Ta-DZ-evN" secondAttribute="leading" constant="39" id="GEi-54-6Yx"/>
                                     <constraint firstItem="syg-CK-XUl" firstAttribute="top" secondItem="Tck-3n-m2Z" secondAttribute="bottom" constant="22" id="Ivq-Ss-f7P"/>
                                     <constraint firstItem="oKZ-GB-qo0" firstAttribute="leading" secondItem="xOu-ad-5P8" secondAttribute="trailing" constant="22" id="J2M-ds-F6b"/>
+                                    <constraint firstItem="tsI-0G-ECQ" firstAttribute="top" secondItem="syg-CK-XUl" secondAttribute="bottom" constant="31" id="JR1-Yu-Cuy"/>
                                     <constraint firstItem="YRv-Nf-lJQ" firstAttribute="top" secondItem="fE0-hj-Wnm" secondAttribute="bottom" constant="8" symbolic="YES" id="Kpz-hw-OM8"/>
                                     <constraint firstItem="UVk-jQ-8d7" firstAttribute="leading" secondItem="9Ta-DZ-evN" secondAttribute="leading" constant="61" id="Lzd-Zc-wa9"/>
                                     <constraint firstItem="fE0-hj-Wnm" firstAttribute="leading" secondItem="W4Z-Bc-haI" secondAttribute="trailing" constant="22" id="MLf-WF-DIC"/>
+                                    <constraint firstAttribute="trailing" secondItem="tsI-0G-ECQ" secondAttribute="trailing" constant="131" id="Mn6-kT-m2o"/>
                                     <constraint firstAttribute="trailing" secondItem="Tck-3n-m2Z" secondAttribute="trailing" constant="132.5" id="O51-EY-6lN"/>
                                     <constraint firstAttribute="trailing" secondItem="4Bt-SQ-9sc" secondAttribute="trailing" constant="38" id="ORi-Hx-yVl"/>
                                     <constraint firstItem="4Bt-SQ-9sc" firstAttribute="leading" secondItem="m8a-Tg-Qjw" secondAttribute="trailing" constant="22" id="Tt9-lp-o0j"/>
@@ -266,6 +277,7 @@
                                     <constraint firstAttribute="trailing" secondItem="oKZ-GB-qo0" secondAttribute="trailing" constant="38" id="lwX-Ha-alF"/>
                                     <constraint firstItem="oKZ-GB-qo0" firstAttribute="top" secondItem="c0x-qy-GtI" secondAttribute="bottom" constant="8" symbolic="YES" id="mBn-XL-H9s"/>
                                     <constraint firstItem="W4Z-Bc-haI" firstAttribute="leading" secondItem="9Ta-DZ-evN" secondAttribute="leading" constant="39" id="mNs-zU-3Oy"/>
+                                    <constraint firstItem="tsI-0G-ECQ" firstAttribute="leading" secondItem="9Ta-DZ-evN" secondAttribute="leading" constant="132" id="ong-QQ-ko6"/>
                                     <constraint firstAttribute="trailing" secondItem="N1q-MK-mdm" secondAttribute="trailing" constant="132" id="pem-lh-XCD"/>
                                     <constraint firstItem="c0x-qy-GtI" firstAttribute="top" secondItem="YRv-Nf-lJQ" secondAttribute="bottom" constant="8" symbolic="YES" id="qNP-cd-rHe"/>
                                     <constraint firstItem="m8a-Tg-Qjw" firstAttribute="leading" secondItem="9Ta-DZ-evN" secondAttribute="leading" constant="39" id="v02-4P-DqM"/>
@@ -285,8 +297,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailTextField" destination="YRv-Nf-lJQ" id="PE9-cb-Dph"/>
+                        <outlet property="nameTextField" destination="fE0-hj-Wnm" id="2WA-76-BGz"/>
+                        <outlet property="nicknameTextField" destination="c0x-qy-GtI" id="jrm-8s-rUn"/>
+                        <outlet property="passwordTextField" destination="oKZ-GB-qo0" id="qCX-bm-i3b"/>
                         <outlet property="registerLabel" destination="Tck-3n-m2Z" id="iDf-Zk-GbX"/>
                         <outlet property="registerView" destination="UVk-jQ-8d7" id="hoH-7k-fWz"/>
+                        <outlet property="secureTextField" destination="4Bt-SQ-9sc" id="P2W-SJ-x6S"/>
                         <outlet property="userImage" destination="N1q-MK-mdm" id="620-Qd-8BY"/>
                     </connections>
                 </viewController>
@@ -297,7 +314,7 @@
     </scenes>
     <designables>
         <designable name="4Bt-SQ-9sc">
-            <size key="intrinsicContentSize" width="117.5" height="18.5"/>
+            <size key="intrinsicContentSize" width="117.5" height="17"/>
         </designable>
         <designable name="YRv-Nf-lJQ">
             <size key="intrinsicContentSize" width="34.5" height="18.5"/>
@@ -309,14 +326,14 @@
             <size key="intrinsicContentSize" width="38" height="18.5"/>
         </designable>
         <designable name="oKZ-GB-qo0">
-            <size key="intrinsicContentSize" width="62.5" height="18.5"/>
+            <size key="intrinsicContentSize" width="62.5" height="17"/>
         </designable>
     </designables>
     <resources>
         <image name="default.user" width="165" height="165"/>
-        <image name="email" width="50" height="50"/>
+        <image name="email" width="128" height="128"/>
         <image name="face" width="64" height="64"/>
-        <image name="insta" width="64" height="64"/>
+        <image name="google" width="64" height="64"/>
         <image name="mail" catalog="system" width="128" height="93"/>
         <image name="nickname" width="50" height="50"/>
         <image name="password" width="50" height="50"/>
