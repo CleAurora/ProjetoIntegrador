@@ -12,7 +12,7 @@ class CommentsTableCell: UITableViewCell {
     // MARK: - IBOtlets
     @IBOutlet weak var profileImageView: roundImageView!
     @IBOutlet weak var daysLabel: UILabel!
-    @IBOutlet weak var CommentsLabel: UILabel!
+    @IBOutlet weak var commentsLabel: UILabel!
     @IBOutlet weak var likesLabel: UIButton!
     @IBOutlet weak var replyButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
@@ -38,24 +38,24 @@ class CommentsTableCell: UITableViewCell {
         likedButton()
     }
 
-    // MARK: - Methods 
-    func changeImage(){
-        print("change image executed")
+    // MARK: - Methods
+
+    func changeImage() {
         if imageString == "suit.heart" {
             imageString = "suit.heart.fill"
-            print(imageString)
-        }else if imageString == "suit.heart.fill"{
+        } else if imageString == "suit.heart.fill" {
             imageString = "suit.heart"
-            print(imageString)
-        }else {
+        } else {
             imageString = "suit.heart"
-            print(imageString)
         }
     }
-    func setup(comments: CommentViewModel){
-        profileImageView.image = UIImage(named: comments.userImageUrl)
-        let text = "\(comments.userName): \(comments.text)".withBoldText(text: "\(comments.userName)")
-        CommentsLabel.attributedText = text
+
+    func setup(comments: CommentViewModel) {
+        let userName = comments.user.name ?? ""
+        let text = "\(userName): \(comments.text)".withBoldText(text: "\(userName)")
+
+        commentsLabel.attributedText = text
+        profileImageView.kf.setImage(with: comments.user.photoUrl)
     }
 
 }

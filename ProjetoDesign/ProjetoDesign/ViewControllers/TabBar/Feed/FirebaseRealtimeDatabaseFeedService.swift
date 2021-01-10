@@ -110,6 +110,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
             {
                 newPosts = [
                     PostUser(
+                        id: snapshot.key,
                         userId: userId,
                         timestamp: Date(timeIntervalSince1970: timestamp),
                         city: city,
@@ -123,10 +124,10 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                 newPosts = []
             }
         } else {
-            newPosts = dictionary.allValues.compactMap { value -> [String: AnyObject]? in
-                return value as? [String: AnyObject]
-            }.compactMap { element -> PostUser? in
-                guard let userId = element["UserId"] as? String,
+            newPosts = dictionary.compactMap { (key, value) -> PostUser? in
+                guard let id = key as? String,
+                      let element = value as? [String: AnyObject],
+                      let userId = element["UserId"] as? String,
                       let imageUrl = element["ImageUrl"] as? String,
                       let city = element["City"] as? String,
                       let weather = element["Weather"] as? String,
@@ -139,6 +140,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                 }
 
                 return PostUser(
+                    id: id,
                     userId: userId,
                     timestamp: Date(timeIntervalSince1970: timestamp),
                     city: city,

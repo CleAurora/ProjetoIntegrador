@@ -8,8 +8,8 @@
 import UIKit
 import Foundation
 // MARK: - Protocols
-protocol ButtonsTableView{
-    func didButtonPressed()
+protocol ButtonsTableView {
+    func didButtonPressed(postId: String?)
 }
 
 class FeedTableViewCell: UITableViewCell {
@@ -26,6 +26,7 @@ class FeedTableViewCell: UITableViewCell {
     // MARK: - Proprierts
     var delegate: ButtonsTableView?
     var heart: String? = nil
+    var postId: String? = nil
     var nameTap : (() -> ()) = {}
     var heartTap : (() -> ()) = {}
 
@@ -41,14 +42,17 @@ class FeedTableViewCell: UITableViewCell {
     @IBAction func nameButton(_ sender: Any) {
         nameTap()
     }
+
     @IBAction func commentsButton(_ sender: Any) {
-        delegate?.didButtonPressed()
+        delegate?.didButtonPressed(postId: postId)
     }
+
     @IBAction func likedButton(_ sender: Any) {
         heartTap()
     }
+
     @IBAction func commentsViewButton(_ sender: Any) {
-        delegate?.didButtonPressed()
+        delegate?.didButtonPressed(postId: postId)
     }
 
     @IBAction func heartLikeButton(_ sender: Any) {
@@ -73,7 +77,9 @@ class FeedTableViewCell: UITableViewCell {
         subtitlesLabel.attributedText = text
     }
 
-    func setup(post: PostUser){
+    func setup(post: PostUser) {
+        postId = post.id
+
         if post.user.imageProfileUrl.hasPrefix("https") {
             uploadImageView.kf.setImage(with: URL(string: post.user.imageProfileUrl))
         } else {

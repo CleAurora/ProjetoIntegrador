@@ -27,5 +27,5 @@ struct UserComment: Equatable, Hashable {
 
 protocol CommentsService {
     func get(postId: String, then handler: @escaping (Result<PostComment, Error>) -> ())
-    func add(text: String, then handler: @escaping (Result<Void, Error>) -> ())
+    func add(text: String, forPost postId: String, then handler: @escaping (Result<Void, Error>) -> ())
 }

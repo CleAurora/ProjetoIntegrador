@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yt3-SY-1ic">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yt3-SY-1ic">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -133,7 +133,7 @@
                                         <rect key="frame" x="88" y="-1" width="299" height="53"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KDL-oy-EUu">
-                                                <rect key="frame" x="0.0" y="0.0" width="299" height="53"/>
+                                                <rect key="frame" x="10" y="0.0" width="254" height="53"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -152,7 +152,6 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.26745557339999998" green="0.23957824680000001" blue="0.98888403179999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="53" id="083-9e-uMu"/>
                                             <constraint firstAttribute="bottom" secondItem="jmi-6H-p6g" secondAttribute="bottom" constant="7" id="9lJ-Ct-49Z"/>
@@ -161,8 +160,8 @@
                                             <constraint firstAttribute="bottom" secondItem="KDL-oy-EUu" secondAttribute="bottom" id="Dyq-h0-bC3"/>
                                             <constraint firstAttribute="trailing" secondItem="jmi-6H-p6g" secondAttribute="trailing" id="PtC-Mb-4s1"/>
                                             <constraint firstItem="KDL-oy-EUu" firstAttribute="top" secondItem="YAv-1F-g8y" secondAttribute="top" id="QKq-YF-nm7"/>
-                                            <constraint firstItem="KDL-oy-EUu" firstAttribute="leading" secondItem="YAv-1F-g8y" secondAttribute="leading" id="WEo-ih-xwv"/>
-                                            <constraint firstAttribute="trailing" secondItem="KDL-oy-EUu" secondAttribute="trailing" id="i88-FC-POm"/>
+                                            <constraint firstItem="KDL-oy-EUu" firstAttribute="leading" secondItem="YAv-1F-g8y" secondAttribute="leading" constant="10" id="WEo-ih-xwv"/>
+                                            <constraint firstAttribute="trailing" secondItem="KDL-oy-EUu" secondAttribute="trailing" constant="35" id="i88-FC-POm"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -204,7 +203,7 @@
                     </view>
                     <connections>
                         <outlet property="commentTextField" destination="KDL-oy-EUu" id="bTj-Hq-nb0"/>
-                        <outlet property="commentsTableview" destination="tJ1-SN-cVl" id="cHh-Eb-HaE"/>
+                        <outlet property="commentsTableView" destination="tJ1-SN-cVl" id="cHh-Eb-HaE"/>
                         <outlet property="postButton" destination="jmi-6H-p6g" id="wEW-9V-Zhi"/>
                         <outlet property="profileImageView" destination="kyb-nX-dXd" id="fUr-tr-Tzm"/>
                     </connections>
