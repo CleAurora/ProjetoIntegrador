@@ -22,10 +22,11 @@ class ViewController: UIViewController {
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        backgroundImageView.image = UIImage(named: "2.jpg")
+        backgroundImageView.image = UIImage(named: "login2")
         backgroundImageView.layer.maskedCorners = CACornerMask(rawValue: UIRectCorner([.bottomLeft, .bottomRight]).rawValue)
         loginButton.backgroundColor = UIColor(patternImage: UIImage(named: "2.jpg")!)
         setupView()
+
         setupUI()
     }
     override func viewDidAppear(_ animated: Bool) {

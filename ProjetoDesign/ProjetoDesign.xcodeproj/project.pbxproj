@@ -101,6 +101,7 @@
 		4C8F153A254373EC0010F790 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C8F1539254373EC0010F790 /* User.storyboard */; };
 		4C8F153F254374050010F790 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F153E254374050010F790 /* UserViewController.swift */; };
 		4C8F1545254377B80010F790 /* UserCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8F1544254377B80010F790 /* UserCollectionCell.swift */; };
+		4CAD960F25AEA4D600CEFCFB /* iconeRound.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CAD960E25AEA4D600CEFCFB /* iconeRound.png */; };
 		4CADCC8E2542208B005676F7 /* BoldLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CADCC8D2542208B005676F7 /* BoldLabel.swift */; };
 		4CADCC9425422665005676F7 /* Comments.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CADCC9325422665005676F7 /* Comments.storyboard */; };
 		4CADCC992542267A005676F7 /* CommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CADCC982542267A005676F7 /* CommentsViewController.swift */; };
@@ -249,6 +250,7 @@
 		4C8F1539254373EC0010F790 /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
 		4C8F153E254374050010F790 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		4C8F1544254377B80010F790 /* UserCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionCell.swift; sourceTree = "<group>"; };
+		4CAD960E25AEA4D600CEFCFB /* iconeRound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iconeRound.png; sourceTree = "<group>"; };
 		4CADCC8D2542208B005676F7 /* BoldLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoldLabel.swift; sourceTree = "<group>"; };
 		4CADCC9325422665005676F7 /* Comments.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Comments.storyboard; sourceTree = "<group>"; };
 		4CADCC982542267A005676F7 /* CommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsViewController.swift; sourceTree = "<group>"; };
@@ -466,6 +468,7 @@
 				4C0D1A12252A786100462862 /* heart0.png */,
 				4C0D1A0A252A768300462862 /* heart2.png */,
 				4C0D1A27252A801E00462862 /* post1.jpg */,
+				4CAD960E25AEA4D600CEFCFB /* iconeRound.png */,
 				4C0D1A25252A801D00462862 /* post2.jpg */,
 				4C0D1A26252A801D00462862 /* post3.jpg */,
 				4C0D19F8252A6D8200462862 /* tag.png */,
@@ -914,6 +917,7 @@
 				4CCB5240252A45E800F9AB19 /* Assets.xcassets in Resources */,
 				4C0D1A2A252A801E00462862 /* post1.jpg in Resources */,
 				4C6DF0B6252B5D510099D857 /* miles1.jpeg in Resources */,
+				4CAD960F25AEA4D600CEFCFB /* iconeRound.png in Resources */,
 				4C61CE242579B24C00491964 /* GoogleService-Info.plist in Resources */,
 				4C2CD84B2533916B00CC0BF1 /* InfoPost.storyboard in Resources */,
 				4CCB5285252A4DB000F9AB19 /* Registrar.storyboard in Resources */,
