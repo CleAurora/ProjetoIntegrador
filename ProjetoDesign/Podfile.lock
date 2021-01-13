@@ -90,7 +90,6 @@ PODS:
   - nanopb/encode (2.30906.0)
   - PKHUD (5.3.0)
   - PromisesObjC (1.2.11)
-  - SwiftKeychainWrapper (4.0.1)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
@@ -102,7 +101,6 @@ DEPENDENCIES:
   - IQKeyboardManagerSwift (~> 6.3)
   - Kingfisher (~> 5.0)
   - PKHUD
-  - SwiftKeychainWrapper
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
@@ -126,7 +124,6 @@ SPEC REPOS:
     - nanopb
     - PKHUD
     - PromisesObjC
-    - SwiftKeychainWrapper
     - SwiftyJSON
 
 SPEC CHECKSUMS:
@@ -149,9 +146,8 @@ SPEC CHECKSUMS:
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
-  SwiftKeychainWrapper: 807ba1d63c33a7d0613288512399cd1eda1e470c
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: b2fb2e63bfb56231e0be999f65dd0a87dbbfe2a2
+PODFILE CHECKSUM: 7fd8f1653a0f58f46638d85b7804b059c538e7d1
 
 COCOAPODS: 1.10.0

@@ -14,7 +14,6 @@ target 'ProjetoDesign' do
   pod 'Firebase/Storage'
   pod 'Kingfisher', '~> 5.0'
   pod 'PKHUD'
-  pod 'SwiftKeychainWrapper'
   target 'ProjetoDesignTests' do
     inherit! :search_paths
     # Pods for testing
