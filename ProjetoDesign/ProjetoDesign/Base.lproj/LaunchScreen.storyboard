@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,18 +16,39 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor Aguarde..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="md1-M2-OYu">
-                                <rect key="frame" x="131.5" y="437.5" width="151" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cleis Aurora and Mauro Figueiredo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7h-cr-pPu">
+                                <rect key="frame" x="82" y="765" width="262" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="euh-tM-UUJ">
+                                <rect key="frame" x="187" y="725" width="40" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconeRound.png" translatesAutoresizingMaskIntoConstraints="NO" id="eyh-4Z-p9L">
+                                <rect key="frame" x="88" y="323" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="WPI-gH-X9Z"/>
+                                    <constraint firstAttribute="width" constant="250" id="kRm-ur-BS0"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="md1-M2-OYu" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="DfB-RO-ofO"/>
-                            <constraint firstItem="md1-M2-OYu" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="IN3-q5-cuc"/>
+                            <constraint firstItem="eyh-4Z-p9L" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="88" id="AZW-xQ-ebL"/>
+                            <constraint firstItem="u7h-cr-pPu" firstAttribute="top" secondItem="euh-tM-UUJ" secondAttribute="bottom" constant="19" id="JgO-po-I1q"/>
+                            <constraint firstItem="u7h-cr-pPu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="82" id="JvJ-ei-Ryd"/>
+                            <constraint firstItem="eyh-4Z-p9L" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="279" id="K9y-Pi-dFw"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eyh-4Z-p9L" secondAttribute="trailing" constant="76" id="ROX-Kh-YVU"/>
+                            <constraint firstItem="euh-tM-UUJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="187" id="Uih-e9-Jt3"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="euh-tM-UUJ" secondAttribute="trailing" constant="187" id="bQ7-ix-X0p"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="u7h-cr-pPu" secondAttribute="bottom" constant="76" id="eDR-6D-HWP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="u7h-cr-pPu" secondAttribute="trailing" constant="70" id="eRf-dV-Guu"/>
+                            <constraint firstItem="euh-tM-UUJ" firstAttribute="top" secondItem="eyh-4Z-p9L" secondAttribute="bottom" constant="152" id="xN5-mp-9zD"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -37,6 +58,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="iconeRound.png" width="262.07998657226562" height="257"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
