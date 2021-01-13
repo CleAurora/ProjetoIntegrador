@@ -54,3 +54,4 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
     }
     }
 }
+
