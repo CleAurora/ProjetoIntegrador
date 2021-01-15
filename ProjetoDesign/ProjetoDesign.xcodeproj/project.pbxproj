@@ -797,6 +797,7 @@
 				4CCB5230252A45E700F9AB19 /* Frameworks */,
 				4CCB5231252A45E700F9AB19 /* Resources */,
 				82D0A1694F76A8B5379EEEE8 /* [CP] Embed Pods Frameworks */,
+				18403C523F50225614E50D99 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -835,6 +836,7 @@
 				4CCB5251252A45E800F9AB19 /* Frameworks */,
 				4CCB5252252A45E800F9AB19 /* Resources */,
 				E9ED6066812ABA8752DD8AAA /* [CP] Embed Pods Frameworks */,
+				2FBA5BCB3A206F1AF99E1F63 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -949,6 +951,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		18403C523F50225614E50D99 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProjetoDesign/Pods-ProjetoDesign-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProjetoDesign/Pods-ProjetoDesign-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ProjetoDesign/Pods-ProjetoDesign-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2FBA5BCB3A206F1AF99E1F63 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProjetoDesign-ProjetoDesignUITests/Pods-ProjetoDesign-ProjetoDesignUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProjetoDesign-ProjetoDesignUITests/Pods-ProjetoDesign-ProjetoDesignUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ProjetoDesign-ProjetoDesignUITests/Pods-ProjetoDesign-ProjetoDesignUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		45942262A968844567AB44B4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

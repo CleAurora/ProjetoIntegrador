@@ -17,6 +17,7 @@ target 'ProjetoDesign' do
   pod 'ReachabilitySwift'
   pod 'SwiftMessages'
   pod 'CircleBar'
+  pod 'GoogleSignIn'
 
   target 'ProjetoDesignTests' do
     inherit! :search_paths

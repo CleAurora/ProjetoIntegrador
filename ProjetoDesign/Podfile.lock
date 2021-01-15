@@ -1,5 +1,10 @@
 PODS:
   - Alamofire (5.4.0)
+  - AppAuth (1.4.0):
+    - AppAuth/Core (= 1.4.0)
+    - AppAuth/ExternalUserAgent (= 1.4.0)
+  - AppAuth/Core (1.4.0)
+  - AppAuth/ExternalUserAgent (1.4.0)
   - CircleBar (0.8.2)
   - Firebase/Analytics (7.3.0):
     - Firebase/Core
@@ -59,6 +64,10 @@ PODS:
     - nanopb (~> 2.30906.0)
   - GoogleDataTransport (8.1.0):
     - nanopb (~> 2.30906.0)
+  - GoogleSignIn (5.0.2):
+    - AppAuth (~> 1.2)
+    - GTMAppAuth (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
   - GoogleUtilities/AppDelegateSwizzler (7.1.1):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -78,7 +87,14 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.1.1):
     - GoogleUtilities/Logger
+  - GTMAppAuth (1.1.0):
+    - AppAuth/Core (~> 1.4)
+    - GTMSessionFetcher (~> 1.4)
+  - GTMSessionFetcher (1.5.0):
+    - GTMSessionFetcher/Full (= 1.5.0)
   - GTMSessionFetcher/Core (1.5.0)
+  - GTMSessionFetcher/Full (1.5.0):
+    - GTMSessionFetcher/Core (= 1.5.0)
   - IQKeyboardManagerSwift (6.3.0)
   - Kingfisher (5.15.8):
     - Kingfisher/Core (= 5.15.8)
@@ -104,6 +120,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Storage
+  - GoogleSignIn
   - IQKeyboardManagerSwift (~> 6.3)
   - Kingfisher (~> 5.0)
   - PKHUD
@@ -114,6 +131,7 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - AppAuth
     - CircleBar
     - Firebase
     - FirebaseAnalytics
@@ -125,7 +143,9 @@ SPEC REPOS:
     - FirebaseStorage
     - GoogleAppMeasurement
     - GoogleDataTransport
+    - GoogleSignIn
     - GoogleUtilities
+    - GTMAppAuth
     - GTMSessionFetcher
     - IQKeyboardManagerSwift
     - Kingfisher
@@ -139,6 +159,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
+  AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   CircleBar: 8e17d2090e6e319b518010535a3145fb8fd68c22
   Firebase: 26223c695fe322633274198cb19dca8cb7e54416
   FirebaseAnalytics: 2580c2d62535ae7b644143d48941fcc239ea897a
@@ -150,7 +171,9 @@ SPEC CHECKSUMS:
   FirebaseStorage: 5002b1895bfe74a5ce92ad54f966e6162d0da2e5
   GoogleAppMeasurement: 8d3c0aeede16ab7764144b5a4ca8e1d4323841b7
   GoogleDataTransport: 116c84c4bdeb76be2a7a46de51244368f9794eab
+  GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
   GoogleUtilities: 3dc4ff0d5e4840e2fa8eef0889620e8c33d4218c
+  GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
   Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
@@ -162,6 +185,6 @@ SPEC CHECKSUMS:
   SwiftMessages: 539fd54a766bf08ec667e90aa141c44b8b8aaa55
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 19c4c136808cb49775b003caae9b1c8663f203ee
+PODFILE CHECKSUM: 3a2b3c1f81529c99540f45bfc11f15d6f1bb6a2d
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

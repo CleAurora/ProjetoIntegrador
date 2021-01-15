@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseAuth
+import GoogleSignIn
 
 class LoginViewModel {
     var titleBtnLogin: String{
@@ -46,7 +47,7 @@ class LoginViewModel {
         }
     }
 
-    func isAlreadyLogged(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
+    func isAlreadyLogged(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void) {
         do{
             if let user = Auth.auth().currentUser?.uid {
                 completionHandler(true,nil)
