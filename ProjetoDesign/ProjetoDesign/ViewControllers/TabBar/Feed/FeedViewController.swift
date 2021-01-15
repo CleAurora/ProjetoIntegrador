@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Reachability
+import SwiftMessages
 
 final class FeedViewController: UIViewController, HeaderDelegate {
 
@@ -18,7 +20,13 @@ final class FeedViewController: UIViewController, HeaderDelegate {
     var arrayCollection = [stories]()
     var currentUser: Profile?
 
+    private let reachability = try! Reachability()
+
     private lazy var viewModel = FeedViewModel(for: self)
+
+    deinit {
+        reachability.stopNotifier()
+    }
 
     // MARK: - Super Methods
     override func viewDidLoad() {
@@ -44,6 +52,8 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         arrayCollection.append(stories(storieImageView: "Connor"))
 
         storieCollectionView.reloadData()
+
+        setupReachability()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -53,6 +63,77 @@ final class FeedViewController: UIViewController, HeaderDelegate {
     }
 
     // MARK: - Methods
+
+    private func setupReachability() {
+        reachability.whenReachable = { [self] _ in
+            hideToastMessage()
+        }
+
+        reachability.whenUnreachable = { [self] _ in
+            showToastMessage()
+        }
+
+        try? reachability.startNotifier()
+    }
+
+    private func showToastMessage() {
+        var config = SwiftMessages.Config()
+
+        // Slide up from the bottom.
+        config.presentationStyle = .top
+
+        // Display in a window at the specified window level.
+        config.presentationContext = .window(windowLevel: .statusBar)
+
+        // Note that, as of iOS 13, it is no longer possible to cover the status bar
+        // regardless of the window level. A workaround is to hide the status bar instead.
+        config.prefersStatusBarHidden = true
+
+        // Disable the default auto-hiding behavior.
+        config.duration = .forever
+
+        // Dim the background like a popover view. Hide when the background is tapped.
+        config.dimMode = .gray(interactive: true)
+
+        // Disable the interactive pan-to-hide gesture.
+        config.interactiveHide = false
+
+        // Specify a status bar style to if the message is displayed directly under the status bar.
+        config.preferredStatusBarStyle = .lightContent
+
+        // Instantiate a message view from the provided card view layout. SwiftMessages searches for nib
+        // files in the main bundle first, so you can easily copy them into your project and make changes.
+        let view = MessageView.viewFromNib(layout: .cardView)
+
+        // Theme message elements with the warning style.
+        view.configureTheme(backgroundColor: .black, foregroundColor: .white)
+
+        // Add a drop shadow.
+        view.configureDropShadow()
+
+        // Set message title, body, and icon. Here, we're overriding the default warning
+        // image with an emoji character.
+        let iconText = ["🤔", "😳", "🙄", "😶"].randomElement()!
+        view.configureContent(
+            title: "No internet", body: "Check your connection", iconText: iconText
+        )
+
+        view.button?.setTitle("ok", for: .normal)
+        view.buttonTapHandler = { [self] _ in hideToastMessage() }
+
+        // Increase the external margin around the card. In general, the effect of this setting
+        // depends on how the given layout is constrained to the layout margins.
+        view.layoutMarginAdditions = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+
+        // Reduce the corner radius (applicable to layouts featuring rounded corners).
+        (view.backgroundView as? CornerRoundingView)?.cornerRadius = 10
+
+        SwiftMessages.show(config: config, view: view)
+    }
+
+    private func hideToastMessage() {
+        SwiftMessages.hide()
+    }
 
     func isDeveloping(){
         let alert = UIAlertController(title: "This option still under development", message: "", preferredStyle: .alert)

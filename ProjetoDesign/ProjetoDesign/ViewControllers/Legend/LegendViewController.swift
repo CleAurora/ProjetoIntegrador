@@ -89,6 +89,8 @@ final class LegendViewController: UIViewController, CLLocationManagerDelegate {
         //setup labels using MVVM Archictecture
         localLabel.text = currentWeather.cityName
         weatherLabel.text = String(format: "%.0fºC", arguments: [currentWeather.currentTemp])
+        weatherSwitch.isEnabled = currentWeather.hasTemperature
+        localSwitch.isEnabled = !currentWeather.cityName.isEmpty
     }
 
     override func viewWillDisappear(_ animated: Bool) {

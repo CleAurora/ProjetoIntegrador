@@ -14,6 +14,9 @@ target 'ProjetoDesign' do
   pod 'Firebase/Storage'
   pod 'Kingfisher', '~> 5.0'
   pod 'PKHUD'
+  pod 'ReachabilitySwift'
+  pod 'SwiftMessages'
+
   target 'ProjetoDesignTests' do
     inherit! :search_paths
     # Pods for testing
