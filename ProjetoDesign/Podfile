@@ -16,6 +16,7 @@ target 'ProjetoDesign' do
   pod 'PKHUD'
   pod 'ReachabilitySwift'
   pod 'SwiftMessages'
+  pod 'CircleBar'
 
   target 'ProjetoDesignTests' do
     inherit! :search_paths
