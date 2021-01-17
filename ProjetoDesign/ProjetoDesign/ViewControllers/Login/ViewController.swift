@@ -32,14 +32,9 @@ class ViewController: UIViewController {
         
         setupView()
         setupUI()
+        
         GIDSignIn.sharedInstance()?.presentingViewController = self
-//        if GIDSignIn.sharedInstance()?.currentUser != nil {
-//            //
-//        }else {
-//            GIDSignIn.sharedInstance()?.signIn()
-//        }
-        
-        
+
     }
     override func viewDidAppear(_ animated: Bool) {
         self.loginModel = LoginViewModel(view: self)
@@ -51,13 +46,6 @@ class ViewController: UIViewController {
                 }
             }
         })
-        
-        if GIDSignIn.sharedInstance()?.currentUser != nil {
-            print("logou")
-        }else {
-            GIDSignIn.sharedInstance()?.signIn()
-        }
-        
     }
 
     func setupUI(){
@@ -65,8 +53,6 @@ class ViewController: UIViewController {
         self.loginButton.setTitle(loginModel?.titleBtnLogin, for: .normal )
         self.registerButton.setTitle(loginModel?.titleBtnRegister, for: .normal)
         self.faceButtonTapped.setImage(UIImage(named: loginModel!.imageBtnFaceBook), for: .normal)
-        
-        //self.googleButtonTapped.setImage(UIImage(named: loginModel!.imageBtnInstagram), for: .normal)
     }
 
     // MARK: - Methods
