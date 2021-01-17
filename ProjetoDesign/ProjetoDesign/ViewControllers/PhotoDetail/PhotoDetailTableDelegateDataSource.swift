@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 final class PhotoDetailTableDelegateDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
+    
     var photoArray = [PhotoDetailModel]()
     var view = PhotoDetailViewController()
     var userRequest = ViewRequest()
@@ -18,7 +19,21 @@ final class PhotoDetailTableDelegateDataSource: NSObject, UITableViewDelegate, U
         self.userRequest = request
 
     }
-
+    func loadData(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
+        photoArray.append(
+            PhotoDetailModel(name: view.name ?? "",
+                             city: view.postDetail?.city ?? "",
+                             imageProfile: view.image ?? "",
+                             imagePost: view.postDetail?.imagePost ?? "",
+                             caption: view.postDetail?.caption ?? "",
+                             comments: "",
+                             liked: "",
+                             weather: view.postDetail?.weather ?? ""
+            ))
+        print(photoArray.count)
+        completionHandler(true, nil)
+    }
+    
     func passData(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         photoArray.append(
             PhotoDetailModel(name: userRequest.userName ?? "",
@@ -41,7 +56,7 @@ final class PhotoDetailTableDelegateDataSource: NSObject, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as! PhotoDetailTableViewCell
         cell.setup(photo: photoArray[indexPath.row])
-
+        print("cell: \(photoArray[indexPath.row].name)")
         return cell
     }
 }

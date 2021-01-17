@@ -17,7 +17,7 @@ class ProfileCollectionReusableView: UICollectionReusableView {
     @IBOutlet var followingCountLabel: UILabel!
 
     @IBOutlet var followButton: UIButton!
-
+    var urlImage: String?
     var nameTap : (() -> ()) = {}
     // MARK: - Methods
 
@@ -56,7 +56,7 @@ class ProfileCollectionReusableView: UICollectionReusableView {
                      [UIRectCorner.bottomLeft, UIRectCorner.bottomRight]
                  ).rawValue
              )
-
+        urlImage = user.profileUrl
     }
     func setup(post: Post){
         profileImageView.image = UIImage(named: post.imageProfile)
