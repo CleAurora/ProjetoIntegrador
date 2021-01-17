@@ -16,6 +16,14 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     // MARK: - UIApplicationDelegate conforms
 
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        return GIDSignIn.sharedInstance().handle(url)
+    }
+
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        return GIDSignIn.sharedInstance().handle(url)
+    }
+
     func applicationDidFinishLaunching(_ application: UIApplication) {
         UITabBar.appearance().unselectedItemTintColor = UIColor.green
         IQKeyboardManager.shared.enable = true
@@ -25,7 +33,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
         Database.database().isPersistenceEnabled = true
 
-        GIDSignIn.sharedInstance().clientID = "1014045513958-sd8mjssit23948ic7esijph1n9u7n1fc.apps.googleusercontent.com"
-        GIDSignIn.sharedInstance().delegate = self
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
     }
 }
