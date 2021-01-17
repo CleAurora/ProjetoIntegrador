@@ -44,6 +44,7 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
         super.viewDidAppear(animated)
         uploadData.photosArray.removeAll()
         grabPhotos()
+        
     }
 
     private func setupReachability() {
@@ -70,6 +71,7 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
         uploadCollectionView.delegate = uploadDataSource
         uploadCollectionView.dataSource = uploadDataSource
         uploadCollectionView.reloadData()
+        
     }
     // MARK: - IBActions
 

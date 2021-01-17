@@ -40,7 +40,7 @@ final class RegistrarViewController: UIViewController{
     @IBAction func registerButton(_ sender: Any) {
         viewModel.registerNewUser { success, _ in
             if success {
-                if let vc = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() as? TabbarController{
+                if let vc = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() as? SHCircleBarController{
                     vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                 }

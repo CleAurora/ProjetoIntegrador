@@ -62,7 +62,7 @@ class ViewController: UIViewController {
         self.loginModel = LoginViewModel(view: self)
         loginModel?.doLogin(completionHandler: { success, _ in
             if success {
-                if let vc = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() as? TabbarController{
+                if let vc = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() as? SHCircleBarController{
                     vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
                 }
