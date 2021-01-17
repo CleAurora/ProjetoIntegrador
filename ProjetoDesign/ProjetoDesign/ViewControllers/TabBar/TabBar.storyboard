@@ -70,7 +70,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="aPL-gA-eRD">
-                                <rect key="frame" x="17" y="545" width="380" height="268"/>
+                                <rect key="frame" x="17" y="545" width="380" height="351"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="Dbb-m8-pnB">
                                     <size key="itemSize" width="120" height="120"/>
@@ -131,17 +131,19 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="3qF-eb-ufD" firstAttribute="top" secondItem="AFT-Tp-Yr4" secondAttribute="top" id="0xM-Xv-Bmi"/>
-                            <constraint firstItem="aPL-gA-eRD" firstAttribute="bottom" secondItem="9vB-7T-bhw" secondAttribute="bottom" id="5XS-bI-Oea"/>
+                            <constraint firstItem="aPL-gA-eRD" firstAttribute="leading" secondItem="9vB-7T-bhw" secondAttribute="leading" constant="17" id="4k6-BP-Qa2"/>
+                            <constraint firstItem="9vB-7T-bhw" firstAttribute="trailing" secondItem="aPL-gA-eRD" secondAttribute="trailing" constant="17" id="OsD-SA-g1o"/>
                             <constraint firstItem="3qF-eb-ufD" firstAttribute="leading" secondItem="9vB-7T-bhw" secondAttribute="leading" constant="17" id="XLy-IX-Mk9"/>
-                            <constraint firstItem="aPL-gA-eRD" firstAttribute="leading" secondItem="9vB-7T-bhw" secondAttribute="leading" constant="17" id="cpa-Wy-tiQ"/>
+                            <constraint firstAttribute="bottom" secondItem="aPL-gA-eRD" secondAttribute="bottom" id="ahB-ip-Icn"/>
                             <constraint firstItem="9vB-7T-bhw" firstAttribute="trailing" secondItem="3qF-eb-ufD" secondAttribute="trailing" constant="17" id="eIP-Ew-zdG"/>
-                            <constraint firstItem="9vB-7T-bhw" firstAttribute="trailing" secondItem="aPL-gA-eRD" secondAttribute="trailing" constant="17" id="keZ-tw-zN3"/>
-                            <constraint firstItem="aPL-gA-eRD" firstAttribute="top" secondItem="3qF-eb-ufD" secondAttribute="bottom" constant="7.5" id="nQ0-Gt-v3c"/>
+                            <constraint firstItem="aPL-gA-eRD" firstAttribute="top" secondItem="3qF-eb-ufD" secondAttribute="bottom" constant="7.5" id="kdb-3r-4Ew"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="adicionar" id="doD-74-aec"/>
                     <navigationItem key="navigationItem" id="f4n-QH-dJA">
                         <barButtonItem key="backBarButtonItem" title=" " id="zIe-jh-Bbh"/>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageViewBorder" destination="3qF-eb-ufD" id="itB-kP-A9d"/>
                         <outlet property="nextButton" destination="WuB-WQ-IfE" id="Wlb-kE-GKe"/>
@@ -163,7 +165,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" springLoaded="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vZ7-jk-Yo8">
-                                <rect key="frame" x="0.0" y="-23" width="414" height="836"/>
+                                <rect key="frame" x="0.0" y="-23" width="414" height="919"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="GlN-Ds-9IN">
                                     <size key="itemSize" width="120" height="120"/>
@@ -403,13 +405,15 @@
                         <viewLayoutGuide key="safeArea" id="NeS-zw-TkG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vZ7-jk-Yo8" firstAttribute="top" secondItem="BKg-t6-pdb" secondAttribute="top" constant="-23" id="4PO-jX-Pdx"/>
-                            <constraint firstItem="vZ7-jk-Yo8" firstAttribute="leading" secondItem="NeS-zw-TkG" secondAttribute="leading" id="7B9-zs-SAT"/>
-                            <constraint firstAttribute="trailing" secondItem="vZ7-jk-Yo8" secondAttribute="trailing" id="HS4-kv-9N9"/>
-                            <constraint firstItem="NeS-zw-TkG" firstAttribute="bottom" secondItem="vZ7-jk-Yo8" secondAttribute="bottom" id="ykQ-e0-xyo"/>
+                            <constraint firstItem="vZ7-jk-Yo8" firstAttribute="trailing" secondItem="NeS-zw-TkG" secondAttribute="trailing" id="2yS-wb-mTw"/>
+                            <constraint firstItem="vZ7-jk-Yo8" firstAttribute="top" secondItem="BKg-t6-pdb" secondAttribute="top" constant="-23" id="Gfm-gS-mVC"/>
+                            <constraint firstItem="vZ7-jk-Yo8" firstAttribute="leading" secondItem="NeS-zw-TkG" secondAttribute="leading" id="PmU-Q0-MGY"/>
+                            <constraint firstAttribute="bottom" secondItem="vZ7-jk-Yo8" secondAttribute="bottom" id="qlJ-Id-P5X"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="usuario5" id="dQD-3U-LGq"/>
                     <navigationItem key="navigationItem" id="daz-VM-Etb"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="profileCollectionView" destination="vZ7-jk-Yo8" id="Exp-4T-0GE"/>
                     </connections>
@@ -834,7 +838,9 @@
                             <constraint firstAttribute="bottom" secondItem="ROO-Nc-tLX" secondAttribute="bottom" id="MJz-wL-4IR"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="menu" id="Tcg-kT-iox"/>
                     <navigationItem key="navigationItem" id="Ruc-81-nc4"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="feedTableView" destination="ROO-Nc-tLX" id="ChC-H1-f8a"/>
                         <outlet property="storieCollectionView" destination="3ha-7o-sSC" id="HSV-oO-8SK"/>
@@ -847,8 +853,8 @@
         <!--TabBar-->
         <scene sceneID="41K-cK-g8l">
             <objects>
-                <tabBarController storyboardIdentifier="TabBar" title="TabBar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CSY-Ag-cv3" customClass="TabbarController" customModule="ProjetoDesign" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="fill" id="zC8-b9-5se">
+                <tabBarController storyboardIdentifier="TabBar" title="TabBar" useStoryboardIdentifierAsRestorationIdentifier="YES" id="CSY-Ag-cv3" customClass="SHCircleBarController" customModule="ProjetoDesign" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="fill" id="zC8-b9-5se" customClass="SHCircleBar" customModule="CircleBar">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <userDefinedRuntimeAttributes>
@@ -903,7 +909,7 @@
         <scene sceneID="4fx-VV-Oj3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="arZ-xg-a4O" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" selectedImage="mais-fill" id="ukd-sa-j6J">
+                    <tabBarItem key="tabBarItem" title="" id="ukd-sa-j6J">
                         <color key="badgeColor" red="0.76702153500000003" green="0.76702153500000003" blue="0.76702153500000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -923,7 +929,7 @@
         <scene sceneID="leT-Zx-uhC">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oOO-NB-rug" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" selectedImage="homefill" id="j1h-ej-jd0"/>
+                    <tabBarItem key="tabBarItem" title="" id="j1h-ej-jd0"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="t1d-UM-X4r">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -942,7 +948,7 @@
         <scene sceneID="GyK-d9-z1n">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oFx-5C-JZy" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" selectedImage="heart-fill" id="a5h-uY-Zeg"/>
+                    <tabBarItem key="tabBarItem" title="" id="a5h-uY-Zeg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uXM-wx-gHH">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -980,7 +986,7 @@
         <scene sceneID="cCk-Uj-iJ9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hNC-1T-bht" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" selectedImage="usuario-fill" id="50v-bG-78c" colorLabel="IBBuiltInLabel-Red"/>
+                    <tabBarItem key="tabBarItem" title="" id="50v-bG-78c" colorLabel="IBBuiltInLabel-Red"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ujY-Z9-Fjj">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -996,71 +1002,27 @@
             <point key="canvasLocation" x="-1094.2028985507247" y="1083.4821428571429"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="zC8-b9-5se">
+            <size key="intrinsicContentSize" width="-1" height="83"/>
+        </designable>
+    </designables>
     <resources>
+        <image name="adicionar" width="30" height="30"/>
         <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="cloud" catalog="system" width="128" height="87"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="facebook.png" width="250" height="250"/>
-        <image name="heart-fill" width="40" height="40"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
-        <image name="homefill" width="40" height="40"/>
-        <image name="mais-fill" width="40" height="40"/>
         <image name="mais1" width="80" height="80"/>
         <image name="mel1.jpeg" width="855" height="1117.5"/>
+        <image name="menu" width="30" height="30"/>
         <image name="message.fill" catalog="system" width="128" height="113"/>
         <image name="pencil.circle" catalog="system" width="128" height="121"/>
         <image name="post1.jpg" width="384" height="256.07998657226562"/>
-        <image name="usuario-fill" width="40" height="40"/>
+        <image name="usuario5" width="30" height="30"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

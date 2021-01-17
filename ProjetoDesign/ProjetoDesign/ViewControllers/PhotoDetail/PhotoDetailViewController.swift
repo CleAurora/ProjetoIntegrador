@@ -19,37 +19,53 @@ final class PhotoDetailViewController: UIViewController {
     var viewRequest = ViewRequest()
     var user: searchModel?
     var post: PostUser?
+    var postDetail: DownloadPost?
     var photoDetail = [PostUser]()
     var name: String?
     var image: String?
     var comments: String?
-
+    var selectedFromCurrent: String?
+    
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    override func viewDidAppear(_ animated: Bool) {
         
-        getData()
+        if selectedFromCurrent != nil {
+            loadDataCurrent()
+        }else{
+            getData()
+        }
     }
     
     func getData(){
         viewRequest.userSelected = user?.userId
         viewRequest.loadData(completionHandler: { success, _ in
             if success {
-                self.tableSetup()
+                self.tablePassData()
             }
         })
     }
-
     
-    func tableSetup(){
+    func loadDataCurrent(){
         self.controller = PhotoDetailTableDelegateDataSource(view: self, request: viewRequest)
-        controller?.passData(completionHandler: { success, _ in
+        controller?.loadData(completionHandler: { success, _ in
             if success {
-                
                 self.photoTableView.delegate = self.controller
                 self.photoTableView.dataSource = self.controller
                 self.photoTableView.reloadData()
-                
+            }
+        })
+    }
+    
+    func tablePassData(){
+        self.controller = PhotoDetailTableDelegateDataSource(view: self, request: viewRequest)
+        controller?.passData(completionHandler: { success, _ in
+            if success {
+                self.photoTableView.delegate = self.controller
+                self.photoTableView.dataSource = self.controller
+                self.photoTableView.reloadData()
             }
         })
     }
