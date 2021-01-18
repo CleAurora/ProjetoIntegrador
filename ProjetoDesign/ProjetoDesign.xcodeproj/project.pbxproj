@@ -68,8 +68,11 @@
 		4C4EEFF0257AEFBA00E1D6CD /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4EEFEF257AEFBA00E1D6CD /* Usuario.swift */; };
 		4C4EEFF5257AF8F000E1D6CD /* ViewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4EEFF4257AF8F000E1D6CD /* ViewRequest.swift */; };
 		4C4EEFFA257AFC9900E1D6CD /* searchTableDelegateDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4EEFF9257AFC9900E1D6CD /* searchTableDelegateDatasource.swift */; };
+		4C4F577225B53D510071C5C6 /* cleis e mauro.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C4F577125B53D510071C5C6 /* cleis e mauro.png */; };
 		4C502F95254260540001FAB2 /* StoriesReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C502F94254260540001FAB2 /* StoriesReusableView.swift */; };
 		4C502F9A254267240001FAB2 /* BorderImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C502F99254267240001FAB2 /* BorderImage.swift */; };
+		4C5040D625B4FAB50010EB0A /* Stories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C5040D525B4FAB50010EB0A /* Stories.storyboard */; };
+		4C50412725B502540010EB0A /* StoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50412625B502540010EB0A /* StoriesViewController.swift */; };
 		4C5526EF257394A1007AA6C8 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5526EE257394A1007AA6C8 /* CurrentWeather.swift */; };
 		4C5526FD257395A8007AA6C8 /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5526FC257395A8007AA6C8 /* Locations.swift */; };
 		4C55270225739B75007AA6C8 /* Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C55270125739B75007AA6C8 /* Extras.swift */; };
@@ -220,8 +223,11 @@
 		4C4EEFEF257AEFBA00E1D6CD /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 		4C4EEFF4257AF8F000E1D6CD /* ViewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRequest.swift; sourceTree = "<group>"; };
 		4C4EEFF9257AFC9900E1D6CD /* searchTableDelegateDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchTableDelegateDatasource.swift; sourceTree = "<group>"; };
+		4C4F577125B53D510071C5C6 /* cleis e mauro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cleis e mauro.png"; sourceTree = "<group>"; };
 		4C502F94254260540001FAB2 /* StoriesReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesReusableView.swift; sourceTree = "<group>"; };
 		4C502F99254267240001FAB2 /* BorderImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderImage.swift; sourceTree = "<group>"; };
+		4C5040D525B4FAB50010EB0A /* Stories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Stories.storyboard; sourceTree = "<group>"; };
+		4C50412625B502540010EB0A /* StoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewController.swift; sourceTree = "<group>"; };
 		4C5526EE257394A1007AA6C8 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		4C5526FC257395A8007AA6C8 /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 		4C55270125739B75007AA6C8 /* Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extras.swift; sourceTree = "<group>"; };
@@ -470,6 +476,7 @@
 				4C6DF0A8252B5B030099D857 /* melissa */,
 				4CCB5269252A474700F9AB19 /* 1.jpg */,
 				4C0D1A17252A7BCC00462862 /* brendon.jpg */,
+				4C4F577125B53D510071C5C6 /* cleis e mauro.png */,
 				4C0D19F3252A6D7E00462862 /* trash.png */,
 				4C0D1A0B252A768300462862 /* emptyHeart.png */,
 				4C0D1A09252A768200462862 /* heart1.png */,
@@ -525,6 +532,23 @@
 				4C474746257C75CC00D09556 /* readFollow.swift */,
 			);
 			path = Follow;
+			sourceTree = "<group>";
+		};
+		4C5040D325B4F9CA0010EB0A /* Stories */ = {
+			isa = PBXGroup;
+			children = (
+				4C5040D425B4F9D10010EB0A /* NewData */,
+			);
+			path = Stories;
+			sourceTree = "<group>";
+		};
+		4C5040D425B4F9D10010EB0A /* NewData */ = {
+			isa = PBXGroup;
+			children = (
+				4C5040D525B4FAB50010EB0A /* Stories.storyboard */,
+				4C50412625B502540010EB0A /* StoriesViewController.swift */,
+			);
+			path = NewData;
 			sourceTree = "<group>";
 		};
 		4C573F2B2545DFD900A2982F /* PhotoDetail */ = {
@@ -622,6 +646,7 @@
 		4C6E473E252E8640001F74A9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4C5040D325B4F9CA0010EB0A /* Stories */,
 				4C573F2B2545DFD900A2982F /* PhotoDetail */,
 				4C8F1538254373CF0010F790 /* Profile */,
 				4CADCC922542264C005676F7 /* Comments */,
@@ -908,11 +933,13 @@
 				4C0D1A18252A7BCC00462862 /* brendon.jpg in Resources */,
 				4CCB5243252A45E800F9AB19 /* LaunchScreen.storyboard in Resources */,
 				4C0D1A13252A786100462862 /* heart0.png in Resources */,
+				4C5040D625B4FAB50010EB0A /* Stories.storyboard in Resources */,
 				4CDB7B20254F480E00A97B25 /* mel4.jpg in Resources */,
 				4CADCC9425422665005676F7 /* Comments.storyboard in Resources */,
 				4C57A13E253F89310018C522 /* search.storyboard in Resources */,
 				4C6DF0B5252B5D510099D857 /* miles0.jpeg in Resources */,
 				4C573F2D2545DFF100A2982F /* PhotoDetail.storyboard in Resources */,
+				4C4F577225B53D510071C5C6 /* cleis e mauro.png in Resources */,
 				4C0D1A29252A801E00462862 /* post3.jpg in Resources */,
 				4C0D1A0C252A768300462862 /* heart1.png in Resources */,
 				4C0D19F9252A6D8200462862 /* tag.png in Resources */,
@@ -1100,6 +1127,7 @@
 			files = (
 				4CE0F2EB257B37B9007DA03C /* editProfileViewModel.swift in Sources */,
 				4CCB5275252A4B2100F9AB19 /* RoundedView.swift in Sources */,
+				4C50412725B502540010EB0A /* StoriesViewController.swift in Sources */,
 				4C474747257C75CC00D09556 /* readFollow.swift in Sources */,
 				4C47473E257C735200D09556 /* FollowRequest.swift in Sources */,
 				42D2B1F6257DAB6900E4AC6C /* LegendViewModel.swift in Sources */,

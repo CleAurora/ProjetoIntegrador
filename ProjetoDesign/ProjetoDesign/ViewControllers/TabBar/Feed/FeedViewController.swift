@@ -291,7 +291,19 @@ extension FeedViewController: UICollectionViewDataSource{
     }
 
     func doSomething() {
-        isDeveloping()
+        
+        if let vc = UIStoryboard(name: "Stories", bundle: nil).instantiateInitialViewController() as? StoriesViewController {
+
+            let transition = CATransition()
+            transition.duration = 0.5
+            transition.type = CATransitionType.push
+            transition.subtype = CATransitionSubtype.fromLeft
+            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+            view.window?.layer.add(transition, forKey: kCATransition)
+            vc.modalPresentationStyle = .fullScreen
+            vc.view.window?.layer.add(transition, forKey: kCATransition)
+            self.present(vc, animated: true, completion: nil)
+        }
     }
 }
 extension UIImage {
