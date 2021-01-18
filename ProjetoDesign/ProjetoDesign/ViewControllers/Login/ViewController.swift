@@ -34,18 +34,6 @@ class ViewController: UIViewController {
         setupUI()
         
         GIDSignIn.sharedInstance()?.presentingViewController = self
-
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        self.loginModel = LoginViewModel(view: self)
-        loginModel?.isAlreadyLogged(completionHandler: { success, _ in
-            if success {
-                if let vc = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() as? SHCircleBarController{
-                    vc.modalPresentationStyle = .fullScreen
-                    self.present(vc, animated: true, completion: nil)
-                }
-            }
-        })
     }
 
     func setupUI(){
