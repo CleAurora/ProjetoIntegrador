@@ -128,6 +128,7 @@
 		4CCB527F252A4B5100F9AB19 /* editTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB527E252A4B5100F9AB19 /* editTextField.swift */; };
 		4CCB5285252A4DB000F9AB19 /* Registrar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CCB5284252A4DB000F9AB19 /* Registrar.storyboard */; };
 		4CCB528A252A4DC000F9AB19 /* RegistrarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB5289252A4DC000F9AB19 /* RegistrarViewController.swift */; };
+		4CD2EB9D25B7676B00EF5B1C /* StoriesDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD2EB9C25B7676B00EF5B1C /* StoriesDownload.swift */; };
 		4CD4D89125B6A13E0039D5E8 /* StoriesLoaded.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4D89025B6A13E0039D5E8 /* StoriesLoaded.storyboard */; };
 		4CD4D93125B6AFD30039D5E8 /* StoriesLoadedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4D93025B6AFD30039D5E8 /* StoriesLoadedViewController.swift */; };
 		4CD4D95C25B6BB2A0039D5E8 /* StoriesLoadedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4D95B25B6BB2A0039D5E8 /* StoriesLoadedCollectionViewCell.swift */; };
@@ -292,6 +293,7 @@
 		4CCB527E252A4B5100F9AB19 /* editTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editTextField.swift; sourceTree = "<group>"; };
 		4CCB5284252A4DB000F9AB19 /* Registrar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registrar.storyboard; sourceTree = "<group>"; };
 		4CCB5289252A4DC000F9AB19 /* RegistrarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrarViewController.swift; sourceTree = "<group>"; };
+		4CD2EB9C25B7676B00EF5B1C /* StoriesDownload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesDownload.swift; sourceTree = "<group>"; };
 		4CD4D89025B6A13E0039D5E8 /* StoriesLoaded.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoriesLoaded.storyboard; sourceTree = "<group>"; };
 		4CD4D93025B6AFD30039D5E8 /* StoriesLoadedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesLoadedViewController.swift; sourceTree = "<group>"; };
 		4CD4D95B25B6BB2A0039D5E8 /* StoriesLoadedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesLoadedCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -803,6 +805,7 @@
 				4CD4D89025B6A13E0039D5E8 /* StoriesLoaded.storyboard */,
 				4CD4D93025B6AFD30039D5E8 /* StoriesLoadedViewController.swift */,
 				4CD4D95B25B6BB2A0039D5E8 /* StoriesLoadedCollectionViewCell.swift */,
+				4CD2EB9C25B7676B00EF5B1C /* StoriesDownload.swift */,
 			);
 			path = loadStories;
 			sourceTree = "<group>";
@@ -1145,6 +1148,7 @@
 			files = (
 				4CE0F2EB257B37B9007DA03C /* editProfileViewModel.swift in Sources */,
 				4CCB5275252A4B2100F9AB19 /* RoundedView.swift in Sources */,
+				4CD2EB9D25B7676B00EF5B1C /* StoriesDownload.swift in Sources */,
 				4C50412725B502540010EB0A /* StoriesViewController.swift in Sources */,
 				4C474747257C75CC00D09556 /* readFollow.swift in Sources */,
 				4C47473E257C735200D09556 /* FollowRequest.swift in Sources */,

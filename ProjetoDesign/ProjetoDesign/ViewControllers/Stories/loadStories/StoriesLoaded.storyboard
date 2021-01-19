@@ -51,6 +51,9 @@
                                         </collectionViewCellContentView>
                                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                         <size key="customSize" width="416" height="910"/>
+                                        <connections>
+                                            <outlet property="StoriesImage" destination="ggN-4F-EJv" id="25u-Lz-z0E"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>

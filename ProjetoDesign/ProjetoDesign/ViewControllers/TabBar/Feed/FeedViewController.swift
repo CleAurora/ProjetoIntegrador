@@ -8,7 +8,7 @@
 import UIKit
 import Reachability
 import SwiftMessages
-
+import Firebase
 final class FeedViewController: UIViewController, HeaderDelegate {
 
     // MARK: - IBOutlets
@@ -54,6 +54,7 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         storieCollectionView.reloadData()
 
         setupReachability()
+      
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -61,7 +62,6 @@ final class FeedViewController: UIViewController, HeaderDelegate {
 
         feedTableView.reloadData()
     }
-
     // MARK: - Methods
 
     private func setupReachability() {

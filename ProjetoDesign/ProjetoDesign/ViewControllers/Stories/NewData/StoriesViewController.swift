@@ -105,6 +105,7 @@ class StoriesViewController: UIViewController , UIImagePickerControllerDelegate,
     @IBAction func closedButton(_ sender: Any) {
         closeLeftToRight()
     }
+    
     func closeLeftToRight(){
         if let presentedVC = presentedViewController {
             let transition = CATransition()
@@ -155,7 +156,7 @@ class StoriesViewController: UIViewController , UIImagePickerControllerDelegate,
                 "storyImage": profileURL.absoluteString
             ]
 
-            ref.child("stories").child(currentUserID).setValue(dict) { (error, _) in
+            ref.child("stories").child(currentUserID).childByAutoId().updateChildValues(dict) { (error, _) in
                 if let error = error {
                     return completionHandler(nil, error)
                 }
