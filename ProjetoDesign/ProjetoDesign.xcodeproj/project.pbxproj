@@ -128,6 +128,9 @@
 		4CCB527F252A4B5100F9AB19 /* editTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB527E252A4B5100F9AB19 /* editTextField.swift */; };
 		4CCB5285252A4DB000F9AB19 /* Registrar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CCB5284252A4DB000F9AB19 /* Registrar.storyboard */; };
 		4CCB528A252A4DC000F9AB19 /* RegistrarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB5289252A4DC000F9AB19 /* RegistrarViewController.swift */; };
+		4CD4D89125B6A13E0039D5E8 /* StoriesLoaded.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4D89025B6A13E0039D5E8 /* StoriesLoaded.storyboard */; };
+		4CD4D93125B6AFD30039D5E8 /* StoriesLoadedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4D93025B6AFD30039D5E8 /* StoriesLoadedViewController.swift */; };
+		4CD4D95C25B6BB2A0039D5E8 /* StoriesLoadedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4D95B25B6BB2A0039D5E8 /* StoriesLoadedCollectionViewCell.swift */; };
 		4CDB7B18254F47E500A97B25 /* mel3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4CDB7B17254F47E500A97B25 /* mel3.jpeg */; };
 		4CDB7B20254F480E00A97B25 /* mel4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CDB7B1F254F480E00A97B25 /* mel4.jpg */; };
 		4CE0F2E6257B2671007DA03C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE0F2E5257B2671007DA03C /* ProfileViewModel.swift */; };
@@ -289,6 +292,9 @@
 		4CCB527E252A4B5100F9AB19 /* editTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editTextField.swift; sourceTree = "<group>"; };
 		4CCB5284252A4DB000F9AB19 /* Registrar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registrar.storyboard; sourceTree = "<group>"; };
 		4CCB5289252A4DC000F9AB19 /* RegistrarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrarViewController.swift; sourceTree = "<group>"; };
+		4CD4D89025B6A13E0039D5E8 /* StoriesLoaded.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoriesLoaded.storyboard; sourceTree = "<group>"; };
+		4CD4D93025B6AFD30039D5E8 /* StoriesLoadedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesLoadedViewController.swift; sourceTree = "<group>"; };
+		4CD4D95B25B6BB2A0039D5E8 /* StoriesLoadedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesLoadedCollectionViewCell.swift; sourceTree = "<group>"; };
 		4CDB7B17254F47E500A97B25 /* mel3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel3.jpeg; sourceTree = "<group>"; };
 		4CDB7B1F254F480E00A97B25 /* mel4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel4.jpg; sourceTree = "<group>"; };
 		4CE0F2E5257B2671007DA03C /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -537,6 +543,7 @@
 		4C5040D325B4F9CA0010EB0A /* Stories */ = {
 			isa = PBXGroup;
 			children = (
+				4CD4D88C25B6A0DF0039D5E8 /* loadStories */,
 				4C5040D425B4F9D10010EB0A /* NewData */,
 			);
 			path = Stories;
@@ -790,6 +797,16 @@
 			path = Registrar;
 			sourceTree = "<group>";
 		};
+		4CD4D88C25B6A0DF0039D5E8 /* loadStories */ = {
+			isa = PBXGroup;
+			children = (
+				4CD4D89025B6A13E0039D5E8 /* StoriesLoaded.storyboard */,
+				4CD4D93025B6AFD30039D5E8 /* StoriesLoadedViewController.swift */,
+				4CD4D95B25B6BB2A0039D5E8 /* StoriesLoadedCollectionViewCell.swift */,
+			);
+			path = loadStories;
+			sourceTree = "<group>";
+		};
 		4CF5BFF72564D6FB004AFFB5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -952,6 +969,7 @@
 				4C0D1A0D252A768300462862 /* heart2.png in Resources */,
 				4CCB526A252A474700F9AB19 /* 1.jpg in Resources */,
 				4CCB526F252A4A9A00F9AB19 /* 2.jpg in Resources */,
+				4CD4D89125B6A13E0039D5E8 /* StoriesLoaded.storyboard in Resources */,
 				4CCB5240252A45E800F9AB19 /* Assets.xcassets in Resources */,
 				4C0D1A2A252A801E00462862 /* post1.jpg in Resources */,
 				4C6DF0B6252B5D510099D857 /* miles1.jpeg in Resources */,
@@ -1162,6 +1180,7 @@
 				4CCB523B252A45E700F9AB19 /* SignInViewController.swift in Sources */,
 				4C5526FD257395A8007AA6C8 /* Locations.swift in Sources */,
 				4C0D1A56252A98FF00462862 /* ImagensProfile.swift in Sources */,
+				4CD4D95C25B6BB2A0039D5E8 /* StoriesLoadedCollectionViewCell.swift in Sources */,
 				4C1C4D58257C6296003CA5AA /* UserCollectionDelegateDataSource.swift in Sources */,
 				42D2B1F1257DA06200E4AC6C /* FirebaseRealtimeDatabaseLegendService.swift in Sources */,
 				4C0D1A4C252A920500462862 /* Profile.swift in Sources */,
@@ -1183,6 +1202,7 @@
 				4C0FC37725B4BF3700B45394 /* SHCircleBar.swift in Sources */,
 				4C474739257C65E700D09556 /* userSelectedrequest.swift in Sources */,
 				4C573F3D2545E8E700A2982F /* PhotoDetail.swift in Sources */,
+				4CD4D93125B6AFD30039D5E8 /* StoriesLoadedViewController.swift in Sources */,
 				4C47EE84254634F6000F934B /* PhotoDetailTableViewCell.swift in Sources */,
 				4C4EEFF0257AEFBA00E1D6CD /* Usuario.swift in Sources */,
 				4C57A149253F8CC40018C522 /* SearchTableCell.swift in Sources */,

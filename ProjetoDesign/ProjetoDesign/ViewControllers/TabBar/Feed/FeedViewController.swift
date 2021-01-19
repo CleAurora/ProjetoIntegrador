@@ -262,7 +262,10 @@ extension FeedViewController: ButtonsTableView{
 
 extension FeedViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        isDeveloping()
+        if let vc = UIStoryboard(name: "StoriesLoaded", bundle: nil).instantiateInitialViewController() as? StoriesLoadedViewController {
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true, completion: nil)
+        }
     }
 }
 
