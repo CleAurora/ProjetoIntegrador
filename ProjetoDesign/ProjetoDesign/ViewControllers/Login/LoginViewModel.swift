@@ -9,8 +9,8 @@ import Foundation
 import FirebaseAuth
 import GoogleSignIn
 
-class LoginViewModel {
-    var titleBtnLogin: String{
+final class LoginViewModel {
+    var titleBtnLogin: String {
         return "Login"
     }
 
@@ -25,35 +25,31 @@ class LoginViewModel {
     var imageBtnFaceBook: String {
         return "face"
     }
-    var view = ViewController()
 
-    init(view: ViewController) {
-        self.view = view
+    private weak var viewController: SignInViewController?
+
+    init(view: SignInViewController) {
+        self.viewController = view
     }
 
     func doLogin(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
+        if let viewController = viewController, let email = viewController.emailTextField.text,
+           let password = viewController.passwordTextField.text {
+            Auth.auth().signIn(withEmail: email, password: password) { (_, error) in
+                guard error == nil else {
+                    return completionHandler(false, error)
+                }
 
-        do{
-            Auth.auth().signIn(withEmail: view.emailTextField.text!, password: view.passwordTextField.text!) { [weak self] user, error in
-               if error != nil{
-                   print("me")
-                   print(error!.localizedDescription)
-                   return
-               }
-               completionHandler(true,nil)
-           }
-        }catch{
-            completionHandler(false,nil)
+                return completionHandler(true, nil)
+            }
+        } else {
+            completionHandler(false, NSError(domain: #function, code: 0, userInfo: [:]))
         }
     }
 
     func isAlreadyLogged(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void) {
-        do{
-            if let user = Auth.auth().currentUser?.uid {
-                completionHandler(true,nil)
-            }
-        }catch{
-            completionHandler(false,nil)
-        }
+        let isLogged = Auth.auth().currentUser?.uid != nil
+
+        completionHandler(isLogged, nil)
     }
 }

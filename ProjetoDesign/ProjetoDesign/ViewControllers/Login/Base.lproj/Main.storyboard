@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Sign In View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ProjetoDesign" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SignInViewController" customModule="ProjetoDesign" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -95,10 +95,6 @@
                                             <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2Jc-Z0-9Gz"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yrc-bW-nHg" customClass="GIDSignInButton">
-                                        <rect key="frame" x="95" y="112" width="232" height="128"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -106,14 +102,10 @@
                                     <constraint firstAttribute="bottom" secondItem="9oN-pL-PF4" secondAttribute="bottom" constant="60" id="3SF-L6-8WO"/>
                                     <constraint firstAttribute="bottom" secondItem="kMF-mj-qrR" secondAttribute="bottom" constant="60" id="41k-ox-HLN"/>
                                     <constraint firstItem="kMF-mj-qrR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9oN-pL-PF4" secondAttribute="trailing" constant="8" symbolic="YES" id="B0C-58-Bmb"/>
-                                    <constraint firstItem="Yrc-bW-nHg" firstAttribute="leading" secondItem="9oN-pL-PF4" secondAttribute="trailing" constant="8" symbolic="YES" id="IEU-4W-m2L"/>
                                     <constraint firstItem="9oN-pL-PF4" firstAttribute="leading" secondItem="VdV-oZ-PgY" secondAttribute="leading" constant="30" id="KIl-9G-IHj"/>
-                                    <constraint firstAttribute="bottom" secondItem="Yrc-bW-nHg" secondAttribute="bottom" constant="96" id="OrK-WT-P0D"/>
-                                    <constraint firstItem="Yrc-bW-nHg" firstAttribute="top" secondItem="rGp-Bh-Vr1" secondAttribute="bottom" constant="8" symbolic="YES" id="h4P-9E-Z1c"/>
                                     <constraint firstItem="rGp-Bh-Vr1" firstAttribute="top" secondItem="VdV-oZ-PgY" secondAttribute="top" constant="64" id="kKX-LR-Krt"/>
                                     <constraint firstAttribute="trailing" secondItem="rGp-Bh-Vr1" secondAttribute="trailing" constant="159" id="mif-MM-ANc"/>
                                     <constraint firstAttribute="trailing" secondItem="kMF-mj-qrR" secondAttribute="trailing" constant="30" id="sYE-7v-ife"/>
-                                    <constraint firstAttribute="trailing" secondItem="Yrc-bW-nHg" secondAttribute="trailing" constant="87" id="uQS-PW-OzC"/>
                                 </constraints>
                             </view>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wzd-zj-TZR" userLabel="BackgroundContainerView">
@@ -226,7 +218,6 @@
                         <outlet property="backgroundImageView" destination="Y5z-yZ-uQQ" id="qxv-gw-0o7"/>
                         <outlet property="emailTextField" destination="sIA-PZ-hJa" id="AKF-dk-bjf"/>
                         <outlet property="faceButtonTapped" destination="Axj-Yt-znw" id="jys-5N-hqk"/>
-                        <outlet property="googleButtonTapped" destination="Yrc-bW-nHg" id="yMQ-Uq-JMR"/>
                         <outlet property="loginButton" destination="kMF-mj-qrR" id="9bb-fY-gqR"/>
                         <outlet property="loginView" destination="qGq-M4-2Mr" id="0Fq-sa-t4g"/>
                         <outlet property="passwordTextField" destination="jlC-PX-LAG" id="VCn-wu-2pm"/>
@@ -248,9 +239,6 @@
         <image name="face" width="64" height="64"/>
         <image name="google" width="64" height="64"/>
         <image name="password" width="50" height="50"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
