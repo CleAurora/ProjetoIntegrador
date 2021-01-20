@@ -19,7 +19,8 @@ final class FeedViewController: UIViewController, HeaderDelegate {
     var arrayTable = [Post]()
     var arrayCollection = [stories]()
     var currentUser: Profile?
-
+    var ref: DatabaseReference!
+    
     private let reachability = try! Reachability()
 
     private lazy var viewModel = FeedViewModel(for: self)
@@ -54,6 +55,7 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         storieCollectionView.reloadData()
 
         setupReachability()
+        
       
     }
 
@@ -61,9 +63,38 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         super.viewWillAppear(animated)
 
         feedTableView.reloadData()
+        removeOldStories()
     }
     // MARK: - Methods
+    func removeOldStories(){
+        self.ref = Database.database().reference()
+        let reference = self.ref.child("stories")
+            reference.observe(.value) { (snapshot) in
+            
+            if let stories = snapshot.value as? [String: AnyObject] {
+                for (_, value) in stories {
+                    print(value)
+                    let storiesToshow = StoriesModel()
+                    
+                    let image = value["storyImage"] as? String
+                    let userID = value["userID"] as? String
+                    let timeStamp = value["TimeStamp"] as? Double
+                    
+                    storiesToshow.image = image
+                    storiesToshow.timeStamp = timeStamp
+                    storiesToshow.userID = userID
+                    
+                    print(storiesToshow.image)
+                    if let time = storiesToshow.timeStamp {
+                        let exampleDate = time + 15000
+                        print(exampleDate)
 
+                    }
+                }
+            }
+            
+        }
+    }
     private func setupReachability() {
         reachability.whenReachable = { [self] _ in
             hideToastMessage()
