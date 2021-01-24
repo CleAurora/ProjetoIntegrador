@@ -12,6 +12,10 @@ class StoriesModel: NSObject {
     var userID: String!
     var timeStamp: Double!
     var image: String!
+    var duration: Int!
+    var childID: String!
+    var nameUser: String?
+    var imageProfile: String?
 }
 
 class StoriesDownload {
@@ -19,33 +23,40 @@ class StoriesDownload {
     var uid = Auth.auth().currentUser?.uid
     var storiesData = [StoriesModel]()
     
-    func downloadStories(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
-        
+    func downloadStories(User: String!, UserName: String!, UserProfile: String!, completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
+        self.storiesData.removeAll()
         self.ref = Database.database().reference()
         
-        let reference = ref.child("stories").child(uid!)
+        let reference = ref.child("stories").child(User)
         reference.queryOrdered(byChild: "TimeStamp").observeSingleEvent(of: .value, with: {snapshot in
-            //queryOrderedByKey
-            if let stories = snapshot.value as? [String: AnyObject] {
-  
-                for(_, value) in stories {
+            for postSnapshot in snapshot.children.allObjects as! [DataSnapshot] {
+
+                if let value = postSnapshot.value as? [String: AnyObject]{
+                    
                     let storiesToShow = StoriesModel()
                     
-                    let image = value["storyImage"] as? String
+                    let image = value["StorieImage"] as? String
                     let userID = value["userID"] as? String
                     let timeStamp = value["TimeStamp"] as? Double
+                    let duration = value["Duration"] as? Int
+                    let childID = value["childID"] as? String
                     
                     storiesToShow.image = image
                     storiesToShow.timeStamp = timeStamp
                     storiesToShow.userID = userID
+                    storiesToShow.duration = duration
+                    storiesToShow.childID = childID
+                    storiesToShow.nameUser = UserName
+                    storiesToShow.imageProfile = UserProfile
                     
-                   
-                    self.storiesData.append(storiesToShow)
-                    print(storiesToShow.image)
-                    print(self.storiesData.count)
+                    if self.storiesData.append(storiesToShow) != nil {
+                        
+                        completionHandler(true,nil)
+                    }
+                    
                 }
             }
-            completionHandler(true,nil)
+            
         })
     }
 }

@@ -23,9 +23,11 @@ class DownloadImages {
             self.selectedPost.removeAll()
             self.ref = Database.database().reference()
             let reference = ref.child("posts")
-            reference.observe(.value, with: {(snapshot) in
-                if let posts = snapshot.value as? [String: AnyObject] {
-                    for(_, value) in posts {
+            reference.queryOrderedByKey().observe(.value, with: {(snapshot) in
+                for postSnapshot in snapshot.children.allObjects as! [DataSnapshot] {
+                    
+                    if let value = postSnapshot.value as? [String: AnyObject]{
+                      
                        let userToshow = DownloadPost()
 
                         let imagePost = value["ImageUrl"] as? String
@@ -66,14 +68,17 @@ class DownloadImages {
                         if let user = self.uid {
                             if user == userToshow.userID {
                                 self.currentUserPost.append(userToshow)
+                               
                             }
                             }
                         let userSelectedID = self.selectedUser?.userID
 
                         if userSelectedID == userToshow.userID{
-                        self.selectedPost.append(userToshow)
+                            self.selectedPost.append(userToshow)
+                            
                         }
                     }
+                    
                     completionHandler(true,nil)
                 }
             })

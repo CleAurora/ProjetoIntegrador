@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class StorieCollectionCell: UICollectionViewCell {
     // MARK: - IBOtlets
@@ -20,5 +21,11 @@ class StorieCollectionCell: UICollectionViewCell {
     func user(storie: Profile){
         myImageView.image = UIImage(named: storie.profileImage)
         borderView.backgroundColor = UIColor(patternImage: UIImage(named: "stories2.jpg")!)
+    }
+    func setupUser(stories: Usuario){
+        if let photo = stories.profileUrl {
+            myImageView.kf.setImage(with: URL(string: photo))
+            borderView.backgroundColor = UIColor(patternImage: UIImage(named: "stories2.jpg")!)
+        }
     }
 }

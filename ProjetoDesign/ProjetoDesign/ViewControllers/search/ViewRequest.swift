@@ -16,14 +16,18 @@ class ViewRequest{
     var allUserArray = [Usuario]()
     var currentUser = [Usuario]()
     var notificationsUser = [Usuario]()
+    var storiesUser = [Usuario]()
     var whoIsFollowing: String?
     var userSelected: String?
     var userName: String?
     var imageProfile: String?
+    var userHasActiveStories = [String]()
     
     func loadData(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         self.userArray.removeAll()
+        self.storiesUser.removeAll()
         self.notificationsUser.removeAll()
+        
         self.ref = Database.database().reference()
         if let uid = Auth.auth().currentUser?.uid {
             let reference = self.ref.child("users")
@@ -60,10 +64,11 @@ class ViewRequest{
                             }else{
                                 self.currentUser.append(userToshow)
                             }
-                            
+                    
                             if self.whoIsFollowing == userToshow.userID {
                                 self.notificationsUser.append(userToshow)
                             }
+                            
                             if self.userSelected == userToshow.userID {
                                 self.userName = userToshow.name
                                 self.imageProfile = userToshow.profileUrl

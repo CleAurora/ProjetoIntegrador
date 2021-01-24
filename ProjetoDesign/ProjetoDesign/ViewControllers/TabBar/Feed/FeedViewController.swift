@@ -14,13 +14,18 @@ final class FeedViewController: UIViewController, HeaderDelegate {
     // MARK: - IBOutlets
     @IBOutlet weak var feedTableView: UITableView!
     @IBOutlet weak var storieCollectionView: UICollectionView!
-
+    
+   
+    
     // MARK: - Proprierts
     var arrayTable = [Post]()
     var arrayCollection = [stories]()
     var currentUser: Profile?
     var ref: DatabaseReference!
-    
+    var gameTimer: Timer?
+    var storiesArray = [StoriesModel]()
+    var storiesRequest = StoriesRequest()
+    var storiesUsario = [Usuario]()
     private let reachability = try! Reachability()
 
     private lazy var viewModel = FeedViewModel(for: self)
@@ -34,7 +39,7 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         super.viewDidLoad()
 
         setupTableView()
-        setupCollection()
+        //setupCollection()
 
         navigationController?.navigationBar.isHidden = true
 
@@ -53,42 +58,64 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         arrayCollection.append(stories(storieImageView: "Connor"))
 
         storieCollectionView.reloadData()
+        checkStories()
 
         setupReachability()
-        
+        gameTimer = Timer.scheduledTimer(timeInterval: 3600, target: self, selector: #selector(removeOldStories), userInfo: nil, repeats: true)
       
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+     //  checkStories()
         feedTableView.reloadData()
-        removeOldStories()
+    }
+
+    func checkStories(){
+        
+        storiesRequest.checkFollowing(completionHandler: { success, _ in
+            if success {
+                print("setup")
+                print(self.storiesRequest.storiesUser.count)
+                self.setupCollection()
+            }
+        })
     }
     // MARK: - Methods
-    func removeOldStories(){
+    @objc func removeOldStories(){
         self.ref = Database.database().reference()
         let reference = self.ref.child("stories")
             reference.observe(.value) { (snapshot) in
             
             if let stories = snapshot.value as? [String: AnyObject] {
                 for (_, value) in stories {
-                    print(value)
+                   
                     let storiesToshow = StoriesModel()
                     
-                    let image = value["storyImage"] as? String
+                    let image = value["StorieImage"] as? String
                     let userID = value["userID"] as? String
                     let timeStamp = value["TimeStamp"] as? Double
+                    let duration = value["Duration"] as? Int
+                    let childID = value["childID"] as? String
                     
                     storiesToshow.image = image
                     storiesToshow.timeStamp = timeStamp
                     storiesToshow.userID = userID
+                    storiesToshow.duration = duration
+                    storiesToshow.childID = childID
                     
-                    print(storiesToshow.image)
                     if let time = storiesToshow.timeStamp {
-                        let exampleDate = time + 15000
-                        print(exampleDate)
-
+                        let exampleDate = time + 86400
+                        let dateNow = Date().timeIntervalSince1970
+                        
+                        if let childKey = storiesToshow.childID {
+                            if exampleDate <= dateNow {
+                                self.ref.child("stories").child(childKey).removeValue()
+                                print("expired")
+                            }else {
+                                print("not expired")
+                            }
+                        }
                     }
                 }
             }
@@ -182,6 +209,8 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         storieCollectionView.delegate = self
         storieCollectionView.dataSource = self
         storieCollectionView.reloadData()
+        
+        
     }
 
     // MARK: - IBActions
@@ -248,7 +277,6 @@ extension FeedViewController: UITableViewDataSource{
                     )})
                 }else {
                     cell.viewLiked.backgroundColor = UIColor.lightGray
-                    //cell.likeImageView.image = UIImage(named: "heart0.png")
                     cell.heart = "Item"
 
                     let toImage = UIImage(named:"broken")
@@ -260,7 +288,7 @@ extension FeedViewController: UITableViewDataSource{
                                             cell.likeImageView.image = toImage
                                           },
                                           completion: {_ in (
-                                            //let notImage = UIImage(named:"")
+    
                                             UIView.transition(with: cell.likeImageView,
                                                 duration: 1,
                                                 options: .transitionCrossDissolve,
@@ -295,6 +323,7 @@ extension FeedViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vc = UIStoryboard(name: "StoriesLoaded", bundle: nil).instantiateInitialViewController() as? StoriesLoadedViewController {
             vc.modalPresentationStyle = .fullScreen
+            vc.storiesUser = self.storiesRequest.storiesUser[indexPath.row]
             present(vc, animated: true, completion: nil)
         }
     }
@@ -302,12 +331,13 @@ extension FeedViewController: UICollectionViewDelegate{
 
 extension FeedViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return arrayCollection.count
+        return self.storiesRequest.storiesUser.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "storieCell", for: indexPath) as! StorieCollectionCell
-        cell.setup(storie: arrayCollection[indexPath.row])
+        cell.setupUser(stories: self.storiesRequest.storiesUser[indexPath.row])
         return cell
     }
 

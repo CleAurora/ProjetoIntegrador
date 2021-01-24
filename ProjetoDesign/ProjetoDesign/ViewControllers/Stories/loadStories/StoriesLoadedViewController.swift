@@ -16,32 +16,34 @@ class StoriesLoadedViewController: UIViewController, ProgressBarDelegate, UIColl
     @IBOutlet var backgroundSegmented: UIView!
     @IBOutlet var storiesCollectionView: UICollectionView!
     @IBOutlet var xibProgressView: SegmentedProgressView!
-    //@IBOutlet weak var xibProgressView: SegmentedProgressView!
+    
     var images: [UIImage] = []
+    var storiesUser: Usuario?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        getStories()
     }
+    
     override func viewDidAppear(_ animated: Bool) {
         
           storiesCollectionView.delegate = self
           storiesCollectionView.dataSource = self
           storiesCollectionView.reloadData()
           
-          items = []
-
-          images.append(UIImage(named: "melissa234")!)
-          images.append(UIImage(named: "melissa5")!)
+         // items = []
           
-          getStories()
+          //getStories()
         
     }
     func getStories(){
-        storiesRequest.downloadStories(completionHandler: { success, _ in
-            if success {
-                self.progressSetup()
-            }
-        })
+        if let userID = storiesUser?.userID, let name = storiesUser?.name, let image = storiesUser?.profileUrl {
+            
+            storiesRequest.downloadStories(User: userID, UserName: name, UserProfile: image, completionHandler: { success, _ in
+                if success {
+                   self.progressSetup()
+                }
+            })
+        }
     }
     
     func startTimer() {
@@ -59,8 +61,12 @@ class StoriesLoadedViewController: UIViewController, ProgressBarDelegate, UIColl
 
         if storiesCollectionView.contentSize.width <= storiesCollectionView.contentOffset.x + cellSize.width
         {
-            let r = CGRect(x: 0, y: contentOffset.y, width: cellSize.width, height: cellSize.height)
-            storiesCollectionView.scrollRectToVisible(r, animated: true)
+            //WIP
+//            let r = CGRect(x: 0, y: contentOffset.y, width: cellSize.width, height: cellSize.height)
+//            storiesCollectionView.scrollRectToVisible(r, animated: true)
+            
+            dismiss(animated: true, completion: nil)
+            
         } else {
             let r = CGRect(x: contentOffset.x + cellSize.width, y: contentOffset.y, width: cellSize.width, height: cellSize.height)
             storiesCollectionView.scrollRectToVisible(r, animated: true);
@@ -68,15 +74,21 @@ class StoriesLoadedViewController: UIViewController, ProgressBarDelegate, UIColl
     }
 
     func progressSetup(){
-        for _ in storiesRequest.storiesData{
-            items.append(ProgressItem(withDuration: 3))
-        }
+        //WIP
+//        for _ in storiesRequest.storiesData{
+//
+//            items.append(ProgressItem(withDuration: 3))
+//            print(items.count)
+//        }
+        
+        items.append(ProgressItem(withDuration: 3))
         xibProgressView.delegate = self
        
         xibProgressView.progressTintColor = UIColor(red: 180/255.0, green: 124/255.0, blue: 255/255.0, alpha: 1.0)
         xibProgressView.trackTintColor = UIColor(red: 237/255.0, green: 231/255.0, blue: 246/255.0, alpha: 1.0)
         xibProgressView.itemSpace = 6.0
         xibProgressView.items = items
+        
         startTimer()
         storiesCollectionView.reloadData()
     }
@@ -94,6 +106,7 @@ class StoriesLoadedViewController: UIViewController, ProgressBarDelegate, UIColl
         print("didDisplayItemAtIndex \(index)")
     }
     @IBAction func closedButton(_ sender: Any) {
+     
         dismiss(animated: true, completion: nil)
     }
     

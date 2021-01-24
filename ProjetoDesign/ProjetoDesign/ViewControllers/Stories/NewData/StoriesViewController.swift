@@ -150,13 +150,17 @@ class StoriesViewController: UIViewController , UIImagePickerControllerDelegate,
     func saveImage(name: String, profileURL:URL, completionHandler: @escaping (_ result: URL?, _ error: Error?) -> Void) {
         let uid = Auth.auth().currentUser?.uid
         if let currentUserID = uid {
+            
+            let reference = ref.child("stories").child(currentUserID).childByAutoId()
+            
             let dict: [String: Any] = [
                 "userID": uid,
-                "timestamp": Date().timeIntervalSince1970,
-                "storyImage": profileURL.absoluteString
+                "TimeStamp": Date().timeIntervalSince1970,
+                "StorieImage": profileURL.absoluteString,
+                "Duration": 86400,
+                "childID": reference.key
             ]
-
-            ref.child("stories").child(currentUserID).childByAutoId().updateChildValues(dict) { (error, _) in
+                reference.updateChildValues(dict) { (error, _) in
                 if let error = error {
                     return completionHandler(nil, error)
                 }
