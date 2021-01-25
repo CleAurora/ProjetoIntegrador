@@ -7,7 +7,7 @@
 
 import UIKit
 import FirebaseAuth
-
+import GoogleSignIn
 final class RegistrarViewController: UIViewController{
 
     // MARK: - IBOutlets
@@ -29,6 +29,8 @@ final class RegistrarViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         registerView.backgroundColor = UIColor(patternImage: UIImage(named: "2.jpg")!)
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
     }
 
     @IBAction func imageviewButton(_ sender: Any) {
@@ -49,7 +51,8 @@ final class RegistrarViewController: UIViewController{
     }
 
     @IBAction func instagramButton(_ sender: Any) {
-        viewModel.isDeveloping()
+        GIDSignIn.sharedInstance()?.signIn()
+    
     }
 
     @IBAction func facebookButton(_ sender: Any) {

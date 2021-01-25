@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Sign In View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ProjetoDesign" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SignInViewController" customModule="ProjetoDesign" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,46 +22,38 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rGp-Bh-Vr1" userLabel="SocialLoginView">
                                         <rect key="frame" x="159" y="64" width="96" height="40"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axj-Yt-znw" userLabel="InstagramLoginButton">
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axj-Yt-znw" userLabel="facebookButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="L0c-T2-e7u"/>
+                                                    <constraint firstAttribute="height" constant="40" id="2zV-EX-fvs"/>
+                                                    <constraint firstAttribute="width" constant="40" id="3DN-Ue-jLu"/>
                                                 </constraints>
                                                 <color key="tintColor" red="0.1060770014" green="0.24054854319999999" blue="0.38894511009999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" image="face">
                                                     <color key="titleColor" red="0.399966985" green="0.40001851319999998" blue="0.39994949099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="faceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fwj-tb-mrE"/>
-                                                </connections>
                                             </button>
-                                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFU-yv-ccs" userLabel="FacebookLoginButton">
-                                                <rect key="frame" x="56" y="0.0" width="40" height="40"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VKG-Tc-eV2">
+                                                <rect key="frame" x="48" y="0.0" width="40" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="zLp-AE-IRk"/>
+                                                    <constraint firstAttribute="width" constant="40" id="Pf8-5w-v2q"/>
+                                                    <constraint firstAttribute="height" constant="40" id="a8W-df-BuM"/>
                                                 </constraints>
                                                 <state key="normal" image="google">
-                                                    <color key="titleColor" red="0.399966985" green="0.40001851319999998" blue="0.39994949099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="10"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
                                                 <connections>
-                                                    <action selector="instagramButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lC7-xd-mKG"/>
+                                                    <action selector="googleButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="x8r-vR-0gT"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="Axj-Yt-znw" firstAttribute="leading" secondItem="rGp-Bh-Vr1" secondAttribute="leading" id="9Dt-s6-zAa"/>
-                                            <constraint firstAttribute="bottom" secondItem="RFU-yv-ccs" secondAttribute="bottom" id="NC3-5n-W8l"/>
-                                            <constraint firstAttribute="height" constant="40" id="Zab-Rx-lnb"/>
-                                            <constraint firstAttribute="bottom" secondItem="Axj-Yt-znw" secondAttribute="bottom" id="ayw-Vc-YBc"/>
-                                            <constraint firstItem="RFU-yv-ccs" firstAttribute="top" secondItem="rGp-Bh-Vr1" secondAttribute="top" id="g7B-TK-Cqh"/>
-                                            <constraint firstItem="Axj-Yt-znw" firstAttribute="top" secondItem="rGp-Bh-Vr1" secondAttribute="top" id="vl6-yI-Zer"/>
-                                            <constraint firstItem="RFU-yv-ccs" firstAttribute="leading" secondItem="Axj-Yt-znw" secondAttribute="trailing" constant="16" id="wHT-I7-EW5"/>
-                                            <constraint firstAttribute="trailing" secondItem="RFU-yv-ccs" secondAttribute="trailing" id="wIa-k1-590"/>
+                                            <constraint firstItem="Axj-Yt-znw" firstAttribute="leading" secondItem="rGp-Bh-Vr1" secondAttribute="leading" id="KcK-lY-PBr"/>
+                                            <constraint firstAttribute="trailing" secondItem="VKG-Tc-eV2" secondAttribute="trailing" constant="8" id="Kyz-Sa-tta"/>
+                                            <constraint firstItem="Axj-Yt-znw" firstAttribute="top" secondItem="rGp-Bh-Vr1" secondAttribute="top" id="WSX-SX-2eh"/>
+                                            <constraint firstAttribute="height" constant="40" id="gAu-lr-3Gu"/>
+                                            <constraint firstAttribute="bottom" secondItem="VKG-Tc-eV2" secondAttribute="bottom" id="keq-uk-YWN"/>
+                                            <constraint firstAttribute="width" constant="96" id="lag-WF-QU5"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9oN-pL-PF4" userLabel="RegistrarButton">
@@ -107,12 +99,12 @@
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="rGp-Bh-Vr1" firstAttribute="centerX" secondItem="VdV-oZ-PgY" secondAttribute="centerX" id="345-TZ-wXQ"/>
                                     <constraint firstAttribute="bottom" secondItem="9oN-pL-PF4" secondAttribute="bottom" constant="60" id="3SF-L6-8WO"/>
                                     <constraint firstAttribute="bottom" secondItem="kMF-mj-qrR" secondAttribute="bottom" constant="60" id="41k-ox-HLN"/>
                                     <constraint firstItem="kMF-mj-qrR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="9oN-pL-PF4" secondAttribute="trailing" constant="8" symbolic="YES" id="B0C-58-Bmb"/>
                                     <constraint firstItem="9oN-pL-PF4" firstAttribute="leading" secondItem="VdV-oZ-PgY" secondAttribute="leading" constant="30" id="KIl-9G-IHj"/>
-                                    <constraint firstItem="rGp-Bh-Vr1" firstAttribute="centerY" secondItem="VdV-oZ-PgY" secondAttribute="centerY" multiplier="0.5" id="bja-eB-pRp"/>
+                                    <constraint firstItem="rGp-Bh-Vr1" firstAttribute="top" secondItem="VdV-oZ-PgY" secondAttribute="top" constant="64" id="kKX-LR-Krt"/>
+                                    <constraint firstAttribute="trailing" secondItem="rGp-Bh-Vr1" secondAttribute="trailing" constant="159" id="mif-MM-ANc"/>
                                     <constraint firstAttribute="trailing" secondItem="kMF-mj-qrR" secondAttribute="trailing" constant="30" id="sYE-7v-ife"/>
                                 </constraints>
                             </view>
@@ -226,7 +218,6 @@
                         <outlet property="backgroundImageView" destination="Y5z-yZ-uQQ" id="qxv-gw-0o7"/>
                         <outlet property="emailTextField" destination="sIA-PZ-hJa" id="AKF-dk-bjf"/>
                         <outlet property="faceButtonTapped" destination="Axj-Yt-znw" id="jys-5N-hqk"/>
-                        <outlet property="instagramButtonTapped" destination="RFU-yv-ccs" id="c3E-qP-oXZ"/>
                         <outlet property="loginButton" destination="kMF-mj-qrR" id="9bb-fY-gqR"/>
                         <outlet property="loginView" destination="qGq-M4-2Mr" id="0Fq-sa-t4g"/>
                         <outlet property="passwordTextField" destination="jlC-PX-LAG" id="VCn-wu-2pm"/>
@@ -235,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2871.0144927536235" y="93.75"/>
+            <point key="canvasLocation" x="3781.1594202898555" y="93.75"/>
         </scene>
     </scenes>
     <designables>

@@ -1,51 +1,52 @@
 //
-//  ViewController.swift
+//  SignInViewController.swift
 //  ProjetoDesign
 //
 //  Created by Lestad on 2020-10-04.
 //
 
 import UIKit
-class ViewController: UIViewController {
+import FirebaseAuth
+
+final class SignInViewController: UIViewController {
 
     // MARK: - IBOutlets
+
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loginView: UIView!
-    @IBOutlet weak var instagramButtonTapped: UIButton!
     @IBOutlet weak var faceButtonTapped: UIButton!
     @IBOutlet weak var registerButton: UIButton!
-    @IBOutlet var emailTextField: UITextField!
-    @IBOutlet var passwordTextField: UITextField!
-    var loginModel: LoginViewModel?
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+
+    // MARK: - Private constants & variables
+
+    private lazy var loginModel: LoginViewModel = LoginViewModel(view: self)
+    private lazy var signInViewModel = SignInViewModel.shared
+
     // MARK: - Super Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundImageView.image = UIImage(named: "login2")
         backgroundImageView.layer.maskedCorners = CACornerMask(rawValue: UIRectCorner([.bottomLeft, .bottomRight]).rawValue)
         loginButton.backgroundColor = UIColor(patternImage: UIImage(named: "2.jpg")!)
-        setupView()
 
+        setupView()
         setupUI()
     }
-    override func viewDidAppear(_ animated: Bool) {
-        self.loginModel = LoginViewModel(view: self)
-        loginModel?.isAlreadyLogged(completionHandler: { success, _ in
-            if success {
-                if let vc = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() as? SHCircleBarController{
-                    vc.modalPresentationStyle = .fullScreen
-                    self.present(vc, animated: true, completion: nil)
-                }
-            }
-        })
-    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        signInViewModel.set(presentingViewController: self)
+    } 
 
     func setupUI(){
-        self.loginModel = LoginViewModel(view: self)
-        self.loginButton.setTitle(loginModel?.titleBtnLogin, for: .normal )
-        self.registerButton.setTitle(loginModel?.titleBtnRegister, for: .normal)
-        self.faceButtonTapped.setImage(UIImage(named: loginModel!.imageBtnFaceBook), for: .normal)
-        self.instagramButtonTapped.setImage(UIImage(named: loginModel!.imageBtnInstagram), for: .normal)
+        loginButton.setTitle(loginModel.titleBtnLogin, for: .normal )
+        registerButton.setTitle(loginModel.titleBtnRegister, for: .normal)
+        faceButtonTapped.setImage(UIImage(named: loginModel.imageBtnFaceBook), for: .normal)
     }
 
     // MARK: - Methods
@@ -59,15 +60,17 @@ class ViewController: UIViewController {
     // MARK: - IBActions
 
     @IBAction func loginButton(_ sender: Any) {
-        self.loginModel = LoginViewModel(view: self)
-        loginModel?.doLogin(completionHandler: { success, _ in
+        loginModel.doLogin { [self] success, _ in
             if success {
-                if let vc = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() as? SHCircleBarController{
-                    vc.modalPresentationStyle = .fullScreen
-                    self.present(vc, animated: true, completion: nil)
-                }
+                redirectToLoggedArea()
             }
-        })
+        }
+    }
+
+    private func redirectToLoggedArea() {
+        if let tabBarController = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() {
+            UIApplication.shared.keyWindow?.rootViewController = tabBarController
+        }
     }
 
     @IBAction func registerButton(_ sender: Any) {
@@ -77,11 +80,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction func faceButtonTapped(_ sender: Any) {
-        showUnderDevelopment()
     }
 
-    @IBAction func instagramButtonTapped(_ sender: Any) {
-        showUnderDevelopment()
+    @IBAction func googleButtonTapped(_ sender: Any) {
+        signInViewModel.signInWithGoogle()
     }
 
     private func showUnderDevelopment(){
