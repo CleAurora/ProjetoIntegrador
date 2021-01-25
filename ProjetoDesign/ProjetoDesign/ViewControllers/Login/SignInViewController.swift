@@ -35,9 +35,13 @@ final class SignInViewController: UIViewController {
 
         setupView()
         setupUI()
-
-        GIDSignIn.sharedInstance()?.presentingViewController = self
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        signInViewModel.set(presentingViewController: self)
+    } 
 
     func setupUI(){
         loginButton.setTitle(loginModel.titleBtnLogin, for: .normal )
@@ -56,16 +60,17 @@ final class SignInViewController: UIViewController {
     // MARK: - IBActions
 
     @IBAction func loginButton(_ sender: Any) {
-        self.loginModel = LoginViewModel(view: self)
-
-        loginModel.doLogin(completionHandler: { success, _ in
+        loginModel.doLogin { [self] success, _ in
             if success {
-                if let vc = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() as? SHCircleBarController{
-                    vc.modalPresentationStyle = .fullScreen
-                    self.present(vc, animated: true, completion: nil)
-                }
+                redirectToLoggedArea()
             }
-        })
+        }
+    }
+
+    private func redirectToLoggedArea() {
+        if let tabBarController = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() {
+            UIApplication.shared.keyWindow?.rootViewController = tabBarController
+        }
     }
 
     @IBAction func registerButton(_ sender: Any) {

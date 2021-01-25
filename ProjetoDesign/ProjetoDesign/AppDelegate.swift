@@ -11,8 +11,12 @@ import IQKeyboardManagerSwift
 import UIKit
 
 @UIApplicationMain
-final class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+final class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+
+    // MARK: - Private lazy variables
+
+    private lazy var signInViewModel = SignInViewModel.shared
 
     // MARK: - UIApplicationDelegate conforms
 
@@ -25,7 +29,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     }
 
     func applicationDidFinishLaunching(_ application: UIApplication) {
-        UITabBar.appearance().unselectedItemTintColor = UIColor.green
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
 
@@ -34,5 +37,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         Database.database().isPersistenceEnabled = true
 
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+
+        signInViewModel.window = window
+        signInViewModel.reSignInWithGoogle()
     }
 }

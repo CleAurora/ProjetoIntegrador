@@ -2,7 +2,7 @@
 //  SignInViewModel.swift
 //  ProjetoDesign
 //
-//  Created by Rafael Ferreira on 1/19/21.
+//  Created by Cleís Aurora on 1/19/21.
 //
 
 import FirebaseAuth
@@ -14,14 +14,21 @@ protocol SignOutProvider {
 }
 
 protocol GoogleSignInProvider {
-    func set(presentingViewController: UIViewController)
+    func set(presentingViewController: UIViewController?)
+    func reSignInWithGoogle()
     func signInWithGoogle()
 }
 
-final class SignInViewModel: NSObject, GIDSignInDelegate, GoogleSignInProvider, SignOutProvider {
-    static let shared: GIDSignInDelegate & GoogleSignInProvider & SignOutProvider = SignInViewModel()
+protocol SignInDataStore {
+    var error: Error? { get }
+    var window: UIWindow? { get set }
+}
 
-    // MARK: - Private variables
+final class SignInViewModel: NSObject, GIDSignInDelegate, GoogleSignInProvider, SignInDataStore,
+                             SignOutProvider {
+    static let shared: GIDSignInDelegate & GoogleSignInProvider & SignInDataStore & SignOutProvider = SignInViewModel()
+
+    // MARK: - Private constants
 
     private let googleSignIn = GIDSignIn.sharedInstance()
     private let auth = Auth.auth()
@@ -29,21 +36,24 @@ final class SignInViewModel: NSObject, GIDSignInDelegate, GoogleSignInProvider, 
 
     // MARK: - Variables
 
-    var error: Error?
+    weak var window: UIWindow?
+    private(set) var error: Error?
 
     // MARK: - Initializer
 
     private override init() {
         super.init()
+
+        googleSignIn?.delegate = self
     }
 
     // MARK: - GoogleProviderSignIn conforms
 
-    func set(presentingViewController: UIViewController) {
+    func set(presentingViewController: UIViewController?) {
         googleSignIn?.presentingViewController = presentingViewController
     }
 
-    /*
+    /**
      Asks to login using Google SignIn.
 
      First check if the e-mail are registered both in authentication and database.
@@ -56,14 +66,15 @@ final class SignInViewModel: NSObject, GIDSignInDelegate, GoogleSignInProvider, 
         - Go to logged area (feed).
      */
     func signInWithGoogle() {
-        googleSignIn?.delegate = self
-
         googleSignIn?.signIn()
-        // pedir o login via google.
-        // verificar se já existe esse e-mail cadastrado como login/db
-            // tem usuário no db:
-                // entrar na tela de feed
-            // n
+    }
+
+    func reSignInWithGoogle() {
+        guard auth.currentUser != nil else {
+            return signOut()
+        }
+
+        redirectToLoggedArea()
     }
 
     // MARK: - SignOutProvider conforms
@@ -98,26 +109,13 @@ final class SignInViewModel: NSObject, GIDSignInDelegate, GoogleSignInProvider, 
 
             checkUserOnDatabase(user: result.user)
         }
-        debugPrint(#function)
-
-        if let user = user {
-            debugPrint(user)
-        }
-
-        if let error = error {
-            debugPrint(error)
-        }
     }
 
     func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        debugPrint(#function)
-
-        if let user = user {
-            debugPrint(user)
-        }
-
-        if let error = error {
-            debugPrint(error)
+        do {
+            try auth.signOut()
+        } catch {
+            proxy(failure: error)
         }
     }
 
@@ -128,8 +126,11 @@ final class SignInViewModel: NSObject, GIDSignInDelegate, GoogleSignInProvider, 
     }
 
     private func redirectToLoggedArea() {
-        // Redirect to Feed page.
-        debugPrint(#function)
+        set(presentingViewController: nil)
+
+        if let feedViewController = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() {
+            window?.rootViewController = feedViewController
+        }
     }
 
     private func checkUserOnDatabase(user: FirebaseAuth.User) {

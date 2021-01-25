@@ -46,10 +46,4 @@ final class LoginViewModel {
             completionHandler(false, NSError(domain: #function, code: 0, userInfo: [:]))
         }
     }
-
-    func isAlreadyLogged(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void) {
-        let isLogged = Auth.auth().currentUser?.uid != nil
-
-        completionHandler(isLogged, nil)
-    }
 }
