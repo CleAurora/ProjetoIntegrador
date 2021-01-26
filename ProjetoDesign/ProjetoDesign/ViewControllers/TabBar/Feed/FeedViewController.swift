@@ -11,6 +11,7 @@ import SwiftMessages
 import Firebase
 final class FeedViewController: UIViewController, HeaderDelegate {
 
+
     // MARK: - IBOutlets
     @IBOutlet weak var feedTableView: UITableView!
     @IBOutlet weak var storieCollectionView: UICollectionView!
@@ -347,27 +348,41 @@ extension FeedViewController: UICollectionViewDataSource{
         if let currentUser = currentUser {
             cell.setup(user: currentUser)
         }
-
+        
         cell.teste()
         cell.delegate = self
-
         return cell
     }
 
     func doSomething() {
-        
-        if let vc = UIStoryboard(name: "Stories", bundle: nil).instantiateInitialViewController() as? StoriesViewController {
+        if self.storiesRequest.currentUserStories != nil {
+            if let vc = UIStoryboard(name: "StoriesLoaded", bundle: nil).instantiateInitialViewController() as? StoriesLoadedViewController {
+                vc.userID = true
+                let transition = CATransition()
+                transition.duration = 0.5
+                transition.type = CATransitionType.push
+                transition.subtype = CATransitionSubtype.fromLeft
+                transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+                view.window?.layer.add(transition, forKey: kCATransition)
+                vc.modalPresentationStyle = .fullScreen
+                vc.view.window?.layer.add(transition, forKey: kCATransition)
+                self.present(vc, animated: true, completion: nil)
+            }
+        }else {
+            if let vc = UIStoryboard(name: "Stories", bundle: nil).instantiateInitialViewController() as? StoriesViewController {
 
-            let transition = CATransition()
-            transition.duration = 0.5
-            transition.type = CATransitionType.push
-            transition.subtype = CATransitionSubtype.fromLeft
-            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-            view.window?.layer.add(transition, forKey: kCATransition)
-            vc.modalPresentationStyle = .fullScreen
-            vc.view.window?.layer.add(transition, forKey: kCATransition)
-            self.present(vc, animated: true, completion: nil)
+                let transition = CATransition()
+                transition.duration = 0.5
+                transition.type = CATransitionType.push
+                transition.subtype = CATransitionSubtype.fromLeft
+                transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+                view.window?.layer.add(transition, forKey: kCATransition)
+                vc.modalPresentationStyle = .fullScreen
+                vc.view.window?.layer.add(transition, forKey: kCATransition)
+                self.present(vc, animated: true, completion: nil)
+            }
         }
+       
     }
 }
 extension UIImage {

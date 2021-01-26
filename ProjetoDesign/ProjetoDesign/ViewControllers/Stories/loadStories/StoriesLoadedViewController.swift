@@ -12,7 +12,7 @@ class StoriesLoadedViewController: UIViewController, ProgressBarDelegate, UIColl
 
     var items: [ProgressItem] = []
     var storiesRequest = StoriesDownload()
-    
+    var userID: Profile?
     @IBOutlet var backgroundSegmented: UIView!
     @IBOutlet var storiesCollectionView: UICollectionView!
     @IBOutlet var xibProgressView: SegmentedProgressView!
@@ -29,13 +29,11 @@ class StoriesLoadedViewController: UIViewController, ProgressBarDelegate, UIColl
           storiesCollectionView.delegate = self
           storiesCollectionView.dataSource = self
           storiesCollectionView.reloadData()
-          
-         // items = []
-          
-          //getStories()
         
     }
+    
     func getStories(){
+        print(userID)
         if let userID = storiesUser?.userID, let name = storiesUser?.name, let image = storiesUser?.profileUrl {
             
             storiesRequest.downloadStories(User: userID, UserName: name, UserProfile: image, completionHandler: { success, _ in

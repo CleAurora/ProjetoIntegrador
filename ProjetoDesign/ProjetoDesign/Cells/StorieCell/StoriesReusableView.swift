@@ -23,7 +23,6 @@ class StoriesReusableView: UICollectionReusableView {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(headerViewTapped))
         addGestureRecognizer(tapGesture)
     }
-
     // MARK: - OBJC Methods
     @objc func headerViewTapped() {
         delegate?.doSomething()
