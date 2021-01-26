@@ -82,20 +82,10 @@ final class SignInViewController: UIViewController {
     }
 
     @IBAction func faceButtonTapped(_ sender: Any) {
+        signInViewModel.signInWithFacebook(on: self)
     }
 
     @IBAction func googleButtonTapped(_ sender: Any) {
         signInViewModel.signInWithGoogle()
     }
-
-    private func showUnderDevelopment(){
-        let alert = UIAlertController(
-            title: "This option still under development", message: nil, preferredStyle: .alert
-        )
-
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-
-        present(alert, animated: true)
-    }
-
 }

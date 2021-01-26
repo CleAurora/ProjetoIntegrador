@@ -4,7 +4,7 @@
 //
 //  Created by Cleís Aurora on 1/19/21.
 //
-
+import FBSDKLoginKit
 import FirebaseAuth
 import FirebaseDatabase
 import GoogleSignIn
@@ -19,18 +19,23 @@ protocol GoogleSignInProvider {
     func signInWithGoogle()
 }
 
+protocol FacebookSignInProvider {
+    func signInWithFacebook(on viewController: UIViewController)
+}
+
 protocol SignInDataStore {
     var error: Error? { get }
     var window: UIWindow? { get set }
 }
 
-final class SignInViewModel: NSObject, GIDSignInDelegate, GoogleSignInProvider, SignInDataStore,
+final class SignInViewModel: NSObject, FacebookSignInProvider, GIDSignInDelegate, GoogleSignInProvider, SignInDataStore,
                              SignOutProvider {
-    static let shared: GIDSignInDelegate & GoogleSignInProvider & SignInDataStore & SignOutProvider = SignInViewModel()
+    static let shared: FacebookSignInProvider & GIDSignInDelegate & GoogleSignInProvider & SignInDataStore & SignOutProvider = SignInViewModel()
 
     // MARK: - Private constants
 
     private let googleSignIn = GIDSignIn.sharedInstance()
+    private let facebookSignIn = LoginManager()
     private let auth = Auth.auth()
     private let databaseReference = Database.database().reference()
 
@@ -45,6 +50,22 @@ final class SignInViewModel: NSObject, GIDSignInDelegate, GoogleSignInProvider, 
         super.init()
 
         googleSignIn?.delegate = self
+    }
+
+    // MARK: - FacebookSignInProvider conforms
+
+    func signInWithFacebook(on viewController: UIViewController) {
+        facebookSignIn.logIn(permissions: [.email, ], viewController: viewController) { [self] loginResult in
+            if case let LoginResult.failed(error) = loginResult {
+                return proxy(failure: error)
+            } else if case let LoginResult.success(granted: _, declined: _, token: accessToken) = loginResult {
+                let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
+
+                return firebaseSignIn(with: credential)
+            }
+
+            return proxy(failure: NSError(domain: #function, code: 403, userInfo: ["FBSDKLoginKit": "canceled"]))
+        }
     }
 
     // MARK: - GoogleProviderSignIn conforms
@@ -81,6 +102,7 @@ final class SignInViewModel: NSObject, GIDSignInDelegate, GoogleSignInProvider, 
 
     func signOut() {
         googleSignIn?.signOut()
+        facebookSignIn.logOut()
     }
 
     // MARK: - GIDSignInDelegate conforms
@@ -98,6 +120,10 @@ final class SignInViewModel: NSObject, GIDSignInDelegate, GoogleSignInProvider, 
             withIDToken: authentication.idToken, accessToken: authentication.accessToken
         )
 
+        firebaseSignIn(with: credential)
+    }
+
+    private func firebaseSignIn(with credential: AuthCredential) {
         auth.signIn(with: credential) { [self] (authDataResult, firebaseSignError) in
             guard firebaseSignError == nil else {
                 return proxy(failure: firebaseSignError)

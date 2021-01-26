@@ -32,6 +32,9 @@
                                                 <state key="normal" image="face">
                                                     <color key="titleColor" red="0.399966985" green="0.40001851319999998" blue="0.39994949099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="faceButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Yhn-Ga-YfA"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VKG-Tc-eV2">
                                                 <rect key="frame" x="48" y="0.0" width="40" height="40"/>
@@ -217,7 +220,7 @@
                     <connections>
                         <outlet property="backgroundImageView" destination="Y5z-yZ-uQQ" id="qxv-gw-0o7"/>
                         <outlet property="emailTextField" destination="sIA-PZ-hJa" id="AKF-dk-bjf"/>
-                        <outlet property="faceButtonTapped" destination="Axj-Yt-znw" id="jys-5N-hqk"/>
+                        <outlet property="faceButtonTapped" destination="Axj-Yt-znw" id="JmU-Hq-8D4"/>
                         <outlet property="loginButton" destination="kMF-mj-qrR" id="9bb-fY-gqR"/>
                         <outlet property="loginView" destination="qGq-M4-2Mr" id="0Fq-sa-t4g"/>
                         <outlet property="passwordTextField" destination="jlC-PX-LAG" id="VCn-wu-2pm"/>
