@@ -34,8 +34,8 @@ final class RegistrarViewController: UIViewController{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerView.backgroundColor = UIColor(patternImage: UIImage(named: "2.jpg")!)
-        view.backgroundColor = UIColor(patternImage: UIImage(named: "login")!)
+        registerView.backgroundColor = UIColor(patternImage: UIImage(named: "borderButton")!)
+
         GIDSignIn.sharedInstance()?.presentingViewController = self
         
         viewModel.textFieldAppearance()
