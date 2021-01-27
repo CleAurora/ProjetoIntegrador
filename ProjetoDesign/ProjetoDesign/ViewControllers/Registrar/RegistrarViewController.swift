@@ -8,10 +8,6 @@
 import UIKit
 import FirebaseAuth
 import GoogleSignIn
-import MaterialComponents.MaterialTextControls_FilledTextAreas
-import MaterialComponents.MaterialTextControls_FilledTextFields
-import MaterialComponents.MaterialTextControls_OutlinedTextAreas
-import MaterialComponents.MaterialTextControls_OutlinedTextFields
 
 final class RegistrarViewController: UIViewController{
 
@@ -19,11 +15,11 @@ final class RegistrarViewController: UIViewController{
     @IBOutlet weak var registerView: extensions!
     @IBOutlet weak var registerLabel: UILabel!
     @IBOutlet weak var userImage: UIImageView!
-    @IBOutlet var emailTextField: MDCBaseTextField!
-    @IBOutlet var passwordTextField: MDCBaseTextField!
-    @IBOutlet var secureTextField: MDCBaseTextField!
-    @IBOutlet var nameTextField: MDCBaseTextField!
-    @IBOutlet var nicknameTextField: MDCBaseTextField!
+    @IBOutlet var emailTextField: CustomOutlinedTxtField!
+    @IBOutlet var passwordTextField: CustomOutlinedTxtField!
+    @IBOutlet var secureTextField: CustomOutlinedTxtField!
+    @IBOutlet var nameTextField: CustomOutlinedTxtField!
+    @IBOutlet var nicknameTextField: CustomOutlinedTxtField!
     @IBOutlet var floatingView: extensions!
     
     // MARK: - Proprierts
@@ -39,6 +35,7 @@ final class RegistrarViewController: UIViewController{
         GIDSignIn.sharedInstance()?.presentingViewController = self
         
         viewModel.textFieldAppearance()
+       
     }
 
     @IBAction func imageviewButton(_ sender: Any) {
