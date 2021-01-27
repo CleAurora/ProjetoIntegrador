@@ -40,7 +40,6 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         super.viewDidLoad()
 
         setupTableView()
-        //setupCollection()
 
         navigationController?.navigationBar.isHidden = true
 
@@ -62,7 +61,7 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         checkStories()
 
         setupReachability()
-        gameTimer = Timer.scheduledTimer(timeInterval: 3600, target: self, selector: #selector(removeOldStories), userInfo: nil, repeats: true)
+        gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(removeOldStories), userInfo: nil, repeats: true)
       
     }
 
@@ -76,8 +75,6 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         
         storiesRequest.checkFollowing(completionHandler: { success, _ in
             if success {
-                print("setup")
-                print(self.storiesRequest.storiesUser.count)
                 self.setupCollection()
             }
         })
@@ -85,30 +82,32 @@ final class FeedViewController: UIViewController, HeaderDelegate {
     // MARK: - Methods
     @objc func removeOldStories(){
         self.ref = Database.database().reference()
+        
         let reference = self.ref.child("stories")
+
             reference.observe(.value) { (snapshot) in
-            
+
             if let stories = snapshot.value as? [String: AnyObject] {
                 for (_, value) in stories {
-                   
+
                     let storiesToshow = StoriesModel()
-                    
+
                     let image = value["StorieImage"] as? String
                     let userID = value["userID"] as? String
                     let timeStamp = value["TimeStamp"] as? Double
                     let duration = value["Duration"] as? Int
                     let childID = value["childID"] as? String
-                    
+
                     storiesToshow.image = image
                     storiesToshow.timeStamp = timeStamp
                     storiesToshow.userID = userID
                     storiesToshow.duration = duration
                     storiesToshow.childID = childID
-                    
+
                     if let time = storiesToshow.timeStamp {
                         let exampleDate = time + 86400
                         let dateNow = Date().timeIntervalSince1970
-                        
+
                         if let childKey = storiesToshow.childID {
                             if exampleDate <= dateNow {
                                 self.ref.child("stories").child(childKey).removeValue()
@@ -120,7 +119,7 @@ final class FeedViewController: UIViewController, HeaderDelegate {
                     }
                 }
             }
-            
+
         }
     }
     private func setupReachability() {
@@ -328,6 +327,7 @@ extension FeedViewController: UICollectionViewDelegate{
             present(vc, animated: true, completion: nil)
         }
     }
+    
 }
 
 extension FeedViewController: UICollectionViewDataSource{
@@ -357,7 +357,10 @@ extension FeedViewController: UICollectionViewDataSource{
     func doSomething() {
         if self.storiesRequest.currentUserStories != nil {
             if let vc = UIStoryboard(name: "StoriesLoaded", bundle: nil).instantiateInitialViewController() as? StoriesLoadedViewController {
-                vc.userID = true
+                
+                if let currentUSer = currentUser {
+                    vc.profileID = currentUser
+                }
                 let transition = CATransition()
                 transition.duration = 0.5
                 transition.type = CATransitionType.push
