@@ -60,7 +60,6 @@ final class SignInViewModel: NSObject, FacebookSignInProvider, GIDSignInDelegate
                 return proxy(failure: error)
             } else if case let LoginResult.success(granted: _, declined: _, token: accessToken) = loginResult {
                 let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
-
                 return firebaseSignIn(with: credential)
             }
 
@@ -101,6 +100,7 @@ final class SignInViewModel: NSObject, FacebookSignInProvider, GIDSignInDelegate
     // MARK: - SignOutProvider conforms
 
     func signOut() {
+        try? auth.signOut()
         googleSignIn?.signOut()
         facebookSignIn.logOut()
     }
@@ -123,9 +123,32 @@ final class SignInViewModel: NSObject, FacebookSignInProvider, GIDSignInDelegate
         firebaseSignIn(with: credential)
     }
 
+    private func handleFirebaseSignIn(error: Error) {
+        let firebaseError = error as NSError
+        let keyExpected = "FIRAuthErrorUserInfoNameKey"
+        let valueExpected = "ERROR_ACCOUNT_EXISTS_WITH_DIFFERENT_CREDENTIAL"
+        let isKeyAndValueExpected = firebaseError.userInfo.first(
+            where: { key, value in key == keyExpected && value as? String == valueExpected }
+        )
+
+        guard firebaseError.domain == "FIRAuthErrorDomain", isKeyAndValueExpected != nil else {
+            return proxy(failure: error)
+        }
+
+
+    }
+
+    private func firebaseLink(with credential: AuthCredential) {
+        auth.currentUser?.link(with: credential) { (authResult, linkError) in
+            // TODO: Ops
+        }
+    }
+
     private func firebaseSignIn(with credential: AuthCredential) {
         auth.signIn(with: credential) { [self] (authDataResult, firebaseSignError) in
             guard firebaseSignError == nil else {
+                debugPrint(firebaseSignError)
+                // checar se o erro é de linkar
                 return proxy(failure: firebaseSignError)
             }
 
