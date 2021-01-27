@@ -8,18 +8,24 @@
 import UIKit
 import FirebaseAuth
 import GoogleSignIn
+import MaterialComponents.MaterialTextControls_FilledTextAreas
+import MaterialComponents.MaterialTextControls_FilledTextFields
+import MaterialComponents.MaterialTextControls_OutlinedTextAreas
+import MaterialComponents.MaterialTextControls_OutlinedTextFields
+
 final class RegistrarViewController: UIViewController{
 
     // MARK: - IBOutlets
     @IBOutlet weak var registerView: extensions!
     @IBOutlet weak var registerLabel: UILabel!
     @IBOutlet weak var userImage: UIImageView!
-    @IBOutlet var emailTextField: customUITextField!
-    @IBOutlet var passwordTextField: customUITextField!
-    @IBOutlet var secureTextField: customUITextField!
-    @IBOutlet var nameTextField: customUITextField!
-    @IBOutlet var nicknameTextField: customUITextField!
-
+    @IBOutlet var emailTextField: MDCBaseTextField!
+    @IBOutlet var passwordTextField: MDCBaseTextField!
+    @IBOutlet var secureTextField: MDCBaseTextField!
+    @IBOutlet var nameTextField: MDCBaseTextField!
+    @IBOutlet var nicknameTextField: MDCBaseTextField!
+    @IBOutlet var floatingView: extensions!
+    
     // MARK: - Proprierts
 
     private lazy var viewModel: RegisterViewModel = RegisterViewModel(view: self)
@@ -31,6 +37,8 @@ final class RegistrarViewController: UIViewController{
         registerView.backgroundColor = UIColor(patternImage: UIImage(named: "2.jpg")!)
         view.backgroundColor = UIColor(patternImage: UIImage(named: "login")!)
         GIDSignIn.sharedInstance()?.presentingViewController = self
+        
+        viewModel.textFieldAppearance()
     }
 
     @IBAction func imageviewButton(_ sender: Any) {
