@@ -29,6 +29,8 @@ final class SignInViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailTextField.textContentType = .oneTimeCode
+        passwordTextField.textContentType = .oneTimeCode
         backgroundImageView.image = UIImage(named: "login2")
         backgroundImageView.layer.maskedCorners = CACornerMask(rawValue: UIRectCorner([.bottomLeft, .bottomRight]).rawValue)
         loginButton.backgroundColor = UIColor(patternImage: UIImage(named: "2.jpg")!)

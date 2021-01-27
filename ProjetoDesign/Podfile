@@ -18,10 +18,8 @@ target 'ProjetoDesign' do
   pod 'SwiftMessages'
   pod 'CircleBar'
   pod 'GoogleSignIn'
-  pod 'MaterialComponents/TextControls+FilledTextAreas'
-  pod 'MaterialComponents/TextControls+FilledTextFields'
-  pod 'MaterialComponents/TextControls+OutlinedTextAreas'
-  pod 'MaterialComponents/TextControls+OutlinedTextFields'
+  pod  'MaterialComponents'
+ 
   target 'ProjetoDesignTests' do
     inherit! :search_paths
     # Pods for testing
