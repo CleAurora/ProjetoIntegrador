@@ -48,7 +48,7 @@ platform :ios do
     run_tests(
       code_coverage: true, 
       configuration: "Debug", 
-      devices: ["iPhone 11"],
+      device: "iPhone 11",
       output_directory: "fastlane/test_output", 
       output_types: "html,junit,json-compilation-database",
       scheme: app_scheme,
