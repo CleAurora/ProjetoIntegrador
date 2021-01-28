@@ -32,6 +32,11 @@ platform :ios do
     )
   end
 
+  lane :screenshots do
+    capture_screenshots
+    # upload_to_app_store
+  end
+
   desc "Beta on TestFlight"
   lane :beta do
     build("app-store", "AppStore")
