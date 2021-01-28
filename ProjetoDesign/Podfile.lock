@@ -6,6 +6,16 @@ PODS:
   - AppAuth/Core (1.4.0)
   - AppAuth/ExternalUserAgent (1.4.0)
   - CircleBar (0.8.2)
+  - FBSDKCoreKit (8.2.0):
+    - FBSDKCoreKit/Basics (= 8.2.0)
+    - FBSDKCoreKit/Core (= 8.2.0)
+  - FBSDKCoreKit/Basics (8.2.0)
+  - FBSDKCoreKit/Core (8.2.0):
+    - FBSDKCoreKit/Basics
+  - FBSDKLoginKit (8.2.0):
+    - FBSDKLoginKit/Login (= 8.2.0)
+  - FBSDKLoginKit/Login (8.2.0):
+    - FBSDKCoreKit (~> 8.2.0)
   - Firebase/Analytics (7.3.0):
     - Firebase/Core
   - Firebase/Auth (7.3.0):
@@ -756,6 +766,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 5.2)
   - CircleBar
+  - FBSDKLoginKit
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Database
@@ -774,6 +785,8 @@ SPEC REPOS:
     - Alamofire
     - AppAuth
     - CircleBar
+    - FBSDKCoreKit
+    - FBSDKLoginKit
     - Firebase
     - FirebaseAnalytics
     - FirebaseAuth
@@ -807,6 +820,8 @@ SPEC CHECKSUMS:
   Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   CircleBar: 8e17d2090e6e319b518010535a3145fb8fd68c22
+  FBSDKCoreKit: 4afd6ff53d8133a433dbcda44451c9498f8c6ce4
+  FBSDKLoginKit: 7181765f2524d7ebf82d9629066c8e6caafc99d0
   Firebase: 26223c695fe322633274198cb19dca8cb7e54416
   FirebaseAnalytics: 2580c2d62535ae7b644143d48941fcc239ea897a
   FirebaseAuth: c224a0cf1afa0949bd5c7bfcf154b4f5ce8ddef2
@@ -836,6 +851,6 @@ SPEC CHECKSUMS:
   SwiftMessages: 539fd54a766bf08ec667e90aa141c44b8b8aaa55
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: dae727a4f9059fc99be249a646e6498de1dba6a9
+PODFILE CHECKSUM: dea76aa8e2b20daf42dacc4cb637d26711aa1c72
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

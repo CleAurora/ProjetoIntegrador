@@ -32,7 +32,7 @@ class ProfileViewModel: NSObject, UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? ProfileCollectionCell
-        
+
         if let vc = UIStoryboard(name: "PhotoDetail", bundle: nil).instantiateInitialViewController() as? PhotoDetailViewController {
             vc.name = nameUser
             vc.image = imageUser
@@ -50,12 +50,13 @@ class ProfileViewModel: NSObject, UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView,viewForSupplementaryElementOfKind kind: String,at indexPath: IndexPath) -> UICollectionReusableView {
         
         let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "profileReuCell", for: indexPath) as! ProfileCollectionReusableView
-        
+
         cell.setup(user: userModel.currentUser[indexPath.row])
         cell.postCountLabel.text = "\(postRequest.currentUserPost.count)"
         userData = userModel.currentUser[indexPath.row]
         nameUser = cell.nameLabel.text
         imageUser = cell.urlImage
+
         return cell
 
 }

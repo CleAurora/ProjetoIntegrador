@@ -19,7 +19,8 @@ target 'ProjetoDesign' do
   pod 'CircleBar'
   pod 'GoogleSignIn'
   pod  'MaterialComponents'
- 
+  pod 'FBSDKLoginKit'
+
   target 'ProjetoDesignTests' do
     inherit! :search_paths
     # Pods for testing
