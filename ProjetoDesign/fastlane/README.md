@@ -16,9 +16,9 @@ or alternatively using `brew install fastlane`
 
 # Available Actions
 ## iOS
-### ios screenshots
+### ios screenshot
 ```
-fastlane ios screenshots
+fastlane ios screenshot
 ```
 
 ### ios beta

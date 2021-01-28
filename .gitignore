@@ -114,7 +114,7 @@ Dependencies/
 
 */fastlane/report.xml
 */fastlane/Preview.html
-*/fastlane/screenshots/**/*.png
+*/fastlane/screenshots
 */fastlane/test_output
 
 # Code Injection
@@ -127,9 +127,6 @@ iOSInjectionProject/
 # Xcode
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
-
-
-
 ## Gcc Patch
 /*.gcno
 
@@ -141,4 +138,3 @@ iOSInjectionProject/
 **/xcshareddata/WorkspaceSettings.xcsettings
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,swift,cocoapods,xcode
-ProjetoDesign/ProjetoDesign/ViewControllers/TabBar/imageUpload/UploadViewController.swift
