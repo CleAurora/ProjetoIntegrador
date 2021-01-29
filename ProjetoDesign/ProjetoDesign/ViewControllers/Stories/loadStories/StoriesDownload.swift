@@ -27,7 +27,7 @@ class StoriesDownload {
         self.storiesData.removeAll()
         self.ref = Database.database().reference()
         
-        let reference = ref.child("stories").child(User)
+        let reference = ref.child("stories")
         reference.queryOrdered(byChild: "TimeStamp").observeSingleEvent(of: .value, with: {snapshot in
             for postSnapshot in snapshot.children.allObjects as! [DataSnapshot] {
 
@@ -48,9 +48,8 @@ class StoriesDownload {
                     storiesToShow.childID = childID
                     storiesToShow.nameUser = UserName
                     storiesToShow.imageProfile = UserProfile
-                    
-                    if self.storiesData.append(storiesToShow) != nil {
-                        
+                    if storiesToShow.userID == User {
+                        self.storiesData.append(storiesToShow)
                         completionHandler(true,nil)
                     }
                     

@@ -24,11 +24,10 @@ class StoriesRequest {
 
         self.ref = Database.database().reference()
         
-        let reference = ref.child("stories").child(whoIsFollowing)
+        let reference = ref.child("stories")
         reference.observe(.value) { (snapshot) in
         
         if let stories = snapshot.value as? [String: AnyObject] {
-
             for (_, value) in stories {
                
                 let storiesToshow = StoriesModel()
@@ -56,11 +55,15 @@ class StoriesRequest {
                 
                 if storiesToshow.userID == self.uid {
                     self.currentUserStories.append(storiesToshow)
+                    completionHandler(true,nil)
+                }else if self.uid != nil {
+                    completionHandler(true,nil)
                 }
+                
+              
             }
-            //completionHandler(true,nil)
+            
         }
-         //  completionHandler(true,nil)
     }
   }
     func checkFollowing(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
@@ -87,6 +90,7 @@ class StoriesRequest {
                     }
                 }
           })
+            completionHandler(true,nil)
         }
     }
     

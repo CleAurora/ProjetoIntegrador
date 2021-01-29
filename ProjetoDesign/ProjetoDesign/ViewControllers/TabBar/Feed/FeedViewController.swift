@@ -51,12 +51,7 @@ final class FeedViewController: UIViewController, HeaderDelegate {
             self?.currentUser = profile
             self?.storieCollectionView.reloadData()
         }
-
-        arrayCollection.append(stories(storieImageView: "gwen"))
-        arrayCollection.append(stories(storieImageView: "miles1.jpeg"))
-        arrayCollection.append(stories(storieImageView: "brendon.jpg"))
-        arrayCollection.append(stories(storieImageView: "Connor"))
-
+        
         storieCollectionView.reloadData()
         checkStories()
 
@@ -67,7 +62,6 @@ final class FeedViewController: UIViewController, HeaderDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-     //  checkStories()
         feedTableView.reloadData()
     }
 
@@ -109,17 +103,16 @@ final class FeedViewController: UIViewController, HeaderDelegate {
                         let dateNow = Date().timeIntervalSince1970
 
                         if let childKey = storiesToshow.childID {
+                            
                             if exampleDate <= dateNow {
                                 self.ref.child("stories").child(childKey).removeValue()
-                                print("expired")
                             }else {
-                                print("not expired")
                             }
                         }
                     }
                 }
             }
-
+                self.storieCollectionView.reloadData()
         }
     }
     private func setupReachability() {
@@ -218,10 +211,8 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         if let vc = UIStoryboard(name: "InfoPost", bundle: nil).instantiateInitialViewController() as? infoPostViewController {
             vc.modalPresentationStyle = .overFullScreen
             present(vc, animated: true, completion: nil)
-
         }
     }
-
 }
 
 // MARK: - Extensions 
@@ -230,7 +221,6 @@ extension FeedViewController: UITableViewDelegate{
 
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
 }
 
 extension FeedViewController: UITableViewDataSource{
@@ -355,7 +345,8 @@ extension FeedViewController: UICollectionViewDataSource{
     }
 
     func doSomething() {
-        if self.storiesRequest.currentUserStories != nil {
+    
+        if self.storiesRequest.currentUserStories.count != 0 {
             if let vc = UIStoryboard(name: "StoriesLoaded", bundle: nil).instantiateInitialViewController() as? StoriesLoadedViewController {
                 
                 if let currentUSer = currentUser {

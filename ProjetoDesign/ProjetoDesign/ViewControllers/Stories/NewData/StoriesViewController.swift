@@ -151,7 +151,7 @@ class StoriesViewController: UIViewController , UIImagePickerControllerDelegate,
         let uid = Auth.auth().currentUser?.uid
         if let currentUserID = uid {
             
-            let reference = ref.child("stories").child(currentUserID).childByAutoId()
+            let reference = ref.child("stories").childByAutoId()
             
             let dict: [String: Any] = [
                 "userID": uid,

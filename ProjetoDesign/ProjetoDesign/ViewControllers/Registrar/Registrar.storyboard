@@ -195,6 +195,23 @@
             <point key="canvasLocation" x="-346.37681159420293" y="63.616071428571423"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="4Bt-SQ-9sc">
+            <size key="intrinsicContentSize" width="117.5" height="17"/>
+        </designable>
+        <designable name="YRv-Nf-lJQ">
+            <size key="intrinsicContentSize" width="34.5" height="18.5"/>
+        </designable>
+        <designable name="c0x-qy-GtI">
+            <size key="intrinsicContentSize" width="64.5" height="18.5"/>
+        </designable>
+        <designable name="fE0-hj-Wnm">
+            <size key="intrinsicContentSize" width="38" height="18.5"/>
+        </designable>
+        <designable name="oKZ-GB-qo0">
+            <size key="intrinsicContentSize" width="62.5" height="17"/>
+        </designable>
+    </designables>
     <resources>
         <image name="login" width="1080" height="1917"/>
         <image name="signup1" width="373" height="77"/>
