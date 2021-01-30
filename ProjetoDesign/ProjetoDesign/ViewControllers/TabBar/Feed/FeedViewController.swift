@@ -106,6 +106,7 @@ final class FeedViewController: UIViewController, HeaderDelegate {
                             
                             if exampleDate <= dateNow {
                                 self.ref.child("stories").child(childKey).removeValue()
+                                self.checkStories()
                             }else {
                             }
                         }
