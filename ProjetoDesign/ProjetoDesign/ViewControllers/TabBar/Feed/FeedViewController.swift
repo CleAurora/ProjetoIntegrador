@@ -8,18 +8,26 @@
 import UIKit
 import Reachability
 import SwiftMessages
-
+import Firebase
+import PKHUD
 final class FeedViewController: UIViewController, HeaderDelegate {
+
 
     // MARK: - IBOutlets
     @IBOutlet weak var feedTableView: UITableView!
     @IBOutlet weak var storieCollectionView: UICollectionView!
-
+    
+   
+    
     // MARK: - Proprierts
     var arrayTable = [Post]()
     var arrayCollection = [stories]()
     var currentUser: Profile?
-
+    var ref: DatabaseReference!
+    var gameTimer: Timer?
+    var storiesArray = [StoriesModel]()
+    var storiesRequest = StoriesRequest()
+    var storiesUsario = [Usuario]()
     private let reachability = try! Reachability()
 
     private lazy var viewModel = FeedViewModel(for: self)
@@ -31,12 +39,9 @@ final class FeedViewController: UIViewController, HeaderDelegate {
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupTableView()
-        setupCollection()
-
+        checkStories()
         navigationController?.navigationBar.isHidden = true
-
         viewModel.load { [weak self] in
             self?.feedTableView.reloadData()
         }
@@ -46,24 +51,71 @@ final class FeedViewController: UIViewController, HeaderDelegate {
             self?.storieCollectionView.reloadData()
         }
 
-        arrayCollection.append(stories(storieImageView: "gwen"))
-        arrayCollection.append(stories(storieImageView: "miles1.jpeg"))
-        arrayCollection.append(stories(storieImageView: "brendon.jpg"))
-        arrayCollection.append(stories(storieImageView: "Connor"))
-
-        storieCollectionView.reloadData()
-
         setupReachability()
+        
+        gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(removeOldStories), userInfo: nil, repeats: true)
+        
+        gameTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(checkStories), userInfo: nil, repeats: true)
+      
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
         feedTableView.reloadData()
+        storieCollectionView.reloadData()
+       
     }
-
+    @objc func checkStories(){
+        
+        storiesRequest.checkFollowing(completionHandler: { success, _ in
+            if success {
+                self.setupCollection()
+            }
+        })
+    }
     // MARK: - Methods
+    @objc func removeOldStories(){
+        self.ref = Database.database().reference()
+        
+        let reference = self.ref.child("stories")
 
+            reference.observe(.value) { (snapshot) in
+
+            if let stories = snapshot.value as? [String: AnyObject] {
+                for (_, value) in stories {
+
+                    let storiesToshow = StoriesModel()
+
+                    let image = value["StorieImage"] as? String
+                    let userID = value["userID"] as? String
+                    let timeStamp = value["TimeStamp"] as? Double
+                    let duration = value["Duration"] as? Int
+                    let childID = value["childID"] as? String
+
+                    storiesToshow.image = image
+                    storiesToshow.timeStamp = timeStamp
+                    storiesToshow.userID = userID
+                    storiesToshow.duration = duration
+                    storiesToshow.childID = childID
+
+                    if let time = storiesToshow.timeStamp {
+                        let exampleDate = time + 86400
+                        let dateNow = Date().timeIntervalSince1970
+
+                        if let childKey = storiesToshow.childID {
+                            
+                            if exampleDate <= dateNow {
+                                self.ref.child("stories").child(childKey).removeValue()
+                                self.checkStories()
+                            }else {
+                            }
+                        }
+                    }
+                }
+            }
+                self.storieCollectionView.reloadData()
+        }
+    }
     private func setupReachability() {
         reachability.whenReachable = { [self] _ in
             hideToastMessage()
@@ -151,6 +203,8 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         storieCollectionView.delegate = self
         storieCollectionView.dataSource = self
         storieCollectionView.reloadData()
+        
+        
     }
 
     // MARK: - IBActions
@@ -158,10 +212,8 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         if let vc = UIStoryboard(name: "InfoPost", bundle: nil).instantiateInitialViewController() as? infoPostViewController {
             vc.modalPresentationStyle = .overFullScreen
             present(vc, animated: true, completion: nil)
-
         }
     }
-
 }
 
 // MARK: - Extensions 
@@ -170,7 +222,6 @@ extension FeedViewController: UITableViewDelegate{
 
         tableView.deselectRow(at: indexPath, animated: true)
     }
-
 }
 
 extension FeedViewController: UITableViewDataSource{
@@ -217,7 +268,6 @@ extension FeedViewController: UITableViewDataSource{
                     )})
                 }else {
                     cell.viewLiked.backgroundColor = UIColor.lightGray
-                    //cell.likeImageView.image = UIImage(named: "heart0.png")
                     cell.heart = "Item"
 
                     let toImage = UIImage(named:"broken")
@@ -229,7 +279,7 @@ extension FeedViewController: UITableViewDataSource{
                                             cell.likeImageView.image = toImage
                                           },
                                           completion: {_ in (
-                                            //let notImage = UIImage(named:"")
+    
                                             UIView.transition(with: cell.likeImageView,
                                                 duration: 1,
                                                 options: .transitionCrossDissolve,
@@ -262,18 +312,24 @@ extension FeedViewController: ButtonsTableView{
 
 extension FeedViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        isDeveloping()
+        if let vc = UIStoryboard(name: "StoriesLoaded", bundle: nil).instantiateInitialViewController() as? StoriesLoadedViewController {
+            vc.modalPresentationStyle = .fullScreen
+            vc.storiesUser = self.storiesRequest.storiesUser[indexPath.row]
+            present(vc, animated: true, completion: nil)
+        }
     }
+    
 }
 
 extension FeedViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return arrayCollection.count
+        return self.storiesRequest.storiesUser.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "storieCell", for: indexPath) as! StorieCollectionCell
-        cell.setup(storie: arrayCollection[indexPath.row])
+        cell.setupUser(stories: self.storiesRequest.storiesUser[indexPath.row])
         return cell
     }
 
@@ -283,15 +339,52 @@ extension FeedViewController: UICollectionViewDataSource{
         if let currentUser = currentUser {
             cell.setup(user: currentUser)
         }
-
+        
+        if self.storiesRequest.currentUserStories.count != 0 {
+            cell.addNewItemButton.isHidden = true
+            cell.borderView.backgroundColor = UIColor(patternImage: UIImage(named: "stories2.jpg")!)
+        }else{
+            cell.addNewItemButton.isHidden = false
+            cell.borderView.backgroundColor = UIColor.clear
+        }
         cell.teste()
         cell.delegate = self
-
         return cell
     }
 
     func doSomething() {
-        isDeveloping()
+    
+        if self.storiesRequest.currentUserStories.count != 0 {
+            if let vc = UIStoryboard(name: "StoriesLoaded", bundle: nil).instantiateInitialViewController() as? StoriesLoadedViewController {
+                
+                if let currentUSer = currentUser {
+                    vc.profileID = currentUser
+                }
+                let transition = CATransition()
+                transition.duration = 0.5
+                transition.type = CATransitionType.push
+                transition.subtype = CATransitionSubtype.fromLeft
+                transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+                view.window?.layer.add(transition, forKey: kCATransition)
+                vc.modalPresentationStyle = .fullScreen
+                vc.view.window?.layer.add(transition, forKey: kCATransition)
+                self.present(vc, animated: true, completion: nil)
+            }
+        }else {
+            if let vc = UIStoryboard(name: "Stories", bundle: nil).instantiateInitialViewController() as? StoriesViewController {
+
+                let transition = CATransition()
+                transition.duration = 0.5
+                transition.type = CATransitionType.push
+                transition.subtype = CATransitionSubtype.fromLeft
+                transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+                view.window?.layer.add(transition, forKey: kCATransition)
+                vc.modalPresentationStyle = .fullScreen
+                vc.view.window?.layer.add(transition, forKey: kCATransition)
+                self.present(vc, animated: true, completion: nil)
+            }
+        }
+       
     }
 }
 extension UIImage {

@@ -18,8 +18,10 @@ target 'ProjetoDesign' do
   pod 'SwiftMessages'
   pod 'CircleBar'
   pod 'GoogleSignIn'
-  pod  'MaterialComponents'
+  pod 'MaterialComponents'
   pod 'FBSDKLoginKit'
+  pod 'SwiftyCam'
+  pod 'SegmentedProgressView'
 
   target 'ProjetoDesignTests' do
     inherit! :search_paths
@@ -29,7 +31,6 @@ target 'ProjetoDesign' do
   target 'ProjetoDesignUITests' do
     # Pods for testing
   end
-
 end
 
 post_install do |installer|

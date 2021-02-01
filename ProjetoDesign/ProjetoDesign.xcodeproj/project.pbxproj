@@ -57,6 +57,7 @@
 		4C2CD84B2533916B00CC0BF1 /* InfoPost.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C2CD84A2533916B00CC0BF1 /* InfoPost.storyboard */; };
 		4C2CD8502533920400CC0BF1 /* infoPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2CD84F2533920400CC0BF1 /* infoPostViewController.swift */; };
 		4C2CD8562533950D00CC0BF1 /* InfoPostTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2CD8552533950D00CC0BF1 /* InfoPostTableCell.swift */; };
+		4C2D645E25B9DB0F001AA897 /* StoriesRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2D645D25B9DB0F001AA897 /* StoriesRequest.swift */; };
 		4C322D85258C520600DCA8B5 /* PhotoDetailTableDelegateDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C322D84258C520600DCA8B5 /* PhotoDetailTableDelegateDataSource.swift */; };
 		4C322D8A258C54B100DCA8B5 /* PhotoDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C322D89258C54B100DCA8B5 /* PhotoDetailModel.swift */; };
 		4C393216252DEE9000844D64 /* ResizeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C393215252DEE9000844D64 /* ResizeImage.swift */; };
@@ -68,8 +69,11 @@
 		4C4EEFF0257AEFBA00E1D6CD /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4EEFEF257AEFBA00E1D6CD /* Usuario.swift */; };
 		4C4EEFF5257AF8F000E1D6CD /* ViewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4EEFF4257AF8F000E1D6CD /* ViewRequest.swift */; };
 		4C4EEFFA257AFC9900E1D6CD /* searchTableDelegateDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4EEFF9257AFC9900E1D6CD /* searchTableDelegateDatasource.swift */; };
+		4C4F577225B53D510071C5C6 /* cleis e mauro.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C4F577125B53D510071C5C6 /* cleis e mauro.png */; };
 		4C502F95254260540001FAB2 /* StoriesReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C502F94254260540001FAB2 /* StoriesReusableView.swift */; };
 		4C502F9A254267240001FAB2 /* BorderImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C502F99254267240001FAB2 /* BorderImage.swift */; };
+		4C5040D625B4FAB50010EB0A /* Stories.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C5040D525B4FAB50010EB0A /* Stories.storyboard */; };
+		4C50412725B502540010EB0A /* StoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C50412625B502540010EB0A /* StoriesViewController.swift */; };
 		4C5526EF257394A1007AA6C8 /* CurrentWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5526EE257394A1007AA6C8 /* CurrentWeather.swift */; };
 		4C5526FD257395A8007AA6C8 /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C5526FC257395A8007AA6C8 /* Locations.swift */; };
 		4C55270225739B75007AA6C8 /* Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C55270125739B75007AA6C8 /* Extras.swift */; };
@@ -125,6 +129,10 @@
 		4CCB527F252A4B5100F9AB19 /* editTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB527E252A4B5100F9AB19 /* editTextField.swift */; };
 		4CCB5285252A4DB000F9AB19 /* Registrar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CCB5284252A4DB000F9AB19 /* Registrar.storyboard */; };
 		4CCB528A252A4DC000F9AB19 /* RegistrarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB5289252A4DC000F9AB19 /* RegistrarViewController.swift */; };
+		4CD2EB9D25B7676B00EF5B1C /* StoriesDownload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD2EB9C25B7676B00EF5B1C /* StoriesDownload.swift */; };
+		4CD4D89125B6A13E0039D5E8 /* StoriesLoaded.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CD4D89025B6A13E0039D5E8 /* StoriesLoaded.storyboard */; };
+		4CD4D93125B6AFD30039D5E8 /* StoriesLoadedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4D93025B6AFD30039D5E8 /* StoriesLoadedViewController.swift */; };
+		4CD4D95C25B6BB2A0039D5E8 /* StoriesLoadedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD4D95B25B6BB2A0039D5E8 /* StoriesLoadedCollectionViewCell.swift */; };
 		4CDB7B18254F47E500A97B25 /* mel3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 4CDB7B17254F47E500A97B25 /* mel3.jpeg */; };
 		4CDB7B20254F480E00A97B25 /* mel4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CDB7B1F254F480E00A97B25 /* mel4.jpg */; };
 		4CE0F2E6257B2671007DA03C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE0F2E5257B2671007DA03C /* ProfileViewModel.swift */; };
@@ -209,6 +217,7 @@
 		4C2CD84A2533916B00CC0BF1 /* InfoPost.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InfoPost.storyboard; sourceTree = "<group>"; };
 		4C2CD84F2533920400CC0BF1 /* infoPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = infoPostViewController.swift; sourceTree = "<group>"; };
 		4C2CD8552533950D00CC0BF1 /* InfoPostTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPostTableCell.swift; sourceTree = "<group>"; };
+		4C2D645D25B9DB0F001AA897 /* StoriesRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesRequest.swift; sourceTree = "<group>"; };
 		4C322D84258C520600DCA8B5 /* PhotoDetailTableDelegateDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailTableDelegateDataSource.swift; sourceTree = "<group>"; };
 		4C322D89258C54B100DCA8B5 /* PhotoDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailModel.swift; sourceTree = "<group>"; };
 		4C393215252DEE9000844D64 /* ResizeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResizeImage.swift; sourceTree = "<group>"; };
@@ -220,8 +229,11 @@
 		4C4EEFEF257AEFBA00E1D6CD /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 		4C4EEFF4257AF8F000E1D6CD /* ViewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRequest.swift; sourceTree = "<group>"; };
 		4C4EEFF9257AFC9900E1D6CD /* searchTableDelegateDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchTableDelegateDatasource.swift; sourceTree = "<group>"; };
+		4C4F577125B53D510071C5C6 /* cleis e mauro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cleis e mauro.png"; sourceTree = "<group>"; };
 		4C502F94254260540001FAB2 /* StoriesReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesReusableView.swift; sourceTree = "<group>"; };
 		4C502F99254267240001FAB2 /* BorderImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderImage.swift; sourceTree = "<group>"; };
+		4C5040D525B4FAB50010EB0A /* Stories.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Stories.storyboard; sourceTree = "<group>"; };
+		4C50412625B502540010EB0A /* StoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesViewController.swift; sourceTree = "<group>"; };
 		4C5526EE257394A1007AA6C8 /* CurrentWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeather.swift; sourceTree = "<group>"; };
 		4C5526FC257395A8007AA6C8 /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 		4C55270125739B75007AA6C8 /* Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extras.swift; sourceTree = "<group>"; };
@@ -283,6 +295,10 @@
 		4CCB527E252A4B5100F9AB19 /* editTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editTextField.swift; sourceTree = "<group>"; };
 		4CCB5284252A4DB000F9AB19 /* Registrar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registrar.storyboard; sourceTree = "<group>"; };
 		4CCB5289252A4DC000F9AB19 /* RegistrarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrarViewController.swift; sourceTree = "<group>"; };
+		4CD2EB9C25B7676B00EF5B1C /* StoriesDownload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesDownload.swift; sourceTree = "<group>"; };
+		4CD4D89025B6A13E0039D5E8 /* StoriesLoaded.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StoriesLoaded.storyboard; sourceTree = "<group>"; };
+		4CD4D93025B6AFD30039D5E8 /* StoriesLoadedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesLoadedViewController.swift; sourceTree = "<group>"; };
+		4CD4D95B25B6BB2A0039D5E8 /* StoriesLoadedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesLoadedCollectionViewCell.swift; sourceTree = "<group>"; };
 		4CDB7B17254F47E500A97B25 /* mel3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel3.jpeg; sourceTree = "<group>"; };
 		4CDB7B1F254F480E00A97B25 /* mel4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel4.jpg; sourceTree = "<group>"; };
 		4CE0F2E5257B2671007DA03C /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -366,6 +382,7 @@
 				427B21C6257F122400F114E0 /* FeedService.swift */,
 				427B21CB257F137600F114E0 /* FirebaseRealtimeDatabaseFeedService.swift */,
 				42FD406E25803FE2001257AB /* FeedViewModel.swift */,
+				4C2D645D25B9DB0F001AA897 /* StoriesRequest.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -470,6 +487,7 @@
 				4C6DF0A8252B5B030099D857 /* melissa */,
 				4CCB5269252A474700F9AB19 /* 1.jpg */,
 				4C0D1A17252A7BCC00462862 /* brendon.jpg */,
+				4C4F577125B53D510071C5C6 /* cleis e mauro.png */,
 				4C0D19F3252A6D7E00462862 /* trash.png */,
 				4C0D1A0B252A768300462862 /* emptyHeart.png */,
 				4C0D1A09252A768200462862 /* heart1.png */,
@@ -525,6 +543,24 @@
 				4C474746257C75CC00D09556 /* readFollow.swift */,
 			);
 			path = Follow;
+			sourceTree = "<group>";
+		};
+		4C5040D325B4F9CA0010EB0A /* Stories */ = {
+			isa = PBXGroup;
+			children = (
+				4CD4D88C25B6A0DF0039D5E8 /* loadStories */,
+				4C5040D425B4F9D10010EB0A /* NewData */,
+			);
+			path = Stories;
+			sourceTree = "<group>";
+		};
+		4C5040D425B4F9D10010EB0A /* NewData */ = {
+			isa = PBXGroup;
+			children = (
+				4C5040D525B4FAB50010EB0A /* Stories.storyboard */,
+				4C50412625B502540010EB0A /* StoriesViewController.swift */,
+			);
+			path = NewData;
 			sourceTree = "<group>";
 		};
 		4C573F2B2545DFD900A2982F /* PhotoDetail */ = {
@@ -622,6 +658,7 @@
 		4C6E473E252E8640001F74A9 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				4C5040D325B4F9CA0010EB0A /* Stories */,
 				4C573F2B2545DFD900A2982F /* PhotoDetail */,
 				4C8F1538254373CF0010F790 /* Profile */,
 				4CADCC922542264C005676F7 /* Comments */,
@@ -763,6 +800,17 @@
 				4C61CE042579A61800491964 /* RegisterViewModel.swift */,
 			);
 			path = Registrar;
+			sourceTree = "<group>";
+		};
+		4CD4D88C25B6A0DF0039D5E8 /* loadStories */ = {
+			isa = PBXGroup;
+			children = (
+				4CD4D89025B6A13E0039D5E8 /* StoriesLoaded.storyboard */,
+				4CD4D93025B6AFD30039D5E8 /* StoriesLoadedViewController.swift */,
+				4CD4D95B25B6BB2A0039D5E8 /* StoriesLoadedCollectionViewCell.swift */,
+				4CD2EB9C25B7676B00EF5B1C /* StoriesDownload.swift */,
+			);
+			path = loadStories;
 			sourceTree = "<group>";
 		};
 		4CF5BFF72564D6FB004AFFB5 /* Model */ = {
@@ -908,11 +956,13 @@
 				4C0D1A18252A7BCC00462862 /* brendon.jpg in Resources */,
 				4CCB5243252A45E800F9AB19 /* LaunchScreen.storyboard in Resources */,
 				4C0D1A13252A786100462862 /* heart0.png in Resources */,
+				4C5040D625B4FAB50010EB0A /* Stories.storyboard in Resources */,
 				4CDB7B20254F480E00A97B25 /* mel4.jpg in Resources */,
 				4CADCC9425422665005676F7 /* Comments.storyboard in Resources */,
 				4C57A13E253F89310018C522 /* search.storyboard in Resources */,
 				4C6DF0B5252B5D510099D857 /* miles0.jpeg in Resources */,
 				4C573F2D2545DFF100A2982F /* PhotoDetail.storyboard in Resources */,
+				4C4F577225B53D510071C5C6 /* cleis e mauro.png in Resources */,
 				4C0D1A29252A801E00462862 /* post3.jpg in Resources */,
 				4C0D1A0C252A768300462862 /* heart1.png in Resources */,
 				4C0D19F9252A6D8200462862 /* tag.png in Resources */,
@@ -925,6 +975,7 @@
 				4C0D1A0D252A768300462862 /* heart2.png in Resources */,
 				4CCB526A252A474700F9AB19 /* 1.jpg in Resources */,
 				4CCB526F252A4A9A00F9AB19 /* 2.jpg in Resources */,
+				4CD4D89125B6A13E0039D5E8 /* StoriesLoaded.storyboard in Resources */,
 				4CCB5240252A45E800F9AB19 /* Assets.xcassets in Resources */,
 				4C0D1A2A252A801E00462862 /* post1.jpg in Resources */,
 				4C6DF0B6252B5D510099D857 /* miles1.jpeg in Resources */,
@@ -1100,6 +1151,8 @@
 			files = (
 				4CE0F2EB257B37B9007DA03C /* editProfileViewModel.swift in Sources */,
 				4CCB5275252A4B2100F9AB19 /* RoundedView.swift in Sources */,
+				4CD2EB9D25B7676B00EF5B1C /* StoriesDownload.swift in Sources */,
+				4C50412725B502540010EB0A /* StoriesViewController.swift in Sources */,
 				4C474747257C75CC00D09556 /* readFollow.swift in Sources */,
 				4C47473E257C735200D09556 /* FollowRequest.swift in Sources */,
 				42D2B1F6257DAB6900E4AC6C /* LegendViewModel.swift in Sources */,
@@ -1124,6 +1177,7 @@
 				4C0D1A47252A8D9F00462862 /* Post.swift in Sources */,
 				42997A2B2533CB59008C9CEF /* LogoutSegue.swift in Sources */,
 				4CADCC9E25422810005676F7 /* CommentViewModel.swift in Sources */,
+				4C2D645E25B9DB0F001AA897 /* StoriesRequest.swift in Sources */,
 				4C6DF0BB252B602B0099D857 /* Stories.swift in Sources */,
 				425DA40E25A53A3C00E151B2 /* FirebaseRealtimeDatabaseCommentsService.swift in Sources */,
 				4CCB528A252A4DC000F9AB19 /* RegistrarViewController.swift in Sources */,
@@ -1134,6 +1188,7 @@
 				4CCB523B252A45E700F9AB19 /* SignInViewController.swift in Sources */,
 				4C5526FD257395A8007AA6C8 /* Locations.swift in Sources */,
 				4C0D1A56252A98FF00462862 /* ImagensProfile.swift in Sources */,
+				4CD4D95C25B6BB2A0039D5E8 /* StoriesLoadedCollectionViewCell.swift in Sources */,
 				4C1C4D58257C6296003CA5AA /* UserCollectionDelegateDataSource.swift in Sources */,
 				42D2B1F1257DA06200E4AC6C /* FirebaseRealtimeDatabaseLegendService.swift in Sources */,
 				4C0D1A4C252A920500462862 /* Profile.swift in Sources */,
@@ -1155,6 +1210,7 @@
 				4C0FC37725B4BF3700B45394 /* SHCircleBar.swift in Sources */,
 				4C474739257C65E700D09556 /* userSelectedrequest.swift in Sources */,
 				4C573F3D2545E8E700A2982F /* PhotoDetail.swift in Sources */,
+				4CD4D93125B6AFD30039D5E8 /* StoriesLoadedViewController.swift in Sources */,
 				4C47EE84254634F6000F934B /* PhotoDetailTableViewCell.swift in Sources */,
 				4C4EEFF0257AEFBA00E1D6CD /* Usuario.swift in Sources */,
 				4C57A149253F8CC40018C522 /* SearchTableCell.swift in Sources */,
@@ -1362,12 +1418,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LMTRNCP347;
 				INFOPLIST_FILE = ProjetoDesign/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = lestad.ProjetoDesign;
+				PRODUCT_BUNDLE_IDENTIFIER = com.UniverseProjetoIntegrador;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1381,12 +1438,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = LMTRNCP347;
 				INFOPLIST_FILE = ProjetoDesign/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = lestad.ProjetoDesign;
+				PRODUCT_BUNDLE_IDENTIFIER = com.UniverseProjetoIntegrador;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
