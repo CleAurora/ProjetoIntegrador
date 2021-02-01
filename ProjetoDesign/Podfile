@@ -25,7 +25,8 @@ target 'ProjetoDesign' do
 
   target 'ProjetoDesignTests' do
     inherit! :search_paths
-    # Pods for testing
+
+    pod 'Nimble-Snapshots'
   end
 
   target 'ProjetoDesignUITests' do

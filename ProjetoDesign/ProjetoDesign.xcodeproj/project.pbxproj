@@ -19,6 +19,7 @@
 		42997A1B2533A24D008C9CEF /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42997A1A2533A24D008C9CEF /* Setting.storyboard */; };
 		42997A262533CA29008C9CEF /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42997A252533CA29008C9CEF /* DismissSegue.swift */; };
 		42997A2B2533CB59008C9CEF /* LogoutSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42997A2A2533CB59008C9CEF /* LogoutSegue.swift */; };
+		42C59C3A25C8BACB002FC979 /* SignInViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C59C3925C8BACB002FC979 /* SignInViewControllerTests.swift */; };
 		42D2B1EC257D9F6700E4AC6C /* LegendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2B1EB257D9F6700E4AC6C /* LegendService.swift */; };
 		42D2B1F1257DA06200E4AC6C /* FirebaseRealtimeDatabaseLegendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2B1F0257DA06200E4AC6C /* FirebaseRealtimeDatabaseLegendService.swift */; };
 		42D2B1F6257DAB6900E4AC6C /* LegendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42D2B1F5257DAB6800E4AC6C /* LegendViewModel.swift */; };
@@ -137,7 +138,6 @@
 		4CDB7B20254F480E00A97B25 /* mel4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4CDB7B1F254F480E00A97B25 /* mel4.jpg */; };
 		4CE0F2E6257B2671007DA03C /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE0F2E5257B2671007DA03C /* ProfileViewModel.swift */; };
 		4CE0F2EB257B37B9007DA03C /* editProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE0F2EA257B37B9007DA03C /* editProfileViewModel.swift */; };
-		4CE2D15A25485C0F004045B2 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE2D15925485C0F004045B2 /* RoundedTextField.swift */; };
 		4CEF1A5725C208F200797B6C /* CustomOutlinedTxtField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CEF1A5625C208F200797B6C /* CustomOutlinedTxtField.swift */; };
 		4CF5BFF92564D70F004AFFB5 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CF5BFF82564D70F004AFFB5 /* Alert.swift */; };
 		5302CE3A25B7B717005C9362 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5302CE3925B7B717005C9362 /* SignInViewModel.swift */; };
@@ -179,6 +179,7 @@
 		42997A1A2533A24D008C9CEF /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		42997A252533CA29008C9CEF /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		42997A2A2533CB59008C9CEF /* LogoutSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutSegue.swift; sourceTree = "<group>"; };
+		42C59C3925C8BACB002FC979 /* SignInViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewControllerTests.swift; sourceTree = "<group>"; };
 		42D2B1EB257D9F6700E4AC6C /* LegendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendService.swift; sourceTree = "<group>"; };
 		42D2B1F0257DA06200E4AC6C /* FirebaseRealtimeDatabaseLegendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRealtimeDatabaseLegendService.swift; sourceTree = "<group>"; };
 		42D2B1F5257DAB6800E4AC6C /* LegendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendViewModel.swift; sourceTree = "<group>"; };
@@ -303,7 +304,6 @@
 		4CDB7B1F254F480E00A97B25 /* mel4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = mel4.jpg; sourceTree = "<group>"; };
 		4CE0F2E5257B2671007DA03C /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		4CE0F2EA257B37B9007DA03C /* editProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = editProfileViewModel.swift; sourceTree = "<group>"; };
-		4CE2D15925485C0F004045B2 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		4CEF1A5625C208F200797B6C /* CustomOutlinedTxtField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomOutlinedTxtField.swift; sourceTree = "<group>"; };
 		4CF5BFF82564D70F004AFFB5 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		4E919C162EB416B2CC4CBA1F /* Pods_ProjetoDesign.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ProjetoDesign.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -363,6 +363,22 @@
 				424E9DC325351D2700C5AE62 /* SettingViewController.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		42C59C3725C8BA99002FC979 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				42C59C3825C8BAA9002FC979 /* Login */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		42C59C3825C8BAA9002FC979 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				42C59C3925C8BACB002FC979 /* SignInViewControllerTests.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		47DB6A8562C2AB075FD9F20C /* Frameworks */ = {
@@ -760,6 +776,7 @@
 		4CCB524C252A45E800F9AB19 /* ProjetoDesignTests */ = {
 			isa = PBXGroup;
 			children = (
+				42C59C3725C8BA99002FC979 /* ViewControllers */,
 				4CCB524D252A45E800F9AB19 /* ProjetoDesignTests.swift */,
 				4CCB524F252A45E800F9AB19 /* Info.plist */,
 			);
@@ -778,7 +795,6 @@
 		4CCB5273252A4B0F00F9AB19 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				4CE2D15925485C0F004045B2 /* RoundedTextField.swift */,
 				4CCB5274252A4B2100F9AB19 /* RoundedView.swift */,
 				4CCB5279252A4B3F00F9AB19 /* RoundedButton.swift */,
 				4CCB527E252A4B5100F9AB19 /* editTextField.swift */,
@@ -870,6 +886,7 @@
 				4CCB5245252A45E800F9AB19 /* Sources */,
 				4CCB5246252A45E800F9AB19 /* Frameworks */,
 				4CCB5247252A45E800F9AB19 /* Resources */,
+				64671E2CA2C6424F501A9B59 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1064,6 +1081,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		64671E2CA2C6424F501A9B59 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProjetoDesignTests/Pods-ProjetoDesignTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ProjetoDesignTests/Pods-ProjetoDesignTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ProjetoDesignTests/Pods-ProjetoDesignTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		82D0A1694F76A8B5379EEEE8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1225,7 +1259,6 @@
 				4C0D19B6252A5C3F00462862 /* FeedViewController.swift in Sources */,
 				4C2116A0258A8520001C3A54 /* searchModel.swift in Sources */,
 				425DA41325A53A4A00E151B2 /* CommentsViewModel.swift in Sources */,
-				4CE2D15A25485C0F004045B2 /* RoundedTextField.swift in Sources */,
 				4C5CCC6E2578654900B2DD45 /* uploadCollectionDelegateSource.swift in Sources */,
 				4C502F9A254267240001FAB2 /* BorderImage.swift in Sources */,
 				4C61CE052579A61800491964 /* RegisterViewModel.swift in Sources */,
@@ -1248,6 +1281,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42C59C3A25C8BACB002FC979 /* SignInViewControllerTests.swift in Sources */,
 				4CCB524E252A45E800F9AB19 /* ProjetoDesignTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
