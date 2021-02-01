@@ -9,6 +9,7 @@ import UIKit
 import Reachability
 import SwiftMessages
 import Firebase
+import PKHUD
 final class FeedViewController: UIViewController, HeaderDelegate {
 
 
@@ -38,11 +39,9 @@ final class FeedViewController: UIViewController, HeaderDelegate {
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupTableView()
-
+        checkStories()
         navigationController?.navigationBar.isHidden = true
-
         viewModel.load { [weak self] in
             self?.feedTableView.reloadData()
         }
@@ -51,21 +50,22 @@ final class FeedViewController: UIViewController, HeaderDelegate {
             self?.currentUser = profile
             self?.storieCollectionView.reloadData()
         }
-        
-        storieCollectionView.reloadData()
-        checkStories()
 
         setupReachability()
+        
         gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(removeOldStories), userInfo: nil, repeats: true)
+        
+        gameTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(checkStories), userInfo: nil, repeats: true)
       
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         feedTableView.reloadData()
+        storieCollectionView.reloadData()
+       
     }
-
-    func checkStories(){
+    @objc func checkStories(){
         
         storiesRequest.checkFollowing(completionHandler: { success, _ in
             if success {
@@ -340,6 +340,13 @@ extension FeedViewController: UICollectionViewDataSource{
             cell.setup(user: currentUser)
         }
         
+        if self.storiesRequest.currentUserStories.count != 0 {
+            cell.addNewItemButton.isHidden = true
+            cell.borderView.backgroundColor = UIColor(patternImage: UIImage(named: "stories2.jpg")!)
+        }else{
+            cell.addNewItemButton.isHidden = false
+            cell.borderView.backgroundColor = UIColor.clear
+        }
         cell.teste()
         cell.delegate = self
         return cell

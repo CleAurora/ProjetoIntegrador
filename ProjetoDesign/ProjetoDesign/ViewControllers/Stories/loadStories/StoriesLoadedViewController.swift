@@ -19,17 +19,16 @@ class StoriesLoadedViewController: UIViewController, ProgressBarDelegate, UIColl
     
     var images: [UIImage] = []
     var storiesUser: Usuario?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getStories()
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
           storiesCollectionView.delegate = self
           storiesCollectionView.dataSource = self
           storiesCollectionView.reloadData()
-        
     }
     
     func getStories(){
@@ -47,6 +46,7 @@ class StoriesLoadedViewController: UIViewController, ProgressBarDelegate, UIColl
 
         let timer =  Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(scrollToNextCell), userInfo: nil, repeats: true)
     }
+    
     @objc func scrollToNextCell(){
 
         //get cell size

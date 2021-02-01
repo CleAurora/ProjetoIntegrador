@@ -37,7 +37,7 @@ class StoriesViewController: UIViewController , UIImagePickerControllerDelegate,
             openCamera()
         }else{
             if isImageSelected == true {
-                print("imagem selecionada")
+
             }else{
                 noCamera()
             }
@@ -59,13 +59,15 @@ class StoriesViewController: UIViewController , UIImagePickerControllerDelegate,
        // takePhoto()
     }
     @IBAction func sendTo(_ sender: Any) {
+        HUD.show(.progress)
         self.saveFIRData(completionHandler: { success, _ in
             if success {
-                HUD.show(.progress)
+                HUD.hide()
                 self.closeLeftToRight()
             }
         })
     }
+    
     func noCamera(){
         let alert = UIAlertController(title: "We could not access your camera", message: "anyhow you can access your Photos and share it", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default))
@@ -115,8 +117,9 @@ class StoriesViewController: UIViewController , UIImagePickerControllerDelegate,
             transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
             presentedVC.view.window!.layer.add(transition, forKey: kCATransition)
         }
-        HUD.hide()
+        
         dismiss(animated: false, completion: nil)
+        
     }
     
     func saveFIRData(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void) {
@@ -137,12 +140,10 @@ class StoriesViewController: UIViewController , UIImagePickerControllerDelegate,
         metaData.contentType = "image/png"
         storageRef.putData(imgData!, metadata: metaData) {(metadata, error) in
             if error == nil{
-                print("success")
                 storageRef.downloadURL(completion: { (url, error) in
                     completionHandler(url, nil)
                 })
             }else {
-                print("error in save image")
                 completionHandler(nil, error)
             }
         }

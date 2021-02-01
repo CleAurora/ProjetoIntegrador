@@ -14,7 +14,8 @@ class StoriesReusableView: UICollectionReusableView {
     // MARK: IBOutlets
     @IBOutlet weak var currentUserImageView: UIImageView!
     @IBOutlet weak var borderView: BorderView!
-
+    @IBOutlet var addNewItemButton: UIButton!
+    
     // MARK: - Proprierts
     var delegate: HeaderDelegate?
 
@@ -34,7 +35,5 @@ class StoriesReusableView: UICollectionReusableView {
         } else {
             currentUserImageView.image = UIImage(named: user.profileImage)
         }
-
-        borderView.backgroundColor = UIColor(patternImage: UIImage(named: "stories2.jpg")!)
     }
 }

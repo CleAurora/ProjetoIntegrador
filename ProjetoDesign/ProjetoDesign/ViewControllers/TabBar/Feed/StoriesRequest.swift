@@ -52,17 +52,11 @@ class StoriesRequest {
                         }
                     })
                 }
-                
                 if storiesToshow.userID == self.uid {
                     self.currentUserStories.append(storiesToshow)
-                    completionHandler(true,nil)
-                }else if self.uid != nil {
-                    completionHandler(true,nil)
-                }
-                
-              
-            }
-            
+
+             }
+          }
         }
     }
   }
@@ -77,25 +71,23 @@ class StoriesRequest {
                     for (_, value) in users{
                         if let whoFollowing = value["whoIsFollowing"] as? String {
                             
-                            
                                 let userToshow = readFollow()
                                 userToshow.followID = whoFollowing
-                                
                                 self.getStories(whoIsFollowing: userToshow.followID, completionHandler: { success, _ in
                                     if success {
                                        completionHandler(true, nil)
                                     }
-                                })
+                            })
+                        }else{
+                            completionHandler(true,nil)
                         }
                     }
                 }
           })
-            completionHandler(true,nil)
         }
     }
     
     func loadData(StoriesUser: String ,completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
-        self.storiesUser.removeAll()
         
         self.ref = Database.database().reference()
         if let uid = Auth.auth().currentUser?.uid {
@@ -130,6 +122,7 @@ class StoriesRequest {
                             if self.alreadyHasArray.contains(StoriesUser){
                                 //if already contains user in array do nothing
                             }else{
+                                
                                 if userToshow.userID == StoriesUser {
                                     self.storiesUser.append(userToshow)
                                     self.alreadyHasArray.append(userToshow.userID)
