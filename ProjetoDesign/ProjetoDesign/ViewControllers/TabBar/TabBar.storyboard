@@ -245,6 +245,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYj-yD-nHS" customClass="extensions" customModule="ProjetoDesign" customModuleProvider="target">
+                                <rect key="frame" x="340" y="796" width="65" height="65"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stories2" translatesAutoresizingMaskIntoConstraints="NO" id="mG8-fe-bAv">
+                                        <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="65" id="4of-0C-4gB"/>
+                                            <constraint firstAttribute="width" constant="65" id="Rzo-FG-RFr"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <constraints>
+                                    <constraint firstItem="mG8-fe-bAv" firstAttribute="top" secondItem="YYj-yD-nHS" secondAttribute="top" id="1CQ-l4-30H"/>
+                                    <constraint firstAttribute="width" constant="65" id="HRb-fx-MHg"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="65" id="NNq-bP-JZn"/>
+                                    <constraint firstAttribute="trailing" secondItem="mG8-fe-bAv" secondAttribute="trailing" id="S0p-P6-LLV"/>
+                                    <constraint firstAttribute="bottom" secondItem="mG8-fe-bAv" secondAttribute="bottom" id="SYN-Gs-tuR"/>
+                                    <constraint firstAttribute="height" constant="65" id="e18-iJ-1aK"/>
+                                    <constraint firstItem="mG8-fe-bAv" firstAttribute="leading" secondItem="YYj-yD-nHS" secondAttribute="leading" id="g2X-fC-UYH"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="65" id="tWe-TE-Gaz"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="30"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S0P-ys-ahs">
                                 <rect key="frame" x="0.0" y="809" width="334" height="87"/>
                                 <subviews>
@@ -499,35 +528,6 @@
                                     </connections>
                                 </collectionReusableView>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YYj-yD-nHS" customClass="extensions" customModule="ProjetoDesign" customModuleProvider="target">
-                                <rect key="frame" x="340" y="796" width="65" height="65"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stories2" translatesAutoresizingMaskIntoConstraints="NO" id="mG8-fe-bAv">
-                                        <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="65" id="4of-0C-4gB"/>
-                                            <constraint firstAttribute="width" constant="65" id="Rzo-FG-RFr"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
-                                <constraints>
-                                    <constraint firstItem="mG8-fe-bAv" firstAttribute="top" secondItem="YYj-yD-nHS" secondAttribute="top" id="1CQ-l4-30H"/>
-                                    <constraint firstAttribute="width" constant="65" id="HRb-fx-MHg"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="65" id="NNq-bP-JZn"/>
-                                    <constraint firstAttribute="trailing" secondItem="mG8-fe-bAv" secondAttribute="trailing" id="S0p-P6-LLV"/>
-                                    <constraint firstAttribute="bottom" secondItem="mG8-fe-bAv" secondAttribute="bottom" id="SYN-Gs-tuR"/>
-                                    <constraint firstAttribute="height" constant="65" id="e18-iJ-1aK"/>
-                                    <constraint firstItem="mG8-fe-bAv" firstAttribute="leading" secondItem="YYj-yD-nHS" secondAttribute="leading" id="g2X-fC-UYH"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="65" id="tWe-TE-Gaz"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="30"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="NO"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="NeS-zw-TkG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
