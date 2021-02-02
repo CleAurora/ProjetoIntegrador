@@ -111,6 +111,9 @@ PODS:
   - iOSSnapshotTestCase/SwiftSupport (6.2.0):
     - iOSSnapshotTestCase/Core
   - IQKeyboardManagerSwift (6.3.0)
+  - KIF (3.7.15):
+    - KIF/Core (= 3.7.15)
+  - KIF/Core (3.7.15)
   - Kingfisher (5.15.8):
     - Kingfisher/Core (= 5.15.8)
   - Kingfisher/Core (5.15.8)
@@ -786,6 +789,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - GoogleSignIn
   - IQKeyboardManagerSwift (~> 6.3)
+  - KIF
   - Kingfisher (~> 5.0)
   - MaterialComponents
   - Nimble-Snapshots
@@ -819,6 +823,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - iOSSnapshotTestCase
     - IQKeyboardManagerSwift
+    - KIF
     - Kingfisher
     - leveldb-library
     - MaterialComponents
@@ -859,6 +864,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
   iOSSnapshotTestCase: 9ab44cb5aa62b84d31847f40680112e15ec579a6
   IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
+  KIF: c060ca8bf50986a9b236d0337affab573eacc152
   Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   MaterialComponents: 1f521dc333679daf0a397fe9dafe1e26ae13da78
@@ -877,6 +883,6 @@ SPEC CHECKSUMS:
   SwiftyCam: 6e57914771d972fbe508e759dc9d0150a44a93fd
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 5dce8c5784206b781477c1fc94a10fb0b1a4b051
+PODFILE CHECKSUM: ca7f32f96ea2e3aff10199e89c64841bf1026624
 
 COCOAPODS: 1.10.1

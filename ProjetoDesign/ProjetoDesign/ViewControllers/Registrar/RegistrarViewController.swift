@@ -35,7 +35,6 @@ final class RegistrarViewController: UIViewController{
         GIDSignIn.sharedInstance()?.presentingViewController = self
         
         viewModel.textFieldAppearance()
-       
     }
 
     @IBAction func imageviewButton(_ sender: Any) {

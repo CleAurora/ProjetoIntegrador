@@ -19,6 +19,11 @@
 		42997A1B2533A24D008C9CEF /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42997A1A2533A24D008C9CEF /* Setting.storyboard */; };
 		42997A262533CA29008C9CEF /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42997A252533CA29008C9CEF /* DismissSegue.swift */; };
 		42997A2B2533CB59008C9CEF /* LogoutSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42997A2A2533CB59008C9CEF /* LogoutSegue.swift */; };
+		42A7173C25C95D87005142FB /* SignInViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A7173B25C95D87005142FB /* SignInViewModelSpy.swift */; };
+		42A7174425C95E41005142FB /* LoginViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A7174325C95E41005142FB /* LoginViewModelSpy.swift */; };
+		42A7174A25C96360005142FB /* KIFUITestActor+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A7174925C96360005142FB /* KIFUITestActor+UIApplication.swift */; };
+		42A7175225C963B1005142FB /* XCTestCase+KIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A7175125C963B1005142FB /* XCTestCase+KIF.swift */; };
+		42A7175725C9643B005142FB /* UIView+AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A7175625C9643B005142FB /* UIView+AccessibilityIdentifier.swift */; };
 		42C59C3A25C8BACB002FC979 /* SignInViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C59C3925C8BACB002FC979 /* SignInViewControllerTests.swift */; };
 		42C59C4225C8C0D8002FC979 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C59C4125C8C0D8002FC979 /* main.swift */; };
 		42C59C4725C8C0FF002FC979 /* TestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C59C4625C8C0FF002FC979 /* TestAppDelegate.swift */; };
@@ -183,6 +188,11 @@
 		42997A1A2533A24D008C9CEF /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		42997A252533CA29008C9CEF /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		42997A2A2533CB59008C9CEF /* LogoutSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutSegue.swift; sourceTree = "<group>"; };
+		42A7173B25C95D87005142FB /* SignInViewModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModelSpy.swift; sourceTree = "<group>"; };
+		42A7174325C95E41005142FB /* LoginViewModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelSpy.swift; sourceTree = "<group>"; };
+		42A7174925C96360005142FB /* KIFUITestActor+UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KIFUITestActor+UIApplication.swift"; sourceTree = "<group>"; };
+		42A7175125C963B1005142FB /* XCTestCase+KIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+KIF.swift"; sourceTree = "<group>"; };
+		42A7175625C9643B005142FB /* UIView+AccessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AccessibilityIdentifier.swift"; sourceTree = "<group>"; };
 		42C59C3925C8BACB002FC979 /* SignInViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewControllerTests.swift; sourceTree = "<group>"; };
 		42C59C4125C8C0D8002FC979 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		42C59C4625C8C0FF002FC979 /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
@@ -370,6 +380,25 @@
 				424E9DC325351D2700C5AE62 /* SettingViewController.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		42A7173A25C95D68005142FB /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				42A7173B25C95D87005142FB /* SignInViewModelSpy.swift */,
+				42A7174325C95E41005142FB /* LoginViewModelSpy.swift */,
+			);
+			path = Spies;
+			sourceTree = "<group>";
+		};
+		42A7174825C96334005142FB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				42A7174925C96360005142FB /* KIFUITestActor+UIApplication.swift */,
+				42A7175125C963B1005142FB /* XCTestCase+KIF.swift */,
+				42A7175625C9643B005142FB /* UIView+AccessibilityIdentifier.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		42C59C3725C8BA99002FC979 /* ViewControllers */ = {
@@ -784,6 +813,8 @@
 		4CCB524C252A45E800F9AB19 /* ProjetoDesignTests */ = {
 			isa = PBXGroup;
 			children = (
+				42A7174825C96334005142FB /* Extensions */,
+				42A7173A25C95D68005142FB /* Spies */,
 				42C59C3725C8BA99002FC979 /* ViewControllers */,
 				4CCB524D252A45E800F9AB19 /* ProjetoDesignTests.swift */,
 				4CCB524F252A45E800F9AB19 /* Info.plist */,
@@ -1295,8 +1326,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42A7173C25C95D87005142FB /* SignInViewModelSpy.swift in Sources */,
+				42A7174A25C96360005142FB /* KIFUITestActor+UIApplication.swift in Sources */,
 				42C59C3A25C8BACB002FC979 /* SignInViewControllerTests.swift in Sources */,
 				4CCB524E252A45E800F9AB19 /* ProjetoDesignTests.swift in Sources */,
+				42A7174425C95E41005142FB /* LoginViewModelSpy.swift in Sources */,
+				42A7175225C963B1005142FB /* XCTestCase+KIF.swift in Sources */,
+				42A7175725C9643B005142FB /* UIView+AccessibilityIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

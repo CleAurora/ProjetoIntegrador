@@ -24,6 +24,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Axj-Yt-znw" userLabel="facebookButton">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="facebook_button"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="2zV-EX-fvs"/>
                                                     <constraint firstAttribute="width" constant="40" id="3DN-Ue-jLu"/>
@@ -38,6 +39,7 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VKG-Tc-eV2">
                                                 <rect key="frame" x="48" y="0.0" width="40" height="40"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="google_button"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="40" id="Pf8-5w-v2q"/>
                                                     <constraint firstAttribute="height" constant="40" id="a8W-df-BuM"/>
@@ -61,6 +63,7 @@
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9oN-pL-PF4" userLabel="RegistrarButton">
                                         <rect key="frame" x="30" y="236" width="57" height="40"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="register_button"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="0h9-4l-K6V"/>
                                         </constraints>
@@ -73,6 +76,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kMF-mj-qrR" customClass="RoundedButton" customModule="ProjetoDesign" customModuleProvider="target">
                                         <rect key="frame" x="324" y="236" width="60" height="40"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="login_button"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="9ua-Ng-gaj"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="BsT-kU-8XP"/>
@@ -143,12 +147,13 @@
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sIA-PZ-hJa">
                                         <rect key="frame" x="44" y="-1" width="204" height="40"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="email_textfield"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="HRx-UO-Eue"/>
                                         </constraints>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D45-dl-GgY">
                                         <rect key="frame" x="44" y="41" width="196" height="1"/>
@@ -167,12 +172,13 @@
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jlC-PX-LAG">
                                         <rect key="frame" x="44" y="42" width="204" height="40"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="password_textfield"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="404-3h-c23"/>
                                         </constraints>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.85486156088082899" green="0.85486156088082899" blue="0.85486156088082899" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -202,6 +208,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemGray6Color"/>
+                        <accessibility key="accessibilityConfiguration" identifier="sign_in_root_view"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="VdV-oZ-PgY" secondAttribute="bottom" id="1jZ-aD-Zs1"/>
                             <constraint firstItem="VdV-oZ-PgY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="1mn-Aw-d8U"/>

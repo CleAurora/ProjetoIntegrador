@@ -12,28 +12,23 @@ final class SignInViewController: UIViewController {
 
     // MARK: - IBOutlets
 
-    @IBOutlet weak var backgroundImageView: UIImageView!
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var loginView: UIView!
-    @IBOutlet weak var faceButtonTapped: UIButton!
-    @IBOutlet weak var registerButton: UIButton!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet private weak var backgroundImageView: UIImageView!
+    @IBOutlet private weak var loginButton: UIButton!
+    @IBOutlet private weak var loginView: UIView!
+    @IBOutlet private weak var faceButtonTapped: UIButton!
+    @IBOutlet private weak var registerButton: UIButton!
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
 
-    // MARK: - Private constants & variables
+    // MARK: - Lazy variables
 
-    private lazy var loginModel: LoginViewModel = LoginViewModel(view: self)
-    private lazy var signInViewModel = SignInViewModel.shared
+    lazy var loginModel: LoginViewModelProtocol = LoginViewModel()
+    lazy var signInViewModel: SignInViewModelProtocol = SignInViewModel.shared
 
     // MARK: - Super Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        emailTextField.textContentType = .oneTimeCode
-        passwordTextField.textContentType = .oneTimeCode
-        backgroundImageView.image = UIImage(named: "login2")
-        backgroundImageView.layer.maskedCorners = CACornerMask(rawValue: UIRectCorner([.bottomLeft, .bottomRight]).rawValue)
-        loginButton.backgroundColor = UIColor(patternImage: UIImage(named: "2.jpg")!)
 
         setupView()
         setupUI()
@@ -43,31 +38,33 @@ final class SignInViewController: UIViewController {
         super.viewWillAppear(animated)
 
         signInViewModel.set(presentingViewController: self)
-    } 
-
-    func setupUI(){
-        loginButton.setTitle(loginModel.titleBtnLogin, for: .normal )
-        registerButton.setTitle(loginModel.titleBtnRegister, for: .normal)
-        faceButtonTapped.setImage(UIImage(named: loginModel.imageBtnFaceBook), for: .normal)
     }
 
-    // MARK: - Methods
-    func setupView(){
-        loginView.layer.shadowPath = UIBezierPath(rect: loginView.bounds).cgPath
-        loginView.layer.shadowRadius = 15
-        loginView.layer.shadowOffset = .zero
-        loginView.layer.shadowOpacity = 1
-    }
+    // MARK: - IBActions functions
 
-    // MARK: - IBActions
-
-    @IBAction func loginButton(_ sender: Any) {
-        loginModel.doLogin { [self] success, _ in
-            if success {
+    @IBAction private func loginButton(_ sender: Any) {
+        loginModel.doLogin(email: emailTextField.text, password: passwordTextField.text) { [self] result in
+            if let success = try? result.get(), success {
                 redirectToLoggedArea()
             }
         }
     }
+
+    @IBAction private func registerButton(_ sender: Any) {
+        if let viewController = UIStoryboard(name: "Registrar", bundle: nil).instantiateInitialViewController() {
+            present(viewController, animated: true, completion: nil)
+        }
+    }
+
+    @IBAction private func faceButtonTapped(_ sender: Any) {
+        signInViewModel.signInWithFacebook(on: self)
+    }
+
+    @IBAction private func googleButtonTapped(_ sender: Any) {
+        signInViewModel.signInWithGoogle()
+    }
+
+    // MARK: - Private functions
 
     private func redirectToLoggedArea() {
         if let tabBarController = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() {
@@ -75,17 +72,23 @@ final class SignInViewController: UIViewController {
         }
     }
 
-    @IBAction func registerButton(_ sender: Any) {
-        if let vc = UIStoryboard(name: "Registrar", bundle: nil).instantiateInitialViewController() as? RegistrarViewController {
-            present(vc, animated: true, completion: nil)
-        }
+    private func setupUI() {
+        loginButton.setTitle(loginModel.titleBtnLogin, for: .normal )
+        registerButton.setTitle(loginModel.titleBtnRegister, for: .normal)
+        faceButtonTapped.setImage(UIImage(named: loginModel.imageBtnFaceBook), for: .normal)
     }
 
-    @IBAction func faceButtonTapped(_ sender: Any) {
-        signInViewModel.signInWithFacebook(on: self)
-    }
+    private func setupView() {
+        backgroundImageView.image = UIImage(named: "login2")
+        backgroundImageView.layer.maskedCorners = CACornerMask(
+            rawValue: UIRectCorner([.bottomLeft, .bottomRight]).rawValue
+        )
 
-    @IBAction func googleButtonTapped(_ sender: Any) {
-        signInViewModel.signInWithGoogle()
+        loginButton.backgroundColor = UIColor(patternImage: UIImage(named: "2.jpg")!)
+
+        loginView.layer.shadowPath = UIBezierPath(rect: loginView.bounds).cgPath
+        loginView.layer.shadowRadius = 15
+        loginView.layer.shadowOffset = .zero
+        loginView.layer.shadowOpacity = 1
     }
 }

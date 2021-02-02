@@ -4,6 +4,7 @@
 //
 //  Created by Cleís Aurora on 1/19/21.
 //
+
 import FBSDKLoginKit
 import FirebaseAuth
 import FirebaseDatabase
@@ -27,6 +28,8 @@ protocol SignInDataStore {
     var error: Error? { get }
     var window: UIWindow? { get set }
 }
+
+typealias SignInViewModelProtocol = FacebookSignInProvider & GoogleSignInProvider
 
 final class SignInViewModel: NSObject, FacebookSignInProvider, GIDSignInDelegate, GoogleSignInProvider, SignInDataStore,
                              SignOutProvider {
@@ -134,21 +137,11 @@ final class SignInViewModel: NSObject, FacebookSignInProvider, GIDSignInDelegate
         guard firebaseError.domain == "FIRAuthErrorDomain", isKeyAndValueExpected != nil else {
             return proxy(failure: error)
         }
-
-
-    }
-
-    private func firebaseLink(with credential: AuthCredential) {
-        auth.currentUser?.link(with: credential) { (authResult, linkError) in
-            // TODO: Ops
-        }
     }
 
     private func firebaseSignIn(with credential: AuthCredential) {
         auth.signIn(with: credential) { [self] (authDataResult, firebaseSignError) in
             guard firebaseSignError == nil else {
-                debugPrint(firebaseSignError)
-                // checar se o erro é de linkar
                 return proxy(failure: firebaseSignError)
             }
 
