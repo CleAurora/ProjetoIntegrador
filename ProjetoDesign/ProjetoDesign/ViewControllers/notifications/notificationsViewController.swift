@@ -10,6 +10,8 @@ import UIKit
 class notificationsViewController: UIViewController {
 
     // MARK: - IBOultes
+    @IBOutlet var tabBarViewRight: UIView!
+    @IBOutlet var tabBarViewLeft: UIView!
     @IBOutlet weak var notificationsTableView: UITableView!
     var controller: NotificationsTableDelegateDataSource?
     var request = NotificationsRequest()
@@ -21,6 +23,9 @@ class notificationsViewController: UIViewController {
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        tabBarViewRight.roundCorners(.topLeft, radius: 33)
+        tabBarViewLeft.roundCorners(.topRight, radius: 33)
+        
         self.navigationController?.navigationBar.isHidden = true
     }
     override func viewDidAppear(_ animated: Bool) {

@@ -10,12 +10,15 @@ import Reachability
 import SwiftMessages
 import Firebase
 import PKHUD
+import SwiftGifOrigin
 final class FeedViewController: UIViewController, HeaderDelegate {
 
 
     // MARK: - IBOutlets
     @IBOutlet weak var feedTableView: UITableView!
     @IBOutlet weak var storieCollectionView: UICollectionView!
+    @IBOutlet var tabBarView: UIView!
+    @IBOutlet var withoutPostImage: UIImageView!
     
    
     
@@ -41,6 +44,9 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         super.viewDidLoad()
         setupTableView()
         checkStories()
+        withoutPostImage.image = UIImage.gif(name: "withoutPost")
+        tabBarView.roundCorners(.topLeft, radius: 33)
+        
         navigationController?.navigationBar.isHidden = true
         viewModel.load { [weak self] in
             self?.feedTableView.reloadData()

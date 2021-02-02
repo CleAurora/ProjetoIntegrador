@@ -8,7 +8,7 @@
 import UIKit
 import Reachability
 import PKHUD
-
+import SwiftGifOrigin
 class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     // MARK: - IBOutlets
@@ -17,7 +17,11 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var viewButton: UIView!
     @IBOutlet var imageViewBorder: UIView!
-
+    @IBOutlet var tabBarViewLeft: UIView!
+    @IBOutlet var tabBarViewRight: UIView!
+    @IBOutlet var imageLoading: UIImageView!
+    @IBOutlet var tabBarCustomItem: UITabBarItem!
+    
     var imageSelected: UIImage?
     var uploadData = uploadImagePicker()
     var uploadDataSource: uploadCollectionDelegateSource?
@@ -35,7 +39,14 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        if uploadData.photosArray.count == 0 {
+            imageLoading.isHidden = false
+            imageLoading.image = UIImage.gif(name: "loading")
+        }
+        
+        tabBarViewLeft.roundCorners(.topRight, radius: 33)
+        tabBarViewRight.roundCorners(.topLeft, radius: 33)
         imageViewBorder.roundedBottom()
         setupReachability()
     }
@@ -43,8 +54,13 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         uploadData.photosArray.removeAll()
-        grabPhotos()
         
+        grabPhotos()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = false
+        tabBarController?.tabBarItem.isEnabled = true
     }
 
     private func setupReachability() {
@@ -62,6 +78,7 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
     func grabPhotos(){
         uploadData.grabPhotos(completionHandler: { success, _ in
             if success {
+               
                 collectionSetup()
             }
         })
@@ -70,6 +87,10 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
         self.uploadDataSource = uploadCollectionDelegateSource(uploadView: uploadData, view: self)
         uploadCollectionView.delegate = uploadDataSource
         uploadCollectionView.dataSource = uploadDataSource
+        
+        if uploadData.photosArray.count > 0 {
+            imageLoading.isHidden = true
+        }
         uploadCollectionView.reloadData()
         
     }

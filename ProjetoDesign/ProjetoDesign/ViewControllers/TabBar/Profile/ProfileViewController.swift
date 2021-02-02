@@ -13,7 +13,8 @@ final class ProfileViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileCollectionView: UICollectionView!
     @IBOutlet weak var profileImageView: UIImageView!
-
+    @IBOutlet var tabBarView: UIView!
+    
     // MARK: - Proprierts
     lazy var viewModel: ProfileViewModel = ProfileViewModel(userModel: userModel, view: self, posts: postRequest)
     var userModel = ViewRequest()
@@ -22,7 +23,7 @@ final class ProfileViewController: UIViewController {
     // MARK: - Super Methods
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
+        tabBarView.roundCorners(.topRight, radius: 33)
         navigationController?.navigationBar.isHidden = true
         getPost()
     }

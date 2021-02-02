@@ -13,7 +13,8 @@ class searchViewController: UIViewController {
     @IBOutlet weak var searchTableView: UITableView!
     @IBOutlet weak var userSearchView: UISearchBar!
     @IBOutlet weak var dataCollectionView: UICollectionView!
-
+    @IBOutlet var imageLoading: UIImageView!
+    
     // MARK: - Proprierts
     var searchIn = ""
     var userArray = [Post]()
@@ -25,6 +26,9 @@ class searchViewController: UIViewController {
     
     // MARK: - Super Methods
     override func viewDidLoad() {
+        if imageRequest.userArray.count == 0 {
+            imageLoading.image = UIImage.gif(name: "loading")
+        }
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         searchTableView.isHidden = true
@@ -48,6 +52,9 @@ class searchViewController: UIViewController {
         
         dataCollectionView.delegate = viewModel
         dataCollectionView.dataSource = viewModel
+        if imageRequest.userArray.count > 0 {
+            imageLoading.isHidden = true
+        }
         dataCollectionView.reloadData()
     }
     func tableViewSetup(){
