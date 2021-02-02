@@ -48,6 +48,31 @@ final class SignInViewControllerTests: XCTestCase {
         XCTAssertEqual(parameters.password, "")
     }
 
+    func testLoginButtonTappedWhenSuccess() throws {
+        let loginViewModelSpy = LoginViewModelSpy()
+        loginViewModelSpy.stubbedDoLoginCompletionHandlerResult = (.success(true), ())
+
+        let sut = try getSut()
+        sut.loginModel = loginViewModelSpy
+
+        let givenPassword = Int.random(in: 1...9)
+
+        tester().set(rootViewController: sut)
+        tester().enterText("cleis_aurora@yahoo.com.br", intoViewWithAccessibilityIdentifier: "email_textfield")
+        tester().enterText(
+            String(repeating: "\(givenPassword)", count: Int.random(in: 8...20)),
+            intoViewWithAccessibilityIdentifier: "password_textfield"
+        )
+
+        tester().tapView(withAccessibilityIdentifier: "login_button")
+
+        tester().waitForAnimationsToFinish()
+
+        tester().waitForView(withAccessibilityIdentifier: "feed_root_view")
+
+        tester().resetRootViewController()
+    }
+
     func testGoogleButtonTapped() throws {
         let signInViewModelSpy = SignInViewModelSpy()
         let sut = try getSut()
@@ -76,6 +101,19 @@ final class SignInViewControllerTests: XCTestCase {
         XCTAssertNotNil(parameters.viewController)
         expect(parameters.viewController).to(beAnInstanceOf(SignInViewController.self))
         expect(parameters.viewController).to(equal(sut))
+    }
+
+    func testRegisterButtonTapped() throws {
+        let sut = try getSut()
+
+        tester().set(rootViewController: sut)
+        tester().tapView(withAccessibilityIdentifier: "register_button")
+
+        tester().waitForAnimationsToFinish()
+
+        tester().waitForView(withAccessibilityIdentifier: "register_root_view")
+
+        tester().resetRootViewController()
     }
 
     // MARK: - Private functions

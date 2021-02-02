@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NJq-OM-TuN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NJq-OM-TuN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -169,6 +169,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UQM-4E-uqr"/>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="register_root_view"/>
                         <constraints>
                             <constraint firstItem="UQM-4E-uqr" firstAttribute="trailing" secondItem="wDj-rO-CrQ" secondAttribute="trailing" constant="21" id="5zp-dm-ezl"/>
                             <constraint firstItem="UVk-jQ-8d7" firstAttribute="top" secondItem="wDj-rO-CrQ" secondAttribute="bottom" constant="19" id="R2r-jJ-Mmx"/>
@@ -195,23 +196,6 @@
             <point key="canvasLocation" x="-346.37681159420293" y="63.616071428571423"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="4Bt-SQ-9sc">
-            <size key="intrinsicContentSize" width="117.5" height="17"/>
-        </designable>
-        <designable name="YRv-Nf-lJQ">
-            <size key="intrinsicContentSize" width="34.5" height="18.5"/>
-        </designable>
-        <designable name="c0x-qy-GtI">
-            <size key="intrinsicContentSize" width="64.5" height="18.5"/>
-        </designable>
-        <designable name="fE0-hj-Wnm">
-            <size key="intrinsicContentSize" width="38" height="18.5"/>
-        </designable>
-        <designable name="oKZ-GB-qo0">
-            <size key="intrinsicContentSize" width="62.5" height="17"/>
-        </designable>
-    </designables>
     <resources>
         <image name="login" width="1080" height="1917"/>
         <image name="signup1" width="373" height="77"/>
