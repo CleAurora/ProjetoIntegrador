@@ -5,40 +5,96 @@
 //  Created by Cleís Aurora Pereira on 06/12/20.
 //
 
-import UIKit
+import Alamofire
+import CoreLocation
 import PKHUD
+import UIKit
 
 struct NewPostViewModel {
-    let weather: CurrentWeather
     let hasPlace: Bool
     let hasTemperature: Bool
     let image: UIImage?
     let comment: String?
 }
 
-final class LegendViewModel {
+protocol LegendViewModelProtocol {
+    var currentWeather: WeatherViewModel? { get }
+
+    func getCurrentTemperature(then handler: @escaping (Result<Void, Error>) -> Void)
+    func post(_ input: NewPostViewModel)
+}
+
+final class LegendViewModel: NSObject, LegendViewModelProtocol, CLLocationManagerDelegate {
     private let service: LegendService
+    private let locationManager: CLLocationManager = CLLocationManager()
+
+    // MARK: - Weak variables
+
     private weak var viewController: UIViewController?
+
+    // MARK: - Private variables
+
+    private var currentTemperatureHandlerClosure: ((Result<Void, Error>) -> Void)?
+
+    // MARK: - Initializer
 
     init(service: LegendService = FirebaseRealtimeDatabaseLegendService.shared, for viewController: UIViewController) {
         self.service = service
         self.viewController = viewController
     }
 
+    // MARK: - Enum
+
+    enum LocationError: Error {
+        case notFound
+        case notAuthorized
+    }
+
+    // MARK: - LegendViewModelProtocol conformance
+
+    private(set) var currentWeather: WeatherViewModel?
+
+    func getCurrentTemperature(then handler: @escaping (Result<Void, Error>) -> Void) {
+        if currentWeather != nil {
+            return handler(.success(()))
+        }
+
+        currentTemperatureHandlerClosure = handler
+
+        if locationManager.authorizationStatus == .authorizedWhenInUse || locationManager.authorizationStatus == .authorizedAlways {
+            getWeatherFromCurrentLocation()
+        } else if locationManager.authorizationStatus == .notDetermined {
+            locationManager.requestWhenInUseAuthorization()
+        } else {
+            handler(.failure(LocationError.notAuthorized))
+        }
+    }
+
     func post(_ input: NewPostViewModel) {
         if let image = input.image {
-            let temperature = String(format: "%.0f", round(input.weather.currentTemp))
+            let weatherType: String
+            let postUser: PostUser
 
-            let postUser = PostUser(
-                city: input.hasPlace ? input.weather.cityName : nil,
-                temperature: input.hasTemperature ? temperature : nil,
-                weatherType: input.weather.weatherType,
-                comments: input.comment
-            )
+            if let weather = currentWeather {
+                let temperature = String(format: "%.0f", round(weather.currentTemperature))
+
+                weatherType = weather.weatherType
+                postUser = PostUser(
+                    city: input.hasPlace ? weather.cityName : nil,
+                    temperature: input.hasTemperature ? temperature : nil,
+                    weatherType: weather.weatherType,
+                    comments: input.comment
+                )
+            } else {
+                weatherType = ""
+                postUser = PostUser(
+                    comments: input.comment
+                )
+            }
 
             HUD.show(.progress)
 
-            service.add(legend: postUser, for: image, usingWeather: input.weather.weatherType.lowercased()) { [weak self] result in
+            service.add(legend: postUser, for: image, usingWeather: weatherType.lowercased()) { [weak self] result in
                 HUD.hide()
 
                 do {
@@ -48,6 +104,56 @@ final class LegendViewModel {
                 } catch {
                     self?.show(error: error)
                 }
+            }
+        }
+    }
+
+    // MARK: - CLLocationManagerDelegate conforms
+
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        if locationManager.authorizationStatus == .authorizedWhenInUse || locationManager.authorizationStatus == .authorizedAlways {
+            getWeatherFromCurrentLocation()
+        }
+    }
+
+    // MARK: - Private functions
+
+    private func getWeatherFromCurrentLocation() {
+        requestLocation()
+
+        if let location = locationManager.location {
+            getCurrentWeather(from: location) { [self] result in
+                currentWeather = try? result.get()
+
+                currentTemperatureHandlerClosure?(.success(()))
+            }
+        } else {
+            currentTemperatureHandlerClosure?(.failure(LocationError.notFound))
+        }
+    }
+
+    private func requestLocation() {
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        locationManager.requestLocation()
+        locationManager.delegate = self
+    }
+
+    private func getCurrentWeather(from location: CLLocation,
+                                   then handler: @escaping (Result<WeatherViewModel, Error>) -> Void) {
+        let coordinates = location.coordinate
+        let url = Constants.getApiUrl(latitude: coordinates.latitude, longitude: coordinates.longitude)
+
+        HUD.show(.progress)
+
+        AF.request(url).responseDecodable(of: WeatherResult.self) { dataResponse in
+            HUD.hide(animated: true)
+
+            do {
+                let weatherResult = try dataResponse.result.get()
+
+                handler(.success(WeatherViewModel(from: weatherResult)))
+            } catch {
+                handler(.failure(error))
             }
         }
     }

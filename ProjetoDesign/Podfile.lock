@@ -779,7 +779,6 @@ PODS:
     - SwiftMessages/App (= 8.0.5)
   - SwiftMessages/App (8.0.5)
   - SwiftyCam (4.0.0)
-  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
@@ -801,7 +800,6 @@ DEPENDENCIES:
   - SegmentedProgressView
   - SwiftMessages
   - SwiftyCam
-  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
@@ -843,7 +841,6 @@ SPEC REPOS:
     - SegmentedProgressView
     - SwiftMessages
     - SwiftyCam
-    - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
@@ -884,8 +881,7 @@ SPEC CHECKSUMS:
   SegmentedProgressView: e9e3c4037c5c871686932bcce479e0694f59053d
   SwiftMessages: 539fd54a766bf08ec667e90aa141c44b8b8aaa55
   SwiftyCam: 6e57914771d972fbe508e759dc9d0150a44a93fd
-  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 87033fdcdbf9d8f8d65127749f5caafe22ce6e44
+PODFILE CHECKSUM: 2e694b14f8003750aadf931e1cfad48b448ae80e
 
 COCOAPODS: 1.10.1

@@ -6,7 +6,6 @@ target 'ProjetoDesign' do
 
   # Pods for ProjetoDesign
   pod 'IQKeyboardManagerSwift', '~> 6.3'
-  pod 'SwiftyJSON', '~> 4.0'
   pod 'Alamofire', '~> 5.2'
   pod 'Firebase/Auth'
   pod 'Firebase/Analytics'
@@ -29,11 +28,6 @@ target 'ProjetoDesign' do
     pod 'Nimble-Snapshots'
     pod 'KIF', :configurations => ['Test']
     pod 'KIF/IdentifierTests', :configurations => ['Test']
-
-  end
-
-  target 'ProjetoDesignUITests' do
-    # Pods for testing
   end
 end
 

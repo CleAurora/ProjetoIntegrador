@@ -5,13 +5,12 @@
 //  Created by Cleís Aurora Pereira on 21/10/20.
 //
 
+import PKHUD
 import UIKit
-import CoreLocation
 
-final class LegendViewController: UIViewController, CLLocationManagerDelegate {
-
+final class LegendViewController: UIViewController {
     // MARK: - IBOutlets
-    var imagemProfile: UIImage?
+
     @IBOutlet weak var imageSelected: UIImageView!
     @IBOutlet weak var legendTextField: UITextField!
     @IBOutlet weak var postButton: RoundedButton!
@@ -20,78 +19,40 @@ final class LegendViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var localLabel: UILabel!
 
-    //Constants
-    let locationManager = CLLocationManager()
-    private lazy var viewModel = LegendViewModel(for: self)
+    // MARK: - Lazy variables
 
-    //Variables
-    var currentWeather: CurrentWeather = CurrentWeather()
-    var currentLocation: CLLocation!
+    lazy var viewModel: LegendViewModelProtocol = LegendViewModel(for: self)
 
-    // MARK: - Proprierts
+    // MARK: - Variables
 
-    var postagem = [PostUser]()
+    var imagemProfile: UIImage?
 
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.callDelegate()
-        self.setupLocation()
 
-        if imagemProfile != nil {
-            imageSelected.image = imagemProfile
-        }
+        setupView()
+    }
+
+    private func setupView() {
+        imageSelected.image = imagemProfile
+
         imageSelected.layer.maskedCorners = CACornerMask(
             rawValue: UIRectCorner(
                 [UIRectCorner.bottomLeft, UIRectCorner.bottomRight]
             ).rawValue
         )
-        postButton.backgroundColor = UIColor(patternImage: UIImage(named: "2.jpg")!)
 
+        postButton.backgroundColor = UIColor(patternImage: UIImage(named: "2.jpg")!)
     }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        locationAutoCheck()
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
-    func callDelegate(){
-        locationManager.delegate = self
-    }
-
-    func setupLocation(){
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization() // take permission from user.
-        locationManager.startMonitoringSignificantLocationChanges()
-    }
-
-    func locationAutoCheck() {
-        if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
-            //get the location from device
-            currentLocation = locationManager.location
-            //pass the location coord to our API
-            Locations.sharedInstance.latitude = currentLocation.coordinate.latitude
-            Locations.sharedInstance.longitude = currentLocation.coordinate.longitude
-            // download API data
-            currentWeather.downloadCurrentWeather {
-                self.setupUI()
-            // update the UI after download is completed
-            }
-
-        } else{ // user did not allow
-            locationManager.requestWhenInUseAuthorization() //take permission from the user
-            locationAutoCheck()
-
-        }
-    }
-    func setupUI(){
-        //setup labels using MVVM Archictecture
-        localLabel.text = currentWeather.cityName
-        weatherLabel.text = String(format: "%.0fºC", arguments: [currentWeather.currentTemp])
-        weatherSwitch.isEnabled = currentWeather.hasTemperature
-        localSwitch.isEnabled = !currentWeather.cityName.isEmpty
-    }
+    // MARK: - Override functions
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -99,11 +60,11 @@ final class LegendViewController: UIViewController, CLLocationManagerDelegate {
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
 
-    // MARK: - Methods
-    func infoText(){
+    // MARK: - Private functions
+
+    private func infoText() {
         viewModel.post(
             NewPostViewModel(
-                weather: currentWeather,
                 hasPlace: localSwitch.isOn,
                 hasTemperature: weatherSwitch.isOn,
                 image: imagemProfile,
@@ -112,21 +73,54 @@ final class LegendViewController: UIViewController, CLLocationManagerDelegate {
         )
     }
 
-    // MARK: - IBActions 
-    @IBAction func postButtonTapped() {
-       // navigationController?.popViewController(animated: true)
-        infoText()
-    }
-
-    @IBAction func localSwitchChanged(_ sender: UISwitch) {
-        UIView.animate(withDuration: 0.6) {
-            self.localLabel.isHidden = !sender.isOn
+    private func updateWeatherUI() {
+        if let weather = viewModel.currentWeather {
+            localLabel.text = weather.cityName
+            weatherLabel.text = String(format: "%.0fºC", arguments: [weather.currentTemperature])
+        } else {
+            localLabel.text = "Não disponível"
+            weatherLabel.text = "Não disponível"
+            localSwitch.isOn = false
+            weatherSwitch.isOn = false
         }
     }
 
-    @IBAction func weatherSwitchChanged(_ sender: UISwitch) {
-        UIView.animate(withDuration: 0.6) {
-            self.weatherLabel.isHidden = !sender.isOn
+    private func getWeather() {
+        viewModel.getCurrentTemperature { [self] result in
+            do {
+                try result.get()
+
+                updateWeatherUI()
+            } catch {
+                HUD.flash(
+                    .labeledError(
+                        title: "Falha ao carregar temperatura atual",
+                        subtitle: error.localizedDescription
+                    )
+                )
+            }
+        }
+    }
+
+    // MARK: - IBActions
+
+    @IBAction private func postButtonTapped() {
+        infoText()
+    }
+
+    @IBAction private func localSwitchChanged(_ sender: UISwitch) {
+        getWeather()
+
+        UIView.animate(withDuration: 0.35) { [self] in
+            localLabel.isHidden = !sender.isOn
+        }
+    }
+
+    @IBAction private func weatherSwitchChanged(_ sender: UISwitch) {
+        getWeather()
+
+        UIView.animate(withDuration: 0.35) { [self] in
+            weatherLabel.isHidden = !sender.isOn
         }
     }
 }
