@@ -172,6 +172,39 @@ final class LegendViewControllerTests: XCTestCase {
         XCTAssertFalse(viewModel.invokedGetCurrentTemperature)
     }
 
+    func testPostButtonTapped() throws {
+        let sut = try getSut()
+        let viewModel = LegendViewModelSpy()
+        sut.viewModel = viewModel
+        viewModel.stubbedCurrentWeather = WeatherViewModel(
+            cityName: "Cupertino", weatherType: "Clouds", currentTemperature: 4
+        )
+        viewModel.stubbedGetCurrentTemperatureHandlerResult = (.success(()), ())
+
+        let givenComment = "Estou Postando!!"
+
+        tester().set(rootViewController: sut)
+        tester().enterText(givenComment, intoViewWithAccessibilityIdentifier: "legend_textfield")
+        tester().setOn(true, forSwitchWithAccessibilityIdentifier: "local_switch")
+        tester().setOn(true, forSwitchWithAccessibilityIdentifier: "weather_switch")
+
+        tester().tapView(withAccessibilityIdentifier: "post_button")
+
+        expect(sut.view).to(haveValidDeviceAgnosticSnapshot())
+
+        tester().resetRootViewController()
+
+        let params = try XCTUnwrap(viewModel.invokedPostParameters)
+        let newPost = params.input
+
+        XCTAssertTrue(viewModel.invokedPost)
+        XCTAssertEqual(viewModel.invokedPostCount, 1)
+        XCTAssertEqual(newPost.comment, givenComment)
+        XCTAssertTrue(newPost.hasPlace)
+        XCTAssertTrue(newPost.hasTemperature)
+        XCTAssertNil(newPost.image)
+    }
+
     // MARK: - Private functions
 
     private func getSut() throws -> LegendViewController {
