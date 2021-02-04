@@ -82,6 +82,8 @@ final class LegendViewController: UIViewController {
             weatherLabel.text = "Não disponível"
             localSwitch.isOn = false
             weatherSwitch.isOn = false
+            localLabel.isHidden = false
+            weatherLabel.isHidden = false
         }
     }
 
@@ -91,7 +93,12 @@ final class LegendViewController: UIViewController {
                 try result.get()
 
                 updateWeatherUI()
+            } catch LegendViewModel.LocationError.notAuthorized {
+                updateWeatherUI()
+                localSwitch.isEnabled = false
+                weatherSwitch.isEnabled = false
             } catch {
+                updateWeatherUI()
                 HUD.flash(
                     .labeledError(
                         title: "Falha ao carregar temperatura atual",

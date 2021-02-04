@@ -61,9 +61,10 @@ final class LegendViewModel: NSObject, LegendViewModelProtocol, CLLocationManage
 
         currentTemperatureHandlerClosure = handler
 
-        if locationManager.authorizationStatus == .authorizedWhenInUse || locationManager.authorizationStatus == .authorizedAlways {
+        if isLocationAuthorized() {
             getWeatherFromCurrentLocation()
         } else if locationManager.authorizationStatus == .notDetermined {
+            locationManager.delegate = self
             locationManager.requestWhenInUseAuthorization()
         } else {
             handler(.failure(LocationError.notAuthorized))
@@ -111,12 +112,27 @@ final class LegendViewModel: NSObject, LegendViewModelProtocol, CLLocationManage
     // MARK: - CLLocationManagerDelegate conforms
 
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        if locationManager.authorizationStatus == .authorizedWhenInUse || locationManager.authorizationStatus == .authorizedAlways {
+        if isLocationAuthorized() {
             getWeatherFromCurrentLocation()
+        } else if locationManager.authorizationStatus != .notDetermined {
+            currentTemperatureHandlerClosure?(.failure(LocationError.notAuthorized))
         }
     }
 
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        debugPrint(#function, locations)
+    }
+
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        debugPrint(#function, error)
+        currentTemperatureHandlerClosure?(.failure(error))
+    }
+
     // MARK: - Private functions
+
+    private func isLocationAuthorized() -> Bool {
+        locationManager.authorizationStatus == .authorizedWhenInUse || locationManager.authorizationStatus == .authorizedAlways
+    }
 
     private func getWeatherFromCurrentLocation() {
         requestLocation()
@@ -133,9 +149,9 @@ final class LegendViewModel: NSObject, LegendViewModelProtocol, CLLocationManage
     }
 
     private func requestLocation() {
+        locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         locationManager.requestLocation()
-        locationManager.delegate = self
     }
 
     private func getCurrentWeather(from location: CLLocation,
