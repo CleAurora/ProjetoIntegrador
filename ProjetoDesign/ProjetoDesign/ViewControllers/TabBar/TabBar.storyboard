@@ -905,12 +905,13 @@
         <!--Navigation Controller-->
         <scene sceneID="4fx-VV-Oj3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="arZ-xg-a4O" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="arZ-xg-a4O" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" id="ukd-sa-j6J">
                         <color key="badgeColor" red="0.76702153500000003" green="0.76702153500000003" blue="0.76702153500000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fVV-I9-Ggu">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

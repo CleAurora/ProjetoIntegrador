@@ -18,6 +18,7 @@
 		426414282540E79500F47C5D /* LegendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 426414272540E79500F47C5D /* LegendViewController.swift */; };
 		427B21C7257F122400F114E0 /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B21C6257F122400F114E0 /* FeedService.swift */; };
 		427B21CC257F137600F114E0 /* FirebaseRealtimeDatabaseFeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427B21CB257F137600F114E0 /* FirebaseRealtimeDatabaseFeedService.swift */; };
+		4280B83425CC164F003215D6 /* NavigationControllerSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4280B83325CC164F003215D6 /* NavigationControllerSpy.swift */; };
 		4283EF1F25CA19E300AFBCA0 /* RegistrarViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4283EF1E25CA19E300AFBCA0 /* RegistrarViewControllerTests.swift */; };
 		42997A1B2533A24D008C9CEF /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42997A1A2533A24D008C9CEF /* Setting.storyboard */; };
 		42997A262533CA29008C9CEF /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42997A252533CA29008C9CEF /* DismissSegue.swift */; };
@@ -27,6 +28,8 @@
 		42A7174A25C96360005142FB /* KIFUITestActor+UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A7174925C96360005142FB /* KIFUITestActor+UIApplication.swift */; };
 		42A7175225C963B1005142FB /* XCTestCase+KIF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A7175125C963B1005142FB /* XCTestCase+KIF.swift */; };
 		42A7175725C9643B005142FB /* UIView+AccessibilityIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A7175625C9643B005142FB /* UIView+AccessibilityIdentifier.swift */; };
+		42B039A225CBFF580094E3C5 /* LegendViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B039A125CBFF580094E3C5 /* LegendViewControllerTests.swift */; };
+		42B039A825CC03930094E3C5 /* LegendViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B039A725CC03930094E3C5 /* LegendViewModelSpy.swift */; };
 		42C59C3A25C8BACB002FC979 /* SignInViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C59C3925C8BACB002FC979 /* SignInViewControllerTests.swift */; };
 		42C59C4225C8C0D8002FC979 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C59C4125C8C0D8002FC979 /* main.swift */; };
 		42C59C4725C8C0FF002FC979 /* TestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C59C4625C8C0FF002FC979 /* TestAppDelegate.swift */; };
@@ -178,6 +181,7 @@
 		426414272540E79500F47C5D /* LegendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendViewController.swift; sourceTree = "<group>"; };
 		427B21C6257F122400F114E0 /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		427B21CB257F137600F114E0 /* FirebaseRealtimeDatabaseFeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRealtimeDatabaseFeedService.swift; sourceTree = "<group>"; };
+		4280B83325CC164F003215D6 /* NavigationControllerSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationControllerSpy.swift; sourceTree = "<group>"; };
 		4283EF1E25CA19E300AFBCA0 /* RegistrarViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrarViewControllerTests.swift; sourceTree = "<group>"; };
 		42997A1A2533A24D008C9CEF /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		42997A252533CA29008C9CEF /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
@@ -187,6 +191,8 @@
 		42A7174925C96360005142FB /* KIFUITestActor+UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KIFUITestActor+UIApplication.swift"; sourceTree = "<group>"; };
 		42A7175125C963B1005142FB /* XCTestCase+KIF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+KIF.swift"; sourceTree = "<group>"; };
 		42A7175625C9643B005142FB /* UIView+AccessibilityIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AccessibilityIdentifier.swift"; sourceTree = "<group>"; };
+		42B039A125CBFF580094E3C5 /* LegendViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendViewControllerTests.swift; sourceTree = "<group>"; };
+		42B039A725CC03930094E3C5 /* LegendViewModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LegendViewModelSpy.swift; sourceTree = "<group>"; };
 		42C59C3925C8BACB002FC979 /* SignInViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewControllerTests.swift; sourceTree = "<group>"; };
 		42C59C4125C8C0D8002FC979 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		42C59C4625C8C0FF002FC979 /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
@@ -384,6 +390,8 @@
 				42A7173B25C95D87005142FB /* SignInViewModelSpy.swift */,
 				42A7174325C95E41005142FB /* LoginViewModelSpy.swift */,
 				4235143425CA2A9800697873 /* RegisterViewModelSpy.swift */,
+				42B039A725CC03930094E3C5 /* LegendViewModelSpy.swift */,
+				4280B83325CC164F003215D6 /* NavigationControllerSpy.swift */,
 			);
 			path = Spies;
 			sourceTree = "<group>";
@@ -398,9 +406,18 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		42B039A025CBFF2A0094E3C5 /* Legend */ = {
+			isa = PBXGroup;
+			children = (
+				42B039A125CBFF580094E3C5 /* LegendViewControllerTests.swift */,
+			);
+			path = Legend;
+			sourceTree = "<group>";
+		};
 		42C59C3725C8BA99002FC979 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				42B039A025CBFF2A0094E3C5 /* Legend */,
 				4283EF1D25CA19C100AFBCA0 /* Registrar */,
 				42C59C3825C8BAA9002FC979 /* Login */,
 			);
@@ -1221,11 +1238,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42B039A225CBFF580094E3C5 /* LegendViewControllerTests.swift in Sources */,
 				42A7173C25C95D87005142FB /* SignInViewModelSpy.swift in Sources */,
 				42A7174A25C96360005142FB /* KIFUITestActor+UIApplication.swift in Sources */,
 				4235143525CA2A9800697873 /* RegisterViewModelSpy.swift in Sources */,
+				4280B83425CC164F003215D6 /* NavigationControllerSpy.swift in Sources */,
 				4283EF1F25CA19E300AFBCA0 /* RegistrarViewControllerTests.swift in Sources */,
 				42C59C3A25C8BACB002FC979 /* SignInViewControllerTests.swift in Sources */,
+				42B039A825CC03930094E3C5 /* LegendViewModelSpy.swift in Sources */,
 				42A7174425C95E41005142FB /* LoginViewModelSpy.swift in Sources */,
 				42A7175225C963B1005142FB /* XCTestCase+KIF.swift in Sources */,
 				42A7175725C9643B005142FB /* UIView+AccessibilityIdentifier.swift in Sources */,

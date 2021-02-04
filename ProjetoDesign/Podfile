@@ -26,8 +26,8 @@ target 'ProjetoDesign' do
     inherit! :search_paths
 
     pod 'Nimble-Snapshots'
-    pod 'KIF', :configurations => ['Test']
-    pod 'KIF/IdentifierTests', :configurations => ['Test']
+    pod 'KIF'
+    pod 'KIF/IdentifierTests'
   end
 end
 

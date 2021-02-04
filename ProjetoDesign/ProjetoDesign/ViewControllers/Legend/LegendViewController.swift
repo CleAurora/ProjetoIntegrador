@@ -49,7 +49,7 @@ final class LegendViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
 
     // MARK: - Override functions
@@ -57,7 +57,7 @@ final class LegendViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 
     // MARK: - Private functions
@@ -116,18 +116,18 @@ final class LegendViewController: UIViewController {
     }
 
     @IBAction private func localSwitchChanged(_ sender: UISwitch) {
-        getWeather()
-
         UIView.animate(withDuration: 0.35) { [self] in
             localLabel.isHidden = !sender.isOn
         }
+
+        getWeather()
     }
 
     @IBAction private func weatherSwitchChanged(_ sender: UISwitch) {
-        getWeather()
-
         UIView.animate(withDuration: 0.35) { [self] in
             weatherLabel.isHidden = !sender.isOn
         }
+
+        getWeather()
     }
 }
