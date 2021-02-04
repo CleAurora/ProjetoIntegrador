@@ -11,7 +11,8 @@ final class PhotoDetailViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet weak var photoTableView: UITableView!
-
+    @IBOutlet var loadingImage: UIImageView!
+    
     // MARK: - Proprierts
     var photoModel: PhotoDetailModel?
     var controller: PhotoDetailTableDelegateDataSource?
@@ -29,6 +30,8 @@ final class PhotoDetailViewController: UIViewController {
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadingImage.isHidden = false
+        loadingImage.image = UIImage.gif(name: "loading")
     }
     override func viewDidAppear(_ animated: Bool) {
         
@@ -38,8 +41,9 @@ final class PhotoDetailViewController: UIViewController {
             getData()
         }
     }
-    
+
     func getData(){
+       
         viewRequest.userSelected = user?.userId
         viewRequest.loadData(completionHandler: { success, _ in
             if success {
@@ -52,9 +56,11 @@ final class PhotoDetailViewController: UIViewController {
         self.controller = PhotoDetailTableDelegateDataSource(view: self, request: viewRequest)
         controller?.loadData(completionHandler: { success, _ in
             if success {
+                
                 self.photoTableView.delegate = self.controller
                 self.photoTableView.dataSource = self.controller
                 self.photoTableView.reloadData()
+                self.loadingImage.isHidden = true
             }
         })
     }
@@ -63,9 +69,11 @@ final class PhotoDetailViewController: UIViewController {
         self.controller = PhotoDetailTableDelegateDataSource(view: self, request: viewRequest)
         controller?.passData(completionHandler: { success, _ in
             if success {
+                
                 self.photoTableView.delegate = self.controller
                 self.photoTableView.dataSource = self.controller
                 self.photoTableView.reloadData()
+                self.loadingImage.isHidden = true
             }
         })
     }

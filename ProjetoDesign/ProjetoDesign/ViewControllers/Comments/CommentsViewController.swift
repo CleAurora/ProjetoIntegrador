@@ -23,7 +23,10 @@ final class CommentsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "deactivateTab"), object: .none)
+        self.tabBarController?.tabBar.isHidden = true
+        
         setupView()
         fetch()
     }

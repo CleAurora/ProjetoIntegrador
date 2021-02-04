@@ -56,7 +56,6 @@ final class PhotoDetailTableDelegateDataSource: NSObject, UITableViewDelegate, U
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as! PhotoDetailTableViewCell
         cell.setup(photo: photoArray[indexPath.row])
-        print("cell: \(photoArray[indexPath.row].name)")
         return cell
     }
 }

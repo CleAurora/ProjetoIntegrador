@@ -37,6 +37,9 @@ final class LegendViewController: UIViewController {
     private func setupView() {
         imageSelected.image = imagemProfile
 
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "deactivateTab"), object: .none)
+        tabBarController?.tabBar.isHidden = true
+
         imageSelected.layer.maskedCorners = CACornerMask(
             rawValue: UIRectCorner(
                 [UIRectCorner.bottomLeft, UIRectCorner.bottomRight]

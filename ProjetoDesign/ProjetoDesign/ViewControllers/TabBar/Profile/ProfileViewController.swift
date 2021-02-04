@@ -27,7 +27,11 @@ final class ProfileViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         getPost()
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "activateTab"), object: .none)
+        self.tabBarController?.tabBar.isHidden = false
+    }
     @IBAction func settingButton(_ sender: Any) {
         viewModel.goNextView()
     }

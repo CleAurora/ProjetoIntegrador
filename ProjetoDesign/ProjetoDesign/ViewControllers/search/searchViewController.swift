@@ -26,9 +26,6 @@ class searchViewController: UIViewController {
     
     // MARK: - Super Methods
     override func viewDidLoad() {
-        if imageRequest.userArray.count == 0 {
-            imageLoading.image = UIImage.gif(name: "loading")
-        }
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         searchTableView.isHidden = true
@@ -37,8 +34,17 @@ class searchViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         // Do any additional setup after loading the view.
         getData()
+        showLoading()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
     
+    func showLoading(){
+        if imageRequest.userArray.count == 0 {
+            imageLoading.image = UIImage.gif(name: "loading")
+        }
+    }
     func getImage(){
         self.imageRequest.loadData(completionHandler: { success, _ in
             if success {
@@ -52,6 +58,7 @@ class searchViewController: UIViewController {
         
         dataCollectionView.delegate = viewModel
         dataCollectionView.dataSource = viewModel
+        
         if imageRequest.userArray.count > 0 {
             imageLoading.isHidden = true
         }
@@ -59,7 +66,7 @@ class searchViewController: UIViewController {
     }
     func tableViewSetup(){
         self.viewModel = searchTableDelegateDatasource(usuarioModel: controller, searchController: self, imageController: imageRequest)
-        
+
         searchTableView.delegate = viewModel
         searchTableView.dataSource = viewModel
         searchTableView.reloadData()

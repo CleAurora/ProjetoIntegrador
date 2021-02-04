@@ -27,7 +27,6 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
     var uploadDataSource: uploadCollectionDelegateSource?
     // MARK: - Proprierts
     var uploadArray = [Upload]()
-
     private let reachability = try! Reachability()
     private var hasInternet: Bool = true
 
@@ -40,27 +39,32 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if uploadData.photosArray.count == 0 {
-            imageLoading.isHidden = false
-            imageLoading.image = UIImage.gif(name: "loading")
-        }
         
         tabBarViewLeft.roundCorners(.topRight, radius: 33)
         tabBarViewRight.roundCorners(.topLeft, radius: 33)
         imageViewBorder.roundedBottom()
         setupReachability()
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        uploadData.photosArray.removeAll()
         
+        uploadData.photosArray.removeAll()
         grabPhotos()
+    }
+    
+    func showLoading(){
+        if uploadData.photosArray.count == 0 {
+            imageLoading.isHidden = false
+            imageLoading.image = UIImage.gif(name: "loading")
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tabBarController?.tabBar.isHidden = false
-        tabBarController?.tabBarItem.isEnabled = true
+        showLoading()
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "activateTab"), object: .none)
+        self.tabBarController?.tabBar.isHidden = false
     }
 
     private func setupReachability() {
@@ -107,7 +111,6 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
 
         if let legendViewController = UIStoryboard(name: "Legend", bundle: nil).instantiateInitialViewController() as? LegendViewController {
         legendViewController.imagemProfile = resizeImageView.image
-
         navigationController?.pushViewController(legendViewController, animated: true)
     }
     }

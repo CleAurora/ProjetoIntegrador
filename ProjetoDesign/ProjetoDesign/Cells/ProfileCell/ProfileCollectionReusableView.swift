@@ -40,6 +40,7 @@ class ProfileCollectionReusableView: UICollectionReusableView {
 
         }else if let followingCount = user.following {
             followingCountLabel.text = "\(followingCount)"
+            
         }
         if  user.followers == 0 {
             followersCountLabel.text = "0"

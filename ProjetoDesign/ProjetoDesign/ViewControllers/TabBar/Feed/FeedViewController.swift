@@ -67,6 +67,8 @@ final class FeedViewController: UIViewController, HeaderDelegate {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "activateTab"), object: .none)
+        self.tabBarController?.tabBar.isHidden = false
         feedTableView.reloadData()
         storieCollectionView.reloadData()
        
