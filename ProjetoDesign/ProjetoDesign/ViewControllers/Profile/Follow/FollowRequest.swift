@@ -175,8 +175,9 @@ class FollowRequest {
                 })
         }
     }
-    func getFollowingToButton(){
+    func getFollowingToButton(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         self.followingCount = 0
+        
         if let userID = userSelected?.userID {
             self.ref = Database.database().reference()
             ref.child("users")
@@ -193,19 +194,17 @@ class FollowRequest {
 
                                     userToshow.followID = whoFollowing
                                     self.follower.append(userToshow)
-                                    self.userFollowing = whoFollowing
-                                    self.followingCount = self.followingCount + 1
+                                    
+                                    self.followingActive = true
+                                    completionHandler(true,nil)
+                                }else{
+                                    self.followingActive = false
+                                    completionHandler(true,nil)
                                 }
-                                if userID == whoFollowing {
-                                    print("estou seguindo")
-                                }
-                            }
-                        }
-                        self.setFollowing()
-                        self.setFollowers()
+                         }
                     }
+                }
             })
-
         }
     }
 }

@@ -11,13 +11,15 @@ class NotificationsTableDelegateDataSource: NSObject, UITableViewDelegate, UITab
 
     
     var view = notificationsViewController()
+    var followRequest = FollowRequest()
     var request = NotificationsRequest()
     var userRequest = ViewRequest()
     
-    init(view: notificationsViewController, request: NotificationsRequest, userRequest: ViewRequest){
+    init(view: notificationsViewController, request: NotificationsRequest, userRequest: ViewRequest, followRequest: FollowRequest){
         self.view = view
         self.request = request
         self.userRequest = userRequest
+        self.followRequest = followRequest
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

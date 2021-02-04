@@ -45,19 +45,25 @@ class UserCollectionDelegateDataSource: NSObject, UICollectionViewDelegate, UICo
         cell.setup(user: userSelected[indexPath.row])
         cell.postCountLabel.text = "\(postRequest.selectedPost.count)"
         
-        if self.followModel.stillFollower != nil {
-            cell.followButton.setTitle("Follow", for: .normal)
-            cell.followButton.layer.cornerRadius = 10
-            cell.followButton.backgroundColor = .clear
-            cell.followButton.layer.borderWidth = 1
-            cell.followButton.setTitleColor(.black, for: .normal)
-        }else {
-            cell.followButton.setTitle("unfollow", for: .normal)
-            cell.followButton.layer.cornerRadius = 10
-            cell.followButton.setTitleColor(.white, for: .normal)
-            cell.followButton.backgroundColor = UIColor(patternImage: (UIImage(named: "2.jpg")!))
-        }
-
+        self.followModel.getFollowingToButton(completionHandler: { success, _ in
+            if success {
+        
+                if self.followModel.followingActive == false {
+                    cell.followButton.setTitle("Follow", for: .normal)
+                    cell.followButton.layer.cornerRadius = 10
+                    cell.followButton.backgroundColor = .clear
+                    cell.followButton.layer.borderWidth = 1
+                    cell.followButton.setTitleColor(.black, for: .normal)
+                }else{
+                    cell.followButton.setTitle("unfollow", for: .normal)
+                    cell.followButton.layer.cornerRadius = 10
+                    cell.followButton.setTitleColor(.white, for: .normal)
+                    cell.followButton.backgroundColor = UIColor(patternImage: (UIImage(named: "2.jpg")!))
+                    
+                }
+            }
+        })
+        
         cell.nameTap = {
             self.view.getFollowers(completionHandler: { success, _ in
 
