@@ -17,18 +17,18 @@ class NotificationsTableCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userImage: roundImageView!
     @IBOutlet var notificationButton: UIButton!
-
+    var followRequest = FollowRequest()
     // MARK: - Proprierts
     var buttonTapped : (() -> ()) = {}
 
     // MARK: - Super Methods
     override func awakeFromNib() {
         super.awakeFromNib()
-        notificationButton.setTitle("Follow", for: .normal)
-        notificationButton.layer.cornerRadius = 10
-        notificationButton.backgroundColor = .clear
-        notificationButton.layer.borderWidth = 1
-        notificationButton.setTitleColor(.black, for: .normal)
+//        notificationButton.setTitle("Follow", for: .normal)
+//        notificationButton.layer.cornerRadius = 10
+//        notificationButton.backgroundColor = .clear
+//        notificationButton.layer.borderWidth = 1
+//        notificationButton.setTitleColor(.black, for: .normal)
     }
 
     // MARK: - IBActions
@@ -63,6 +63,25 @@ class NotificationsTableCell: UITableViewCell {
         if let photo = notifications.profileUrl {
             userImage.kf.setImage(with: URL(string: photo))
         }
+        self.followRequest.userSelected = notifications
+        self.followRequest.getFollowingToButton(completionHandler: { success, _ in
+            if success {
+              
+               // if self.followRequest.followingActive == false {
+                if self.followRequest.followingArray.contains(notifications.userID){
+                    self.notificationButton.setTitle("unfollow", for: .normal)
+                    self.notificationButton.layer.cornerRadius = 10
+                    self.notificationButton.setTitleColor(.white, for: .normal)
+                    self.notificationButton.backgroundColor = UIColor(patternImage: (UIImage(named: "2.jpg")!))
+                }else{
+                    self.notificationButton.setTitle("Follow", for: .normal)
+                    self.notificationButton.layer.cornerRadius = 10
+                    self.notificationButton.backgroundColor = .clear
+                    self.notificationButton.layer.borderWidth = 1
+                    self.notificationButton.setTitleColor(.black, for: .normal)
+                }
+            }
+        })
         
     }
 }

@@ -17,6 +17,7 @@ class FollowRequest {
     var userFollowing: String!
     var idFollowing: String!
     var followingActive = false
+    var followingArray: [String] = []
     var followingCount = 0
     var followersCount = 0
     var follower = [readFollow]()
@@ -177,7 +178,7 @@ class FollowRequest {
     }
     func getFollowingToButton(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         self.followingCount = 0
-        
+        self.followingArray.removeAll()
         if let userID = userSelected?.userID {
             self.ref = Database.database().reference()
             ref.child("users")
@@ -186,15 +187,15 @@ class FollowRequest {
                 .queryOrderedByKey().observeSingleEvent(of: .value, with: {snapshot in
 
                     if let users = snapshot.value as? [String: AnyObject] {
+                        
                         for (_, value) in users{
                             if let whoFollowing = value["whoIsFollowing"] as? String {
                                 let uid = self.userSelected?.userID
-                                if uid == whoFollowing {
+                                if userID == whoFollowing {
                                     let userToshow = readFollow()
-
                                     userToshow.followID = whoFollowing
                                     self.follower.append(userToshow)
-                                    
+                                    self.followingArray.append(userToshow.followID)
                                     self.followingActive = true
                                     completionHandler(true,nil)
                                 }else{

@@ -17,6 +17,7 @@ class notificationsViewController: UIViewController {
     var request = NotificationsRequest()
     var userSelected = userSelectedrequest()
     var userRequest = ViewRequest()
+    var followRequest = FollowRequest()
     // MARK: - Proprierts
     var userArray = [Post]()
 
@@ -39,7 +40,7 @@ class notificationsViewController: UIViewController {
         })
     }
     func tableviewSetup(){
-        self.controller = NotificationsTableDelegateDataSource(view: self, request: request, userRequest: userRequest)
+        self.controller = NotificationsTableDelegateDataSource(view: self, request: request, userRequest: userRequest, followRequest: followRequest)
         notificationsTableView.delegate = controller
         notificationsTableView.dataSource = controller
         notificationsTableView.reloadData()

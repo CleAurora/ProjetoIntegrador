@@ -31,7 +31,7 @@ class NotificationsTableDelegateDataSource: NSObject, UITableViewDelegate, UITab
         
         let notifications = request.notificationsUser[indexPath.row]
         cell.setup(notifications: notifications)
-        
+
         return cell
     }
 }

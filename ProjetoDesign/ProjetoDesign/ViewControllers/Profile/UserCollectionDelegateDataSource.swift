@@ -47,19 +47,18 @@ class UserCollectionDelegateDataSource: NSObject, UICollectionViewDelegate, UICo
         
         self.followModel.getFollowingToButton(completionHandler: { success, _ in
             if success {
-        
-                if self.followModel.followingActive == false {
-                    cell.followButton.setTitle("Follow", for: .normal)
-                    cell.followButton.layer.cornerRadius = 10
-                    cell.followButton.backgroundColor = .clear
-                    cell.followButton.layer.borderWidth = 1
-                    cell.followButton.setTitleColor(.black, for: .normal)
-                }else{
+                if self.followModel.followingArray.contains(self.userSelected[indexPath.row].userID){
                     cell.followButton.setTitle("unfollow", for: .normal)
                     cell.followButton.layer.cornerRadius = 10
                     cell.followButton.setTitleColor(.white, for: .normal)
                     cell.followButton.backgroundColor = UIColor(patternImage: (UIImage(named: "2.jpg")!))
                     
+                }else{
+                    cell.followButton.setTitle("Follow", for: .normal)
+                    cell.followButton.layer.cornerRadius = 10
+                    cell.followButton.backgroundColor = .clear
+                    cell.followButton.setTitleColor(.black, for: .normal)
+                    cell.followButton.layer.borderWidth = 1
                 }
             }
         })
