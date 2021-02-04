@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NJq-OM-TuN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NJq-OM-TuN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -47,6 +47,7 @@
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tsI-0G-ECQ">
                                         <rect key="frame" x="111" y="154" width="151" height="150"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="image_button"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="151" id="aNh-Ig-BC3"/>
                                             <constraint firstAttribute="height" constant="150" id="dbF-l2-qSq"/>
@@ -65,6 +66,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RhH-5y-Rt2" customClass="CustomOutlinedTxtField" customModule="ProjetoDesign" customModuleProvider="target">
                                         <rect key="frame" x="22" y="316" width="328" height="61"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="name_textfield"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="61" id="gar-Ty-Zkz"/>
                                             <constraint firstAttribute="width" constant="328" id="juD-Rk-1hc"/>
@@ -73,6 +75,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wuN-sb-YOs" customClass="CustomOutlinedTxtField" customModule="ProjetoDesign" customModuleProvider="target">
                                         <rect key="frame" x="22" y="462" width="328" height="61"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="nickname_textfield"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="61" id="xVf-l6-gdS"/>
                                             <constraint firstAttribute="width" constant="328" id="yON-8o-F4D"/>
@@ -81,6 +84,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GsU-38-nga" customClass="CustomOutlinedTxtField" customModule="ProjetoDesign" customModuleProvider="target">
                                         <rect key="frame" x="22" y="535" width="328" height="61"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="password_textfield"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="61" id="Ypg-CB-44r"/>
                                             <constraint firstAttribute="width" constant="328" id="fv0-yb-4Ev"/>
@@ -89,6 +93,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7L-jU-Vrl" customClass="CustomOutlinedTxtField" customModule="ProjetoDesign" customModuleProvider="target">
                                         <rect key="frame" x="22" y="608" width="328" height="61"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="secure_textfield"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="61" id="mU7-Ul-ILM"/>
                                             <constraint firstAttribute="width" constant="328" id="tKa-GC-Sna"/>
@@ -97,6 +102,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sef-5t-sq7" customClass="CustomOutlinedTxtField" customModule="ProjetoDesign" customModuleProvider="target">
                                         <rect key="frame" x="22" y="389" width="328" height="61"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="email_textfield"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="61" id="9qm-jg-Ahc"/>
                                             <constraint firstAttribute="width" constant="328" id="PgL-Sj-VMI"/>
@@ -144,6 +150,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="25x-Ah-rfM">
                                         <rect key="frame" x="0.0" y="0.0" width="373" height="77"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="signup_button"/>
                                         <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="35"/>
                                         <state key="normal" title="Sign up">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -169,6 +176,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UQM-4E-uqr"/>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="register_root_view"/>
                         <constraints>
                             <constraint firstItem="UQM-4E-uqr" firstAttribute="trailing" secondItem="wDj-rO-CrQ" secondAttribute="trailing" constant="21" id="5zp-dm-ezl"/>
                             <constraint firstItem="UVk-jQ-8d7" firstAttribute="top" secondItem="wDj-rO-CrQ" secondAttribute="bottom" constant="19" id="R2r-jJ-Mmx"/>
@@ -195,23 +203,6 @@
             <point key="canvasLocation" x="-346.37681159420293" y="63.616071428571423"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="4Bt-SQ-9sc">
-            <size key="intrinsicContentSize" width="117.5" height="17"/>
-        </designable>
-        <designable name="YRv-Nf-lJQ">
-            <size key="intrinsicContentSize" width="34.5" height="18.5"/>
-        </designable>
-        <designable name="c0x-qy-GtI">
-            <size key="intrinsicContentSize" width="64.5" height="18.5"/>
-        </designable>
-        <designable name="fE0-hj-Wnm">
-            <size key="intrinsicContentSize" width="38" height="18.5"/>
-        </designable>
-        <designable name="oKZ-GB-qo0">
-            <size key="intrinsicContentSize" width="62.5" height="17"/>
-        </designable>
-    </designables>
     <resources>
         <image name="login" width="1080" height="1917"/>
         <image name="signup1" width="373" height="77"/>

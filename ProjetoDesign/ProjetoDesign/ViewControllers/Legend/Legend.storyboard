@@ -32,6 +32,7 @@
                                             </imageView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="top" borderStyle="roundedRect" placeholder="Write a caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fmi-3s-Fef">
                                                 <rect key="frame" x="16" y="243" width="382" height="120"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="legend_textfield"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="120" id="nMG-Cg-5gf"/>
                                                 </constraints>
@@ -44,8 +45,9 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HW1-cI-BYa">
+                                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="HW1-cI-BYa">
                                                 <rect key="frame" x="325" y="449.5" width="51" height="31"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="local_switch"/>
                                                 <connections>
                                                     <action selector="localSwitchChanged:" destination="bFv-Uu-bXR" eventType="valueChanged" id="ABQ-pg-TZT"/>
                                                 </connections>
@@ -58,6 +60,7 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5p-vj-eHt" customClass="RoundedButton" customModule="ProjetoDesign" customModuleProvider="target">
                                                 <rect key="frame" x="41.5" y="628" width="331" height="44"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="post_button"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="44" id="ugv-Q7-M5w"/>
                                                 </constraints>
@@ -82,20 +85,23 @@
                                                     <action selector="postButtonTapped" destination="bFv-Uu-bXR" eventType="touchUpInside" id="rTr-Uq-g5r"/>
                                                 </connections>
                                             </button>
-                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Local" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHW-Mj-6JC">
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHW-Mj-6JC">
                                                 <rect key="frame" x="40" y="487" width="334" height="21"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="local_label"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMV-l0-QrN">
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WMV-l0-QrN">
                                                 <rect key="frame" x="40" y="557" width="334" height="21"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="weather_label"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QGm-ff-Nqi">
+                                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QGm-ff-Nqi">
                                                 <rect key="frame" x="325" y="519.5" width="51" height="31"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="weather_switch"/>
                                                 <connections>
                                                     <action selector="weatherSwitchChanged:" destination="bFv-Uu-bXR" eventType="valueChanged" id="76T-mj-kwS"/>
                                                 </connections>
@@ -141,6 +147,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mnf-RB-eEs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <accessibility key="accessibilityConfiguration" identifier="legend_root_view"/>
                         <constraints>
                             <constraint firstItem="b1Q-6R-U5n" firstAttribute="top" secondItem="UTT-gx-Krg" secondAttribute="top" id="6uN-WU-3TS"/>
                             <constraint firstItem="z5p-vj-eHt" firstAttribute="width" secondItem="UTT-gx-Krg" secondAttribute="width" multiplier="0.8" id="JXC-Ua-d5Z"/>

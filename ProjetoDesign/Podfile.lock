@@ -105,7 +105,17 @@ PODS:
   - GTMSessionFetcher/Core (1.5.0)
   - GTMSessionFetcher/Full (1.5.0):
     - GTMSessionFetcher/Core (= 1.5.0)
+  - iOSSnapshotTestCase (6.2.0):
+    - iOSSnapshotTestCase/SwiftSupport (= 6.2.0)
+  - iOSSnapshotTestCase/Core (6.2.0)
+  - iOSSnapshotTestCase/SwiftSupport (6.2.0):
+    - iOSSnapshotTestCase/Core
   - IQKeyboardManagerSwift (6.3.0)
+  - KIF (3.7.15):
+    - KIF/Core (= 3.7.15)
+  - KIF/Core (3.7.15)
+  - KIF/IdentifierTests (3.7.15):
+    - KIF/Core
   - Kingfisher (5.15.8):
     - Kingfisher/Core (= 5.15.8)
   - Kingfisher/Core (5.15.8)
@@ -755,6 +765,12 @@ PODS:
     - nanopb/encode (= 2.30906.0)
   - nanopb/decode (2.30906.0)
   - nanopb/encode (2.30906.0)
+  - Nimble (9.0.0)
+  - Nimble-Snapshots (9.1.0):
+    - Nimble-Snapshots/Core (= 9.1.0)
+  - Nimble-Snapshots/Core (9.1.0):
+    - iOSSnapshotTestCase (~> 6.0)
+    - Nimble
   - PKHUD (5.3.0)
   - PromisesObjC (1.2.11)
   - ReachabilitySwift (5.0.0)
@@ -763,7 +779,6 @@ PODS:
     - SwiftMessages/App (= 8.0.5)
   - SwiftMessages/App (8.0.5)
   - SwiftyCam (4.0.0)
-  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
@@ -775,14 +790,16 @@ DEPENDENCIES:
   - Firebase/Storage
   - GoogleSignIn
   - IQKeyboardManagerSwift (~> 6.3)
+  - KIF
+  - KIF/IdentifierTests
   - Kingfisher (~> 5.0)
   - MaterialComponents
+  - Nimble-Snapshots
   - PKHUD
   - ReachabilitySwift
   - SegmentedProgressView
   - SwiftMessages
   - SwiftyCam
-  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
@@ -805,7 +822,9 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMAppAuth
     - GTMSessionFetcher
+    - iOSSnapshotTestCase
     - IQKeyboardManagerSwift
+    - KIF
     - Kingfisher
     - leveldb-library
     - MaterialComponents
@@ -814,13 +833,14 @@ SPEC REPOS:
     - MotionAnimator
     - MotionInterchange
     - nanopb
+    - Nimble
+    - Nimble-Snapshots
     - PKHUD
     - PromisesObjC
     - ReachabilitySwift
     - SegmentedProgressView
     - SwiftMessages
     - SwiftyCam
-    - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
@@ -842,7 +862,9 @@ SPEC CHECKSUMS:
   GoogleUtilities: 3dc4ff0d5e4840e2fa8eef0889620e8c33d4218c
   GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
   GTMSessionFetcher: b3503b20a988c4e20cc189aa798fd18220133f52
+  iOSSnapshotTestCase: 9ab44cb5aa62b84d31847f40680112e15ec579a6
   IQKeyboardManagerSwift: a8228c257614af98743b4cd8584637025f36358f
+  KIF: c060ca8bf50986a9b236d0337affab573eacc152
   Kingfisher: a3c03d702433fa6cfedabb2bddbe076fb8f2e902
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   MaterialComponents: 1f521dc333679daf0a397fe9dafe1e26ae13da78
@@ -851,14 +873,15 @@ SPEC CHECKSUMS:
   MotionAnimator: ee16aa30567c5bae0fb2750c132915829cfaaf8a
   MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
   nanopb: 1bf24dd71191072e120b83dd02d08f3da0d65e53
+  Nimble: 3b4ec3fd40f1dc178058e0981107721c615643d8
+  Nimble-Snapshots: 6605431525245f967ca9d558bb12a49da3d040e3
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SegmentedProgressView: e9e3c4037c5c871686932bcce479e0694f59053d
   SwiftMessages: 539fd54a766bf08ec667e90aa141c44b8b8aaa55
   SwiftyCam: 6e57914771d972fbe508e759dc9d0150a44a93fd
-  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: d1aefe5c8f31559b7ca72bef090a2bd7a8254f20
+PODFILE CHECKSUM: c8f4a869f8c77b3105922ccebd33517b89e8a9ac
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

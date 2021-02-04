@@ -10,7 +10,6 @@ import GoogleSignIn
 import IQKeyboardManagerSwift
 import UIKit
 
-@UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 

@@ -5,45 +5,36 @@
 //  Created by Cleís Aurora Pereira on 27/11/20.
 //
 
-import Foundation
 import FirebaseAuth
-import GoogleSignIn
 
-final class LoginViewModel {
-    var titleBtnLogin: String {
-        return "Login"
-    }
+protocol LoginViewModelProtocol {
+    var titleBtnLogin: String { get }
+    var titleBtnRegister: String { get }
+    var imageBtnInstagram: String { get }
+    var imageBtnFaceBook: String { get }
 
-    var titleBtnRegister: String {
-        return "Register"
-    }
+    func doLogin(email: String?, password: String?, completionHandler: @escaping (Result<Bool, Error>) -> Void)
+}
 
-    var imageBtnInstagram: String {
-        return "google"
-    }
+final class LoginViewModel: LoginViewModelProtocol {
+    let titleBtnLogin: String = "Login"
+    let titleBtnRegister: String = "Register"
+    let imageBtnInstagram: String = "google"
+    let imageBtnFaceBook: String = "face"
 
-    var imageBtnFaceBook: String {
-        return "face"
-    }
+    // MARK: - LoginViewModelProtocol conforms
 
-    private weak var viewController: SignInViewController?
-
-    init(view: SignInViewController) {
-        self.viewController = view
-    }
-
-    func doLogin(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
-        if let viewController = viewController, let email = viewController.emailTextField.text,
-           let password = viewController.passwordTextField.text {
+    func doLogin(email: String?, password: String?, completionHandler: @escaping (Result<Bool, Error>) -> Void) {
+        if let email = email, let password = password {
             Auth.auth().signIn(withEmail: email, password: password) { (_, error) in
-                guard error == nil else {
-                    return completionHandler(false, error)
+                if let error = error {
+                    return completionHandler(.failure(error))
                 }
 
-                return completionHandler(true, nil)
+                return completionHandler(.success(true))
             }
         } else {
-            completionHandler(false, NSError(domain: #function, code: 0, userInfo: [:]))
+            completionHandler(.failure(NSError(domain: #function, code: 0, userInfo: [:])))
         }
     }
 }
