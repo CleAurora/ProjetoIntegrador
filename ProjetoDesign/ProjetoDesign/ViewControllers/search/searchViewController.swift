@@ -27,6 +27,7 @@ class searchViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
+        self.viewModel = searchTableDelegateDatasource(usuarioModel: controller, searchController: self, imageController: imageRequest)
         searchTableView.isHidden = true
         userSearchView.delegate = self
     }
@@ -54,8 +55,7 @@ class searchViewController: UIViewController {
     }
     
     func collectionSetup(){
-        self.viewModel = searchTableDelegateDatasource(usuarioModel: controller, searchController: self, imageController: imageRequest)
-        
+      
         dataCollectionView.delegate = viewModel
         dataCollectionView.dataSource = viewModel
         
@@ -65,8 +65,7 @@ class searchViewController: UIViewController {
         dataCollectionView.reloadData()
     }
     func tableViewSetup(){
-        self.viewModel = searchTableDelegateDatasource(usuarioModel: controller, searchController: self, imageController: imageRequest)
-
+        
         searchTableView.delegate = viewModel
         searchTableView.dataSource = viewModel
         searchTableView.reloadData()
@@ -85,7 +84,6 @@ class searchViewController: UIViewController {
 extension searchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 
-        self.viewModel = searchTableDelegateDatasource(usuarioModel: controller, searchController: self, imageController: imageRequest)
         searchTableView.delegate = viewModel
         searchTableView.dataSource = viewModel
 

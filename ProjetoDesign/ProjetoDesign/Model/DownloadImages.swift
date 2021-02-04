@@ -43,7 +43,8 @@ class DownloadImages {
                         userToshow.userID = userID
                         userToshow.weather = weather
                         userToshow.weatherype = weatherType
-
+                        userToshow.childKey = postSnapshot.key
+                        
                         if let weather = weather, weather.isEmpty {
                             userToshow.weatherype = ""
                         } else if weather == nil {

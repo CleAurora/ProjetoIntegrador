@@ -109,7 +109,6 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
     }
     func denideAcessPhotos(){
         let alert = UIAlertController(title: "Photos", message: "Photos access is absolutely necessary to use this app", preferredStyle: .alert)
-
                 // Add "OK" Button to alert, pressing it will bring you to the settings app
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
                     UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)

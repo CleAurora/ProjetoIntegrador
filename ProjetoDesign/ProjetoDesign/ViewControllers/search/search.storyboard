@@ -70,7 +70,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xxj-qY-2jb">
                                 <rect key="frame" x="0.0" y="100" width="414" height="796"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="d8N-GX-IMk">
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="5" minimumInteritemSpacing="5" id="d8N-GX-IMk">
                                     <size key="itemSize" width="201" height="250"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -87,8 +87,8 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xrv-8R-I3v" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
                                                     <rect key="frame" x="3" y="3" width="195" height="244"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="244" id="S8j-9P-cev"/>
-                                                        <constraint firstAttribute="width" constant="195" id="aAH-c5-Lqx"/>
+                                                        <constraint firstAttribute="height" constant="244" id="S5q-l3-pUc"/>
+                                                        <constraint firstAttribute="width" constant="195" id="rS3-kT-2f3"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">

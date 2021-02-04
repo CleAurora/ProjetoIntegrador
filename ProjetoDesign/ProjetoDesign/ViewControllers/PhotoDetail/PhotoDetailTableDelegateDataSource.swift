@@ -13,10 +13,11 @@ final class PhotoDetailTableDelegateDataSource: NSObject, UITableViewDelegate, U
     var photoArray = [PhotoDetailModel]()
     var view = PhotoDetailViewController()
     var userRequest = ViewRequest()
-
-    init(view: PhotoDetailViewController, request: ViewRequest) {
+    var commentsRequest = CommentsRequest()
+    init(view: PhotoDetailViewController, request: ViewRequest, commentsRequest: CommentsRequest) {
         self.view = view
         self.userRequest = request
+        self.commentsRequest = commentsRequest
 
     }
     func loadData(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
@@ -48,14 +49,25 @@ final class PhotoDetailTableDelegateDataSource: NSObject, UITableViewDelegate, U
         
         completionHandler(true, nil)
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+      if tableView == view.photoTableView {
         return photoArray.count
+        }
+        return commentsRequest.commentsDetails.count
+
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as! PhotoDetailTableViewCell
-        cell.setup(photo: photoArray[indexPath.row])
-        return cell
+        if tableView == view.photoTableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "detailCell", for: indexPath) as! PhotoDetailTableViewCell
+            cell.setup(photo: photoArray[indexPath.row])
+            return cell
+        }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "commentsDetailsCell", for: indexPath) as! CommentsTableCell
+            cell.setupProfile(comments: commentsRequest.commentsDetails[indexPath.row])
+            return cell
+        }
     }
 }
