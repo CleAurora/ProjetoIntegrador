@@ -18,38 +18,41 @@ class NotificationsTableCell: UITableViewCell {
     @IBOutlet weak var userImage: roundImageView!
     @IBOutlet var notificationButton: UIButton!
     var followRequest = FollowRequest()
+    var userSelected: Usuario?
+    var userRequest = ViewRequest()
+    var request = NotificationsRequest()
     // MARK: - Proprierts
     var buttonTapped : (() -> ()) = {}
 
     // MARK: - Super Methods
     override func awakeFromNib() {
         super.awakeFromNib()
-//        notificationButton.setTitle("Follow", for: .normal)
-//        notificationButton.layer.cornerRadius = 10
-//        notificationButton.backgroundColor = .clear
-//        notificationButton.layer.borderWidth = 1
-//        notificationButton.setTitleColor(.black, for: .normal)
     }
 
     // MARK: - IBActions
     @IBAction func notificationButton(_ sender: Any) {
         buttonTapped()
-        let actualText = notificationButton.titleLabel?.text
-        notificationButton.layer.cornerRadius = 10
-        notificationButton.backgroundColor = .systemIndigo
- 
-        if actualText == "Follow" {
-            notificationButton.setTitle("unfollow", for: .normal)
-            notificationButton.setTitleColor(.white, for: .normal)
-        }else{
-            notificationButton.setTitle("Follow", for: .normal)
-            notificationButton.layer.cornerRadius = 10
-            notificationButton.backgroundColor = .clear
-            notificationButton.layer.borderWidth = 1
-            notificationButton.setTitleColor(.black, for: .normal)
-
-        }
+       // self.followRequest.userSelected = self.userSelected
+        
+//        self.followRequest.getFollowers(completionHandler: { success, _ in
+//            if success {
+//                let buttonLabel = self.notificationButton.titleLabel?.text
+//
+//                if buttonLabel == "Follow"{
+//                    self.notificationButton.setTitle("unfollow", for: .normal)
+//                    self.notificationButton.setTitleColor(.white, for: .normal)
+//                    self.notificationButton.backgroundColor = UIColor(patternImage: (UIImage(named: "2.jpg")!))
+//                }else if buttonLabel == "unfollow"{
+//                    self.notificationButton.setTitle("Follow", for: .normal)
+//                    self.notificationButton.layer.cornerRadius = 10
+//                    self.notificationButton.backgroundColor = .clear
+//                    self.notificationButton.layer.borderWidth = 1
+//                    self.notificationButton.setTitleColor(.black, for: .normal)
+//                }
+//            }
+//        })
     }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
@@ -63,11 +66,11 @@ class NotificationsTableCell: UITableViewCell {
         if let photo = notifications.profileUrl {
             userImage.kf.setImage(with: URL(string: photo))
         }
+        
+        self.userSelected = notifications
         self.followRequest.userSelected = notifications
         self.followRequest.getFollowingToButton(completionHandler: { success, _ in
             if success {
-              
-               // if self.followRequest.followingActive == false {
                 if self.followRequest.followingArray.contains(notifications.userID){
                     self.notificationButton.setTitle("unfollow", for: .normal)
                     self.notificationButton.layer.cornerRadius = 10
@@ -85,7 +88,6 @@ class NotificationsTableCell: UITableViewCell {
         
     }
 }
-
 // MARK: - Extensions 
 extension String {
     func withBoldText(text: String, font: UIFont? = nil) -> NSAttributedString {

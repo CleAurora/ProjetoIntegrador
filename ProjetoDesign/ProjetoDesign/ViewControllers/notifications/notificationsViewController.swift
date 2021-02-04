@@ -24,21 +24,23 @@ class notificationsViewController: UIViewController {
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        getData()
         tabBarViewRight.roundCorners(.topLeft, radius: 33)
         tabBarViewLeft.roundCorners(.topRight, radius: 33)
         
         self.navigationController?.navigationBar.isHidden = true
     }
     override func viewDidAppear(_ animated: Bool) {
-        getData()
+        //getData()
     }
-    func getData(){
+    private func getData(){
         request.downloadData(completionHandler: { success,_ in
             if success {
                 self.tableviewSetup()
             }
         })
     }
+    
     func tableviewSetup(){
         self.controller = NotificationsTableDelegateDataSource(view: self, request: request, userRequest: userRequest, followRequest: followRequest)
         notificationsTableView.delegate = controller

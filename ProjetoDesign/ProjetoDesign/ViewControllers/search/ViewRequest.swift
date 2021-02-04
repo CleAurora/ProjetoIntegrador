@@ -22,6 +22,7 @@ class ViewRequest{
     var userName: String?
     var imageProfile: String?
     var userHasActiveStories = [String]()
+    var containtUser = [String]()
     
     func loadData(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         self.userArray.removeAll()
@@ -89,7 +90,7 @@ class ViewRequest{
     func downloadData(ID: String,completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         self.userArray.removeAll()
         self.notificationsUser.removeAll()
-
+       
         self.ref = Database.database().reference()
         if let uid = Auth.auth().currentUser?.uid {
             let reference = self.ref.child("users")
@@ -127,8 +128,17 @@ class ViewRequest{
                                 self.currentUser.append(userToshow)
                             }
                             
+                            
                             if ID == userToshow.userID {
-                                self.notificationsUser.append(userToshow)
+                                if self.containtUser.contains(userToshow.userID) {
+                                    
+                                }else {
+                                    self.notificationsUser.append(userToshow)
+                                    self.containtUser.append(userToshow.userID)
+                                    print(self.notificationsUser.count)
+                                }
+                                
+                                
                             }
                             if self.userSelected == userToshow.userID {
                                 self.userName = userToshow.name

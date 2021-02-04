@@ -23,7 +23,7 @@ class FollowRequest {
     var follower = [readFollow]()
     let uid = Auth.auth().currentUser?.uid
     var ref: DatabaseReference!
-
+    var userRequest = ViewRequest()
     func setFollowers(){
         if let userID = userSelected?.userID {
 
@@ -138,8 +138,9 @@ class FollowRequest {
                                     userToshow.followID = whoFollowing
                                     self.follower.append(userToshow)
                                     self.userFollowing = whoFollowing
-                                    self.followingCount = self.followingCount + 1
+                                    //self.followingCount = self.followingCount + 1
                                 }
+                                self.followingCount = self.followingCount + 1
                             }
                         }
                         self.setFollowing()
