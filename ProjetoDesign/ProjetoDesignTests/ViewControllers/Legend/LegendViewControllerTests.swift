@@ -45,6 +45,7 @@ final class LegendViewControllerTests: XCTestCase {
         viewModel.stubbedGetCurrentTemperatureHandlerResult = (.success(()), ())
 
         let localSwitch: UISwitch = try XCTUnwrap(sut.view.findBy(acessibilityIdentifier: "local_switch"))
+        localSwitch.isOn = true
         localSwitch.sendActions(for: .valueChanged)
 
         expect(sut.view).to(haveValidDeviceAgnosticSnapshot())
@@ -58,7 +59,50 @@ final class LegendViewControllerTests: XCTestCase {
         viewModel.stubbedGetCurrentTemperatureHandlerResult = (.failure(LegendViewModel.LocationError.notAuthorized), ())
 
         let localSwitch: UISwitch = try XCTUnwrap(sut.view.findBy(acessibilityIdentifier: "local_switch"))
+        localSwitch.isOn = true
         localSwitch.sendActions(for: .valueChanged)
+
+        expect(sut.view).to(haveValidDeviceAgnosticSnapshot())
+    }
+
+    func testWeatherSwitchOnWhenLocationIsNotAuthorized() throws {
+        let sut = try getSut()
+        let viewModel = LegendViewModelSpy()
+        sut.viewModel = viewModel
+        viewModel.stubbedCurrentWeather = nil
+        viewModel.stubbedGetCurrentTemperatureHandlerResult = (.failure(LegendViewModel.LocationError.notAuthorized), ())
+
+        let weatherSwitch: UISwitch = try XCTUnwrap(sut.view.findBy(acessibilityIdentifier: "weather_switch"))
+        weatherSwitch.isOn = true
+        weatherSwitch.sendActions(for: .valueChanged)
+
+        expect(sut.view).to(haveValidDeviceAgnosticSnapshot())
+    }
+
+    func testLocalSwitchOnWhenLocationIsNotFound() throws {
+        let sut = try getSut()
+        let viewModel = LegendViewModelSpy()
+        sut.viewModel = viewModel
+        viewModel.stubbedCurrentWeather = nil
+        viewModel.stubbedGetCurrentTemperatureHandlerResult = (.failure(LegendViewModel.LocationError.notFound), ())
+
+        let localSwitch: UISwitch = try XCTUnwrap(sut.view.findBy(acessibilityIdentifier: "local_switch"))
+        localSwitch.isOn = true
+        localSwitch.sendActions(for: .valueChanged)
+
+        expect(sut.view).to(haveValidDeviceAgnosticSnapshot())
+    }
+
+    func testWeatherSwitchOnWhenLocationIsNotFound() throws {
+        let sut = try getSut()
+        let viewModel = LegendViewModelSpy()
+        sut.viewModel = viewModel
+        viewModel.stubbedCurrentWeather = nil
+        viewModel.stubbedGetCurrentTemperatureHandlerResult = (.failure(LegendViewModel.LocationError.notFound), ())
+
+        let weatherSwitch: UISwitch = try XCTUnwrap(sut.view.findBy(acessibilityIdentifier: "weather_switch"))
+        weatherSwitch.isOn = true
+        weatherSwitch.sendActions(for: .valueChanged)
 
         expect(sut.view).to(haveValidDeviceAgnosticSnapshot())
     }
@@ -73,19 +117,7 @@ final class LegendViewControllerTests: XCTestCase {
         viewModel.stubbedGetCurrentTemperatureHandlerResult = (.success(()), ())
 
         let localSwitch: UISwitch = try XCTUnwrap(sut.view.findBy(acessibilityIdentifier: "weather_switch"))
-        localSwitch.sendActions(for: .valueChanged)
-
-        expect(sut.view).to(haveValidDeviceAgnosticSnapshot())
-    }
-
-    func testWeatherSwitchOnWhenLocationIsNotAuthorized() throws {
-        let sut = try getSut()
-        let viewModel = LegendViewModelSpy()
-        sut.viewModel = viewModel
-        viewModel.stubbedCurrentWeather = nil
-        viewModel.stubbedGetCurrentTemperatureHandlerResult = (.failure(LegendViewModel.LocationError.notAuthorized), ())
-
-        let localSwitch: UISwitch = try XCTUnwrap(sut.view.findBy(acessibilityIdentifier: "weather_switch"))
+        localSwitch.isOn = true
         localSwitch.sendActions(for: .valueChanged)
 
         expect(sut.view).to(haveValidDeviceAgnosticSnapshot())
@@ -101,10 +133,12 @@ final class LegendViewControllerTests: XCTestCase {
         viewModel.stubbedGetCurrentTemperatureHandlerResult = (.success(()), ())
 
         let localSwitch: UISwitch = try XCTUnwrap(sut.view.findBy(acessibilityIdentifier: "local_switch"))
+        localSwitch.isOn = true
         localSwitch.sendActions(for: .valueChanged)
 
         let weatherSwitch: UISwitch = try XCTUnwrap(sut.view.findBy(acessibilityIdentifier: "weather_switch"))
-        localSwitch.sendActions(for: .valueChanged)
+        weatherSwitch.isOn = true
+        weatherSwitch.sendActions(for: .valueChanged)
 
         expect(sut.view).to(haveValidDeviceAgnosticSnapshot())
     }
