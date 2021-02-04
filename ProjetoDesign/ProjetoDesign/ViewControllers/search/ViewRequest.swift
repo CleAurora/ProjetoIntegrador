@@ -127,15 +127,12 @@ class ViewRequest{
                             }else{
                                 self.currentUser.append(userToshow)
                             }
-                            
-                            
                             if ID == userToshow.userID {
                                 if self.containtUser.contains(userToshow.userID) {
-                                    
+                                //do nothing
                                 }else {
                                     self.notificationsUser.append(userToshow)
                                     self.containtUser.append(userToshow.userID)
-                                    print(self.notificationsUser.count)
                                 }
                                 
                                 

@@ -9,6 +9,8 @@ import UIKit
 import Reachability
 import PKHUD
 import SwiftGifOrigin
+import Photos
+
 class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     // MARK: - IBOutlets
@@ -50,6 +52,7 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
         super.viewDidAppear(animated)
         
         uploadData.photosArray.removeAll()
+    
         grabPhotos()
     }
     
@@ -78,14 +81,41 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
 
         try? reachability.startNotifier()
     }
-
+    
     func grabPhotos(){
+        let photos = PHPhotoLibrary.authorizationStatus()
+        if photos == .notDetermined {
+            PHPhotoLibrary.requestAuthorization({status in
+                if status == .authorized{
+                    self.authorizedAcessPhotos()
+                }else if status == .denied {
+                    self.denideAcessPhotos()
+                }
+             }
+            )} else if photos == .authorized {
+                authorizedAcessPhotos()
+            }else if photos == .denied {
+                denideAcessPhotos()
+            }
+    }
+    func authorizedAcessPhotos(){
         uploadData.grabPhotos(completionHandler: { success, _ in
-            if success {
-               
-                collectionSetup()
+        if success {
+            collectionSetup()
+        }else{
+            print("dont have acess")
             }
         })
+    }
+    func denideAcessPhotos(){
+        let alert = UIAlertController(title: "Photos", message: "Photos access is absolutely necessary to use this app", preferredStyle: .alert)
+
+                // Add "OK" Button to alert, pressing it will bring you to the settings app
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+                }))
+                // Show the alert with animation
+                self.present(alert, animated: true)
     }
     func collectionSetup(){
         self.uploadDataSource = uploadCollectionDelegateSource(uploadView: uploadData, view: self)

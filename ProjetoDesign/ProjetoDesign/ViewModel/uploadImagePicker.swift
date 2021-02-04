@@ -37,12 +37,14 @@ class uploadImagePicker: UIViewController, UIImagePickerControllerDelegate, UINa
                 for i in 0..<fetchResult!.count
             {
                     imgManager.requestImage(for: fetchResult!.object(at: i), targetSize: CGSize(width: 250, height: 250), contentMode: .aspectFill, options: requestOptions, resultHandler: {image, error in
-                    self.photosArray.append(image!)
-
+                        if let photo = image {
+                            self.photosArray.append(photo)
+                        }
                 })
             }
 
         }else{
+            completionHandler(false,nil)
             print("you got no photos")
         }
             completionHandler(true,nil)

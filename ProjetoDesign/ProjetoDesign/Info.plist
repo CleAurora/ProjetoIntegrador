@@ -68,6 +68,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSFileProviderDomainUsageDescription</key>
+	<string>We need to use your camera</string>
 	<key>NSLocationUsageDescription</key>
 	<string>we need to get your location to shared you photo</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

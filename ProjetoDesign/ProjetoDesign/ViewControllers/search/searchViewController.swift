@@ -19,7 +19,6 @@ class searchViewController: UIViewController {
     var searchIn = ""
     var userArray = [Post]()
     var filteredArray = [Usuario]()
-
     var controller = ViewRequest()
     var imageRequest = searchImageRequest()
     var viewModel: searchTableDelegateDatasource?
@@ -34,13 +33,14 @@ class searchViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         // Do any additional setup after loading the view.
         getData()
-        showLoading()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        showLoading()
+       
     }
     
-    func showLoading(){
+    @objc func showLoading(){
         if imageRequest.userArray.count == 0 {
             imageLoading.image = UIImage.gif(name: "loading")
         }

@@ -138,7 +138,7 @@ class FollowRequest {
                                     userToshow.followID = whoFollowing
                                     self.follower.append(userToshow)
                                     self.userFollowing = whoFollowing
-                                    //self.followingCount = self.followingCount + 1
+                                   
                                 }
                                 self.followingCount = self.followingCount + 1
                             }
@@ -203,7 +203,10 @@ class FollowRequest {
                                     self.followingActive = false
                                     completionHandler(true,nil)
                                 }
-                         }
+                         }else{
+                            self.followingActive = false
+                            completionHandler(true,nil)
+                        }
                     }
                 }
             })

@@ -44,7 +44,7 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         super.viewDidLoad()
         setupTableView()
         checkStories()
-        withoutPostImage.image = UIImage.gif(name: "withoutPost")
+        
         tabBarView.roundCorners(.topLeft, radius: 33)
         
         navigationController?.navigationBar.isHidden = true
@@ -59,10 +59,10 @@ final class FeedViewController: UIViewController, HeaderDelegate {
 
         setupReachability()
         
-        gameTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(removeOldStories), userInfo: nil, repeats: true)
+        gameTimer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(removeOldStories), userInfo: nil, repeats: true)
         
-        gameTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(checkStories), userInfo: nil, repeats: true)
-      
+        gameTimer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(checkStories), userInfo: nil, repeats: true)
+        gameTimer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(showAlertWithoutPost), userInfo: nil, repeats: false)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -72,6 +72,9 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         feedTableView.reloadData()
         storieCollectionView.reloadData()
        
+    }
+    @objc func showAlertWithoutPost(){
+        withoutPostImage.image = UIImage.gif(name: "withoutPost")
     }
     @objc func checkStories(){
         
