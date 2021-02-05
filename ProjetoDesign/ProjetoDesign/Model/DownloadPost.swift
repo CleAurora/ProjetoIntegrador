@@ -14,5 +14,5 @@ class DownloadPost {
     var weatherype: String!
     var userID: String!
     var city: String!
-    
+    var childKey: String!
 }

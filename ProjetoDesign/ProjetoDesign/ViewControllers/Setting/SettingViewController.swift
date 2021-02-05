@@ -22,6 +22,9 @@ final class SettingViewController: UIViewController, UIImagePickerControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "deactivateTab"), object: .none)
+        self.tabBarController?.tabBar.isHidden = true
+        
         navigationController?.navigationBar.isHidden = false
         self.title = "Edit Profile"
         

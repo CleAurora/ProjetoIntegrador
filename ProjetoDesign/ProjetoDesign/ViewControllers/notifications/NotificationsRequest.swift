@@ -15,8 +15,8 @@ class NotificationsRequest {
     var userRequest = ViewRequest()
     var userID: String?
     func downloadData(completionHandler: @escaping (_ result: Bool,_ error: Error?) -> Void) {
-        self.notificationsUser.removeAll()
         
+        self.notificationsUser.removeAll()
         if let uid = Auth.auth().currentUser?.uid {
             ref.child("users").child(uid).child("notifications").queryOrderedByKey().observeSingleEvent(of: .value, with: { snapshot in
                 
@@ -28,19 +28,23 @@ class NotificationsRequest {
 
                         userToshow.whoIsFollowing = whoIsFollowing
 
-                        self.userRequest.downloadData(ID: userToshow.whoIsFollowing, completionHandler: { success,_ in
+                        self.userRequest.downloadData(ID: userToshow.whoIsFollowing, completionHandler: {
+                            success,_ in
+                            
                             if success{
                                 
                                 self.notificationsUser = self.userRequest.notificationsUser
-                                
+
                                 completionHandler(true,nil)
+                                
                             }
                         })
                     }
+                    
                 }
-             
+               
             })
-           
+            
         }
     }
 }

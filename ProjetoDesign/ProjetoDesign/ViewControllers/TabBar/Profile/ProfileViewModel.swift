@@ -53,6 +53,7 @@ class ProfileViewModel: NSObject, UICollectionViewDelegate, UICollectionViewData
 
         cell.setup(user: userModel.currentUser[indexPath.row])
         cell.postCountLabel.text = "\(postRequest.currentUserPost.count)"
+        
         userData = userModel.currentUser[indexPath.row]
         nameUser = cell.nameLabel.text
         imageUser = cell.urlImage

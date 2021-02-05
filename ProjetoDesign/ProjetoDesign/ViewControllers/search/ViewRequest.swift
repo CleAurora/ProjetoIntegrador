@@ -22,6 +22,7 @@ class ViewRequest{
     var userName: String?
     var imageProfile: String?
     var userHasActiveStories = [String]()
+    var containtUser = [String]()
     
     func loadData(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         self.userArray.removeAll()
@@ -44,8 +45,8 @@ class ViewRequest{
                         let userID = value["UserID"] as? String
                         let profileUrl = value["profileUrl"] as? String
                         let bio = value["Bio"] as? String
-                        let followers = value ["Followers"] as? Int
-                        let following = value["Following"] as? Int
+                        let followers = value ["followersCount"] as? Int
+                        let following = value["followingCount"] as? Int
                         let website = value["Website"] as? String
                             
                             userToshow.name = user
@@ -89,7 +90,7 @@ class ViewRequest{
     func downloadData(ID: String,completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         self.userArray.removeAll()
         self.notificationsUser.removeAll()
-
+       
         self.ref = Database.database().reference()
         if let uid = Auth.auth().currentUser?.uid {
             let reference = self.ref.child("users")
@@ -126,9 +127,15 @@ class ViewRequest{
                             }else{
                                 self.currentUser.append(userToshow)
                             }
-                            
                             if ID == userToshow.userID {
-                                self.notificationsUser.append(userToshow)
+                                if self.containtUser.contains(userToshow.userID) {
+                                //do nothing
+                                }else {
+                                    self.notificationsUser.append(userToshow)
+                                    self.containtUser.append(userToshow.userID)
+                                }
+                                
+                                
                             }
                             if self.userSelected == userToshow.userID {
                                 self.userName = userToshow.name

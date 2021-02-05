@@ -34,7 +34,11 @@ class StoriesViewController: UIViewController , UIImagePickerControllerDelegate,
             let captureButton = SwiftyCamButton(frame: recordButton.frame)
            // captureButton.delegate = self
            // defaultCamera = .front
-            openCamera()
+            if storieImageView == nil {
+                openCamera()
+            }else {
+                //do not open camera
+            }
         }else{
             if isImageSelected == true {
 

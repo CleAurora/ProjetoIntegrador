@@ -21,6 +21,7 @@ target 'ProjetoDesign' do
   pod 'FBSDKLoginKit'
   pod 'SwiftyCam'
   pod 'SegmentedProgressView'
+  pod 'SwiftGifOrigin'
 
   target 'ProjetoDesignTests' do
     inherit! :search_paths

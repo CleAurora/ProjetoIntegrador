@@ -42,22 +42,27 @@ class UserCollectionDelegateDataSource: NSObject, UICollectionViewDelegate, UICo
 
     func collectionView(_ collectionView: UICollectionView,viewForSupplementaryElementOfKind kind: String,at indexPath: IndexPath) -> UICollectionReusableView {
         let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "profileReuCell", for: indexPath) as! ProfileCollectionReusableView
-      cell.setup(user: userSelected[indexPath.row])
+        cell.setup(user: userSelected[indexPath.row])
         cell.postCountLabel.text = "\(postRequest.selectedPost.count)"
         
-        if self.followModel.stillFollower != nil{
-            cell.followButton.setTitle("Follow", for: .normal)
-            cell.followButton.layer.cornerRadius = 10
-            cell.followButton.backgroundColor = .clear
-            cell.followButton.layer.borderWidth = 1
-            cell.followButton.setTitleColor(.black, for: .normal)
-        }else {
-            cell.followButton.setTitle("unfollow", for: .normal)
-            cell.followButton.layer.cornerRadius = 10
-            cell.followButton.setTitleColor(.white, for: .normal)
-            cell.followButton.backgroundColor = UIColor(patternImage: (UIImage(named: "2.jpg")!))
-        }
-
+        self.followModel.getFollowingToButton(completionHandler: { success, _ in
+            if success {
+                if self.followModel.followingArray.contains(self.userSelected[indexPath.row].userID){
+                    cell.followButton.setTitle("unfollow", for: .normal)
+                    cell.followButton.layer.cornerRadius = 10
+                    cell.followButton.setTitleColor(.white, for: .normal)
+                    cell.followButton.backgroundColor = UIColor(patternImage: (UIImage(named: "2.jpg")!))
+                    
+                }else{
+                    cell.followButton.setTitle("Follow", for: .normal)
+                    cell.followButton.layer.cornerRadius = 10
+                    cell.followButton.backgroundColor = .clear
+                    cell.followButton.setTitleColor(.black, for: .normal)
+                    cell.followButton.layer.borderWidth = 1
+                }
+            }
+        })
+        
         cell.nameTap = {
             self.view.getFollowers(completionHandler: { success, _ in
 

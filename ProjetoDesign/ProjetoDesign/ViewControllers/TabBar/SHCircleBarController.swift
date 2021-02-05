@@ -11,8 +11,8 @@ import UIKit
 class SHCircleBarController: UITabBarController {
 
     fileprivate var shouldSelectOnTabBar = true
-    private var circleView : UIView!
-    private var circleImageView: UIImageView!
+    var circleView : UIView!
+    var circleImageView: UIImageView!
     open override var selectedViewController: UIViewController? {
         willSet {
             guard shouldSelectOnTabBar, let newValue = newValue else {
@@ -54,16 +54,22 @@ class SHCircleBarController: UITabBarController {
         
         circleView.addSubview(circleImageView)
         self.view.addSubview(circleView)
-        let tabWidth = self.view.bounds.width / CGFloat(self.tabBar.items?.count ?? 4)
-        
+        //let tabWidth = self.view.bounds.width / CGFloat(self.tabBar.items?.count ?? 4)
+        let tabWidth = self.view.bounds.width / CGFloat(5)
         circleView.frame = CGRect(x: tabWidth / 2 - 30, y: self.tabBar.frame.origin.y - 40, width: 60, height: 60)
         circleImageView.frame = self.circleView.bounds
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(deactivateTab), name: NSNotification.Name(rawValue: "deactivateTab"), object: .none)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(activateTab), name: NSNotification.Name(rawValue: "activateTab"), object: .none)
     }
+    
+    @objc func deactivateTab() { circleView.isHidden = true }
+    @objc func activateTab() { circleView.isHidden = false }
+    
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         circleImageView.image = image(with: self.tabBar.selectedItem?.image ?? self.tabBar.items?.first?.image, scaledTo: CGSize(width: 30, height: 30))
-        
-        
         self.tabBar.unselectedItemTintColor = .black
         
     }
