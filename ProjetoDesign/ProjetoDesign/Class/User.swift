@@ -35,7 +35,7 @@ struct PostUser: Equatable {
     // MARK: - Constructors
 
     init(id: String? = nil, userId: String = "", timestamp: Date? = nil, userName: String = "", userProfileUrl: String = "", city: String? = nil,
-         temperature: String? = nil, weatherType: String?, imagePostUrl: String = "", allImages: [String] = [],
+         temperature: String? = nil, weatherType: String? = nil, imagePostUrl: String = "", allImages: [String] = [],
          comments: String? = nil) {
         self.id = id
         self.city = city

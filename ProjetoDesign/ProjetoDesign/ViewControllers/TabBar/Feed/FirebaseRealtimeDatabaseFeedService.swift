@@ -43,7 +43,8 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                     Profile(
                         name: dictionary["Nickname"] as? String ?? "",
                         profileImage: dictionary["profileUrl"] as? String ?? "",
-                        bio: dictionary["Bio"] as? String ?? ""
+                        bio: dictionary["Bio"] as? String ?? "",
+                        uid: dictionary["UserID"] as? String ?? ""
                     )
                 )
             )

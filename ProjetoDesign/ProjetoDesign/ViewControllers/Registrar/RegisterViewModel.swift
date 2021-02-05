@@ -5,57 +5,65 @@
 //  Created by Lestad on 2020-12-03.
 //
 
-import Foundation
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
 
-final class RegisterViewModel: NSObject, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
-    let ref: DatabaseReference = Database.database().reference()
-    var register = RegistrarViewController()
-    var imageSelected: UIImage?
-    var uid: String? { Auth.auth().currentUser?.uid }
+protocol RegisterViewModelProtocol {
+    func click()
+    func textFieldAppearance()
+    func registerNewUser(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void)
+}
 
-    init(view: RegistrarViewController) {
-        self.register = view
+final class RegisterViewModel: NSObject, RegisterViewModelProtocol, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    private let ref: DatabaseReference = Database.database().reference()
+    private weak var register: RegistrarViewController?
+    private var imageSelected: UIImage?
+    private var uid: String? { Auth.auth().currentUser?.uid }
+
+    // MARK: - Initializer
+
+    init(viewController: RegistrarViewController) {
+        register = viewController
     }
 
-    @objc func click() {
+    // MARK: - RegisterViewModelProtocol conforms
+
+    func click() {
         let imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
         imagePicker.modalPresentationStyle = .fullScreen
         imagePicker.delegate = self
-        register.present(imagePicker, animated: true, completion: nil)
 
-   }
-
-    @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-    if  let chosenImage = info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage{
-        register.userImage.contentMode = .scaleAspectFill
-        register.userImage.image = chosenImage
-        imageSelected = chosenImage
+        register?.present(imagePicker, animated: true, completion: nil)
     }
 
-    register.dismiss(animated: true, completion: nil)
-   }
+    func textFieldAppearance() {
+        if let register = register {
+            register.nameTextField.textField.placeholderLabel.text = "Name"
+            register.emailTextField.textField.placeholderLabel.text = "Email"
 
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        register.dismiss(animated: true, completion: nil)
+            register.nicknameTextField.textField.placeholderLabel.text = "Nickname"
+            register.passwordTextField.textField.placeholderLabel.text = "Password"
+            register.passwordTextField.textField.isSecureTextEntry = true
+            register.passwordTextField.textField.textContentType = .oneTimeCode
+            register.secureTextField.textField.placeholderLabel.text = "Confirm Password"
+            register.secureTextField.textField.textContentType = .oneTimeCode
+            register.secureTextField.textField.isSecureTextEntry = true
+        }
     }
 
-    func isDeveloping(){
-        let alert = UIAlertController(title: "This option still under development", message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        register.present(alert, animated: true, completion: nil)
-    }
+    func registerNewUser(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void) {
+        guard let register = register else {
+            return completionHandler(false, NSError(domain: #function, code: 0, userInfo: [:]))
+        }
 
-    func registerNewUser(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
-        if register.emailTextField.text! != nil && register.emailTextField.text! != "" && register.passwordTextField.text! != nil && register.passwordTextField.text! != "" && register.secureTextField.text! != nil && register.secureTextField.text! != "" {
+        if register.emailTextField.textField.text != nil && register.emailTextField.textField.hasText && register.passwordTextField.textField.text != nil && register.passwordTextField.textField.hasText && register.secureTextField.textField.text != nil && register.secureTextField.textField.hasText {
 
-            if register.passwordTextField.text == register.secureTextField.text {
-                Auth.auth().createUser(withEmail: register.emailTextField.text!, password: register.passwordTextField.text!) { authResult, error in
+            if register.passwordTextField.textField.text! == register.secureTextField.textField.text! {
+                Auth.auth().createUser(withEmail: register.emailTextField.textField.text!, password: register.passwordTextField.textField.text!) { authResult, error in
                     if error != nil {
                         completionHandler(false, error)
                     } else {
@@ -68,7 +76,30 @@ final class RegisterViewModel: NSObject, UINavigationControllerDelegate, UIImage
         }
     }
 
-    func saveFIRData(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void) {
+    // MARK: - UIImagePickerControllerDelegate conforms
+
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if  let chosenImage = info[.originalImage] as? UIImage {
+            register?.userImage.contentMode = .scaleAspectFill
+            register?.userImage.image = chosenImage
+            imageSelected = chosenImage
+        }
+
+        register?.dismiss(animated: true, completion: nil)
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        register?.dismiss(animated: true, completion: nil)
+    }
+
+    // MARK: - Private functions
+
+    private func saveFIRData(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void) {
+        guard let register = register else {
+            return completionHandler(false, NSError(domain: #function, code: 0, userInfo: [:]))
+        }
+
         uploadImage(register.userImage.image!) { (url, error) in
             if url != nil {
                 return self.saveImage(name: "", profileURL: url!) { (url, error) in
@@ -79,10 +110,13 @@ final class RegisterViewModel: NSObject, UINavigationControllerDelegate, UIImage
             completionHandler(false, error)
         }
     }
-}
-extension RegisterViewModel {
-    func uploadImage(_ image:UIImage, completionHandler: @escaping (_ result: URL?, _ error: Error?) -> Void){
-        let storageRef = Storage.storage().reference().child("\(register.nicknameTextField.text!).png")
+
+    private func uploadImage(_ image:UIImage, completionHandler: @escaping (_ result: URL?, _ error: Error?) -> Void){
+        guard let register = register else {
+            return completionHandler(nil, NSError(domain: #function, code: 0, userInfo: [:]))
+        }
+
+        let storageRef = Storage.storage().reference().child("\(register.nicknameTextField.textField.text!).png")
         let imgData = register.userImage.image?.pngData()
         let metaData = StorageMetadata()
         metaData.contentType = "image/png"
@@ -99,14 +133,18 @@ extension RegisterViewModel {
         }
     }
 
-    func saveImage(name: String, profileURL:URL, completionHandler: @escaping (_ result: URL?, _ error: Error?) -> Void) {
+    private func saveImage(name: String, profileURL:URL, completionHandler: @escaping (_ result: URL?, _ error: Error?) -> Void) {
+        guard let register = register else {
+            return completionHandler(nil, NSError(domain: #function, code: 0, userInfo: [:]))
+        }
+
         if let currentUserID = uid {
             let dict: [String: Any] = [
-                "Name": register.nameTextField.text!,
-                "Email": register.emailTextField.text!,
+                "Name": register.nameTextField.textField.text!,
+                "Email": register.emailTextField.textField.text!,
                 "profileUrl": profileURL.absoluteString,
                 "UserID": currentUserID,
-                "Nickname": register.nicknameTextField.text!,
+                "Nickname": register.nicknameTextField.textField.text!,
                 "Bio": "",
                 "Followers": 0,
                 "Following": 0,

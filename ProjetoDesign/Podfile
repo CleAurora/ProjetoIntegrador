@@ -6,7 +6,6 @@ target 'ProjetoDesign' do
 
   # Pods for ProjetoDesign
   pod 'IQKeyboardManagerSwift', '~> 6.3'
-  pod 'SwiftyJSON', '~> 4.0'
   pod 'Alamofire', '~> 5.2'
   pod 'Firebase/Auth'
   pod 'Firebase/Analytics'
@@ -14,14 +13,29 @@ target 'ProjetoDesign' do
   pod 'Firebase/Storage'
   pod 'Kingfisher', '~> 5.0'
   pod 'PKHUD'
+  pod 'ReachabilitySwift'
+  pod 'SwiftMessages'
+  pod 'CircleBar'
+  pod 'GoogleSignIn'
+  pod 'MaterialComponents'
+  pod 'FBSDKLoginKit'
+  pod 'SwiftyCam'
+  pod 'SegmentedProgressView'
+  pod 'SwiftGifOrigin'
 
   target 'ProjetoDesignTests' do
     inherit! :search_paths
-    # Pods for testing
-  end
 
-  target 'ProjetoDesignUITests' do
-    # Pods for testing
+    pod 'Nimble-Snapshots'
+    pod 'KIF'
+    pod 'KIF/IdentifierTests'
   end
+end
 
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'
+    end
+  end
 end

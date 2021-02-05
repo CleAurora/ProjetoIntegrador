@@ -5,54 +5,36 @@
 //  Created by Cleís Aurora Pereira on 27/11/20.
 //
 
-import Foundation
 import FirebaseAuth
 
-class LoginViewModel {
-    var titleBtnLogin: String{
-        return "Login"
-    }
+protocol LoginViewModelProtocol {
+    var titleBtnLogin: String { get }
+    var titleBtnRegister: String { get }
+    var imageBtnInstagram: String { get }
+    var imageBtnFaceBook: String { get }
 
-    var titleBtnRegister: String {
-        return "Register"
-    }
+    func doLogin(email: String?, password: String?, completionHandler: @escaping (Result<Bool, Error>) -> Void)
+}
 
-    var imageBtnInstagram: String {
-        return "google"
-    }
+final class LoginViewModel: LoginViewModelProtocol {
+    let titleBtnLogin: String = "Login"
+    let titleBtnRegister: String = "Register"
+    let imageBtnInstagram: String = "google"
+    let imageBtnFaceBook: String = "face"
 
-    var imageBtnFaceBook: String {
-        return "face"
-    }
-    var view = ViewController()
+    // MARK: - LoginViewModelProtocol conforms
 
-    init(view: ViewController) {
-        self.view = view
-    }
+    func doLogin(email: String?, password: String?, completionHandler: @escaping (Result<Bool, Error>) -> Void) {
+        if let email = email, let password = password {
+            Auth.auth().signIn(withEmail: email, password: password) { (_, error) in
+                if let error = error {
+                    return completionHandler(.failure(error))
+                }
 
-    func doLogin(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
-
-        do{
-            Auth.auth().signIn(withEmail: view.emailTextField.text!, password: view.passwordTextField.text!) { [weak self] user, error in
-               if error != nil{
-                   print("me")
-                   print(error!.localizedDescription)
-                   return
-               }
-               completionHandler(true,nil)
-           }
-        }catch{
-            completionHandler(false,nil)
-        }
-    }
-
-    func isAlreadyLogged(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
-        do{
-            if let user = Auth.auth().currentUser?.uid {
-                completionHandler(true,nil)
+                return completionHandler(.success(true))
             }
-        }catch{
-            completionHandler(false,nil)
+        } else {
+            completionHandler(.failure(NSError(domain: #function, code: 0, userInfo: [:])))
         }
     }
 }

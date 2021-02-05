@@ -1,0 +1,70 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+default_platform(:ios)
+
+platform :ios do
+  def build(export_method, profile_name)
+    update_code_signing_settings(
+      use_automatic_signing: false,
+      path: "ProjetoDesign.xcodeproj",
+      profile_name: "match #{profile_name} lestad.ProjetoDesign",
+      targets: ["ProjetoDesign"]
+    )
+
+    build_number = ENV['BUILD_NUMBER']
+
+    increment_build_number(
+      build_number: build_number
+    )
+
+    build_app(
+      export_method: export_method
+    )
+  end
+
+  lane :screenshots do
+    capture_screenshots
+    # upload_to_app_store
+  end
+
+  desc "Beta on TestFlight"
+  lane :beta do
+    build("app-store", "AppStore")
+
+    upload_to_testflight(
+      skip_waiting_for_build_processing: true
+    )
+  end
+
+  desc "Run tests"
+  lane :test do
+    app_scheme = "ProjetoDesign"
+
+    run_tests(
+      code_coverage: true, 
+      configuration: "Debug", 
+      device: "iPhone 11",
+      output_directory: "fastlane/test_output", 
+      output_types: "html,junit,json-compilation-database",
+      scheme: app_scheme,
+      skip_build: true
+    )
+  end
+
+  desc "Upload CodeCov Report"
+  lane :codecov do
+    codecov_reporter(
+      token: ENV['CODECOV_TOKEN']
+    )
+  end
+end

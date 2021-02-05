@@ -27,8 +27,8 @@ class uploadCollectionDelegateSource: NSObject, UICollectionViewDataSource, UICo
             View.resizeImageView.image = imageContent
             View.nextButton.backgroundColor = UIColor(patternImage: UIImage(named: "2.jpg")!)
         }
+    }
 
-    }    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return uploadImage.numberOfRows()
     }

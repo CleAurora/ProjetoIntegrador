@@ -6,18 +6,13 @@
 //
 
 import UIKit
-import FirebaseAuth
+
 final class LogoutSegue: UIStoryboardSegue {
     override func perform() {
+        SignInViewModel.shared.signOut()
 
-            // call from any screen
-
-            do { try Auth.auth().signOut() }
-            catch { print("already logged out") }
-
-//            navigationController?.popToRootViewController(animated: true)
-
-        source.dismiss(animated: false, completion: nil)
-        source.presentingViewController?.dismiss(animated: true, completion: nil)
+        if let signViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() {
+            UIApplication.shared.keyWindow?.rootViewController = signViewController
+        }
     }
 }

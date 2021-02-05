@@ -11,12 +11,14 @@ class Profile{
     var name: String
     var profileImage: String
     var bio: String
+    var uid: String
 
     // MARK: - Constructors
-    init(name: String, profileImage: String, bio: String) {
+    init(name: String, profileImage: String, bio: String, uid: String) {
         self.name = name
         self.profileImage = profileImage
         self.bio = bio
+        self.uid = uid
 
     }
 }

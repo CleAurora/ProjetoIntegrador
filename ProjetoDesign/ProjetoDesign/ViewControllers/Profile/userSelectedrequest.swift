@@ -59,7 +59,7 @@ class userSelectedrequest{
         }
     }
 
-    func getNumberOfRow() -> Int{
+    func getNumberOfRow() -> Int {
         return userArray.count ?? 0
     }
 

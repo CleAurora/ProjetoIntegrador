@@ -6,53 +6,53 @@
 //
 
 import UIKit
-import FirebaseAuth
 
-final class RegistrarViewController: UIViewController{
+final class RegistrarViewController: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet weak var registerView: extensions!
-    @IBOutlet weak var registerLabel: UILabel!
-    @IBOutlet weak var userImage: UIImageView!
-    @IBOutlet var emailTextField: customUITextField!
-    @IBOutlet var passwordTextField: customUITextField!
-    @IBOutlet var secureTextField: customUITextField!
-    @IBOutlet var nameTextField: customUITextField!
-    @IBOutlet var nicknameTextField: customUITextField!
 
+    @IBOutlet weak var registerView: extensions!
+    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var emailTextField: CustomOutlinedTxtField!
+    @IBOutlet weak var passwordTextField: CustomOutlinedTxtField!
+    @IBOutlet weak var secureTextField: CustomOutlinedTxtField!
+    @IBOutlet weak var nameTextField: CustomOutlinedTxtField!
+    @IBOutlet weak var nicknameTextField: CustomOutlinedTxtField!
+    @IBOutlet weak var floatingView: extensions!
+    
     // MARK: - Proprierts
 
-    private lazy var viewModel: RegisterViewModel = RegisterViewModel(view: self)
+    lazy var viewModel: RegisterViewModelProtocol = RegisterViewModel(viewController: self)
 
     // MARK: - Super Methods
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerView.backgroundColor = UIColor(patternImage: UIImage(named: "2.jpg")!)
-    }
 
-    @IBAction func imageviewButton(_ sender: Any) {
-        viewModel.click()
+        setupView()
     }
 
     // MARK: - IBActions
 
-    @IBAction func registerButton(_ sender: Any) {
-        viewModel.registerNewUser { success, _ in
+    @IBAction private func imageviewButton(_ sender: Any) {
+        viewModel.click()
+    }
+
+    @IBAction private func registerButton(_ sender: Any) {
+        viewModel.registerNewUser { [self] success, _ in
             if success {
-                if let vc = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() as? TabbarController{
-                    vc.modalPresentationStyle = .fullScreen
-                    self.present(vc, animated: true, completion: nil)
+                if let viewController = UIStoryboard(name: "TabBar", bundle: nil).instantiateInitialViewController() {
+                    viewController.modalPresentationStyle = .fullScreen
+                    present(viewController, animated: true, completion: nil)
                 }
             }
         }
     }
 
-    @IBAction func instagramButton(_ sender: Any) {
-        viewModel.isDeveloping()
-    }
+    // MARK: - Private functions
 
-    @IBAction func facebookButton(_ sender: Any) {
-        viewModel.isDeveloping()
+    private func setupView() {
+        registerView.backgroundColor = UIColor(patternImage: UIImage(named: "borderButton")!)
+        viewModel.textFieldAppearance()
     }
 }
