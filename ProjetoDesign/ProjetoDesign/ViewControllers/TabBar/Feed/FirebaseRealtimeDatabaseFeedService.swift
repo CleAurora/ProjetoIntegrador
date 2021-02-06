@@ -109,6 +109,21 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                   let weatherType = element["WeatherType"] as? String,
                   let timestamp = element["TimeStamp"] as? Double
             {
+                let numberOfComments: Int
+                let numberOfLikes: Int
+
+                if let likes = element["Likes"] as? [String] {
+                    numberOfLikes = likes.count
+                } else {
+                    numberOfLikes = 0
+                }
+
+                if let comments = element["Comments"] as? [String: AnyObject] {
+                    numberOfComments = comments.count
+                } else {
+                    numberOfComments = 0
+                }
+
                 newPosts = [
                     PostUser(
                         id: snapshot.key,
@@ -118,7 +133,9 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                         temperature: weather,
                         weatherType: weatherType,
                         imagePostUrl: imageUrl,
-                        comments: caption
+                        comments: caption,
+                        numberOfComments: numberOfComments,
+                        numberOfLikes: numberOfLikes
                     )
                 ]
             } else {
@@ -140,6 +157,21 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                     return nil
                 }
 
+                let numberOfComments: Int
+                let numberOfLikes: Int
+
+                if let likes = element["Likes"] as? [String] {
+                    numberOfLikes = likes.count
+                } else {
+                    numberOfLikes = 0
+                }
+
+                if let comments = element["Comments"] as? [String: AnyObject] {
+                    numberOfComments = comments.count
+                } else {
+                    numberOfComments = 0
+                }
+
                 return PostUser(
                     id: id,
                     userId: userId,
@@ -148,7 +180,9 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                     temperature: weather,
                     weatherType: weatherType,
                     imagePostUrl: imageUrl,
-                    comments: caption
+                    comments: caption,
+                    numberOfComments: numberOfComments,
+                    numberOfLikes: numberOfLikes
                 )
             }
         }

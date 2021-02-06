@@ -1008,6 +1008,8 @@
                                             <outlet property="cityLabel" destination="3Kd-qx-Spx" id="cgo-XJ-8nS"/>
                                             <outlet property="likeImageView" destination="G2d-qK-YvR" id="t55-jk-13k"/>
                                             <outlet property="nameButton" destination="lxR-vl-9Xc" id="VRe-mh-vuY"/>
+                                            <outlet property="numberOfCommentsLabel" destination="x3w-qg-NSD" id="j9d-yj-riD"/>
+                                            <outlet property="numberOfLikesLabel" destination="ytq-FJ-2yn" id="dU2-mJ-rL6"/>
                                             <outlet property="postImageView" destination="yVQ-hW-pcq" id="a2O-qf-pua"/>
                                             <outlet property="subtitlesLabel" destination="wyL-cq-LaG" id="Vqc-Hz-bkF"/>
                                             <outlet property="uploadImageView" destination="918-aw-xMS" id="n3x-h5-ZiE"/>

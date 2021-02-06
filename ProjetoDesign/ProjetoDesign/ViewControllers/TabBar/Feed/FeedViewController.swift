@@ -11,18 +11,15 @@ import SwiftMessages
 import Firebase
 import PKHUD
 import SwiftGifOrigin
+
 final class FeedViewController: UIViewController, HeaderDelegate {
-
-
-    // MARK: - IBOutlets
     @IBOutlet weak var feedTableView: UITableView!
     @IBOutlet weak var storieCollectionView: UICollectionView!
-    @IBOutlet var tabBarView: UIView!
-    @IBOutlet var withoutPostImage: UIImageView!
-    
-   
-    
+    @IBOutlet weak var tabBarView: UIView!
+    @IBOutlet weak var withoutPostImage: UIImageView!
+
     // MARK: - Proprierts
+
     var arrayTable = [Post]()
     var arrayCollection = [stories]()
     var currentUser: Profile?
@@ -214,8 +211,6 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         storieCollectionView.delegate = self
         storieCollectionView.dataSource = self
         storieCollectionView.reloadData()
-        
-        
     }
 
     // MARK: - IBActions

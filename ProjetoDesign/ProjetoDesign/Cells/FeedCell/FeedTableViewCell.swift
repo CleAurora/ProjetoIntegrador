@@ -22,6 +22,8 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var subtitlesLabel: UILabel!
     @IBOutlet weak var nameButton: UIButton!
     @IBOutlet weak var viewLiked: extensions!
+    @IBOutlet weak var numberOfCommentsLabel: UILabel!
+    @IBOutlet weak var numberOfLikesLabel: UILabel!
 
     // MARK: - Proprierts
     var delegate: ButtonsTableView?
@@ -79,6 +81,8 @@ class FeedTableViewCell: UITableViewCell {
 
     func setup(post: PostUser) {
         postId = post.id
+        numberOfLikesLabel.text = "\(post.numberOfLikes)"
+        numberOfCommentsLabel.text = "\(post.numberOfComments)"
 
         if post.user.imageProfileUrl.hasPrefix("https") {
             uploadImageView.kf.setImage(with: URL(string: post.user.imageProfileUrl))
