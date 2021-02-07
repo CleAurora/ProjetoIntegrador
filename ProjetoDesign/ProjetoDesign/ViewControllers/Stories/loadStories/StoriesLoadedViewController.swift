@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import ModernSegmentedProgressView
+import SegmentedProgressView
 import Firebase
 
 final class StoriesLoadedViewController: UIViewController, ProgressBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
