@@ -112,7 +112,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
 
             let likeId = dictionary.first { (key, value) -> Bool in
                 guard let valueDictionary = value as? [String: AnyObject],
-                      let userId = valueDictionary["UserId"] as? String else {
+                      let userId = valueDictionary["UserID"] as? String else {
                     return false
                 }
 
@@ -181,6 +181,10 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
     }
 
     private func convert(followingUsers: [String], snapshot: DataSnapshot, then handler: @escaping (Result<[PostUser], Error>) -> Void) {
+        guard let user = Auth.auth().currentUser else {
+            return handler(.failure(FeedServiceError.userNotLogged))
+        }
+
         guard snapshot.exists(), snapshot.hasChildren(), let dictionary = snapshot.value as? NSDictionary else {
             return handler(.success(feeds))
         }
@@ -204,11 +208,11 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                 if let likes = element["Likes"] as? [String: AnyObject] {
                     let likeId = likes.first { (key, value) -> Bool in
                         guard let valueDictionary = value as? [String: AnyObject],
-                              let userIdOnDictionary = valueDictionary["UserId"] as? String else {
+                              let userIdOnDictionary = valueDictionary["UserID"] as? String else {
                             return false
                         }
 
-                        return userId == userIdOnDictionary
+                        return user.uid == userIdOnDictionary
                     }.map({ key, _ in key })
 
                     isLiked = likeId != nil
@@ -267,11 +271,11 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
 
                     let likeId = likes.first { (key, value) -> Bool in
                         guard let valueDictionary = value as? [String: AnyObject],
-                              let userIdOnDictionary = valueDictionary["UserId"] as? String else {
+                              let userIdOnDictionary = valueDictionary["UserID"] as? String else {
                             return false
                         }
 
-                        return userId == userIdOnDictionary
+                        return user.uid == userIdOnDictionary
                     }.map({ key, _ in key })
 
                     isLiked = likeId != nil
