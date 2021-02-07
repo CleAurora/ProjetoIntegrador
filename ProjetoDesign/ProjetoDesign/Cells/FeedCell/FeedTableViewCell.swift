@@ -6,14 +6,14 @@
 //
 
 import UIKit
-import Foundation
+
 // MARK: - Protocols
-protocol ButtonsTableView {
+
+protocol ButtonsTableView: AnyObject {
     func didButtonPressed(postId: String?)
 }
 
-class FeedTableViewCell: UITableViewCell {
-
+final class FeedTableViewCell: UITableViewCell {
     // MARK: - IBOutlets
     @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var uploadImageView: UIImageView!
@@ -26,7 +26,7 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var numberOfLikesLabel: UILabel!
 
     // MARK: - Proprierts
-    var delegate: ButtonsTableView?
+    weak var delegate: ButtonsTableView?
     var heart: String? = nil
     var postId: String? = nil
     var nameTap : (() -> ()) = {}
@@ -35,9 +35,9 @@ class FeedTableViewCell: UITableViewCell {
     // MARK: - Super Methods
     override func awakeFromNib() {
         super.awakeFromNib()
+
         likeImageView.isHidden = true
         addSingleAndDoubleTapGesture()
-                // Initialization code
     }
 
     // MARK: - IBActions
@@ -140,18 +140,15 @@ class FeedTableViewCell: UITableViewCell {
     }
 
     @objc private func handleDoubleTap(_ tapGesture: UITapGestureRecognizer) {
-        print("clicked")
         if heart != nil {
             likeImageView.image = UIImage(named: "heart0.png")
 
             heart = nil
             likeImageView.isHidden = false
-
         }else {
             likeImageView.image = UIImage(named: "heart1.png")
             heart = "Item"
             likeImageView.isHidden = false
-
         }
     }
 }
