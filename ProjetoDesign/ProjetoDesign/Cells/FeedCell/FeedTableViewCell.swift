@@ -27,7 +27,7 @@ final class FeedTableViewCell: UITableViewCell {
 
     // MARK: - Proprierts
     weak var delegate: ButtonsTableView?
-    var heart: String? = nil
+    var hasHeart: Bool = false
     var postId: String? = nil
     var nameTap : (() -> ()) = {}
     var heartTap : (() -> ()) = {}
@@ -41,6 +41,7 @@ final class FeedTableViewCell: UITableViewCell {
     }
 
     // MARK: - IBActions
+
     @IBAction func nameButton(_ sender: Any) {
         nameTap()
     }
@@ -117,6 +118,10 @@ final class FeedTableViewCell: UITableViewCell {
             let text = "\(post.user.name): \(comments)".withBoldText(text: "\(post.user.name)")
             subtitlesLabel.attributedText = text
         }
+
+        hasHeart = post.isLiked
+        likeImageView.isHidden = post.isLiked
+        viewLiked.backgroundColor = post.isLiked ? .systemIndigo : .lightGray
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -140,15 +145,6 @@ final class FeedTableViewCell: UITableViewCell {
     }
 
     @objc private func handleDoubleTap(_ tapGesture: UITapGestureRecognizer) {
-        if heart != nil {
-            likeImageView.image = UIImage(named: "heart0.png")
-
-            heart = nil
-            likeImageView.isHidden = false
-        }else {
-            likeImageView.image = UIImage(named: "heart1.png")
-            heart = "Item"
-            likeImageView.isHidden = false
-        }
+        heartTap()
     }
 }

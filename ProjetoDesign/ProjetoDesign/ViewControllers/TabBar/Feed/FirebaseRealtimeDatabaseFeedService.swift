@@ -13,6 +13,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
     private var feeds: [PostUser] = []
 
     private var newPostsCancellationToken: UInt?
+    private var postsChangedCancellationToken: UInt?
 
     static let shared: FeedService = FirebaseRealtimeDatabaseFeedService()
 
@@ -23,10 +24,13 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
     enum FeedServiceError: Error {
         case userNotLogged
         case userNotFound
+        case likeNotFound
         case idNotGenerated
         case imageDataNotAvailable
         case urlNotGenerated
     }
+
+    // MARK: - FeedService conformance
 
     func getUser(then handler: @escaping (Result<Profile, Error>) -> Void) {
         guard let user = Auth.auth().currentUser else {
@@ -51,6 +55,84 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
         }
     }
 
+    func like(postId: String, then handler: @escaping (Result<Void, Error>) -> Void) {
+        guard let currentUser = Auth.auth().currentUser else {
+            return handler(.failure(FeedServiceError.userNotLogged))
+        }
+
+        let value = [
+            "UserID": currentUser.uid,
+            "TimeStamp": Date().timeIntervalSince1970
+        ] as [String : Any]
+
+        databaseReference.child("posts").child(postId).child("Likes").observeSingleEvent(of: .value) { [self] snapshot in
+            guard snapshot.exists(), let dictionary = snapshot.value as? [String: AnyObject] else {
+                return databaseReference.child("posts").child(postId).child("Likes").childByAutoId()
+                    .setValue(value) { (error, ref) in
+                        guard let error = error else {
+                            return handler(.success(()))
+                        }
+
+                        return handler(.failure(error))
+                    }
+            }
+
+            let likeId = dictionary.first { (key, value) -> Bool in
+                guard let valueDictionary = value as? [String: AnyObject],
+                      let userId = valueDictionary["UserId"] as? String else {
+                    return true
+                }
+
+                return userId == currentUser.uid
+            }.map({ key, _ in key })
+
+            guard likeId == nil else {
+                return handler(.success(()))
+            }
+
+            databaseReference.child("posts").child(postId).child("Likes").childByAutoId().setValue(value) { (error, ref) in
+                guard let error = error else {
+                    return handler(.success(()))
+                }
+
+                return handler(.failure(error))
+            }
+        }
+    }
+
+    func dislike(postId: String, then handler: @escaping (Result<Void, Error>) -> Void) {
+        guard let currentUser = Auth.auth().currentUser else {
+            return handler(.failure(FeedServiceError.userNotLogged))
+        }
+
+        databaseReference.child("posts").child(postId).child("Likes").observeSingleEvent(of: .value) { [self] snapshot in
+            guard snapshot.exists(), let dictionary = snapshot.value as? [String: AnyObject] else {
+                return handler(.failure(FeedServiceError.userNotFound))
+            }
+
+            let likeId = dictionary.first { (key, value) -> Bool in
+                guard let valueDictionary = value as? [String: AnyObject],
+                      let userId = valueDictionary["UserId"] as? String else {
+                    return true
+                }
+
+                return userId == currentUser.uid
+            }.map({ key, _ in key })
+
+            guard let id = likeId else {
+                return handler(.failure(FeedServiceError.likeNotFound))
+            }
+
+            databaseReference.child("posts").child(postId).child("Likes").child(id).removeValue { (error, ref) in
+                guard let error = error else {
+                    return handler(.success(()))
+                }
+
+                return handler(.failure(error))
+            }
+        }
+    }
+
     func load(then handler: @escaping (Result<[PostUser], Error>) -> Void) {
         guard let user = Auth.auth().currentUser else {
             return handler(.failure(FeedServiceError.userNotLogged))
@@ -65,6 +147,8 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
         }
     }
 
+    // MARK: - Private functions
+
     private func loadPosts(userUid: String, snapshot: DataSnapshot, then handler: @escaping (Result<[PostUser], Error>) -> Void) {
         guard snapshot.exists(), let dictionary = snapshot.value as? [String: AnyObject] else {
             return handler(.failure(FeedServiceError.userNotFound))
@@ -78,6 +162,10 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
 
         if let newPostsCancellationToken = newPostsCancellationToken {
             databaseReference.removeObserver(withHandle: newPostsCancellationToken)
+        }
+
+        if let postsChangedCancellationToken = postsChangedCancellationToken {
+            databaseReference.removeObserver(withHandle: postsChangedCancellationToken)
         }
 
         loadPosts(followingUsers: usersFollowing, then: handler)
@@ -111,11 +199,23 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
             {
                 let numberOfComments: Int
                 let numberOfLikes: Int
+                let isLiked: Bool
 
-                if let likes = element["Likes"] as? [String] {
+                if let likes = element["Likes"] as? [String: AnyObject] {
+                    let likeId = likes.first { (key, value) -> Bool in
+                        guard let valueDictionary = value as? [String: AnyObject],
+                              let userIdOnDictionary = valueDictionary["UserId"] as? String else {
+                            return true
+                        }
+
+                        return userId == userIdOnDictionary
+                    }.map({ key, _ in key })
+
+                    isLiked = likeId != nil
                     numberOfLikes = likes.count
                 } else {
                     numberOfLikes = 0
+                    isLiked = false
                 }
 
                 if let comments = element["Comments"] as? [String: AnyObject] {
@@ -135,7 +235,8 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                         imagePostUrl: imageUrl,
                         comments: caption,
                         numberOfComments: numberOfComments,
-                        numberOfLikes: numberOfLikes
+                        numberOfLikes: numberOfLikes,
+                        isLiked: isLiked
                     )
                 ]
             } else {
@@ -159,10 +260,23 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
 
                 let numberOfComments: Int
                 let numberOfLikes: Int
+                let isLiked: Bool
 
-                if let likes = element["Likes"] as? [String] {
+                if let likes = element["Likes"] as? [String: AnyObject] {
                     numberOfLikes = likes.count
+
+                    let likeId = likes.first { (key, value) -> Bool in
+                        guard let valueDictionary = value as? [String: AnyObject],
+                              let userIdOnDictionary = valueDictionary["UserId"] as? String else {
+                            return true
+                        }
+
+                        return userId == userIdOnDictionary
+                    }.map({ key, _ in key })
+
+                    isLiked = likeId != nil
                 } else {
+                    isLiked = false
                     numberOfLikes = 0
                 }
 
@@ -182,7 +296,8 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                     imagePostUrl: imageUrl,
                     comments: caption,
                     numberOfComments: numberOfComments,
-                    numberOfLikes: numberOfLikes
+                    numberOfLikes: numberOfLikes,
+                    isLiked: isLiked
                 )
             }
         }
@@ -211,8 +326,11 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                         return PostUser(source: post, user: user)
                     }
 
-                    let cached = feeds
-                    let newList = newPosts.filter({ newPost in !cached.contains(newPost) }) + cached
+//                    let cached = feeds
+//                    let newListFiltered = newPosts.filter({ newPost in !cached.contains(newPost) })
+//                    let newList = newListFiltered + cached.filter({ old in newListFiltered.isEmpty || newListFiltered.contains(where: { new in new.id == old.id }) })
+                    feeds.removeAll(where: { old in newPosts.contains(where: { new in new.id == old.id }) })
+                    let newList = newPosts + feeds
                     let filteredList = newList.filter({ post in followingUsers.contains(post.user.id) }).sorted(by: { (lhsPost, rhsPost) -> Bool in
                         guard let lhsDate = lhsPost.timestamp, let rhsDate = rhsPost.timestamp else {
                             return false
@@ -221,9 +339,11 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                         return lhsDate > rhsDate
                     })
 
-                    feeds = filteredList
+                    if feeds != filteredList {
+                        feeds = filteredList
 
-                    handler(.success(filteredList))
+                        handler(.success(filteredList))
+                    }
                 }
             }
         }
@@ -231,6 +351,12 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
 
     private func waitForNewPosts(following: [String], then handler: @escaping (Result<[PostUser], Error>) -> Void) {
         newPostsCancellationToken = databaseReference.child("posts").observe(.childAdded) { [self] dataSnapshot in
+            convert(followingUsers: following, snapshot: dataSnapshot, then: handler)
+        } withCancel: { error in
+            handler(.failure(error))
+        }
+
+        postsChangedCancellationToken = databaseReference.child("posts").observe(.childChanged) { [self] dataSnapshot in
             convert(followingUsers: following, snapshot: dataSnapshot, then: handler)
         } withCancel: { error in
             handler(.failure(error))

@@ -115,7 +115,6 @@ final class FeedViewController: UIViewController, HeaderDelegate {
                             if exampleDate <= dateNow {
                                 self.ref.child("stories").child(childKey).removeValue()
                                 self.checkStories()
-                            }else {
                             }
                         }
                     }
@@ -125,12 +124,12 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         }
     }
     private func setupReachability() {
-        reachability.whenReachable = { [self] _ in
-            hideToastMessage()
+        reachability.whenReachable = { [weak self] _ in
+            self?.hideToastMessage()
         }
 
-        reachability.whenUnreachable = { [self] _ in
-            showToastMessage()
+        reachability.whenUnreachable = { [weak self] _ in
+            self?.showToastMessage()
         }
 
         try? reachability.startNotifier()
@@ -179,7 +178,7 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         )
 
         view.button?.setTitle("ok", for: .normal)
-        view.buttonTapHandler = { [self] _ in hideToastMessage() }
+        view.buttonTapHandler = { [weak self] _ in self?.hideToastMessage() }
 
         // Increase the external margin around the card. In general, the effect of this setting
         // depends on how the given layout is constrained to the layout margins.
@@ -193,13 +192,6 @@ final class FeedViewController: UIViewController, HeaderDelegate {
 
     private func hideToastMessage() {
         SwiftMessages.hide()
-    }
-
-    func isDeveloping(){
-        let alert = UIAlertController(title: "This option still under development", message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-
-        present(alert, animated: true, completion: nil)
     }
 
     func setupTableView(){
@@ -265,13 +257,26 @@ extension FeedViewController: UITableViewDataSource{
     }
 
     private func onHeartTapped(for cell: FeedTableViewCell) {
-        let h2 = cell.heart
+        if let postId = cell.postId {
+            if cell.hasHeart {
+                viewModel.dislike(postId: postId) { [weak self] in
+                    cell.hasHeart = false
+                    self?.heartAnimation(for: cell)
+                }
+            } else {
+                viewModel.like(postId: postId) { [weak self] in
+                    cell.hasHeart = true
+                    self?.heartAnimation(for: cell)
+                }
+            }
+        }
+    }
 
-        if h2 != nil {
+    private func heartAnimation(for cell: FeedTableViewCell) {
+        if cell.hasHeart {
             cell.likeImageView.isHidden = false
             cell.viewLiked.backgroundColor = UIColor.systemIndigo
             cell.likeImageView.image = UIImage(named: "heart1.png")
-            cell.heart = nil
             let toImage = UIImage(named:"heart1.png")
 
             UIView.transition(
@@ -290,8 +295,8 @@ extension FeedViewController: UITableViewDataSource{
                 }
             )
         } else {
+            cell.likeImageView.isHidden = false
             cell.viewLiked.backgroundColor = UIColor.lightGray
-            cell.heart = "Item"
 
             let toImage = UIImage(named:"broken")
 
@@ -436,6 +441,4 @@ extension UIImage {
 
         return resize(targetSize: newSize)
     }
-
 }
-

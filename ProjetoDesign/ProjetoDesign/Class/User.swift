@@ -29,13 +29,15 @@ struct PostUser: Equatable {
     let comments: String?
     let numberOfComments: Int
     let numberOfLikes: Int
+    let isLiked: Bool
     let user: User
 
     // MARK: - Constructors
 
     init(id: String? = nil, userId: String = "", timestamp: Date? = nil, userName: String = "",
          userProfileUrl: String = "", city: String? = nil, temperature: String? = nil, weatherType: String? = nil,
-         imagePostUrl: String = "", comments: String? = nil, numberOfComments: Int = 0, numberOfLikes: Int = 0) {
+         imagePostUrl: String = "", comments: String? = nil, numberOfComments: Int = 0, numberOfLikes: Int = 0,
+         isLiked: Bool = false) {
         self.id = id
         self.city = city
         self.timestamp = timestamp
@@ -45,6 +47,7 @@ struct PostUser: Equatable {
         self.comments = comments
         self.numberOfComments = numberOfComments
         self.numberOfLikes = numberOfLikes
+        self.isLiked = isLiked
         self.user = User(id: userId, name: userName, imageProfileUrl: userProfileUrl)
     }
 
@@ -58,6 +61,7 @@ struct PostUser: Equatable {
         self.comments = source.comments
         self.numberOfComments = source.numberOfComments
         self.numberOfLikes = source.numberOfLikes
+        self.isLiked = source.isLiked
         self.user = user
     }
 }
