@@ -80,7 +80,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
             let likeId = dictionary.first { (key, value) -> Bool in
                 guard let valueDictionary = value as? [String: AnyObject],
                       let userId = valueDictionary["UserId"] as? String else {
-                    return true
+                    return false
                 }
 
                 return userId == currentUser.uid
@@ -113,7 +113,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
             let likeId = dictionary.first { (key, value) -> Bool in
                 guard let valueDictionary = value as? [String: AnyObject],
                       let userId = valueDictionary["UserId"] as? String else {
-                    return true
+                    return false
                 }
 
                 return userId == currentUser.uid
@@ -205,7 +205,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                     let likeId = likes.first { (key, value) -> Bool in
                         guard let valueDictionary = value as? [String: AnyObject],
                               let userIdOnDictionary = valueDictionary["UserId"] as? String else {
-                            return true
+                            return false
                         }
 
                         return userId == userIdOnDictionary
@@ -268,7 +268,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                     let likeId = likes.first { (key, value) -> Bool in
                         guard let valueDictionary = value as? [String: AnyObject],
                               let userIdOnDictionary = valueDictionary["UserId"] as? String else {
-                            return true
+                            return false
                         }
 
                         return userId == userIdOnDictionary
