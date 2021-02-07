@@ -798,7 +798,7 @@ DEPENDENCIES:
   - Nimble-Snapshots
   - PKHUD
   - ReachabilitySwift
-  - SegmentedProgressView
+  - "SegmentedProgressView (from `git@github.com:CleAurora/SegmentedProgressView.git`, branch `master`)"
   - SwiftGifOrigin
   - SwiftMessages
   - SwiftyCam
@@ -840,10 +840,19 @@ SPEC REPOS:
     - PKHUD
     - PromisesObjC
     - ReachabilitySwift
-    - SegmentedProgressView
     - SwiftGifOrigin
     - SwiftMessages
     - SwiftyCam
+
+EXTERNAL SOURCES:
+  SegmentedProgressView:
+    :branch: master
+    :git: "git@github.com:CleAurora/SegmentedProgressView.git"
+
+CHECKOUT OPTIONS:
+  SegmentedProgressView:
+    :commit: ba301d9e569c646acd2f9b3da24b82abdf88fbb9
+    :git: "git@github.com:CleAurora/SegmentedProgressView.git"
 
 SPEC CHECKSUMS:
   Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
@@ -881,11 +890,11 @@ SPEC CHECKSUMS:
   PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
-  SegmentedProgressView: e9e3c4037c5c871686932bcce479e0694f59053d
+  SegmentedProgressView: 88adf11be2431966c41260b427d0878b67e71993
   SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
   SwiftMessages: 539fd54a766bf08ec667e90aa141c44b8b8aaa55
   SwiftyCam: 6e57914771d972fbe508e759dc9d0150a44a93fd
 
-PODFILE CHECKSUM: 3c369ba8b26561dbd3cd4ccf472058868e361de5
+PODFILE CHECKSUM: 89ff767c789be623229543698782657161aab1d0
 
 COCOAPODS: 1.10.1

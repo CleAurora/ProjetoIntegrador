@@ -6,10 +6,10 @@
 //
 
 import UIKit
-import SegmentedProgressView
+import ModernSegmentedProgressView
 import Firebase
-class StoriesLoadedViewController: UIViewController, ProgressBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
- 
+
+final class StoriesLoadedViewController: UIViewController, ProgressBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     var items: [ProgressItem] = []
     var storiesRequest = StoriesDownload()
     var profileID: Profile?
