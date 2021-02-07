@@ -217,7 +217,6 @@ final class FeedViewController: UIViewController, HeaderDelegate {
 // MARK: - Extensions 
 extension FeedViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
