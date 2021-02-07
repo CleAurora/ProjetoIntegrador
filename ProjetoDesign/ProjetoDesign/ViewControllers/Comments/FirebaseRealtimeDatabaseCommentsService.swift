@@ -139,6 +139,12 @@ final class FirebaseRealtimeDatabaseCommentsService: CommentsService {
                             )
                         )
                     }
+
+                    let commentsOrderedByTimeStamp = commentsWithUsers.sorted { (lhs, rhs) -> Bool in
+                        lhs.timeStamp < rhs.timeStamp
+                    }
+
+                    handler(.success(PostComment(comments: commentsOrderedByTimeStamp, user: user)))
                 }
             } else if let user = users.first(where: { user in user.id == comment.user.id }) {
                 commentsWithUsers.append(

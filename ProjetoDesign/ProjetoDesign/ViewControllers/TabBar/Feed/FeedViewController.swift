@@ -11,18 +11,15 @@ import SwiftMessages
 import Firebase
 import PKHUD
 import SwiftGifOrigin
+
 final class FeedViewController: UIViewController, HeaderDelegate {
-
-
-    // MARK: - IBOutlets
     @IBOutlet weak var feedTableView: UITableView!
     @IBOutlet weak var storieCollectionView: UICollectionView!
-    @IBOutlet var tabBarView: UIView!
-    @IBOutlet var withoutPostImage: UIImageView!
-    
-   
-    
+    @IBOutlet weak var tabBarView: UIView!
+    @IBOutlet weak var withoutPostImage: UIImageView!
+
     // MARK: - Proprierts
+
     var arrayTable = [Post]()
     var arrayCollection = [stories]()
     var currentUser: Profile?
@@ -118,7 +115,6 @@ final class FeedViewController: UIViewController, HeaderDelegate {
                             if exampleDate <= dateNow {
                                 self.ref.child("stories").child(childKey).removeValue()
                                 self.checkStories()
-                            }else {
                             }
                         }
                     }
@@ -128,12 +124,12 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         }
     }
     private func setupReachability() {
-        reachability.whenReachable = { [self] _ in
-            hideToastMessage()
+        reachability.whenReachable = { [weak self] _ in
+            self?.hideToastMessage()
         }
 
-        reachability.whenUnreachable = { [self] _ in
-            showToastMessage()
+        reachability.whenUnreachable = { [weak self] _ in
+            self?.showToastMessage()
         }
 
         try? reachability.startNotifier()
@@ -182,7 +178,7 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         )
 
         view.button?.setTitle("ok", for: .normal)
-        view.buttonTapHandler = { [self] _ in hideToastMessage() }
+        view.buttonTapHandler = { [weak self] _ in self?.hideToastMessage() }
 
         // Increase the external margin around the card. In general, the effect of this setting
         // depends on how the given layout is constrained to the layout margins.
@@ -198,13 +194,6 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         SwiftMessages.hide()
     }
 
-    func isDeveloping(){
-        let alert = UIAlertController(title: "This option still under development", message: "", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-
-        present(alert, animated: true, completion: nil)
-    }
-
     func setupTableView(){
         feedTableView.delegate = self
         feedTableView.dataSource = self
@@ -214,8 +203,6 @@ final class FeedViewController: UIViewController, HeaderDelegate {
         storieCollectionView.delegate = self
         storieCollectionView.dataSource = self
         storieCollectionView.reloadData()
-        
-        
     }
 
     // MARK: - IBActions
@@ -230,7 +217,6 @@ final class FeedViewController: UIViewController, HeaderDelegate {
 // MARK: - Extensions 
 extension FeedViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
@@ -241,74 +227,103 @@ extension FeedViewController: UITableViewDataSource{
         viewModel.posts.count
     }
 
+    private func showUserDetail(for indexPath: IndexPath) {
+        if let viewcontroller = UIStoryboard(name: "User", bundle: nil).instantiateInitialViewController() as? UserViewController {
+            viewcontroller.post = viewModel.posts[indexPath.row]
+            navigationController?.pushViewController(viewcontroller, animated: true)
+        }
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath) as! FeedTableViewCell
+        let genericCell = tableView.dequeueReusableCell(withIdentifier: "feedCell", for: indexPath)
+
+        guard let cell = genericCell as? FeedTableViewCell else {
+            return genericCell
+        }
+
         cell.setup(post: viewModel.posts[indexPath.row])
         cell.delegate = self
 
-        cell.nameTap = {
-        if let viewcontroller = UIStoryboard(name: "User", bundle: nil).instantiateInitialViewController() as? UserViewController {
-            viewcontroller.post = self.viewModel.posts[indexPath.row]
-        self.navigationController?.pushViewController(viewcontroller, animated: true)
+        cell.nameTap = { [weak self] in
+            self?.showUserDetail(for: indexPath)
         }
+
+        cell.heartTap = { [weak self] in
+            self?.onHeartTapped(for: cell)
+        }
+
+        return cell
     }
-        cell.heartTap = {
-            let h2 = cell.heart
-                if h2 != nil {
-                    cell.likeImageView.isHidden = false
-                    cell.viewLiked.backgroundColor = UIColor.systemIndigo
-                    cell.likeImageView.image = UIImage(named: "heart1.png")
-                    cell.heart = nil
-                    let toImage = UIImage(named:"heart1.png")
 
-                    UIView.transition(with: cell,
-                                      duration: 0.3,
-                                          options: .transitionCrossDissolve,
-                                          animations: {
-                                            cell.likeImageView.image = toImage
-                                          },
-                                          completion: {_ in (
-                                            //let notImage = UIImage(named:"")
-                                                        UIView.transition(with: cell.likeImageView,
-                                                                              duration: 2,
-                                                                              options: .transitionCrossDissolve,
-                                                                              animations: {
-                                                                                cell.likeImageView.image = UIImage(named: "")
-                                                                              },
-                                                                              completion: nil)
-                    )})
-                }else {
-                    cell.viewLiked.backgroundColor = UIColor.lightGray
-                    cell.heart = "Item"
-
-                    let toImage = UIImage(named:"broken")
-
-                    UIView.transition(with: cell.likeImageView,
-                                      duration: 0.3,
-                                          options: .transitionCrossDissolve,
-                                          animations: {
-                                            cell.likeImageView.image = toImage
-                                          },
-                                          completion: {_ in (
-    
-                                            UIView.transition(with: cell.likeImageView,
-                                                duration: 1,
-                                                options: .transitionCrossDissolve,
-                                                animations: {
-                                                cell.likeImageView.image = UIImage(named: "brokenwhite")
-                                                },
-                                                    completion: {_ in (
-                                                     UIView.transition(with: cell.likeImageView,
-                                                     duration: 0.5, options: .transitionCrossDissolve,
-                                                     animations: {
-                                                     cell.likeImageView.image = UIImage(named: "")
-                                                    },
-                                                     completion: nil)
-                 )})
-              )})
+    private func onHeartTapped(for cell: FeedTableViewCell) {
+        if let postId = cell.postId {
+            if cell.hasHeart {
+                viewModel.dislike(postId: postId) { [weak self] in
+                    cell.hasHeart = false
+                    self?.heartAnimation(for: cell)
+                }
+            } else {
+                viewModel.like(postId: postId) { [weak self] in
+                    cell.hasHeart = true
+                    self?.heartAnimation(for: cell)
+                }
             }
         }
-        return cell
+    }
+
+    private func heartAnimation(for cell: FeedTableViewCell) {
+        if cell.hasHeart {
+            cell.likeImageView.isHidden = false
+            cell.viewLiked.backgroundColor = UIColor.systemIndigo
+            cell.likeImageView.image = UIImage(named: "heart1.png")
+            let toImage = UIImage(named:"heart1.png")
+
+            UIView.transition(
+                with: cell, duration: 0.3, options: .transitionCrossDissolve,
+                animations: {
+                    cell.likeImageView.image = toImage
+                },
+                completion: { _ in
+                    UIView.transition(
+                        with: cell.likeImageView, duration: 2, options: .transitionCrossDissolve,
+                        animations: {
+                            cell.likeImageView.image = UIImage(named: "")
+                        },
+                        completion: nil
+                    )
+                }
+            )
+        } else {
+            cell.likeImageView.isHidden = false
+            cell.viewLiked.backgroundColor = UIColor.lightGray
+
+            let toImage = UIImage(named:"broken")
+
+            UIView.transition(
+                with: cell.likeImageView, duration: 0.3, options: .transitionCrossDissolve,
+                animations: {
+                    cell.likeImageView.image = toImage
+                },
+                completion: { _ in
+                    UIView.transition(
+                        with: cell.likeImageView, duration: 1, options: .transitionCrossDissolve,
+                        animations: {
+                            cell.likeImageView.image = UIImage(named: "brokenwhite")
+                        },
+                        completion: {_ in
+                             UIView.transition(
+                                with: cell.likeImageView,
+                                duration: 0.5, options: .transitionCrossDissolve,
+                                animations: {
+                                    cell.likeImageView.image = UIImage(named: "")
+                                },
+                                completion: nil
+                             )
+                        }
+                    )
+                }
+            )
+        }
     }
 }
 
@@ -368,9 +383,10 @@ extension FeedViewController: UICollectionViewDataSource{
         if self.storiesRequest.currentUserStories.count != 0 {
             if let vc = UIStoryboard(name: "StoriesLoaded", bundle: nil).instantiateInitialViewController() as? StoriesLoadedViewController {
                 
-                if let currentUSer = currentUser {
+                if let currentUser = currentUser {
                     vc.profileID = currentUser
                 }
+
                 let transition = CATransition()
                 transition.duration = 0.5
                 transition.type = CATransitionType.push
@@ -424,6 +440,4 @@ extension UIImage {
 
         return resize(targetSize: newSize)
     }
-
 }
-

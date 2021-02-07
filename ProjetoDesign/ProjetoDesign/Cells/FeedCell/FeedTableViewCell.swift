@@ -6,14 +6,14 @@
 //
 
 import UIKit
-import Foundation
+
 // MARK: - Protocols
-protocol ButtonsTableView {
+
+protocol ButtonsTableView: AnyObject {
     func didButtonPressed(postId: String?)
 }
 
-class FeedTableViewCell: UITableViewCell {
-
+final class FeedTableViewCell: UITableViewCell {
     // MARK: - IBOutlets
     @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var uploadImageView: UIImageView!
@@ -22,10 +22,12 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var subtitlesLabel: UILabel!
     @IBOutlet weak var nameButton: UIButton!
     @IBOutlet weak var viewLiked: extensions!
+    @IBOutlet weak var numberOfCommentsLabel: UILabel!
+    @IBOutlet weak var numberOfLikesLabel: UILabel!
 
     // MARK: - Proprierts
-    var delegate: ButtonsTableView?
-    var heart: String? = nil
+    weak var delegate: ButtonsTableView?
+    var hasHeart: Bool = false
     var postId: String? = nil
     var nameTap : (() -> ()) = {}
     var heartTap : (() -> ()) = {}
@@ -33,12 +35,13 @@ class FeedTableViewCell: UITableViewCell {
     // MARK: - Super Methods
     override func awakeFromNib() {
         super.awakeFromNib()
+
         likeImageView.isHidden = true
         addSingleAndDoubleTapGesture()
-                // Initialization code
     }
 
     // MARK: - IBActions
+
     @IBAction func nameButton(_ sender: Any) {
         nameTap()
     }
@@ -79,6 +82,8 @@ class FeedTableViewCell: UITableViewCell {
 
     func setup(post: PostUser) {
         postId = post.id
+        numberOfLikesLabel.text = "\(post.numberOfLikes)"
+        numberOfCommentsLabel.text = "\(post.numberOfComments)"
 
         if post.user.imageProfileUrl.hasPrefix("https") {
             uploadImageView.kf.setImage(with: URL(string: post.user.imageProfileUrl))
@@ -113,6 +118,10 @@ class FeedTableViewCell: UITableViewCell {
             let text = "\(post.user.name): \(comments)".withBoldText(text: "\(post.user.name)")
             subtitlesLabel.attributedText = text
         }
+
+        hasHeart = post.isLiked
+        likeImageView.isHidden = post.isLiked
+        viewLiked.backgroundColor = post.isLiked ? .systemIndigo : .lightGray
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -136,18 +145,6 @@ class FeedTableViewCell: UITableViewCell {
     }
 
     @objc private func handleDoubleTap(_ tapGesture: UITapGestureRecognizer) {
-        print("clicked")
-        if heart != nil {
-            likeImageView.image = UIImage(named: "heart0.png")
-
-            heart = nil
-            likeImageView.isHidden = false
-
-        }else {
-            likeImageView.image = UIImage(named: "heart1.png")
-            heart = "Item"
-            likeImageView.isHidden = false
-
-        }
+        heartTap()
     }
 }

@@ -8,7 +8,18 @@
 import UIKit
 import PKHUD
 
-final class FeedViewModel {
+protocol FeedViewModelProtocol {
+    var posts: [PostUser] { get }
+    var currentUser: Profile? { get }
+    var error: Error? { get }
+
+    func getCurrentUser(then handler: @escaping (Profile) -> Void)
+    func like(postId: String, then handler: @escaping () -> Void)
+    func dislike(postId: String, then handler: @escaping () -> Void)
+    func load(then handler: @escaping () -> Void)
+}
+
+final class FeedViewModel: FeedViewModelProtocol {
     private let service: FeedService
     private weak var viewController: UIViewController?
 
@@ -57,10 +68,48 @@ final class FeedViewModel {
         }
     }
 
+    func like(postId: String, then handler: @escaping () -> Void) {
+        error = nil
+
+        HUD.show(.progress)
+
+        service.like(postId: postId) { [weak self] result in
+            do {
+                try result.get()
+                handler()
+            } catch {
+                self?.show(error: error)
+            }
+
+            HUD.hide()
+        }
+    }
+
+    func dislike(postId: String, then handler: @escaping () -> Void) {
+        error = nil
+
+        HUD.show(.progress)
+
+        service.dislike(postId: postId) { [weak self] result in
+            do {
+                try result.get()
+                handler()
+            } catch {
+                self?.show(error: error)
+            }
+
+            HUD.hide()
+        }
+    }
+
+    // MARK: - Private functions
+
     private func show(error: Error) {
         self.error = error
 
-        let alertController = UIAlertController(title: "Erro ao carregar informações", message: error.localizedDescription, preferredStyle: .alert)
+        let alertController = UIAlertController(
+            title: "Erro ao carregar informações", message: error.localizedDescription, preferredStyle: .alert
+        )
 
         alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
 

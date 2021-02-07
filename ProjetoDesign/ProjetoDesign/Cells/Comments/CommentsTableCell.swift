@@ -51,6 +51,7 @@ class CommentsTableCell: UITableViewCell {
             imageString = "suit.heart"
         }
     }
+    
     func setupProfile(comments: CommentsDetailModel){
         let userName = comments.nameUser ?? ""
         let commentText = comments.text ?? ""
@@ -61,8 +62,9 @@ class CommentsTableCell: UITableViewCell {
         let url = URL(string: imageProfile)
         profileImageComments.kf.setImage(with: url)
         imageLike.image = UIImage(systemName: "suit.heart")
-       // profileImageView.kf.setImage(with: comments.profileImage)
+        // profileImageView.kf.setImage(with: comments.profileImage)
     }
+
     func setup(comments: CommentViewModel) {
         let userName = comments.user.name ?? ""
         let text = "\(userName): \(comments.text)".withBoldText(text: "\(userName)")
