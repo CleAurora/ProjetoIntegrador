@@ -28,7 +28,7 @@ Universe chama atenção aos detalhes com seu design inovador, e criativo.
 <h3>Sign Up</h3>
 Para criar seu Universo é necessário se registrar em nosso servidor, por isso customizamos a tela de sign up para que o usuário tenha uma experiencia única desde o início.
 Caso queira você também pode se registrar pelo Facebook, ou Google account.
-![](img/Feed.png)
+![](Feed.png)
 
 <h3>Login</h3>
 Após o registro o usuário pode efetuar o login em qualquer dispositivo através de seu e-mail seja pelo nosso banco de dados preenchendo os campos de dados, ou efetuar o login com google account ou Facebook através dos ícones específicos.
