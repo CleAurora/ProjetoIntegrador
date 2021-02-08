@@ -23,11 +23,11 @@ Swift 5
 Pods: 
 Acording to the pods used we highlight
 
-  pod 'Alamofire'  - for the api
-  pod 'Firebase/Auth' - for login, auth, database and storage
-  pod 'Kingfisher' - for the images
-  pod 'GoogleSignIn' - sign in with google
-  pod 'FBSDKLoginKit' - sign in with Facebook
+  - Alamofire - for the api
+  - Firebase - for login, auth, database and storage
+  - Kingfisher - for the images
+  - GoogleSignIn - sign in with google
+  - FBSDKLoginKit - sign in with Facebook
 
   pod 'Nimble-Snapshots' and pod 'KIF' - for tests
 
