@@ -23,9 +23,9 @@ Swift 5
 Pods: 
 Acording to the pods used we highlight
 
-  - Alamofire - for the api
+  - Alamofire - to consume the API request
   - Firebase - for login, authentication, database and storage
-  - Kingfisher - for the images
+  - Kingfisher - for downloading and caching image from the web
   - GoogleSignIn - sign in with google
   - FBSDKLoginKit - sign in with Facebook
 
