@@ -1,11 +1,10 @@
-# ProjetoIntegrador
+<h1>Universe</h1>
 [![Build Status](https://app.bitrise.io/app/0114b2bb96ee807a/status.svg?token=YT4ODZdgRZRJ8jTwt0vVcQ)](https://app.bitrise.io/app/0114b2bb96ee807a)
 
-<h1>Universe</h1>
 
 This social media help you to connect with other people and have your photos shared with the weather and location.
 
-Example
+<h2>Summary</h2>
 
 - You can share an image // stories,
 - Follow and unfollow another user, 
@@ -14,14 +13,15 @@ Example
 
 ![](telas.png)
 
-Installation
+<h2>Installation</h2>
 
 - To run the example project, clone the repo, and run pod install from the Example directory first.
 		
-Requirements
+<h2>Requirements</h2>
 - iOS 14 or newer
 - Swift 5
 
+<h2>The App</h2>
 Universe é uma rede social onde o foco é compartilhar informações.
 Universe chama atenção aos detalhes com seu design inovador, e criativo.
 
@@ -42,7 +42,7 @@ No Profile você terá mais informações sobre o seu Usuário, ou o usuário se
 
 
 
-Pods: 
+<h2>Pods:</h2> 
 
 Acording to the pods used we highlight
 
@@ -51,17 +51,16 @@ Acording to the pods used we highlight
   - Kingfisher - for downloading and caching image from the web
   - GoogleSignIn - sign in with google
   - FBSDKLoginKit - sign in with Facebook
+  - Nimble-Snapshots and KIF - for tests
 
-  - pod 'Nimble-Snapshots' and pod 'KIF' - for tests
 
-
-Author
+<h2>Author</h2>
 
 - Cleís Aurora (cleis_aurora@yahoo.com.br) and Mauro Juliano (maurodeveloper@outlook.com), 
 
 
 If do you like, give your ⭐️
 
-License
+<h2>License</h2>
 Universe is available under the MIT license. See the LICENSE file for more info
 
