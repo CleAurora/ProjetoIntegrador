@@ -1,7 +1,8 @@
 # ProjetoIntegrador
 [![Build Status](https://app.bitrise.io/app/0114b2bb96ee807a/status.svg?token=YT4ODZdgRZRJ8jTwt0vVcQ)](https://app.bitrise.io/app/0114b2bb96ee807a)
 
-Universe - Projeto integrador da Rede social
+Universe
+
 This social media help you to connect with other people and have your photos shared with the weather and location.
 
 Example
