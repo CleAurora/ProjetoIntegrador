@@ -29,6 +29,8 @@ class searchViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         self.viewModel = searchTableDelegateDatasource(usuarioModel: controller, searchController: self, imageController: imageRequest)
         searchTableView.isHidden = true
+        
+        
         userSearchView.delegate = self
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -38,6 +40,8 @@ class searchViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showLoading()
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "activateTab"), object: .none)
+        self.tabBarController?.tabBar.isHidden = false
        
     }
     

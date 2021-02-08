@@ -27,11 +27,11 @@ final class PhotoDetailTableDelegateDataSource: NSObject, UITableViewDelegate, U
                              imageProfile: view.image ?? "",
                              imagePost: view.postDetail?.imagePost ?? "",
                              caption: view.postDetail?.caption ?? "",
-                             comments: "",
+                             comments: "\(commentsRequest.commentsDetails.count)" ?? "",
                              liked: "",
                              weather: view.postDetail?.weather ?? ""
             ))
-        print(photoArray.count)
+        
         completionHandler(true, nil)
     }
     
@@ -42,7 +42,7 @@ final class PhotoDetailTableDelegateDataSource: NSObject, UITableViewDelegate, U
                              imageProfile: userRequest.imageProfile ?? "",
                              imagePost: view.user?.imagePostUrl ?? "",
                              caption: view.user?.caption ?? "",
-                             comments: view.user?.comments ?? "",
+                             comments: "\(commentsRequest.commentsDetails.count)" ?? "",
                              liked: "",
                              weather: view.user?.weather ?? ""
             ))

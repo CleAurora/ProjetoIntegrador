@@ -71,7 +71,7 @@ final class FeedViewModel: FeedViewModelProtocol {
     func like(postId: String, then handler: @escaping () -> Void) {
         error = nil
 
-        HUD.show(.progress)
+        //HUD.show(.progress)
 
         service.like(postId: postId) { [weak self] result in
             do {
@@ -88,7 +88,7 @@ final class FeedViewModel: FeedViewModelProtocol {
     func dislike(postId: String, then handler: @escaping () -> Void) {
         error = nil
 
-        HUD.show(.progress)
+        //HUD.show(.progress)
 
         service.dislike(postId: postId) { [weak self] result in
             do {

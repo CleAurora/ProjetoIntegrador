@@ -6,16 +6,28 @@
 //
 
 import UIKit
-
+import Kingfisher
+import Firebase
 final class PhotoDetailViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet var photoTableView: UITableView!
     @IBOutlet var commentsTableView: UITableView!
     @IBOutlet var loadingImage: UIImageView!
+    @IBOutlet var photoProfile: roundImageView!
+    @IBOutlet var nameUserButton: UIButton!
+    @IBOutlet var cityLabel: UILabel!
+    @IBOutlet var postImage: roundImageView!
+    @IBOutlet var commentsLabel: UILabel!
+    @IBOutlet var likeLabel: UILabel!
+    @IBOutlet var photoView: UIView!
+    @IBOutlet var captionLabel: UILabel!
+    @IBOutlet var commentImage: UIImageView!
+    @IBOutlet var commentTextField: UITextField!
     
     // MARK: - Proprierts
     var photoModel: PhotoDetailModel?
+    private let ref: DatabaseReference = Database.database().reference()
     var controller: PhotoDetailTableDelegateDataSource?
     var commentsRequest = CommentsRequest()
     var photoArray = [PhotoDetailModel]()
@@ -45,16 +57,41 @@ final class PhotoDetailViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if selectedFromCurrent != nil {
             loadDataCurrent()
+            postSetup()
+           
         }else{
             getData()
+            postSetup()
         }
     }
+    
+    func postSetup(){
+        if let userName = name ?? viewRequest.userName{
+            self.title = "\(userName)'s Post"
+            nameUserButton.setTitle(userName, for: .normal)
+            if let caption = user?.caption ?? postDetail?.caption {
+                
+                let text = "\(userName): \(caption)".withBoldText(text: "\(userName)")
+                captionLabel.attributedText = text
+            }
+        }
+        self.commentsLabel.text = "\(0)"
+        if let image = postDetail?.imagePost ?? user?.imagePostUrl{
+            postImage.kf.setImage(with: URL(string: image))
+        }
+        if let profileImage = image ?? viewRequest.imageProfile{
+            photoProfile.kf.setImage(with: URL(string: profileImage))
+            commentImage.kf.setImage(with: URL(string: profileImage))
+        }
+        cityLabel.text = user?.city ?? postDetail?.city
+    }
+    
     func getData(){
         
         viewRequest.userSelected = user?.userId
         viewRequest.loadData(completionHandler: { success, _ in
             if success {
-                self.tablePassData()
+                self.postSetup()
             }
         })
     }
@@ -63,15 +100,31 @@ final class PhotoDetailViewController: UIViewController {
        
         controller?.loadData(completionHandler: { success, _ in
             if success {
-                self.tableViewSetup()
             }
         })
     }
-    
+    @IBAction func addNewComments(_ sender: Any) {
+        setComments()
+    }
+    func setComments(){
+        let uid = Auth.auth().currentUser?.uid
+        let dict: [String: Any] = [
+            "UserID": uid,
+            "TimeStamp": NSDate().timeIntervalSince1970,
+            "Text": commentTextField.text]
+        
+        if let childKey = user?.childKey ?? postDetail?.childKey {
+            ref.child("posts").child(childKey).child("Comments").childByAutoId().setValue(dict)
+            commentTextField.text = nil
+    }
+}
     func getComments(){
-        if let postID = postDetail?.childKey {
+        if let postID = postDetail?.childKey ?? user?.childKey{
             commentsRequest.getComments(ID: postID , completionHandler: { success, _ in
                 if success{
+                    self.commentsLabel.text = "\(self.commentsRequest.commentsDetails.count)"
+                   
+                    
                     self.tableCommentsSetup()
                 }
             })
