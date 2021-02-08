@@ -24,7 +24,7 @@ Pods:
 Acording to the pods used we highlight
 
   - Alamofire - for the api
-  - Firebase - for login, auth, database and storage
+  - Firebase - for login, authentication, database and storage
   - Kingfisher - for the images
   - GoogleSignIn - sign in with google
   - FBSDKLoginKit - sign in with Facebook
