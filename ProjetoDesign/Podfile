@@ -20,7 +20,7 @@ target 'ProjetoDesign' do
   pod 'MaterialComponents'
   pod 'FBSDKLoginKit'
   pod 'SwiftyCam'
-  pod 'SegmentedProgressView'
+  pod 'SegmentedProgressView', :git => 'https://github.com/CleAurora/SegmentedProgressView.git', :branch => 'master'
   pod 'SwiftGifOrigin'
 
   target 'ProjetoDesignTests' do
