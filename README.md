@@ -11,8 +11,6 @@ This social media help you to connect with other people and have your photos sha
 - Edit a profile
 - You can sign in with facebook, google or you can create a new account with our database.
 
-![](telas.png)
-
 <h2>Installation</h2>
 
 - To run the example project, clone the repo, and run pod install from the Example directory first.
@@ -49,7 +47,8 @@ Exemplo:
 •	Quer dizer ao seu público onde está o centro do Universo?! Você tem essa opção compartilhando a sua localidade.
 •	Mesmo nas noites mais frias, ou nos dias mais quentes nada pode impedir você de compartilhar informação, e pensando nisso nós disponibilizamos pra que você possa mostrar o clima no qual você está.
 
- 
+ ![](img/uploads.png)
+
 
 <h3>Profile</h3>
 No Profile você terá mais informações sobre o seu Usuário, ou o usuário selecionado, tais como nome do Usuário, foto de perfil, quantidade de post, quantidade de seguidores, e quantidade de pessoas seguindo, além de visualizar todas as publicações do usuário em questão.
