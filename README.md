@@ -20,6 +20,16 @@ iOS 14 or newer
 Swift 5
 
 
+Pods:
+  pod 'Alamofire', '~> 5.2' - for the api
+  pod 'Firebase/Auth' - for login, auth, database and storage
+  pod 'Kingfisher', '~> 5.0' - for the images
+  pod 'GoogleSignIn' - sign in with google
+  pod 'FBSDKLoginKit' - sign in with Facebook
+
+    pod 'Nimble-Snapshots' - for tests
+    pod 'KIF' - for tests
+
 
 Author
 Cleís Aurora (cleis_aurora@yahoo.com.br) and Mauro Juliano (maurodeveloper@outlook.com), 
