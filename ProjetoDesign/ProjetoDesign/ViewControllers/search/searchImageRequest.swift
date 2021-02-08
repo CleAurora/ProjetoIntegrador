@@ -18,10 +18,10 @@ class searchImageRequest {
         self.userArray.removeAll()
         let reference = self.ref.child("posts")
         reference.observe(.value, with: {(snapshot) in
-            
-            if let users = snapshot.value as? [String: AnyObject] {
-                for(_, value) in users {
-                    
+            for postSnapshot in snapshot.children.allObjects as! [DataSnapshot] {
+                
+                if let value = postSnapshot.value as? [String: AnyObject] {
+        
                    let userToshow = searchModel()
                     
                     var city = value["City"] as? String
@@ -37,7 +37,7 @@ class searchImageRequest {
                     userToshow.imagePostUrl = imageURL
                     userToshow.userId = userid
                     userToshow.caption = caption
-                    
+                    userToshow.childKey = postSnapshot.key
                     self.userArray.append(userToshow)
                     
             }

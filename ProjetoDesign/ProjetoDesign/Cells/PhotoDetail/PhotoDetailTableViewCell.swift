@@ -16,6 +16,7 @@ class PhotoDetailTableViewCell: UITableViewCell {
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var subtitlesLabel: UILabel!
+    @IBOutlet var commentsCount: UILabel!
     @IBOutlet weak var nameButton: UIButton!
 
     // MARK: - Proprierts
@@ -56,6 +57,7 @@ class PhotoDetailTableViewCell: UITableViewCell {
                 subtitlesLabel.attributedText = text
             }
         }
+        commentsCount.text = photo.comments
         cityLabel.text = photo.city
     }
     // MARK: - Methods

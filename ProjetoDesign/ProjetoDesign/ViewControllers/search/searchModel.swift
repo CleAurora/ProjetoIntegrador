@@ -16,5 +16,6 @@ class searchModel: NSObject {
         var comments: String!
         var caption: String!
         var userId: String!
+        var childKey: String!
         
 }
