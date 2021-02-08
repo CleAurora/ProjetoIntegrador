@@ -6,6 +6,7 @@ Universe
 This social media help you to connect with other people and have your photos shared with the weather and location.
 
 Example
+
 - You can share an image // stories,
 - Follow and unfollow another user, 
 - Edit a profile
@@ -14,6 +15,7 @@ Example
 ![](telas.png)
 
 Installation
+
 To run the example project, clone the repo, and run pod install from the Example directory first.
 		
 Requirements
@@ -22,6 +24,7 @@ Swift 5
 
 
 Pods: 
+
 Acording to the pods used we highlight
 
   - Alamofire - to consume the API request
@@ -30,11 +33,12 @@ Acording to the pods used we highlight
   - GoogleSignIn - sign in with google
   - FBSDKLoginKit - sign in with Facebook
 
-  pod 'Nimble-Snapshots' and pod 'KIF' - for tests
+  - pod 'Nimble-Snapshots' and pod 'KIF' - for tests
 
 
 Author
-Cleís Aurora (cleis_aurora@yahoo.com.br) and Mauro Juliano (maurodeveloper@outlook.com), 
+
+- Cleís Aurora (cleis_aurora@yahoo.com.br) and Mauro Juliano (maurodeveloper@outlook.com), 
 
 
 If do you like, give your ⭐️
