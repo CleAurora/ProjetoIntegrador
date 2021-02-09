@@ -42,9 +42,8 @@ class NotificationsRequest {
                     }
                     
                 }
-               
+
             })
-            
         }
     }
 }
