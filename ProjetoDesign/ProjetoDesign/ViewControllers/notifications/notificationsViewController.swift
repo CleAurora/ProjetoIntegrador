@@ -12,13 +12,13 @@ final class notificationsViewController: UIViewController {
     // MARK: - IBOultes
     @IBOutlet var tabBarViewRight: UIView!
     @IBOutlet var tabBarViewLeft: UIView!
-    @IBOutlet weak var notificationsTableView: UITableView!
+    @IBOutlet var notificationsTableView: UITableView!
+   
     private lazy var controller: NotificationsTableDelegateDataSource = NotificationsTableDelegateDataSource(
         view: self, request: request, followRequest: followRequest
-    )
-
-    private lazy var request = NotificationsRequest()
-    private lazy var followRequest = FollowRequest()
+   )
+    var request = NotificationsRequest()
+    var followRequest = FollowRequest()
 
     // MARK: - Proprierts
     var userArray = [Post]()
@@ -27,9 +27,10 @@ final class notificationsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
         notificationsTableView.delegate = controller
         notificationsTableView.dataSource = controller
+        
         tabBarViewRight.roundCorners(.topLeft, radius: 33)
         tabBarViewLeft.roundCorners(.topRight, radius: 33)
         
@@ -38,19 +39,19 @@ final class notificationsViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
         getData()
     }
 
     private func getData(){
-        request.downloadData { [weak self] success,_ in
+        request.downloadData { success,_ in
             if success {
-                self?.tableviewSetup()
+                self.tableviewSetup()
             }
         }
     }
     
     func tableviewSetup(){
+        
         notificationsTableView.reloadData()
     }
 }
