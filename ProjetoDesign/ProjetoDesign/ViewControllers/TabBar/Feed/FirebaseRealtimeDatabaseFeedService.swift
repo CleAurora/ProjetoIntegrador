@@ -163,12 +163,10 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
     }
 
     private func loadPosts(followingUsers: [String], then handler: @escaping (Result<[PostUser], Error>) -> Void) {
-        database.reference(withPath: "posts").queryOrdered(byChild: "TimeStamp").observeSingleEvent(of: .value, with: { [weak self] dataSnapshot in
+        database.reference(withPath: "posts").queryOrdered(byChild: "TimeStamp").observeSingleEvent(of: .value) { [weak self] dataSnapshot in
             self?.convert(followingUsers: followingUsers, snapshot: dataSnapshot, then: handler)
             self?.waitForNewPosts(then: handler)
-        }, withCancel: { error in
-            handler(.failure(error))
-        })
+        }
     }
 
     private func convert(followingUsers: [String], snapshot: DataSnapshot, then handler: @escaping (Result<[PostUser], Error>) -> Void) {
@@ -340,8 +338,23 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
     }
 
     private func waitForNewPosts(then handler: @escaping (Result<[PostUser], Error>) -> Void) {
-        database.reference(withPath: "posts").observeSingleEvent(of: .childChanged) { [weak self] _ in
-            self?.load(then: handler)
+        var childChangedCalled = false
+        var childAddedCalled = false
+
+        database.reference(withPath: "posts").queryOrdered(byChild: "TimeStamp").observeSingleEvent(of: .childChanged) { [weak self] _ in
+            if !childChangedCalled {
+                self?.load(then: handler)
+            }
+
+            childChangedCalled = true
+        }
+
+        database.reference(withPath: "posts").queryOrdered(byChild: "TimeStamp").queryStarting(atValue: Date().timeIntervalSince1970).queryLimited(toLast: 1).observeSingleEvent(of: .childAdded) { [weak self] snapshot in
+            if !childAddedCalled {
+                self?.load(then: handler)
+            }
+
+            childAddedCalled = true
         }
     }
 }
