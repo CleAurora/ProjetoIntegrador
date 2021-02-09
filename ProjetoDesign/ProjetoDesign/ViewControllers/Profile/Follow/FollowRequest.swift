@@ -35,14 +35,14 @@ class FollowRequest {
                 databaseReference.child("users").child(userID).child("notifications").child(self.uid!).updateChildValues(dict)
 
                 let followers = databaseReference.child("users").child(userID)
-                let followersDict = ["followersCount": self.followersCount + 1] as [String: Any]
+                let followersDict = ["Followers": self.followersCount + 1] as [String: Any]
                 followers.updateChildValues(followersDict)
 
             }else if userFollowers == uid {
                 databaseReference.child("users").child(userID).child("followers").child(self.uid!).removeValue()
                 let followers = databaseReference.child("users").child(userID)
 
-                let followersDict = ["followersCount": self.followersCount - 1] as [String: Any]
+                let followersDict = ["Followers": self.followersCount - 1] as [String: Any]
                 followers.updateChildValues(followersDict)
                 self.stillFollower = userFollowers
             }
@@ -58,14 +58,14 @@ class FollowRequest {
                     databaseReference.child("users").child(uid).child("following").child(userID).updateChildValues(dict)
 
                     let following = databaseReference.child("users").child(uid)
-                    let followingDict = ["followingCount": self.followingCount + 1] as [String: Any]
+                    let followingDict = ["Following": self.followingCount + 1] as [String: Any]
                     following.updateChildValues(followingDict)
 
                 }else if userFollowing == userID {
                     databaseReference.child("users").child(uid).child("following").child(userID).removeValue()
 
                     let following = databaseReference.child("users").child(uid)
-                    let followingDict = ["followingCount": self.followingCount - 1] as [String: Any]
+                    let followingDict = ["Following": self.followingCount - 1] as [String: Any]
                     following.updateChildValues(followingDict)
                 }
                 self.userFollowing = nil
