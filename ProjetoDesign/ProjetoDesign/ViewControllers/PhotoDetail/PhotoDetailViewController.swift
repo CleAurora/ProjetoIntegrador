@@ -129,8 +129,6 @@ final class PhotoDetailViewController: UIViewController {
             commentsRequest.getComments(ID: postID , completionHandler: { success, _ in
                 if success{
                     self.commentsLabel.text = "\(self.commentsRequest.commentsDetails.count)"
-
-                    
                     self.tableCommentsSetup()
                 }
             })

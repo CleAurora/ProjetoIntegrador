@@ -166,6 +166,11 @@
                                     <constraint firstAttribute="bottom" secondItem="09Z-Gl-j6q" secondAttribute="bottom" id="vS5-Si-aWy"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oJW-Ud-OrA" customClass="GIFImageView" customModule="Gifu">
+                                <rect key="frame" x="-1" y="-7" width="416" height="910"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aoU-Xc-FYs"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -181,6 +186,7 @@
                     </view>
                     <connections>
                         <outlet property="backgroundSegmented" destination="ozN-uj-rfj" id="T53-vq-blp"/>
+                        <outlet property="loadingImage" destination="oJW-Ud-OrA" id="AVr-O2-cEm"/>
                         <outlet property="storiesCollectionView" destination="jNY-FW-3l6" id="T1R-5f-zqk"/>
                         <outlet property="xibProgressView" destination="LT6-3z-z39" id="ErH-VL-scr"/>
                     </connections>
