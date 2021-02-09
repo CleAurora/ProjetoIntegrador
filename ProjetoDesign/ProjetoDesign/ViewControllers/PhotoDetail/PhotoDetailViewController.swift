@@ -88,6 +88,9 @@ final class PhotoDetailViewController: UIViewController {
             commentImage.kf.setImage(with: URL(string: profileImage))
         }
         cityLabel.text = user?.city ?? postDetail?.city
+        
+        loadingImage.isHidden = true
+        loadingImage.stopAnimatingGIF()
     }
     
     func getData(){
@@ -152,8 +155,7 @@ final class PhotoDetailViewController: UIViewController {
         photoTableView.delegate = self.controller
         photoTableView.dataSource = self.controller
         photoTableView.reloadData()
-        loadingImage.isHidden = true
-        loadingImage.stopAnimatingGIF()
+        
         getComments()
     }
 }

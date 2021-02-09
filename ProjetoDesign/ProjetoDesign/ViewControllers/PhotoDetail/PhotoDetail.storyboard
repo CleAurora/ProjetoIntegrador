@@ -16,10 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qB6-HH-HKv" customClass="GIFImageView" customModule="Gifu">
-                                <rect key="frame" x="32" y="219.5" width="350" height="500"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Qcw-tc-tFA">
                                 <rect key="frame" x="0.0" y="77" width="414" height="744"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -276,6 +272,14 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qB6-HH-HKv" customClass="GIFImageView" customModule="Gifu">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="896" id="04J-he-tqF"/>
+                                    <constraint firstAttribute="width" constant="414" id="awJ-Xg-BUo"/>
+                                </constraints>
+                            </imageView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hEl-Zb-YLc">
                                 <rect key="frame" x="0.0" y="33" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -364,8 +368,12 @@
                         <viewLayoutGuide key="safeArea" id="zEg-YU-Sfd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="qB6-HH-HKv" secondAttribute="bottom" id="3iI-Sk-70K"/>
+                            <constraint firstItem="qB6-HH-HKv" firstAttribute="trailing" secondItem="zEg-YU-Sfd" secondAttribute="trailing" id="48X-Vi-r6t"/>
+                            <constraint firstItem="qB6-HH-HKv" firstAttribute="leading" secondItem="zEg-YU-Sfd" secondAttribute="leading" id="HNO-cQ-U9N"/>
                             <constraint firstItem="Nk1-Xm-qSk" firstAttribute="trailing" secondItem="zEg-YU-Sfd" secondAttribute="trailing" id="Isk-LD-lw3"/>
                             <constraint firstItem="Nk1-Xm-qSk" firstAttribute="leading" secondItem="zEg-YU-Sfd" secondAttribute="leading" id="Mhw-yg-Yn7"/>
+                            <constraint firstItem="qB6-HH-HKv" firstAttribute="top" secondItem="2N6-77-zOR" secondAttribute="top" id="iIy-84-N6j"/>
                             <constraint firstAttribute="bottom" secondItem="Nk1-Xm-qSk" secondAttribute="bottom" id="w87-Hm-YCl"/>
                         </constraints>
                     </view>
