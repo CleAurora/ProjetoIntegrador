@@ -12,7 +12,7 @@ class searchTableDelegateDatasource: NSObject, UITableViewDelegate, UITableViewD
     
     var searchIn = ""
     var usuarioModel = ViewRequest()
-    var searchController = searchViewController()
+    weak var searchController: searchViewController?
     var filteredArray = [Usuario]()
     var searchImage = searchImageRequest()
 
@@ -25,7 +25,7 @@ class searchTableDelegateDatasource: NSObject, UITableViewDelegate, UITableViewD
 
     func filter(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         if searchIn.isEmpty {
-            searchController.dataCollectionView.isHidden = false
+            searchController?.dataCollectionView.isHidden = false
         } else {
             let options: String.CompareOptions = [.caseInsensitive, .diacriticInsensitive]
             let searchText = searchIn.folding(options: options, locale: nil)
@@ -48,7 +48,7 @@ class searchTableDelegateDatasource: NSObject, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let viewcontroller = UIStoryboard(name: "User", bundle: nil).instantiateInitialViewController() as? UserViewController{
             viewcontroller.userProfile = filteredArray[indexPath.row]
-            searchController.navigationController?.pushViewController(viewcontroller, animated: true)
+            searchController?.navigationController?.pushViewController(viewcontroller, animated: true)
         }
     }
     
@@ -66,7 +66,7 @@ class searchTableDelegateDatasource: NSObject, UITableViewDelegate, UITableViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let vc = UIStoryboard(name: "PhotoDetail", bundle: nil).instantiateInitialViewController() as? PhotoDetailViewController {
             vc.user = searchImage.userArray[indexPath.row]
-            searchController.navigationController?.pushViewController(vc, animated: true)
+            searchController?.navigationController?.pushViewController(vc, animated: true)
         }
     }
 

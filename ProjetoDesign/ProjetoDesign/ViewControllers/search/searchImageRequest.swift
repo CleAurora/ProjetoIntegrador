@@ -9,15 +9,13 @@ import Foundation
 import Firebase
 import Alamofire
 
-class searchImageRequest {
-    
-    var ref: DatabaseReference!
+final class searchImageRequest {
+    private lazy var databaseReference: DatabaseReference = Database.database().reference()
     var userArray = [searchModel]()
     func loadData(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void) {
-        self.ref = Database.database().reference()
         self.userArray.removeAll()
-        let reference = self.ref.child("posts")
-        reference.observe(.value, with: {(snapshot) in
+
+        databaseReference.child("posts").observe(.value, with: {(snapshot) in
             for postSnapshot in snapshot.children.allObjects as! [DataSnapshot] {
                 
                 if let value = postSnapshot.value as? [String: AnyObject] {

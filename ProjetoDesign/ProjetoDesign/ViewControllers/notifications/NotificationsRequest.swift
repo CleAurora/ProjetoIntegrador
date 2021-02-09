@@ -9,7 +9,7 @@ import Foundation
 import FirebaseAuth
 import FirebaseDatabase
 class NotificationsRequest {
-    let ref: DatabaseReference = Database.database().reference()
+    private lazy var databaseReference: DatabaseReference = Database.database().reference()
     var notificationsArray = [NotificationsModel]()
     var notificationsUser = [Usuario]()
     var userRequest = ViewRequest()
@@ -18,7 +18,7 @@ class NotificationsRequest {
         
         self.notificationsUser.removeAll()
         if let uid = Auth.auth().currentUser?.uid {
-            ref.child("users").child(uid).child("notifications").queryOrderedByKey().observeSingleEvent(of: .value, with: { snapshot in
+            databaseReference.child("users").child(uid).child("notifications").queryOrderedByKey().observeSingleEvent(of: .value, with: { snapshot in
                 
                 if let notifications = snapshot.value as? [String: AnyObject] {
                     for(_, value) in notifications {
@@ -42,9 +42,8 @@ class NotificationsRequest {
                     }
                     
                 }
-               
+
             })
-            
         }
     }
 }

@@ -8,12 +8,15 @@
 import UIKit
 import Kingfisher
 import Firebase
+import Gifu
+
 final class PhotoDetailViewController: UIViewController {
 
     // MARK: - IBOutlets
+
     @IBOutlet var photoTableView: UITableView!
     @IBOutlet var commentsTableView: UITableView!
-    @IBOutlet var loadingImage: UIImageView!
+    @IBOutlet var loadingImage: GIFImageView!
     @IBOutlet var photoProfile: roundImageView!
     @IBOutlet var nameUserButton: UIButton!
     @IBOutlet var cityLabel: UILabel!
@@ -27,7 +30,7 @@ final class PhotoDetailViewController: UIViewController {
     
     // MARK: - Proprierts
     var photoModel: PhotoDetailModel?
-    private let ref: DatabaseReference = Database.database().reference()
+    private lazy var databaseReference: DatabaseReference = Database.database().reference()
     var controller: PhotoDetailTableDelegateDataSource?
     var commentsRequest = CommentsRequest()
     var photoArray = [PhotoDetailModel]()
@@ -45,20 +48,21 @@ final class PhotoDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "deactivateTab"), object: .none)
-        self.tabBarController?.tabBar.isHidden = true
+        tabBarController?.tabBar.isHidden = true
         
-        self.controller = PhotoDetailTableDelegateDataSource(view: self, request: viewRequest, commentsRequest: commentsRequest)
+        controller = PhotoDetailTableDelegateDataSource(view: self, request: viewRequest, commentsRequest: commentsRequest)
         getComments()
         loadingImage.isHidden = false
-        loadingImage.image = UIImage.gif(name: "loading")
-        
+        loadingImage.prepareForAnimation(withGIFNamed: "loading")
+        loadingImage.startAnimatingGIF()
+
         self.navigationController?.navigationBar.isHidden = false
     }
     override func viewDidAppear(_ animated: Bool) {
         if selectedFromCurrent != nil {
             loadDataCurrent()
             postSetup()
-           
+
         }else{
             getData()
             postSetup()
@@ -69,8 +73,8 @@ final class PhotoDetailViewController: UIViewController {
         if let userName = name ?? viewRequest.userName{
             self.title = "\(userName)'s Post"
             nameUserButton.setTitle(userName, for: .normal)
+
             if let caption = user?.caption ?? postDetail?.caption {
-                
                 let text = "\(userName): \(caption)".withBoldText(text: "\(userName)")
                 captionLabel.attributedText = text
             }
@@ -87,7 +91,6 @@ final class PhotoDetailViewController: UIViewController {
     }
     
     func getData(){
-        
         viewRequest.userSelected = user?.userId
         viewRequest.loadData(completionHandler: { success, _ in
             if success {
@@ -97,7 +100,7 @@ final class PhotoDetailViewController: UIViewController {
     }
     
     func loadDataCurrent(){
-       
+
         controller?.loadData(completionHandler: { success, _ in
             if success {
             }
@@ -114,16 +117,16 @@ final class PhotoDetailViewController: UIViewController {
             "Text": commentTextField.text]
         
         if let childKey = user?.childKey ?? postDetail?.childKey {
-            ref.child("posts").child(childKey).child("Comments").childByAutoId().setValue(dict)
+            databaseReference.child("posts").child(childKey).child("Comments").childByAutoId().setValue(dict)
             commentTextField.text = nil
+        }
     }
-}
     func getComments(){
         if let postID = postDetail?.childKey ?? user?.childKey{
             commentsRequest.getComments(ID: postID , completionHandler: { success, _ in
                 if success{
                     self.commentsLabel.text = "\(self.commentsRequest.commentsDetails.count)"
-                   
+
                     
                     self.tableCommentsSetup()
                 }
@@ -141,17 +144,17 @@ final class PhotoDetailViewController: UIViewController {
         controller?.passData(completionHandler: { success, _ in
             if success {
                 self.tableViewSetup()
-               
             }
         })
     }
     
     func tableViewSetup(){
-        self.photoTableView.delegate = self.controller
-        self.photoTableView.dataSource = self.controller
-        self.photoTableView.reloadData()
-        self.loadingImage.isHidden = true
-        self.getComments()
+        photoTableView.delegate = self.controller
+        photoTableView.dataSource = self.controller
+        photoTableView.reloadData()
+        loadingImage.isHidden = true
+        loadingImage.stopAnimatingGIF()
+        getComments()
     }
 }
 

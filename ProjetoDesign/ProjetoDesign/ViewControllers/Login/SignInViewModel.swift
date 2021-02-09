@@ -40,7 +40,7 @@ final class SignInViewModel: NSObject, FacebookSignInProvider, GIDSignInDelegate
     private let googleSignIn = GIDSignIn.sharedInstance()
     private let facebookSignIn = LoginManager()
     private let auth = Auth.auth()
-    private let databaseReference = Database.database().reference()
+    private lazy var databaseReference = Database.database().reference()
 
     // MARK: - Variables
 

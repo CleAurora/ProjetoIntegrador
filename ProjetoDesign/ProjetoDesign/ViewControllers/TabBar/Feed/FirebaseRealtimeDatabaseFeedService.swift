@@ -9,16 +9,13 @@ import Firebase
 import FirebaseDatabase
 
 final class FirebaseRealtimeDatabaseFeedService: FeedService {
-    private let databaseReference: DatabaseReference
-    private var feeds: [PostUser] = []
+    private lazy var database: Database = Database.database()
 
-    private var newPostsCancellationToken: UInt?
-    private var postsChangedCancellationToken: UInt?
+    private var getUserCancellationToken: UInt?
 
     static let shared: FeedService = FirebaseRealtimeDatabaseFeedService()
 
     private init() {
-        databaseReference = Database.database().reference()
     }
 
     enum FeedServiceError: Error {
@@ -37,7 +34,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
             return handler(.failure(FeedServiceError.userNotLogged))
         }
 
-        databaseReference.child("users").child(user.uid).observeSingleEvent(of: .value) { snapshot in
+        database.reference(withPath: "users").child(user.uid).observeSingleEvent(of: .value) { snapshot in
             guard snapshot.exists(), let dictionary = snapshot.value as? [String: AnyObject] else {
                 return handler(.failure(FeedServiceError.userNotFound))
             }
@@ -65,9 +62,9 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
             "TimeStamp": Date().timeIntervalSince1970
         ] as [String : Any]
 
-        databaseReference.child("posts").child(postId).child("Likes").observeSingleEvent(of: .value) { [self] snapshot in
+        database.reference(withPath: "posts").child(postId).child("Likes").observeSingleEvent(of: .value) { [unowned self] snapshot in
             guard snapshot.exists(), let dictionary = snapshot.value as? [String: AnyObject] else {
-                return databaseReference.child("posts").child(postId).child("Likes").childByAutoId()
+                return database.reference(withPath: "posts").child(postId).child("Likes").childByAutoId()
                     .setValue(value) { (error, ref) in
                         guard let error = error else {
                             return handler(.success(()))
@@ -90,7 +87,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                 return handler(.success(()))
             }
 
-            databaseReference.child("posts").child(postId).child("Likes").childByAutoId().setValue(value) { (error, ref) in
+            database.reference(withPath: "posts").child(postId).child("Likes").childByAutoId().setValue(value) { (error, ref) in
                 guard let error = error else {
                     return handler(.success(()))
                 }
@@ -105,7 +102,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
             return handler(.failure(FeedServiceError.userNotLogged))
         }
 
-        databaseReference.child("posts").child(postId).child("Likes").observeSingleEvent(of: .value) { [self] snapshot in
+        database.reference(withPath: "posts").child(postId).child("Likes").observeSingleEvent(of: .value) { [unowned self] snapshot in
             guard snapshot.exists(), let dictionary = snapshot.value as? [String: AnyObject] else {
                 return handler(.failure(FeedServiceError.userNotFound))
             }
@@ -123,7 +120,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                 return handler(.failure(FeedServiceError.likeNotFound))
             }
 
-            databaseReference.child("posts").child(postId).child("Likes").child(id).removeValue { (error, ref) in
+            database.reference(withPath: "posts").child(postId).child("Likes").child(id).removeValue { (error, ref) in
                 guard let error = error else {
                     return handler(.success(()))
                 }
@@ -138,12 +135,14 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
             return handler(.failure(FeedServiceError.userNotLogged))
         }
 
-        databaseReference.child("users").child(user.uid).observeSingleEvent(of: .value) { [self] snapshot in
-            loadPosts(userUid: user.uid, snapshot: snapshot, then: handler)
+        if let getUserCancellationToken = getUserCancellationToken {
+            database.reference(withPath: "users").removeObserver(withHandle: getUserCancellationToken)
         }
 
-        databaseReference.child("users").child(user.uid).observe(.value) { [self] snapshot in
-            loadPosts(userUid: user.uid, snapshot: snapshot, then: handler)
+        getUserCancellationToken = database.reference(withPath: "users").child(user.uid).observe(.value) { [weak self] snapshot in
+            self?.loadPosts(userUid: user.uid, snapshot: snapshot, then: handler)
+        } withCancel: { error in
+            handler(.failure(error))
         }
     }
 
@@ -160,24 +159,14 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
             usersFollowing.append(contentsOf: followingUsers.allKeys.compactMap({ anyKey in anyKey as? String }))
         }
 
-        if let newPostsCancellationToken = newPostsCancellationToken {
-            databaseReference.removeObserver(withHandle: newPostsCancellationToken)
-        }
-
-        if let postsChangedCancellationToken = postsChangedCancellationToken {
-            databaseReference.removeObserver(withHandle: postsChangedCancellationToken)
-        }
-
         loadPosts(followingUsers: usersFollowing, then: handler)
     }
 
     private func loadPosts(followingUsers: [String], then handler: @escaping (Result<[PostUser], Error>) -> Void) {
-        databaseReference.child("posts").queryOrdered(byChild: "TimeStamp").observeSingleEvent(of: .value, with: { [self] dataSnapshot in
-            convert(followingUsers: followingUsers, snapshot: dataSnapshot, then: handler)
-            waitForNewPosts(following: followingUsers, then: handler)
-        }, withCancel: { error in
-            handler(.failure(error))
-        })
+        database.reference(withPath: "posts").queryOrdered(byChild: "TimeStamp").observeSingleEvent(of: .value) { [weak self] dataSnapshot in
+            self?.convert(followingUsers: followingUsers, snapshot: dataSnapshot, then: handler)
+            self?.waitForNewPosts(then: handler)
+        }
     }
 
     private func convert(followingUsers: [String], snapshot: DataSnapshot, then handler: @escaping (Result<[PostUser], Error>) -> Void) {
@@ -186,7 +175,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
         }
 
         guard snapshot.exists(), snapshot.hasChildren(), let dictionary = snapshot.value as? NSDictionary else {
-            return handler(.success(feeds))
+            return handler(.success([]))
         }
 
         let newPosts: [PostUser]
@@ -311,8 +300,12 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
 
         let usersIds = Set(newPosts.map({ post in post.user.id }))
 
+        guard !usersIds.isEmpty else {
+            return handler(.success([]))
+        }
+
         usersIds.enumerated().forEach { index, userId in
-            databaseReference.child("users").child(userId).observeSingleEvent(of: .value) { [self] userSnapshot in
+            database.reference(withPath: "users").child(userId).observeSingleEvent(of: .value) { userSnapshot in
                 if userSnapshot.exists(), let dictionary = userSnapshot.value as? [String: AnyObject],
                    let name = dictionary["Name"] as? String,
                    let imageProfileUrl = dictionary["profileUrl"] as? String {
@@ -330,12 +323,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                         return PostUser(source: post, user: user)
                     }
 
-//                    let cached = feeds
-//                    let newListFiltered = newPosts.filter({ newPost in !cached.contains(newPost) })
-//                    let newList = newListFiltered + cached.filter({ old in newListFiltered.isEmpty || newListFiltered.contains(where: { new in new.id == old.id }) })
-                    feeds.removeAll(where: { old in newPosts.contains(where: { new in new.id == old.id }) })
-                    let newList = newPosts + feeds
-                    let filteredList = newList.filter({ post in followingUsers.contains(post.user.id) }).sorted(by: { (lhsPost, rhsPost) -> Bool in
+                    let filteredList = newPosts.filter({ post in followingUsers.contains(post.user.id) }).sorted(by: { (lhsPost, rhsPost) -> Bool in
                         guard let lhsDate = lhsPost.timestamp, let rhsDate = rhsPost.timestamp else {
                             return false
                         }
@@ -343,27 +331,30 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                         return lhsDate > rhsDate
                     })
 
-                    if feeds != filteredList {
-                        feeds = filteredList
-
-                        handler(.success(filteredList))
-                    }
+                    handler(.success(filteredList))
                 }
             }
         }
     }
 
-    private func waitForNewPosts(following: [String], then handler: @escaping (Result<[PostUser], Error>) -> Void) {
-        newPostsCancellationToken = databaseReference.child("posts").observe(.childAdded) { [self] dataSnapshot in
-            convert(followingUsers: following, snapshot: dataSnapshot, then: handler)
-        } withCancel: { error in
-            handler(.failure(error))
+    private func waitForNewPosts(then handler: @escaping (Result<[PostUser], Error>) -> Void) {
+        var childChangedCalled = false
+        var childAddedCalled = false
+
+        database.reference(withPath: "posts").queryOrdered(byChild: "TimeStamp").observeSingleEvent(of: .childChanged) { [weak self] _ in
+            if !childChangedCalled {
+                self?.load(then: handler)
+            }
+
+            childChangedCalled = true
         }
 
-        postsChangedCancellationToken = databaseReference.child("posts").observe(.childChanged) { [self] dataSnapshot in
-            convert(followingUsers: following, snapshot: dataSnapshot, then: handler)
-        } withCancel: { error in
-            handler(.failure(error))
+        database.reference(withPath: "posts").queryOrdered(byChild: "TimeStamp").queryStarting(atValue: Date().timeIntervalSince1970).queryLimited(toLast: 1).observeSingleEvent(of: .childAdded) { [weak self] snapshot in
+            if !childAddedCalled {
+                self?.load(then: handler)
+            }
+
+            childAddedCalled = true
         }
     }
 }

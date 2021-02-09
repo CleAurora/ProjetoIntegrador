@@ -8,8 +8,8 @@
 import UIKit
 import Reachability
 import PKHUD
-import SwiftGifOrigin
 import Photos
+import Gifu
 
 class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
@@ -21,7 +21,7 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
     @IBOutlet var imageViewBorder: UIView!
     @IBOutlet var tabBarViewLeft: UIView!
     @IBOutlet var tabBarViewRight: UIView!
-    @IBOutlet var imageLoading: UIImageView!
+    @IBOutlet var imageLoading: GIFImageView!
     @IBOutlet var tabBarCustomItem: UITabBarItem!
     
     var imageSelected: UIImage?
@@ -41,10 +41,10 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         tabBarViewLeft.roundCorners(.topRight, radius: 33)
         tabBarViewRight.roundCorners(.topLeft, radius: 33)
         imageViewBorder.roundedBottom()
+        imageLoading.prepareForAnimation(withGIFNamed: "loading")
         setupReachability()
     }
     
@@ -52,14 +52,14 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
         super.viewDidAppear(animated)
         
         uploadData.photosArray.removeAll()
-    
+
         grabPhotos()
     }
     
     func showLoading(){
         if uploadData.photosArray.count == 0 {
             imageLoading.isHidden = false
-            imageLoading.image = UIImage.gif(name: "loading")
+            imageLoading.startAnimatingGIF()
         }
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -91,7 +91,7 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
                 }else if status == .denied {
                     self.denideAcessPhotos()
                 }
-             }
+            }
             )} else if photos == .authorized {
                 authorizedAcessPhotos()
             }else if photos == .denied {
@@ -100,29 +100,32 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
     }
     func authorizedAcessPhotos(){
         uploadData.grabPhotos(completionHandler: { success, _ in
-        if success {
-            collectionSetup()
-        }else{
-            print("dont have acess")
+            if success {
+                collectionSetup()
+            }else{
+                print("dont have acess")
             }
         })
     }
     func denideAcessPhotos(){
         let alert = UIAlertController(title: "Photos", message: "Photos access is absolutely necessary to use this app", preferredStyle: .alert)
-                // Add "OK" Button to alert, pressing it will bring you to the settings app
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
-                    UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
-                }))
-                // Show the alert with animation
-                self.present(alert, animated: true)
+        // Add "OK" Button to alert, pressing it will bring you to the settings app
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+        }))
+        // Show the alert with animation
+        self.present(alert, animated: true)
     }
     func collectionSetup(){
         self.uploadDataSource = uploadCollectionDelegateSource(uploadView: uploadData, view: self)
-        uploadCollectionView.delegate = uploadDataSource
-        uploadCollectionView.dataSource = uploadDataSource
-        
+        DispatchQueue.main.async { [unowned self] in
+            uploadCollectionView.delegate = uploadDataSource
+            uploadCollectionView.dataSource = uploadDataSource
+        }
+
         if uploadData.photosArray.count > 0 {
             imageLoading.isHidden = true
+            imageLoading.stopAnimatingGIF()
         }
         uploadCollectionView.reloadData()
         
@@ -139,9 +142,9 @@ class UploadViewController: UIViewController,  UIImagePickerControllerDelegate, 
         }
 
         if let legendViewController = UIStoryboard(name: "Legend", bundle: nil).instantiateInitialViewController() as? LegendViewController {
-        legendViewController.imagemProfile = resizeImageView.image
-        navigationController?.pushViewController(legendViewController, animated: true)
-    }
+            legendViewController.imagemProfile = resizeImageView.image
+            navigationController?.pushViewController(legendViewController, animated: true)
+        }
     }
 }
 

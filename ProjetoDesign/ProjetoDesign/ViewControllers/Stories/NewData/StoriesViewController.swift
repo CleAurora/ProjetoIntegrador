@@ -14,7 +14,7 @@ import Firebase
 import PKHUD
 class StoriesViewController: UIViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate, SwiftyCamViewControllerDelegate {
     
-    let ref: DatabaseReference = Database.database().reference()
+    private lazy var databaseReference: DatabaseReference = Database.database().reference()
     
     @IBOutlet var recordButton: UIButton!
     @IBOutlet var switchCameraButton: UIButton!
@@ -32,8 +32,8 @@ class StoriesViewController: UIViewController , UIImagePickerControllerDelegate,
     override func viewDidAppear(_ animated: Bool) {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let captureButton = SwiftyCamButton(frame: recordButton.frame)
-           // captureButton.delegate = self
-           // defaultCamera = .front
+            // captureButton.delegate = self
+            // defaultCamera = .front
             if storieImageView == nil {
                 openCamera()
             }else {
@@ -60,7 +60,7 @@ class StoriesViewController: UIViewController , UIImagePickerControllerDelegate,
         //switchCamera()
     }
     @IBAction func recordButton(_ sender: Any) {
-       // takePhoto()
+        // takePhoto()
     }
     @IBAction func sendTo(_ sender: Any) {
         HUD.show(.progress)
@@ -89,11 +89,11 @@ class StoriesViewController: UIViewController , UIImagePickerControllerDelegate,
     
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
-    if  let chosenImage = info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage{
-        storieImageView.contentMode = .scaleAspectFill
-        storieImageView.image = chosenImage
-        storieImageView.image = chosenImage
-    }
+        if  let chosenImage = info[UIImagePickerController.InfoKey.originalImage.rawValue] as? UIImage{
+            storieImageView.contentMode = .scaleAspectFill
+            storieImageView.image = chosenImage
+            storieImageView.image = chosenImage
+        }
         GaleriaButton.isHidden = true
         switchCameraButton.isHidden = true
         sendToButton.isHidden = false
@@ -102,7 +102,7 @@ class StoriesViewController: UIViewController , UIImagePickerControllerDelegate,
         
         isImageSelected = true
         dismiss(animated: true, completion: nil)
-   }
+    }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
@@ -137,7 +137,7 @@ class StoriesViewController: UIViewController , UIImagePickerControllerDelegate,
         }
     }
     func uploadImage(_ image:UIImage, completionHandler: @escaping (_ result: URL?, _ error: Error?) -> Void){
-        let newChild = ref.childByAutoId()
+        let newChild = databaseReference.childByAutoId()
         let storageRef = Storage.storage().reference().child("\(newChild).png")
         let imgData = storieImageView.image?.pngData()
         let metaData = StorageMetadata()
@@ -153,23 +153,24 @@ class StoriesViewController: UIViewController , UIImagePickerControllerDelegate,
         }
     }
     func saveImage(name: String, profileURL:URL, completionHandler: @escaping (_ result: URL?, _ error: Error?) -> Void) {
-        let uid = Auth.auth().currentUser?.uid
-        if let currentUserID = uid {
-            
-            let reference = ref.child("stories").childByAutoId()
-            
-            let dict: [String: Any] = [
-                "userID": uid,
-                "TimeStamp": Date().timeIntervalSince1970,
-                "StorieImage": profileURL.absoluteString,
-                "Duration": 86400,
-                "childID": reference.key
-            ]
+        if let currentUserID = Auth.auth().currentUser?.uid {
+            let reference = databaseReference.child("stories").childByAutoId()
+
+            if let key = reference.key {
+                let dict: [String: Any] = [
+                    "userID": currentUserID,
+                    "TimeStamp": Date().timeIntervalSince1970,
+                    "StorieImage": profileURL.absoluteString,
+                    "Duration": 86400,
+                    "childID": key
+                ]
+
                 reference.updateChildValues(dict) { (error, _) in
-                if let error = error {
-                    return completionHandler(nil, error)
+                    if let error = error {
+                        return completionHandler(nil, error)
+                    }
+                    completionHandler(profileURL, nil)
                 }
-                completionHandler(profileURL, nil)
             }
         }
     }

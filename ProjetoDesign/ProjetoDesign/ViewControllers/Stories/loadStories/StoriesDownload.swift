@@ -19,16 +19,14 @@ class StoriesModel: NSObject {
 }
 
 class StoriesDownload {
-    var ref: DatabaseReference!
+    private lazy var databaseReference: DatabaseReference = Database.database().reference()
     var uid = Auth.auth().currentUser?.uid
     var storiesData = [StoriesModel]()
     
     func downloadStories(User: String!, UserName: String!, UserProfile: String!, completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         self.storiesData.removeAll()
-        self.ref = Database.database().reference()
-        
-        let reference = ref.child("stories")
-        reference.queryOrdered(byChild: "TimeStamp").observeSingleEvent(of: .value, with: {snapshot in
+
+        databaseReference.child("stories").queryOrdered(byChild: "TimeStamp").observeSingleEvent(of: .value, with: {snapshot in
             for postSnapshot in snapshot.children.allObjects as! [DataSnapshot] {
 
                 if let value = postSnapshot.value as? [String: AnyObject]{

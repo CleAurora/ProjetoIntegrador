@@ -53,12 +53,24 @@ final class SettingViewController: UIViewController, UIImagePickerControllerDele
         }
        
     }
+
+    func alertDadosAtualizados(){
+        let alert = UIAlertController(title: "Well done!", message: "Updated profile", preferredStyle: .alert)
+
+             let ok = UIAlertAction(title: "OK", style: .default, handler: { action in
+             })
+             alert.addAction(ok)
+             DispatchQueue.main.async(execute: {
+                self.present(alert, animated: true)
+        })
+    }
     
     @objc func addTapped(){
         self.profileView = editProfileViewModel(userModel: userModel, view: self)
         profileView?.editProfile(completionHandler: { success, _ in
             if success {
                 print("dados atualizados")
+                self.alertDadosAtualizados()
             }
         })
     }
@@ -66,7 +78,6 @@ final class SettingViewController: UIViewController, UIImagePickerControllerDele
         self.profileView = editProfileViewModel(userModel: userModel, view: self)
         userModel.loadData(completionHandler: { success, _ in
             if success {
-              //  self.profileView?.changePictureButtonTapped()
             }
         })
         self.profileView?.changePictureButtonTapped()

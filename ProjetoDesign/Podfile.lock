@@ -66,6 +66,7 @@ PODS:
   - FirebaseStorage (7.3.0):
     - FirebaseCore (~> 7.0)
     - GTMSessionFetcher/Core (~> 1.4)
+  - Gifu (3.3)
   - GoogleAppMeasurement (7.3.0):
     - GoogleUtilities/AppDelegateSwizzler (~> 7.0)
     - GoogleUtilities/MethodSwizzler (~> 7.0)
@@ -775,7 +776,6 @@ PODS:
   - PromisesObjC (1.2.11)
   - ReachabilitySwift (5.0.0)
   - SegmentedProgressView (0.1.0)
-  - SwiftGifOrigin (1.7.0)
   - SwiftMessages (8.0.5):
     - SwiftMessages/App (= 8.0.5)
   - SwiftMessages/App (8.0.5)
@@ -789,6 +789,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Database
   - Firebase/Storage
+  - Gifu
   - GoogleSignIn
   - IQKeyboardManagerSwift (~> 6.3)
   - KIF
@@ -799,7 +800,6 @@ DEPENDENCIES:
   - PKHUD
   - ReachabilitySwift
   - SegmentedProgressView (from `https://github.com/CleAurora/SegmentedProgressView.git`, branch `master`)
-  - SwiftGifOrigin
   - SwiftMessages
   - SwiftyCam
 
@@ -818,6 +818,7 @@ SPEC REPOS:
     - FirebaseDatabase
     - FirebaseInstallations
     - FirebaseStorage
+    - Gifu
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleSignIn
@@ -840,7 +841,6 @@ SPEC REPOS:
     - PKHUD
     - PromisesObjC
     - ReachabilitySwift
-    - SwiftGifOrigin
     - SwiftMessages
     - SwiftyCam
 
@@ -868,6 +868,7 @@ SPEC CHECKSUMS:
   FirebaseDatabase: 22199cb121a527ae59df646d61426fbb12f5627a
   FirebaseInstallations: 971df89b48ae5ee4cc2bf6935f3857a525d28550
   FirebaseStorage: 5002b1895bfe74a5ce92ad54f966e6162d0da2e5
+  Gifu: 97c2a3c3865fbc834ab13f797e2e8e7729a1853c
   GoogleAppMeasurement: 8d3c0aeede16ab7764144b5a4ca8e1d4323841b7
   GoogleDataTransport: 116c84c4bdeb76be2a7a46de51244368f9794eab
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
@@ -891,10 +892,9 @@ SPEC CHECKSUMS:
   PromisesObjC: 8c196f5a328c2cba3e74624585467a557dcb482f
   ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
   SegmentedProgressView: 88adf11be2431966c41260b427d0878b67e71993
-  SwiftGifOrigin: fbd6cf37afcfcf97a5c3db996ddc0492e5c5c145
   SwiftMessages: 539fd54a766bf08ec667e90aa141c44b8b8aaa55
   SwiftyCam: 6e57914771d972fbe508e759dc9d0150a44a93fd
 
-PODFILE CHECKSUM: d385665fa1dbb17f0136dd1b64e0bc77d38e87fe
+PODFILE CHECKSUM: a264f70ad7a85d84afbf35399d837f1a7b9f357d
 
-COCOAPODS: 1.10.0
+COCOAPODS: 1.10.1

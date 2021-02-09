@@ -187,7 +187,7 @@ final class LegendViewModel: NSObject, LegendViewModelProtocol, CLLocationManage
            let viewControllers = tabBarController.viewControllers,
            let navController = viewControllers.first as? UINavigationController,
            let feedViewController = navController.viewControllers.first as? FeedViewController {
-            tabBarController.selectedIndex = 0
+            tabBarController.selectedIndex = 2
             feedViewController.feedTableView.reloadData()
         }
 
