@@ -39,6 +39,7 @@ final class FeedViewController: UIViewController, HeaderDelegate {
     }
 
     // MARK: - Super Methods
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
