@@ -15,7 +15,7 @@ import PKHUD
 class StoriesViewController: UIViewController , UIImagePickerControllerDelegate, UINavigationControllerDelegate, SwiftyCamViewControllerDelegate {
     
     private lazy var databaseReference: DatabaseReference = Database.database().reference()
-    
+    private weak var viewController: UIViewController?
     @IBOutlet var recordButton: UIButton!
     @IBOutlet var switchCameraButton: UIButton!
     @IBOutlet var sendToView: extensions!
@@ -67,7 +67,7 @@ class StoriesViewController: UIViewController , UIImagePickerControllerDelegate,
         self.saveFIRData(completionHandler: { success, _ in
             if success {
                 HUD.hide()
-                self.closeLeftToRight()
+               self.closeLeftToRight()
             }
         })
     }

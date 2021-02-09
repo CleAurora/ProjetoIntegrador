@@ -65,6 +65,7 @@ class ViewRequest{
                         }
 
                         if whoIsFollowing == userToshow.userID {
+                            print(notificationsUser.count)
                             notificationsUser.append(userToshow)
                         }
 
@@ -88,7 +89,7 @@ class ViewRequest{
     func downloadData(ID: String,completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         userArray.removeAll()
         notificationsUser.removeAll()
-
+        containtUser.removeAll()
         if let uid = Auth.auth().currentUser?.uid {
             databaseReference.child("users").observe(.value) { [unowned self] (snapshot) in
                 if let users = snapshot.value as? [String: AnyObject] {
@@ -124,8 +125,10 @@ class ViewRequest{
                         }
                         if ID == userToshow.userID {
                             if containtUser.contains(userToshow.userID) {
+                                
                                 //do nothing
                             }else {
+                                
                                 notificationsUser.append(userToshow)
                                 containtUser.append(userToshow.userID)
                             }

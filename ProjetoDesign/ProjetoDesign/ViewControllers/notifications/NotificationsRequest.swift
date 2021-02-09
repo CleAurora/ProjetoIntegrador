@@ -34,7 +34,7 @@ class NotificationsRequest {
                             if success{
                                 
                                 self.notificationsUser = self.userRequest.notificationsUser
-
+                               
                                 completionHandler(true,nil)
                                 
                             }

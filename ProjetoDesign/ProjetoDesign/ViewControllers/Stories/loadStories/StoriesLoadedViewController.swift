@@ -8,6 +8,7 @@
 import UIKit
 import SegmentedProgressView
 import Firebase
+import Gifu
 
 final class StoriesLoadedViewController: UIViewController, ProgressBarDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     var items: [ProgressItem] = []
@@ -16,12 +17,16 @@ final class StoriesLoadedViewController: UIViewController, ProgressBarDelegate, 
     @IBOutlet var backgroundSegmented: UIView!
     @IBOutlet var storiesCollectionView: UICollectionView!
     @IBOutlet var xibProgressView: SegmentedProgressView!
+    @IBOutlet var loadingImage: GIFImageView!
     
     var images: [UIImage] = []
     var storiesUser: Usuario?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadingImage.isHidden = false
+        loadingImage.prepareForAnimation(withGIFNamed: "loading")
+        loadingImage.startAnimatingGIF()
         getStories()
     }
     
@@ -30,7 +35,11 @@ final class StoriesLoadedViewController: UIViewController, ProgressBarDelegate, 
           storiesCollectionView.dataSource = self
           storiesCollectionView.reloadData()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     
+    }
+
     func getStories(){
         if let userID = storiesUser?.userID ?? profileID?.uid , let name = storiesUser?.name ?? profileID?.name, let image = storiesUser?.profileUrl ?? profileID?.profileImage {
             
@@ -75,7 +84,12 @@ final class StoriesLoadedViewController: UIViewController, ProgressBarDelegate, 
         xibProgressView.items = items
         
         startTimer()
+        loadingImage.isHidden = true
+        loadingImage.stopAnimatingGIF()
+        
         storiesCollectionView.reloadData()
+        
+      
     }
     
     override func didReceiveMemoryWarning() {
@@ -90,6 +104,7 @@ final class StoriesLoadedViewController: UIViewController, ProgressBarDelegate, 
     func progressBar(didDisplayItemAtIndex index: Int) {
         print("didDisplayItemAtIndex \(index)")
     }
+    
     @IBAction func closedButton(_ sender: Any) {
      
         dismiss(animated: true, completion: nil)

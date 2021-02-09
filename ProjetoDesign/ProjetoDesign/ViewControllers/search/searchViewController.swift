@@ -15,7 +15,7 @@ class searchViewController: UIViewController {
     @IBOutlet weak var userSearchView: UISearchBar!
     @IBOutlet weak var dataCollectionView: UICollectionView!
     @IBOutlet var imageLoading: GIFImageView!
-    
+    var timer: Timer?
     // MARK: - Proprierts
     var searchIn = ""
     var userArray = [Post]()
@@ -29,22 +29,23 @@ class searchViewController: UIViewController {
     // MARK: - Super Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
         navigationController?.navigationBar.isHidden = true
         searchTableView.isHidden = true
         userSearchView.delegate = self
+        imageLoading.isHidden = false
         imageLoading.prepareForAnimation(withGIFNamed: "loading")
+        imageLoading.startAnimatingGIF()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
         getData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        showLoading()
+        
+        
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "activateTab"), object: .none)
         self.tabBarController?.tabBar.isHidden = false
 
@@ -59,21 +60,20 @@ class searchViewController: UIViewController {
     func getImage(){
         self.imageRequest.loadData(completionHandler: { success, _ in
             if success {
-                self.collectionSetup()
+                self.timer = Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.collectionSetup),userInfo: nil, repeats: true)
             }
         })
     }
     
-    func collectionSetup(){
+    @objc func collectionSetup(){
 
         dataCollectionView.delegate = viewModel
         dataCollectionView.dataSource = viewModel
-        
-        if imageRequest.userArray.count > 0 {
-            imageLoading.isHidden = true
-            imageLoading.stopAnimatingGIF()
-        }
         dataCollectionView.reloadData()
+        
+        imageLoading.isHidden = true
+        imageLoading.stopAnimatingGIF()
+        
     }
     func tableViewSetup(){
         
