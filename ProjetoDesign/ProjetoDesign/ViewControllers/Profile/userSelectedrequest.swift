@@ -9,22 +9,20 @@ import Foundation
 import Firebase
 import FirebaseAuth
 
-class userSelectedrequest{
-    var ref: DatabaseReference!
+final class userSelectedrequest {
+    private lazy var databaseReference: DatabaseReference = Database.database().reference()
     var userArray = [Usuario]()
     var selectedUser: Usuario?
 
     func loadData(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         self.userArray.removeAll()
 
-        self.ref = Database.database().reference()
         if let uid = Auth.auth().currentUser?.uid {
             if let userID = selectedUser?.userID {
-                let reference = self.ref.child("users").child(userID)
-                    reference.observe(.value) { (snapshot) in
+                databaseReference.child("users").child(userID).observe(.value) { (snapshot) in
 
-                        if let users = snapshot.value as? [String: AnyObject] {
-                            for(_, value) in users {
+                    if let users = snapshot.value as? [String: AnyObject] {
+                        for(_, value) in users {
 
                             let userToshow = Usuario()
 
@@ -38,21 +36,21 @@ class userSelectedrequest{
                             let following = value["Following"] as? Int
                             
 
-                                userToshow.name = user
-                                userToshow.nickname = nickname
-                                userToshow.email = email
-                                userToshow.userID = userID
-                                userToshow.profileUrl = profileUrl
-                                userToshow.bio = bio
-                                userToshow.followers = followers
-                                userToshow.following = following
-                                
-                                    self.userArray.append(userToshow)
+                            userToshow.name = user
+                            userToshow.nickname = nickname
+                            userToshow.email = email
+                            userToshow.userID = userID
+                            userToshow.profileUrl = profileUrl
+                            userToshow.bio = bio
+                            userToshow.followers = followers
+                            userToshow.following = following
+
+                            self.userArray.append(userToshow)
 
                         }
 
                     }
-                        completionHandler(true,nil)
+                    completionHandler(true,nil)
 
                 }
             }

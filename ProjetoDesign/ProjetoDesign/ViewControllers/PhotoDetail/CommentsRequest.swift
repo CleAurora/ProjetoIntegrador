@@ -29,8 +29,8 @@ class CommentsDetailModel: NSObject{
         self.text = text
     }
 }
-class CommentsRequest{
-    var ref: DatabaseReference!
+final class CommentsRequest{
+    private lazy var databaseReference: DatabaseReference = Database.database().reference()
     var uid = Auth.auth().currentUser?.uid
     var comments = [CommentsModel]()
     var user = [Usuario]()
@@ -39,43 +39,40 @@ class CommentsRequest{
     func getComments(ID: String! ,completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         
         if let childKey = ID {
-            self.ref = Database.database().reference()
-            let reference = self.ref.child("posts").child(childKey).child("Comments")
-            reference.queryOrderedByKey().observe(.value, with: {(snapshot) in
+            databaseReference.child("posts").child(childKey).child("Comments").queryOrderedByKey().observe(.value, with: {(snapshot) in
                 for commentsSnapshot in snapshot.children.allObjects as! [DataSnapshot] {
                     if let value = commentsSnapshot.value as? [String: AnyObject] {
                         let commentsToshow = CommentsModel()
                         let text = value["Text"] as? String
                         let timeStamp = value["TimeStamp"] as? Double
                         let userID = value["UserID"] as? String
-                       
-                           commentsToshow.Text = text
-                           commentsToshow.TimeStamp = timeStamp
-                           commentsToshow.userID = userID
-                       
+
+                        commentsToshow.Text = text
+                        commentsToshow.TimeStamp = timeStamp
+                        commentsToshow.userID = userID
+
                         self.comments.append(commentsToshow)
                         self.downloadData(ID: commentsToshow.userID, commentsText: commentsToshow.Text, timeStampMessage: commentsToshow.TimeStamp, completionHandler: { success, _ in
                             if success {
-                             //   print(self.commentsDetails.count)
+                                //   print(self.commentsDetails.count)
                                 completionHandler(true,nil)
                             }
                         })
                     }
                 }
-               
+
             })
-           
+
         }
     }
     func downloadData(ID: String?, commentsText: String?, timeStampMessage: Double?, completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         self.commentsDetails.removeAll()
-        self.ref = Database.database().reference()
-        if let uid = Auth.auth().currentUser?.uid {
-            let reference = self.ref.child("users")
-                reference.observe(.value) { (snapshot) in
 
-                    if let users = snapshot.value as? [String: AnyObject] {
-                        for(_, value) in users {
+        if Auth.auth().currentUser?.uid != nil {
+            databaseReference.child("users").observe(.value) { (snapshot) in
+
+                if let users = snapshot.value as? [String: AnyObject] {
+                    for(_, value) in users {
 
                         let userToshow = Usuario()
 
@@ -88,18 +85,18 @@ class CommentsRequest{
                         let followers = value ["Followers"] as? Int
                         let following = value["Following"] as? Int
                         let website = value["Website"] as? String
-                            
-                            userToshow.name = user
-                            userToshow.nickname = nickname
-                            userToshow.email = email
-                            userToshow.userID = userID
-                            userToshow.profileUrl = profileUrl
-                            userToshow.bio = bio
-                            userToshow.followers = followers
-                            userToshow.following = following
-                            userToshow.website = website
-                            if let userID = ID, let timeStamp = timeStampMessage, let message = commentsText {
-                               
+
+                        userToshow.name = user
+                        userToshow.nickname = nickname
+                        userToshow.email = email
+                        userToshow.userID = userID
+                        userToshow.profileUrl = profileUrl
+                        userToshow.bio = bio
+                        userToshow.followers = followers
+                        userToshow.following = following
+                        userToshow.website = website
+                        if let userID = ID, let timeStamp = timeStampMessage, let message = commentsText {
+
                             if userID == userToshow.userID {
                                 self.commentsDetails.append(
                                     CommentsDetailModel(nameUser: userToshow.name,

@@ -5,21 +5,18 @@
 //  Created by Lestad on 2021-01-05.
 //
 
-import Foundation
 import UIKit
-class NotificationsTableDelegateDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
 
-    
-    var view = notificationsViewController()
-    var followRequest = FollowRequest()
-    var request = NotificationsRequest()
-    var userRequest = ViewRequest()
-    init(view: notificationsViewController, request: NotificationsRequest, userRequest: ViewRequest, followRequest: FollowRequest){
+class NotificationsTableDelegateDataSource: NSObject, UITableViewDelegate, UITableViewDataSource {
+    weak var view: notificationsViewController?
+
+    private let followRequest: FollowRequest
+    private let request: NotificationsRequest
+
+    init(view: notificationsViewController, request: NotificationsRequest, followRequest: FollowRequest) {
         self.view = view
         self.request = request
-        self.userRequest = userRequest
         self.followRequest = followRequest
-                
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,7 +33,7 @@ class NotificationsTableDelegateDataSource: NSObject, UITableViewDelegate, UITab
         cell.buttonTapped = {
             self.followRequest.userSelected = notifications
             self.followRequest.getFollowers(completionHandler: { success, _ in
-              
+
                 if success {
                     let buttonLabel = cell.notificationButton.titleLabel?.text
 
@@ -52,7 +49,7 @@ class NotificationsTableDelegateDataSource: NSObject, UITableViewDelegate, UITab
                         cell.notificationButton.setTitleColor(.black, for: .normal)
                     }
                 }
-          })
+            })
         }
         return cell
     }

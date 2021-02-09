@@ -27,7 +27,7 @@ final class PhotoDetailViewController: UIViewController {
     
     // MARK: - Proprierts
     var photoModel: PhotoDetailModel?
-    private let ref: DatabaseReference = Database.database().reference()
+    private lazy var databaseReference: DatabaseReference = Database.database().reference()
     var controller: PhotoDetailTableDelegateDataSource?
     var commentsRequest = CommentsRequest()
     var photoArray = [PhotoDetailModel]()
@@ -114,7 +114,7 @@ final class PhotoDetailViewController: UIViewController {
             "Text": commentTextField.text]
         
         if let childKey = user?.childKey ?? postDetail?.childKey {
-            ref.child("posts").child(childKey).child("Comments").childByAutoId().setValue(dict)
+            databaseReference.child("posts").child(childKey).child("Comments").childByAutoId().setValue(dict)
             commentTextField.text = nil
     }
 }

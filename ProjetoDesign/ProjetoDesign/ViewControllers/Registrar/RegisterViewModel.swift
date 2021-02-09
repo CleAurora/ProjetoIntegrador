@@ -17,7 +17,7 @@ protocol RegisterViewModelProtocol {
 }
 
 final class RegisterViewModel: NSObject, RegisterViewModelProtocol, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    private let ref: DatabaseReference = Database.database().reference()
+    private lazy var databaseReference: DatabaseReference = Database.database().reference()
     private weak var register: RegistrarViewController?
     private var imageSelected: UIImage?
     private var uid: String? { Auth.auth().currentUser?.uid }
@@ -156,7 +156,7 @@ final class RegisterViewModel: NSObject, RegisterViewModelProtocol, UINavigation
                 ]
             ]
 
-            ref.child("users").child(currentUserID).setValue(dict) { (error, _) in
+            databaseReference.child("users").child(currentUserID).setValue(dict) { (error, _) in
                 if let error = error {
                     return completionHandler(nil, error)
                 }

@@ -9,11 +9,12 @@ import Foundation
 import UIKit
 class ProfileViewModel: NSObject, UICollectionViewDelegate, UICollectionViewDataSource{
     var userData: Usuario?
-    var userModel = ViewRequest()
-    var view = ProfileViewController()
-    var postRequest = DownloadImages()
+    private let userModel: ViewRequest
+    private weak var view: ProfileViewController?
+    private let postRequest: DownloadImages
     var nameUser: String?
     var imageUser: String?
+
     init(userModel: ViewRequest, view: ProfileViewController, posts: DownloadImages) {
         self.userModel = userModel
         self.view = view
@@ -26,7 +27,7 @@ class ProfileViewModel: NSObject, UICollectionViewDelegate, UICollectionViewData
     func goNextView(){
         if let vc = UIStoryboard(name: "Setting", bundle: nil).instantiateInitialViewController() as? SettingViewController{
             vc.userData = userData
-            view.navigationController?.pushViewController(vc, animated: true)
+            view?.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
@@ -38,15 +39,17 @@ class ProfileViewModel: NSObject, UICollectionViewDelegate, UICollectionViewData
             vc.image = imageUser
             vc.postDetail = postRequest.currentUserPost[indexPath.row]
             vc.selectedFromCurrent = "Current User"
-            view.navigationController?.pushViewController(vc, animated: true)
+            view?.navigationController?.pushViewController(vc, animated: true)
         }
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! ProfileCollectionCell
         cell.setup(post: postRequest.currentUserPost[indexPath.row])
 
         return cell
     }
+
     func collectionView(_ collectionView: UICollectionView,viewForSupplementaryElementOfKind kind: String,at indexPath: IndexPath) -> UICollectionReusableView {
         
         let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "profileReuCell", for: indexPath) as! ProfileCollectionReusableView
@@ -60,5 +63,5 @@ class ProfileViewModel: NSObject, UICollectionViewDelegate, UICollectionViewData
 
         return cell
 
-}
+    }
 }

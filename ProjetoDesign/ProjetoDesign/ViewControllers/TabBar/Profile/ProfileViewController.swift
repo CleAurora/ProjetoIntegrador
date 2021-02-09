@@ -16,9 +16,9 @@ final class ProfileViewController: UIViewController {
     @IBOutlet var tabBarView: UIView!
     
     // MARK: - Proprierts
-    lazy var viewModel: ProfileViewModel = ProfileViewModel(userModel: userModel, view: self, posts: postRequest)
-    var userModel = ViewRequest()
-    var postRequest = DownloadImages()
+    private lazy var viewModel: ProfileViewModel = ProfileViewModel(userModel: userModel, view: self, posts: postRequest)
+    private lazy var userModel = ViewRequest()
+    private lazy var postRequest = DownloadImages()
 
     // MARK: - Super Methods
     override func viewDidAppear(_ animated: Bool) {
@@ -37,9 +37,9 @@ final class ProfileViewController: UIViewController {
     }
 
     func getPost(){
-        postRequest.loadData(completionHandler: { success, _ in
+        postRequest.loadData(completionHandler: { [weak self] success, _ in
             if success{
-                self.getData()
+                self?.getData()
             }
         })
     }

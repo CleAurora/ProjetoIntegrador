@@ -9,7 +9,7 @@ import Firebase
 import FirebaseDatabase
 
 final class FirebaseRealtimeDatabaseCommentsService: CommentsService {
-    private let databaseReference: DatabaseReference
+    private lazy var databaseReference: DatabaseReference = Database.database().reference()
 
     enum ServiceError: Error {
         case userNotLogged
@@ -23,7 +23,6 @@ final class FirebaseRealtimeDatabaseCommentsService: CommentsService {
     static let shared: CommentsService = FirebaseRealtimeDatabaseCommentsService()
 
     private init() {
-        databaseReference = Database.database().reference()
     }
 
     func get(postId: String, then handler: @escaping (Result<PostComment, Error>) -> ()) {

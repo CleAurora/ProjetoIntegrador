@@ -13,7 +13,7 @@ import FirebaseDatabase
 class editProfileViewModel: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     var userModel = ViewRequest()
     var view = SettingViewController()
-    var ref: DatabaseReference!
+    private lazy var databaseReference: DatabaseReference = Database.database().reference()
 
     init(userModel: ViewRequest, view: SettingViewController) {
         self.userModel = userModel
@@ -73,18 +73,16 @@ extension editProfileViewModel {
     }
     func saveImage(name: String, profileURL:URL, completion: @escaping ((_ url: URL?) -> ())) {
         if let currentUserID = Auth.auth().currentUser?.uid{
-            self.ref = Database.database().reference()
             let dict = ["profileUrl":profileURL.absoluteString] as [String: Any]
-            ref.child("users").child(currentUserID).updateChildValues(dict)
+            databaseReference.child("users").child(currentUserID).updateChildValues(dict)
 
         }
     }
     
     func editProfile(completionHandler: @escaping (_ result: Bool, _ error: Error?) -> Void){
         if let currentUserID = Auth.auth().currentUser?.uid{
-            self.ref = Database.database().reference()
             let dict = ["Bio": view.bioTextView.text, "Name": view.nameTextView.text, "Website": view.webSiteTextView.text, "Nickname": view.userNameTextView.text]
-            ref.child("users").child(currentUserID).updateChildValues(dict)
+            databaseReference.child("users").child(currentUserID).updateChildValues(dict)
         }
     }
 }

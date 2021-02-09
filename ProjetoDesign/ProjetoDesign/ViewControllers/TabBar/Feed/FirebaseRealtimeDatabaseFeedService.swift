@@ -9,7 +9,7 @@ import Firebase
 import FirebaseDatabase
 
 final class FirebaseRealtimeDatabaseFeedService: FeedService {
-    private lazy var databaseReference: DatabaseReference = Database.database().reference()
+    private lazy var database: Database = Database.database()
 
     private var getUserCancellationToken: UInt?
 
@@ -34,7 +34,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
             return handler(.failure(FeedServiceError.userNotLogged))
         }
 
-        databaseReference.child("users").child(user.uid).observeSingleEvent(of: .value) { snapshot in
+        database.reference(withPath: "users").child(user.uid).observeSingleEvent(of: .value) { snapshot in
             guard snapshot.exists(), let dictionary = snapshot.value as? [String: AnyObject] else {
                 return handler(.failure(FeedServiceError.userNotFound))
             }
@@ -62,9 +62,9 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
             "TimeStamp": Date().timeIntervalSince1970
         ] as [String : Any]
 
-        databaseReference.child("posts").child(postId).child("Likes").observeSingleEvent(of: .value) { [unowned self] snapshot in
+        database.reference(withPath: "posts").child(postId).child("Likes").observeSingleEvent(of: .value) { [unowned self] snapshot in
             guard snapshot.exists(), let dictionary = snapshot.value as? [String: AnyObject] else {
-                return databaseReference.child("posts").child(postId).child("Likes").childByAutoId()
+                return database.reference(withPath: "posts").child(postId).child("Likes").childByAutoId()
                     .setValue(value) { (error, ref) in
                         guard let error = error else {
                             return handler(.success(()))
@@ -87,7 +87,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                 return handler(.success(()))
             }
 
-            databaseReference.child("posts").child(postId).child("Likes").childByAutoId().setValue(value) { (error, ref) in
+            database.reference(withPath: "posts").child(postId).child("Likes").childByAutoId().setValue(value) { (error, ref) in
                 guard let error = error else {
                     return handler(.success(()))
                 }
@@ -102,7 +102,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
             return handler(.failure(FeedServiceError.userNotLogged))
         }
 
-        databaseReference.child("posts").child(postId).child("Likes").observeSingleEvent(of: .value) { [weak self] snapshot in
+        database.reference(withPath: "posts").child(postId).child("Likes").observeSingleEvent(of: .value) { [unowned self] snapshot in
             guard snapshot.exists(), let dictionary = snapshot.value as? [String: AnyObject] else {
                 return handler(.failure(FeedServiceError.userNotFound))
             }
@@ -120,7 +120,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
                 return handler(.failure(FeedServiceError.likeNotFound))
             }
 
-            self?.databaseReference.child("posts").child(postId).child("Likes").child(id).removeValue { (error, ref) in
+            database.reference(withPath: "posts").child(postId).child("Likes").child(id).removeValue { (error, ref) in
                 guard let error = error else {
                     return handler(.success(()))
                 }
@@ -136,10 +136,10 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
         }
 
         if let getUserCancellationToken = getUserCancellationToken {
-            databaseReference.removeObserver(withHandle: getUserCancellationToken)
+            database.reference(withPath: "users").removeObserver(withHandle: getUserCancellationToken)
         }
 
-        getUserCancellationToken = databaseReference.child("users").child(user.uid).observe(.value) { [weak self] snapshot in
+        getUserCancellationToken = database.reference(withPath: "users").child(user.uid).observe(.value) { [weak self] snapshot in
             self?.loadPosts(userUid: user.uid, snapshot: snapshot, then: handler)
         } withCancel: { error in
             handler(.failure(error))
@@ -163,7 +163,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
     }
 
     private func loadPosts(followingUsers: [String], then handler: @escaping (Result<[PostUser], Error>) -> Void) {
-        databaseReference.child("posts").queryOrdered(byChild: "TimeStamp").observeSingleEvent(of: .value, with: { [weak self] dataSnapshot in
+        database.reference(withPath: "posts").queryOrdered(byChild: "TimeStamp").observeSingleEvent(of: .value, with: { [weak self] dataSnapshot in
             self?.convert(followingUsers: followingUsers, snapshot: dataSnapshot, then: handler)
             self?.waitForNewPosts(then: handler)
         }, withCancel: { error in
@@ -307,7 +307,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
         }
 
         usersIds.enumerated().forEach { index, userId in
-            databaseReference.child("users").child(userId).observeSingleEvent(of: .value) { userSnapshot in
+            database.reference(withPath: "users").child(userId).observeSingleEvent(of: .value) { userSnapshot in
                 if userSnapshot.exists(), let dictionary = userSnapshot.value as? [String: AnyObject],
                    let name = dictionary["Name"] as? String,
                    let imageProfileUrl = dictionary["profileUrl"] as? String {
@@ -340,7 +340,7 @@ final class FirebaseRealtimeDatabaseFeedService: FeedService {
     }
 
     private func waitForNewPosts(then handler: @escaping (Result<[PostUser], Error>) -> Void) {
-        databaseReference.child("posts").observeSingleEvent(of: .childChanged) { [weak self] _ in
+        database.reference(withPath: "posts").observeSingleEvent(of: .childChanged) { [weak self] _ in
             self?.load(then: handler)
         }
     }

@@ -9,7 +9,7 @@ import Firebase
 import FirebaseDatabase
 
 final class FirebaseRealtimeDatabaseLegendService: LegendService {
-    private let databaseReference: DatabaseReference
+    private lazy var databaseReference: DatabaseReference = Database.database().reference()
 
     enum LegendServiceError: Error {
         case userNotLogged
@@ -21,7 +21,6 @@ final class FirebaseRealtimeDatabaseLegendService: LegendService {
     static let shared: LegendService = FirebaseRealtimeDatabaseLegendService()
 
     private init() {
-        databaseReference = Database.database().reference()
     }
 
     func add(legend: PostUser, for image: UIImage, usingWeather weatherType: String, then handler: @escaping (Result<PostUser, Error>) -> ()) {
