@@ -7,7 +7,7 @@
 
 import UIKit
 
-class notificationsViewController: UIViewController {
+final class notificationsViewController: UIViewController {
 
     // MARK: - IBOultes
     @IBOutlet var tabBarViewRight: UIView!
@@ -31,7 +31,9 @@ class notificationsViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
     }
     override func viewDidAppear(_ animated: Bool) {
-        //getData()
+        super.viewDidAppear(animated)
+
+        getData()
     }
     private func getData(){
         request.downloadData(completionHandler: { [weak self] success,_ in
@@ -42,8 +44,8 @@ class notificationsViewController: UIViewController {
     }
     
     func tableviewSetup(){
-//        notificationsTableView.delegate = controller
-//        notificationsTableView.dataSource = controller
+        notificationsTableView.delegate = controller
+        notificationsTableView.dataSource = controller
         notificationsTableView.reloadData()
     }
 }
