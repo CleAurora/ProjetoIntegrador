@@ -36,6 +36,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="melissa234" translatesAutoresizingMaskIntoConstraints="NO" id="ggN-4F-EJv">
                                                     <rect key="frame" x="0.0" y="0.0" width="416" height="910"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="416" id="EO5-W2-W4f"/>
                                                         <constraint firstAttribute="height" constant="895" id="Eht-UL-ap2"/>
@@ -92,6 +93,7 @@
                                                     </constraints>
                                                 </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="woD-RH-zMv" secondAttribute="bottom" constant="766" id="1HK-9B-IbM"/>
                                                 <constraint firstAttribute="trailing" secondItem="ggN-4F-EJv" secondAttribute="trailing" id="3dC-Ka-DhN"/>

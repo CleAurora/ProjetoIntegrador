@@ -45,8 +45,8 @@ class ViewRequest{
                         let userID = value["UserID"] as? String
                         let profileUrl = value["profileUrl"] as? String
                         let bio = value["Bio"] as? String
-                        let followers = value ["followersCount"] as? Int
-                        let following = value["followingCount"] as? Int
+                        let followers = value ["Followers"] as? Int
+                        let following = value["Following"] as? Int
                         let website = value["Website"] as? String
                             
                             userToshow.name = user

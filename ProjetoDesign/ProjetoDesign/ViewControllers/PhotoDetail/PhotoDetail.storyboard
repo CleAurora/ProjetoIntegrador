@@ -31,8 +31,9 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EcF-st-Jzy" customClass="extensions" customModule="ProjetoDesign" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="-46" width="414" height="561"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mel1.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="1e2-IX-ePq" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1e2-IX-ePq" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="53" width="414" height="508"/>
+                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="508" id="6Sc-yq-e0L"/>
                                                         <constraint firstAttribute="width" constant="414" id="pt6-wn-XpC"/>
@@ -88,8 +89,9 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bQH-Ps-3vf">
                                                     <rect key="frame" x="0.0" y="53" width="414" height="54"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook.png" translatesAutoresizingMaskIntoConstraints="NO" id="cQg-5x-lSj" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cQg-5x-lSj" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="2" width="50" height="50"/>
+                                                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="50" id="Nna-B0-DEL"/>
                                                                 <constraint firstAttribute="height" constant="50" id="xbi-iv-NPL"/>
@@ -242,9 +244,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mel0.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="pAv-7D-C7V" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pAv-7D-C7V" customClass="roundImageView" customModule="ProjetoDesign" customModuleProvider="target">
                                                     <rect key="frame" x="11" y="3" width="50" height="50"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="50" id="UN2-Se-r60"/>
+                                                        <constraint firstAttribute="height" constant="50" id="jNB-et-neD"/>
+                                                    </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                             <real key="value" value="15"/>
@@ -264,6 +270,11 @@
                                                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pAv-7D-C7V" firstAttribute="top" secondItem="8ls-gp-SVX" secondAttribute="top" constant="3" id="7Sh-ZT-znh"/>
+                                                <constraint firstItem="pAv-7D-C7V" firstAttribute="leading" secondItem="8ls-gp-SVX" secondAttribute="leading" constant="11" id="as1-g2-hTg"/>
+                                                <constraint firstAttribute="bottom" secondItem="pAv-7D-C7V" secondAttribute="bottom" constant="3" id="bMg-KR-rr8"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="commentsLabel" destination="LFY-LG-9ag" id="Liu-MX-wz0"/>
@@ -389,12 +400,9 @@
     <resources>
         <image name="bookmark" catalog="system" width="112" height="128"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
-        <image name="facebook.png" width="250" height="250"/>
         <image name="heart-2" width="40" height="40"/>
-        <image name="heart.fill" catalog="system" width="32" height="32"/>
+        <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="lupa-fill" width="40" height="40"/>
-        <image name="mel0.jpg" width="1300" height="729"/>
-        <image name="mel1.jpeg" width="855" height="1117.5"/>
         <image name="message.fill" catalog="system" width="128" height="113"/>
         <image name="paperplane.fill" catalog="system" width="128" height="118"/>
         <systemColor name="opaqueSeparatorColor">
