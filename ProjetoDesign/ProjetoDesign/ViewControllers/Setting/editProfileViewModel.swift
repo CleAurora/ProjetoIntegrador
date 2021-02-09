@@ -83,6 +83,7 @@ extension editProfileViewModel {
         if let currentUserID = Auth.auth().currentUser?.uid{
             let dict = ["Bio": view.bioTextView.text, "Name": view.nameTextView.text, "Website": view.webSiteTextView.text, "Nickname": view.userNameTextView.text]
             databaseReference.child("users").child(currentUserID).updateChildValues(dict)
+            completionHandler(true, nil)
         }
     }
 }

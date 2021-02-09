@@ -29,6 +29,7 @@ final class ProfileViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        getData()
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "activateTab"), object: .none)
         self.tabBarController?.tabBar.isHidden = false
     }
