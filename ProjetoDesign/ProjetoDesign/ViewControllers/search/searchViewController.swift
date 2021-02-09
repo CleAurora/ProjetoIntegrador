@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Gifu
 
 class searchViewController: UIViewController {
 
@@ -13,7 +14,7 @@ class searchViewController: UIViewController {
     @IBOutlet weak var searchTableView: UITableView!
     @IBOutlet weak var userSearchView: UISearchBar!
     @IBOutlet weak var dataCollectionView: UICollectionView!
-    @IBOutlet var imageLoading: UIImageView!
+    @IBOutlet var imageLoading: GIFImageView!
     
     // MARK: - Proprierts
     var searchIn = ""
@@ -32,6 +33,7 @@ class searchViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         searchTableView.isHidden = true
         userSearchView.delegate = self
+        imageLoading.prepareForAnimation(withGIFNamed: "loading")
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -50,7 +52,7 @@ class searchViewController: UIViewController {
     
     @objc func showLoading(){
         if imageRequest.userArray.count == 0 {
-            imageLoading.image = UIImage.gif(name: "loading")
+            imageLoading.startAnimatingGIF()
         }
     }
 
@@ -69,6 +71,7 @@ class searchViewController: UIViewController {
         
         if imageRequest.userArray.count > 0 {
             imageLoading.isHidden = true
+            imageLoading.stopAnimatingGIF()
         }
         dataCollectionView.reloadData()
     }

@@ -9,21 +9,21 @@ import UIKit
 import Reachability
 import SwiftMessages
 import Firebase
+import Gifu
 import PKHUD
-import SwiftGifOrigin
 
 final class FeedViewController: UIViewController, HeaderDelegate {
     @IBOutlet weak var feedTableView: UITableView!
     @IBOutlet weak var storieCollectionView: UICollectionView!
     @IBOutlet weak var tabBarView: UIView!
-    @IBOutlet weak var withoutPostImage: UIImageView!
+    @IBOutlet weak var withoutPostImage: GIFImageView!
 
     // MARK: - Proprierts
 
     private var arrayTable = [Post]()
     private var arrayCollection = [stories]()
     private var currentUser: Profile?
-//    private lazy var databaseReference: DatabaseReference = Database.database().reference()
+    private lazy var databaseReference: DatabaseReference = Database.database().reference()
     private var removeOldStoriesTimer: Timer?
     private var checkStoriesTimer: Timer?
     private var showAlertWithoutPostTimer: Timer?
@@ -36,6 +36,9 @@ final class FeedViewController: UIViewController, HeaderDelegate {
 
     deinit {
         reachability.stopNotifier()
+        removeOldStoriesTimer?.invalidate()
+        checkStoriesTimer?.invalidate()
+        showAlertWithoutPostTimer?.invalidate()
     }
 
     // MARK: - Super Methods
@@ -50,19 +53,20 @@ final class FeedViewController: UIViewController, HeaderDelegate {
 
         navigationController?.navigationBar.isHidden = true
 
-//        viewModel.load { [weak self] in
-//            self?.showFeed()
-//        }
+        viewModel.load { [weak self] in
+            self?.showFeed()
+        }
 
-//        viewModel.getCurrentUser { [weak self] profile in
-//            self?.currentUser = profile
-//            self?.storieCollectionView.reloadData()
-//        }
+        viewModel.getCurrentUser { [weak self] profile in
+            self?.currentUser = profile
+            self?.storieCollectionView.reloadData()
+        }
 
         setupReachability()
+        withoutPostImage.prepareForAnimation(withGIFNamed: "withoutPost")
 
-//        removeOldStoriesTimer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(removeOldStories), userInfo: nil, repeats: true)
-//        checkStoriesTimer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(checkStories), userInfo: nil, repeats: true)
+        removeOldStoriesTimer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(removeOldStories), userInfo: nil, repeats: true)
+        checkStoriesTimer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(checkStories), userInfo: nil, repeats: true)
         showAlertWithoutPostTimer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(showAlertWithoutPost), userInfo: nil, repeats: false)
     }
 
@@ -73,7 +77,7 @@ final class FeedViewController: UIViewController, HeaderDelegate {
             showAlertWithoutPost()
         } else {
             showAlertWithoutPostTimer?.invalidate()
-            withoutPostImage.image = UIImage.gif(name: "withoutPost")
+            withoutPostImage.stopAnimatingGIF()
             withoutPostImage.isHidden = true
         }
     }
@@ -88,53 +92,53 @@ final class FeedViewController: UIViewController, HeaderDelegate {
     }
 
     @objc func showAlertWithoutPost(){
-        withoutPostImage.image = UIImage.gif(name: "withoutPost")
+        withoutPostImage.startAnimatingGIF()
         withoutPostImage.isHidden = false
     }
 
     @objc func checkStories(){
-        //        storiesRequest.checkFollowing { [weak self] success, _ in
-        //            if success {
-        //                self?.setupCollection()
-        //            }
-        //        }
+        storiesRequest.checkFollowing { [weak self] success, _ in
+            if success {
+                self?.setupCollection()
+            }
+        }
     }
 
     // MARK: - Methods
     @objc func removeOldStories(){
-//        databaseReference.child("stories").observe(.value) { [unowned self] (snapshot) in
-//            if let stories = snapshot.value as? [String: AnyObject] {
-//                for (_, value) in stories {
-//                    let storiesToshow = StoriesModel()
-//
-//                    let image = value["StorieImage"] as? String
-//                    let userID = value["userID"] as? String
-//                    let timeStamp = value["TimeStamp"] as? Double
-//                    let duration = value["Duration"] as? Int
-//                    let childID = value["childID"] as? String
-//
-//                    storiesToshow.image = image
-//                    storiesToshow.timeStamp = timeStamp
-//                    storiesToshow.userID = userID
-//                    storiesToshow.duration = duration
-//                    storiesToshow.childID = childID
-//
-//                    if let time = storiesToshow.timeStamp {
-//                        let exampleDate = time + 86400
-//                        let dateNow = Date().timeIntervalSince1970
-//
-//                        if let childKey = storiesToshow.childID {
-//                            if exampleDate <= dateNow {
-//                                databaseReference.child("stories").child(childKey).removeValue()
-//                                checkStories()
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//
-//            storieCollectionView.reloadData()
-//        }
+        databaseReference.child("stories").observe(.value) { [unowned self] (snapshot) in
+            if let stories = snapshot.value as? [String: AnyObject] {
+                for (_, value) in stories {
+                    let storiesToshow = StoriesModel()
+
+                    let image = value["StorieImage"] as? String
+                    let userID = value["userID"] as? String
+                    let timeStamp = value["TimeStamp"] as? Double
+                    let duration = value["Duration"] as? Int
+                    let childID = value["childID"] as? String
+
+                    storiesToshow.image = image
+                    storiesToshow.timeStamp = timeStamp
+                    storiesToshow.userID = userID
+                    storiesToshow.duration = duration
+                    storiesToshow.childID = childID
+
+                    if let time = storiesToshow.timeStamp {
+                        let exampleDate = time + 86400
+                        let dateNow = Date().timeIntervalSince1970
+
+                        if let childKey = storiesToshow.childID {
+                            if exampleDate <= dateNow {
+                                databaseReference.child("stories").child(childKey).removeValue()
+                                checkStories()
+                            }
+                        }
+                    }
+                }
+            }
+
+            storieCollectionView.reloadData()
+        }
     }
     private func setupReachability() {
         reachability.whenReachable = { [weak self] _ in
@@ -237,8 +241,7 @@ extension FeedViewController: UITableViewDelegate{
 extension FeedViewController: UITableViewDataSource{
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        0
-//        viewModel.posts.count
+        viewModel.posts.count
     }
 
     private func showUserDetail(for indexPath: IndexPath) {
@@ -289,8 +292,8 @@ extension FeedViewController: UITableViewDataSource{
         if cell.hasHeart {
             cell.likeImageView.isHidden = false
             cell.viewLiked.backgroundColor = UIColor.systemIndigo
-            cell.likeImageView.image = UIImage(named: "heart1.png")
             let toImage = UIImage(named:"heart1.png")
+            cell.likeImageView.image = toImage
 
             UIView.transition(
                 with: cell, duration: 0.3, options: .transitionCrossDissolve,
@@ -301,7 +304,7 @@ extension FeedViewController: UITableViewDataSource{
                     UIView.transition(
                         with: cell.likeImageView, duration: 2, options: .transitionCrossDissolve,
                         animations: {
-                            cell.likeImageView.image = UIImage(named: "")
+                            cell.likeImageView.image = nil
                         },
                         completion: nil
                     )
@@ -329,7 +332,7 @@ extension FeedViewController: UITableViewDataSource{
                                 with: cell.likeImageView,
                                 duration: 0.5, options: .transitionCrossDissolve,
                                 animations: {
-                                    cell.likeImageView.image = UIImage(named: "")
+                                    cell.likeImageView.image = nil
                                 },
                                 completion: nil
                             )

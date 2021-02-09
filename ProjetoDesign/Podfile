@@ -21,7 +21,7 @@ target 'ProjetoDesign' do
   pod 'FBSDKLoginKit'
   pod 'SwiftyCam'
   pod 'SegmentedProgressView', :git => 'https://github.com/CleAurora/SegmentedProgressView.git', :branch => 'master'
-  pod 'SwiftGifOrigin'
+  pod 'Gifu'
 
   target 'ProjetoDesignTests' do
     inherit! :search_paths

@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YJS-4C-2XX">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YJS-4C-2XX" customClass="GIFImageView" customModule="Gifu">
                                 <rect key="frame" x="32" y="344" width="350" height="400"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="350" id="aKS-9j-q8i"/>
@@ -610,7 +610,7 @@
                                     <constraint firstAttribute="height" constant="87" id="yeh-Ba-yBl"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h9w-GS-IcE">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h9w-GS-IcE" customClass="GIFImageView" customModule="Gifu">
                                 <rect key="frame" x="32.5" y="250" width="350" height="500"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="500" id="SUz-9U-1EK"/>
